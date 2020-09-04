@@ -2,9 +2,9 @@
 
 1. 本中文用户手册以MongoDB 4.2版本为基础进行翻译；并以最新版本为主，4.2之后的更新版本内容将持续更新到文档中；当旧版本的一些内容在新版本被删除时，汉化的新文档不删除该内容只是标记该文档的过期版本。
 2. 本翻译列表以4.2版本为基础，【翻译认领】任务原文请切换到4.2版本，以4.2版本原文为基础；【更新任务】目前是根据最新版本即4.4版本进行校对更新——添加新的内容，对更改的内容进行相应标注。
-3. 翻译使用md格式，推荐使用Typora直接复制官方文档，保留原格式进行翻译，更多翻译格式要求请查看：[贡献指南](https://github.com/SoloJu/MongoDB_CN_Manual/blob/master/CONTRIBUTING.md)
+3. 翻译使用md格式，推荐使用Typora直接复制官方文档，保留原格式进行翻译，更多翻译格式要求请查看：[贡献指南](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/CONTRIBUTING.md)
 4. 本翻译列表中列出了需要以4.2版本为基础进行翻译的内容列表，参与翻译请在相应章节“认领人”一栏填上你的名字——每一章节只由一人完成，请勿重复认领；名字带删除线（~~名字~~）表示该任务已过期，其他人可以认领；
-5. 将文档更新到最新版本，请[提issue](https://github.com/SoloJu/MongoDB_CN_Manual/issues)。
+5. 将文档更新到最新版本，请[提issue](https://github.com/mongodb-china/MongoDB-CN-Manual/issues)。
 
 
 

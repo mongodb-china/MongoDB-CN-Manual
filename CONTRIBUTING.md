@@ -6,9 +6,9 @@
 可能有用的链接：
 
 [英文官网用户手册](https://docs.mongodb.com/manual/)<br/>
-[文档翻译认领列表](https://github.com/SoloJu/MongoDB_CN_Manual/blob/master/Document-translation-claim-list.md)<br/>
-[文档翻译贡献者名单](https://github.com/SoloJu/MongoDB_CN_Manual/blob/master/List-of-contributors.md)<br/>
-[在线阅读文档](https://man.mongoing.com/)<br/>
+[文档翻译认领列表](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md)<br/>
+[文档翻译贡献者名单](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/List-of-contributors.md)<br/>
+[在线阅读文档](https://docs.mongoing.com/)<br/>
 
 
 ### 欢迎任何人参与和完善
