@@ -4,9 +4,6 @@
 
 <img src="img/logo/MongoLogoBlack.png" width="50%" height="50%">
 <img src="img/logo/mongoChina.png" width="50%" height="50%">
-<img src="img/logo/jmlogo.png" width="50%" height="50%">
-
-
 
 
 ##  项目介绍 
