@@ -1,0 +1,2 @@
+# [ ](#)$trunc (aggregation)
+[]()

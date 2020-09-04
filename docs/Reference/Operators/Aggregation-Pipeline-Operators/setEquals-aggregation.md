@@ -1,0 +1,2 @@
+# [ ](#)$setEquals (aggregation)
+[]()

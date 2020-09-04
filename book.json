@@ -1,0 +1,75 @@
+{
+    "title": "MongoDB-Manual-zh",
+    "description": "MongoDB-Manual-zh",
+    "author": "hbnking",
+    "language": "zh-hans",
+    "root": ".",
+
+    "plugins": [
+      "hide-element",
+	"-sharing",
+        "donate",
+	"tbfed-pagefooter",
+	"github-buttons",
+	"github",
+	"chapter-fold",
+	"expandable-chapters",
+	"pageview-count",
+	"edit-link",
+	"back-to-top-button",
+	"-lunr", 
+          "-search", 
+          "search-pro",
+	"splitter",
+	"page-toc-button",
+	"auto-scroll-table",
+	"flexible-alerts",
+	"alerts"	
+
+			
+    ],
+
+    "pluginsConfig": {
+      "hide-element": {
+            "elements": [".gitbook-link"]
+        },
+        "donate": {
+            "wechat": "https://docs.jinmu.info/MongoDB-Manual-zh/img/pay/Wechatpay.jpeg",
+            "alipay": "https://docs.jinmu.info/MongoDB-Manual-zh/img/pay/alipay.jpeg",
+            "title": "",
+            "button": "打赏",
+            "alipayText": "支付宝打赏",
+            "wechatText": "微信打赏"
+        },
+       	"github-buttons": {
+            "buttons": [
+              {
+                "user": "JinMuInfo",
+                "repo": "MongoDB-Manual-zh",
+                "type": "star",
+                "count": true,
+                "size": "small"
+              }
+            ]
+        },
+        "edit-link": {
+            "base": "https://github.com/JinMuInfo/MongoDB-Manual-zh/blob/master",
+            "label": "Edit This Page"
+        },
+	"tbfed-pagefooter": {
+          "copyright":"Copyright &copy 上海锦木信息技术有限公司",
+          "modify_label": "文件修订时间：",
+          "modify_format": "YYYY-MM-DD HH:mm:ss"
+        },
+	"github": {
+		"url": "https://github.com/JinMuInfo/MongoDB-Manual-zh"
+		},
+	 "page-toc-button": {
+            "maxTocDepth": 4,
+            "minTocSize": 4
+           }
+	}
+	    
+	
+}
+

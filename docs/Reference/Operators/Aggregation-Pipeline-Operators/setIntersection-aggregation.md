@@ -1,0 +1,2 @@
+# [ ](#)$setIntersection (aggregation)
+[]()

@@ -1,0 +1,2 @@
+# [ ](#)$pow (aggregation)
+[]()
