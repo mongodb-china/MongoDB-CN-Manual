@@ -16,12 +16,12 @@
 
 | 章节                                                         | 贡献者         | 进度 |
 | ------------------------------------------------------------ | -------------- | ---- |
-| 0. MongoDB 4.2用户手册说明                                   | 锦木，小芒果   | 100% |
-| 1.1 MongoDB介绍                     | 锦木，小芒果 | 100% |
-| 1.2 MongoDB入门                             | 锦木，小芒果 | 100% |
+| 0. MongoDB 4.2用户手册说明                                   | 杨帅（上海锦木），小芒果   | 100% |
+| 1.1 MongoDB介绍                     |杨帅（上海锦木），小芒果 | 100% |
+| 1.2 MongoDB入门                             | 杨帅（上海锦木），小芒果 | 100% |
 | 1.3 [Atlas免费层启动MongoDB集群](https://docs.atlas.mongodb.com/getting-started/) | ——     | ——   |
-| 1.4 MongoDB数据库与集合           | 锦木，小芒果 | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |
-| 1.5 MongoDB文档                                    | 锦木，小芒果 | 100% |
+| 1.4 MongoDB数据库与集合           | 杨帅（上海锦木），小芒果 | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |
+| 1.5 MongoDB文档                                    | 杨帅（上海锦木），小芒果 | 100% |
 | 1.6 MongoDB BSON类型                             | 小芒果 | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |
 | 2.1 安装MongoDB                             | 桂陈，小芒果 | 100% |
 | 2.2 安装社区版MongoDB     | 汪子豪，小芒果 | 100% |
@@ -31,27 +31,27 @@
 | 3.1 The `mongo` Shell                                        | 金江 | 100% |
 | 3.2 配置`mongo` Shell          | 金江 | 100% |
 | 3.3 访问`mongo` Shell帮助     | 金江 | 100% |
-| 3.4 为`mongo` Shell编写脚本 | 锦木 | 100% |
-| 3.5  `mongo` Shell中的数据类型 | 锦木 | 100% |
-| 3.6  `mongo` Shell快速参考     | 锦木 | 100% |
+| 3.4 为`mongo` Shell编写脚本 | 杨帅（上海锦木） | 100% |
+| 3.5  `mongo` Shell中的数据类型 | 杨帅（上海锦木） | 100% |
+| 3.6  `mongo` Shell快速参考     | 杨帅（上海锦木） | 100% |
 | 4.1 MongoDB CRUD操作               | 刘翔 | 100% |
-| 4.2 MongoDB插入文档                        | 锦木 | 100% |
-| 4.3 MongoDB查询文档                         | 锦木 | 100% |
-| 4.4 MongoDB更新文档                        | 锦木 | 100% |
-| 4.5 MongoDB删除文档                        | 锦木 | 100% |
+| 4.2 MongoDB插入文档                        |  | 100% |
+| 4.3 MongoDB查询文档                         | 杨帅（上海锦木） | 100% |
+| 4.4 MongoDB更新文档                        | 杨帅（上海锦木） | 100% |
+| 4.5 MongoDB删除文档                        | 杨帅（上海锦木） | 100% |
 | 4.6 MongoDB批量写入操作               | 刘翔 | 100% |
-| 4.7 MongoDB可重试写入                      | 锦木 | 100% |
-| 4.8 MongoDB可重试读取                       | 锦木 | 100% |
-| 4.9 SQL到MongoDB的映射图表     | 锦木 | 100% |
-| 4.10 MongoDB文本搜索                            | 锦木 | 100% |
-| 4.11 MongoDB地理空间查询                 | 锦木 | 100% |
-| 4.12 MongoDB读关注             | 张琦，锦木 | 100% |
+| 4.7 MongoDB可重试写入                      | 杨帅（上海锦木） | 100% |
+| 4.8 MongoDB可重试读取                       | 杨帅（上海锦木） | 100% |
+| 4.9 SQL到MongoDB的映射图表     | 杨帅（上海锦木） | 100% |
+| 4.10 MongoDB文本搜索                            | 杨帅（上海锦木） | 100% |
+| 4.11 MongoDB地理空间查询                 | 杨帅（上海锦木） | 100% |
+| 4.12 MongoDB读关注             | 张琦，杨帅（上海锦木） | 100% |
 | 4.13 MongoDB写关注     | 张琦 | 100% |
-| 4.14 MongoDB CRUD概念                 | 张琦，锦木 | 100% |
-| 5.1 MongoDB聚合                                 | 李冠飞 | 100% |
-| 5.2 MongoDB聚合管道                    | 刘翔，李冠飞 | 100% |
-| 5.3 Map-Reduce                                               | 李冠飞 | 100% |
-| 5.4 MongoDB聚合参考                   | 李冠飞 | 100% |
+| 4.14 MongoDB CRUD概念                 | 张琦，杨帅（上海锦木） | 100% |
+| 5.1 MongoDB聚合                                 | 李冠飞(上海锦木) | 100% |
+| 5.2 MongoDB聚合管道                    | 刘翔，李冠飞(上海锦木) | 100% |
+| 5.3 Map-Reduce                                               | 李冠飞(上海锦木) | 100% |
+| 5.4 MongoDB聚合参考                   | 李冠飞(上海锦木) | 100% |
 | 6.1 MongoDB数据建模介绍          | 张鹏 | 100% |
 | 6.2 MongoDB模式验证                       | 张鹏 | 100% |
 | 6.3 MongoDB数据建模设计                | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
@@ -65,20 +65,20 @@
 | 8.1 MongoDB索引                                     | 莫薇 | 100% |
 | 8.2 MongoDB单字段索引                  | 莫薇 | 100% |
 | 8.3 MongoDB复合索引                        | 莫薇 | 100% |
-| 8.4 MongoDB多键索引                        | 锦木 | 100% |
-| 8.5 MongoDB文本索引                            | 锦木 | 100% |
-| 8.6 MongoDB通配符索引                      | 锦木 | 100% |
-| 8.7 MongoDB`2dsphere` 索引               | 周正，锦木 | 100% |
-| 8.8  MongoDB`2d` 索引                           | 锦木 | 100% |
+| 8.4 MongoDB多键索引                        | 杨帅（上海锦木） | | 100% |
+| 8.5 MongoDB文本索引                            | 杨帅（上海锦木） | | 100% |
+| 8.6 MongoDB通配符索引                      | 杨帅（上海锦木） | | 100% |
+| 8.7 MongoDB`2dsphere` 索引               | 周正，杨帅（上海锦木） | | 100% |
+| 8.8  MongoDB`2d` 索引                           | 杨帅（上海锦木） | | 100% |
 | 8.9  MongoDB`geoHaystack` 索引       | 锦木           | 100% |
 | 8.10 MongoDB哈希索引                         | 程哲欣 | 100% |
-| 8.11 MongoDB索引特性                     | 程哲欣，锦木 | 100% |
+| 8.11 MongoDB索引特性                     | 程哲欣，杨帅（上海锦木） | | 100% |
 | 8.12 在填充的集合上建立索引 | 程哲欣，锦木 | 100% |
-| 8.13 MongoDB索引交集                     | 锦木 | 100% |
-| 8.14 管理MongoDB索引                         | 锦木 | 100% |
+| 8.13 MongoDB索引交集                     | 杨帅（上海锦木） | | 100% |
+| 8.14 管理MongoDB索引                         | 杨帅（上海锦木） | | 100% |
 | 8.15 衡量MongoDB索引使用                  | 程哲欣 | 100% |
-| 8.16 MongoDB索引策略                    | 锦木 | 100% |
-| 8.17 MongoDB索引参考                     | 锦木           | 100% |
+| 8.16 MongoDB索引策略                    | 杨帅（上海锦木） | | 100% |
+| 8.17 MongoDB索引参考                     | 杨帅（上海锦木） |           | 100% |
 | 9.1 MongoDB安全                                    | 傅立 | 100% |
 | 9.2 MongoDB安全检查列表                  | 傅立 | 100% |
 | 9.3 MongoDB启用访问控制               | 傅立 | 100% |
@@ -139,9 +139,9 @@
 | 15.5 常见问题解答：MongoDB复制和副本集 | 钟秋，小芒果 | 100% |
 | 15.6 常见问题解答：MongoDB存储         | 钟秋，小芒果 | 100% |
 | 15.7 常见问题解答：MongoDB诊断     | 钟秋，小芒果 | 100% |
-| 16.1 参考 - MongoDB运算符             | 李冠飞 | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |
-| 16.2 参考 - MongoDB数据库命令 | 李冠飞 | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |
-| 16.3 参考 - `mongo` Shell方法 | 李冠飞 | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |
+| 16.1 参考 - MongoDB运算符             | 李冠飞（上海锦木） || [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |
+| 16.2 参考 - MongoDB数据库命令 | 李冠飞 （上海锦木）| [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |
+| 16.3 参考 - `mongo` Shell方法 | 李冠飞（上海锦木） | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |
 | 16.4 参考 - MongoDB软件包组件 | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
 | 16.5 参考 - MongoDB配置文件选项               | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md)        |          |
 | 16.6 参考 - MongoDB服务器参数 | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
@@ -153,10 +153,10 @@
 | 16.12 参考 - MongoDB Wire协议 | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
 | 16.13 参考 - MongoDB日志消息       | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
 | 16.14 参考 - 退出代码和状态 | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
-| 16.15 参考 - MongoDB词汇表             | 李冠飞 | 100% |
-| 16.16 参考 - 默认的MongoDB端口 | 李冠飞 | 100% |
-| 16.17 参考 - 默认的MongoDB读关注/写关注 | 李冠飞 | 100% |
-| 16.18 参考 - MongoDB服务器会话  | 李冠飞 | 100% |
+| 16.15 参考 - MongoDB词汇表             | 李冠飞（上海锦木） | 100% |
+| 16.16 参考 - 默认的MongoDB端口 | 李冠飞 （上海锦木）| 100% |
+| 16.17 参考 - 默认的MongoDB读关注/写关注 | 李冠飞（上海锦木） | 100% |
+| 16.18 参考 - MongoDB服务器会话  | 李冠飞（上海锦木） | 100% |
 | 17.1 MongoDB 4.2发行说明      | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
 | 17.2 MongoDB 4.0发行说明 | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
 | 17.3 MongoDB 3.6发行说明 |[加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md)||
