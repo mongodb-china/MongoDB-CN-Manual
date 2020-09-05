@@ -17,7 +17,7 @@ MongoDB是专为可扩展性，高性能和高可用性而设计的数据库。�
 维护地址  
 [Github](https://github.com/mongodb-china/MongoDB-CN-Manual)  
 [MongoDB中文文档在线阅读](https://docs.mongoing.com/)  
-[锦木维护文档在线阅读](https://docs.jinmu.info/MongoDB-Manual-zh/)  
+[上海锦木MongoDB文档在线阅读](https://docs.jinmu.info/MongoDB-Manual-zh/)  
 
 
 ## 报告问题  
