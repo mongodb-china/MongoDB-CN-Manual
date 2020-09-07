@@ -141,8 +141,8 @@
 | 14.3 [Manage Journaling](https://docs.mongodb.com/v4.2/tutorial/manage-journaling/) |          |        |      |
 | 14.4 [GridFS](https://docs.mongodb.com/v4.2/core/gridfs/)    | 傅立 |        |      |
 | 16.1 [Aggregation Pipeline Stages下方30篇](https://docs.mongodb.com/v4.2/reference/operator/aggregation-pipeline/) |          |        |      |
-| 16.1 [Aggregation Pipeline Operators系列](https://docs.mongodb.com/v4.2/reference/operator/aggregation/) | 李冠飞？ |        |      |
-| 16.1 [Query Modifiers及下方11篇](https://docs.mongodb.com/v4.2/reference/operator/query-modifier/) | 李冠飞？ |        |      |
+| 16.1 [Aggregation Pipeline Operators系列](https://docs.mongodb.com/v4.2/reference/operator/aggregation/) |        |        |      |
+| 16.1 [Query Modifiers及下方11篇](https://docs.mongodb.com/v4.2/reference/operator/query-modifier/) |        |        |      |
 | 16.2 [Aggregation Commands下方4篇](https://docs.mongodb.com/v4.2/reference/command/nav-aggregation/) |          |        |      |
 | 16.2 [geoSearch](https://docs.mongodb.com/v4.2/reference/command/geoSearch/) |          |        |      |
 | 16.2 [Query and Write Operation Commands下方8篇](https://docs.mongodb.com/v4.2/reference/command/nav-crud/) |          |        |      |
