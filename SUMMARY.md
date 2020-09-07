@@ -1,6 +1,6 @@
 # Summary
 
-* [MongoDB官方文档中文版](README.md)
+* [MongoDB中文手册|官方文档中文版](README.md)
 * [MongoDB用户手册说明](docs/The-MongoDB-Manual-CN.md)
 
 * [MongoDB简介](docs/Mongo-Introduction.md)
