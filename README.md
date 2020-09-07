@@ -6,7 +6,7 @@
 
 MongoDB是专为可扩展性，高性能和高可用性而设计的数据库。它可以从单服务器部署扩展到大型、复杂的多数据中心架构。利用内存计算的优势，MongoDB能够提供高性能的数据读写操作。 MongoDB的本地复制和自动故障转移功能使您的应用程序具有企业级的可靠性和操作灵活性。  
 
-本项目为MongoDB官方文档的中文版，与[官方文档](https://docs.mongodb.com/manual/)保持同步。  
+本项目为MongoDB官方文档的中文版，与[官方文档](https://docs.mongodb.com/manual/)保持同步。 [MongoDB中文社区](https://mongoing.com/)与社区合作伙伴[上海锦木](http://www.jinmuinfo.com/)已完成本手册的大部分翻译。[欢迎更多mongoers加入进来]((https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md))，您提交的翻译内容将由MongoDB中文社区专家进行审核，审核通过后将保留署名权发布到本手册及MongoDB中文社区微信内容平台。
 
 维护地址  
 [Github](https://github.com/mongodb-china/MongoDB-CN-Manual)  
