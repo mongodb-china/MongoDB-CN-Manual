@@ -67,7 +67,7 @@ MongoDB中的数据有一个*动态设计*。[集合](https://docs.mongodb.com/v
 
 - **对于MongoDB 3.4和更早版本**，从主节点读取[非目标或广播](https://docs.mongodb.com/v4.2/core/sharded-cluster-query-router/#sharding-mongos-broadcast)查询，因为这些查询可能对[过时或孤立的数据](http://blog.mongodb.org/post/74730554385/background-indexing-on-secondaries-and-orphaned)敏感。
 
-- **对于MongoDB 3.6和更高版本**，辅助设备不再返回孤立数据，除非使用[可用的](https://docs.mongodb.com/v4.2/reference/read-concern-available/#readconcern."available")读策略（这是与[因果一致会话](https://docs.mongodb.com/v4.2/core/read-isolation-consistency-recency/#sessions)不关联时针对辅助设备读取的默认读取策略）。
+- **对于MongoDB 3.6和更高版本**，辅助设备不再返回孤立数据，除非使用[可用的](https://docs.mongodb.com/v4.2/reference/read-concern-available/#readconcern."available")读策略。{这是与[因果一致会话](https://docs.mongodb.com/v4.2/core/read-isolation-consistency-recency/#sessions)不关联时针对辅助设备读取的默认读取策略}。
 
   从 MongoDB 3.6 开始，分片副本集的所有成员都维护块元数据，允许它们在不使用[“可用”](https://docs.mongodb.com/v4.2/reference/read-concern-available/#readconcern."available")时过滤出孤立的数据。因此，不使用[“可用”](https://docs.mongodb.com/v4.2/reference/read-concern-available/#readconcern."available")的[非目标或广播](https://docs.mongodb.com/v4.2/core/sharded-cluster-query-router/#sharding-mongos-broadcast)查询可以安全地在任何成员上运行，并且不会返回孤立的数据。
 
