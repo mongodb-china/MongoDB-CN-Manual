@@ -1,0 +1,15 @@
+# 免费监控命令
+
+> **注意**
+>
+> 有关特定命令的详细信息，包括语法和示例，请单击特定命令以转到其参考页面。
+
+| 名称 | 描述 |
+| :--- | :--- |
+| [`getFreeMonitoringStatus`](free-monitoring-commands.md) | 返回空闲监视状态。 |
+| [`setFreeMonitoring`](free-monitoring-commands.md) | 在运行时启用/禁用免费监视。 |
+
+译者：李冠飞
+
+校对：
+
