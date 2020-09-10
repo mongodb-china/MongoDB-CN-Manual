@@ -64,12 +64,6 @@ MongoDB是专为可扩展性，高性能和高可用性而设计的数据库。�
         <p>&#x5BA1;&#x6838;&#x901A;&#x8FC7;&#x540E;&#x5C06;&#x4FDD;&#x7559;&#x7F72;&#x540D;&#x6743;&#x53D1;&#x5E03;&#x5230;&#x672C;&#x624B;&#x518C;&#x53CA;MongoDB&#x4E2D;&#x6587;&#x793E;&#x533A;&#x5FAE;&#x4FE1;&#x5185;&#x5BB9;&#x5E73;&#x53F0;&#x3002;</p>
       </td>
     </tr>
-    <tr>
-      <td style="text-align:left">&#x793E;&#x533A;&#x6D3B;&#x52A8;&#x90AE;&#x4EF6;&#x8BA2;&#x9605;</td>
-      <td
-      style="text-align:left"><a href="https://sourl.cn/spszjN">https://sourl.cn/spszjN</a>
-        </td>
-    </tr>
   </tbody>
 </table>
 
@@ -93,4 +87,5 @@ MongoDB是专为可扩展性，高性能和高可用性而设计的数据库。�
 | MongoDB中文社区大咖博客 |  [基础知识](https://mongoing.com/basic-knowledge)  [性能优化](https://mongoing.com/performance-optimization)  [原理解读](https://mongoing.com/interpretation-of-principles)  [运维监控](https://mongoing.com/operation-and-maintenance-monitoring)  [最佳实践](https://mongoing.com/best-practices)  |
 | MongoDB白皮书 | [https://mongoing.com/mongodb-download-white-paper](https://mongoing.com/mongodb-download-white-paper) |
 | MongoDB初学者教程-7天入门 | [https://mongoing.com/mongodb-beginner-tutorial](https://mongoing.com/mongodb-beginner-tutorial) |
+| 社区活动邮件订阅 | [https://sourl.cn/spszjN](https://sourl.cn/spszjN) |
 
