@@ -1,6 +1,6 @@
-# MongoDB中文手册\|官方文档中文版
+# MongoDB中文手册|官方文档中文版
 
-![](https://mongoing.com/wp-content/uploads/2020/09/baa4c5f267c086e.png)
+![](https://mongoing.com/mongodbchina)
 
 ## 项目介绍
 
