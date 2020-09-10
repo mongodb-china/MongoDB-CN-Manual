@@ -1,6 +1,6 @@
 # [MongoDB中文手册|官方文档中文版](https://docs.mongoing.com/)
 
-<img src="img/logo/mongoChina.png" width="50%" height="50%">
+<img src="img/logo/mongoChina.png" width="50%" height="10%">
 
 ## 项目介绍
 
