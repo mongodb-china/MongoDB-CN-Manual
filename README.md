@@ -1,5 +1,5 @@
 ---
-description: MongoDB中文社区—MongoDB爱好者技术交流平台
+description: MongoDB中文社区(mongoing.com)—MongoDB爱好者技术交流平台
 ---
 
 # MongoDB中文手册\|官方文档中文版
