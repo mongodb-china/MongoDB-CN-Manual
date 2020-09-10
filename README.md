@@ -36,7 +36,7 @@ MongoDB是专为可扩展性，高性能和高可用性而设计的数据库。�
       <td
       style="text-align:left">&#x5982;&#x679C;&#x60A8;&#x53D1;&#x73B0;&#x95EE;&#x9898;&#xFF0C;&#x8BF7;&#x5728;
         <a
-        href="https://github.com/mongodb-china/MongoDB-CN-Manual/issues">MongoDB-Manual-zh/issues</a>&#x4E0A;&#x63D0; issue.</td>
+        href="https://github.com/mongodb-china/MongoDB-CN-Manual/issues">MongoDB-Manual-zh/issues</a>&#x4E0A;&#x63D0; issue</td>
     </tr>
     <tr>
       <td style="text-align:left"><a href="https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/List-of-contributors.md">&#x6587;&#x6863;&#x7FFB;&#x8BD1;&#x8D21;&#x732E;&#x8005;&#x540D;&#x5355;</a>
