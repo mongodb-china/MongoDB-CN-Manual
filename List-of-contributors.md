@@ -93,9 +93,9 @@
 | 9.12 MongoDB安全参考                     | 谢伟成 | 100% |
 | 9.13 MongoDB创建漏洞报告      | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
 | 9.14 MongoDB安全附录                                 | 谢伟成 | 100% |
-| 10.1 Change Streams 变更流                                  | 王恒 | 100% |
+| 10.1 Change Streams 变更流                                  | 王恒（上海锦木） | 100% |
 | 10.2 Change Streams变更流生产建议 | 刘翔 | 100% |
-| 10.3 MongoDB变更事件                          | 王恒 | 100% |
+| 10.3 MongoDB变更事件                          | 王恒（上海锦木） | 100% |
 | 11.1 MongoDB复制                                | 李正洋 | 100% |
 | 11.2 MongoDB副本集成员                  | 李正洋 | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |
 | 11.3 MongoDB副本集日志                    | 李正洋 | 100% |
