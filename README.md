@@ -6,7 +6,7 @@ MongoDB是专为可扩展性，高性能和高可用性而设计的数据库。�
 
 本项目为MongoDB官方文档的中文版，与[官方文档](https://docs.mongodb.com/manual/)保持同步。
 
-MongoDB中文社区是一个MongoDB中文爱好者交流平台，由来自MongoDB官方和国内前沿IT互联网公司的MongoDB专家组成，着力于为更多mongoers带来MongoDB最新资讯和一手实践干货！官方文档翻译为MongoDB中文社区的一个版块，主要由[社区翻译小组](https://mongoing.com/translators)进行维护。希望我们的努力能为大家带来权威可靠的中文文档！
+[MongoDB中文社区](https://mongoing.com/)是一个MongoDB中文爱好者交流平台，由来自MongoDB官方和国内前沿IT互联网公司的MongoDB专家组成，着力于为更多mongoers带来MongoDB最新资讯和一手实践干货！官方文档翻译为MongoDB中文社区的一个版块，主要由[社区翻译小组](https://mongoing.com/translators)进行维护。希望我们的努力能为大家带来权威可靠的中文文档！
 
 <table>
   <thead>
