@@ -4,7 +4,7 @@ description: MongoDB中文社区—MongoDB爱好者技术交流平台
 
 # MongoDB中文手册\|官方文档中文版
 
-![](.gitbook/assets/mongoChina%20%281%29.png)
+![](https://mongoing.com/wp-content/uploads/2020/09/6de8a4680ef684d-2.png)
 
 ## 项目介绍
 
