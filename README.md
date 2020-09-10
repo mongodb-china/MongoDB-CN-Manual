@@ -65,18 +65,9 @@ MongoDB是专为可扩展性，高性能和高可用性而设计的数据库。�
   </tbody>
 </table>
 
-## 贡献指南
+## LICENSE
 
-请您勇敢地去翻译和改进翻译。虽然我们追求卓越，但我们并不要求您做到十全十美，因此请不要担心因为翻译上犯错——在大部分情况下，我们的服务器已经记录所有的翻译，因此您不必担心会因为您的失误遭到无法挽回的破坏。（改编自维基百科）
-
-[如何提交请点击](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/CONTRIBUTING.md)
-
-[文档翻译贡献者名单](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/List-of-contributors.md)  
-点击[文档翻译认领列表](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md)参与翻译。
-
-## [LICENSE](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/LICENSE)
-
- 本项目为署名-非商业性使用-相同方式共享 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)
+ 本项目采用[Creative Commons Attribution-NonCommercial-ShareAlike 3.0 United States License](http://creativecommons.org/licenses/by-nc-sa/3.0/us/)
 
 ## [MongoDB中文社区](https://mongoing.com/)
 
