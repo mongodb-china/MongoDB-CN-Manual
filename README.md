@@ -35,9 +35,5 @@ MongoDB是专为可扩展性，高性能和高可用性而设计的数据库。�
 欢迎任何人参与和完善：一个人可以走的很快，但是一群人却可以走的更远。  
 予人成功才是最大的成功 。
 
-## 声明
-
-本译文只供学习研究参考之用，不得用于商业用途。我方将保留对此版本译文的署名权及其它相关权利。
-
 ## [LICENSE](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/LICENSE)
 
