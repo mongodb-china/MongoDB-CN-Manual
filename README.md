@@ -67,7 +67,7 @@ MongoDB是专为可扩展性，高性能和高可用性而设计的数据库。�
 
 ## LICENSE
 
- 本项目采用[Creative Commons Attribution-NonCommercial-ShareAlike 3.0 United States License](http://creativecommons.org/licenses/by-nc-sa/3.0/us/)
+  本项目为署名-非商业性使用-相同方式共享 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)
 
 ## [MongoDB中文社区](https://mongoing.com/)
 
