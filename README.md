@@ -6,8 +6,6 @@ MongoDB是专为可扩展性，高性能和高可用性而设计的数据库。�
 
 本项目为MongoDB官方文档的中文版，与[官方文档](https://docs.mongodb.com/manual/)保持同步。
 
-![MongoDB&#x4E2D;&#x6587;&#x793E;&#x533A;&#x2014;MongoDB&#x7231;&#x597D;&#x8005;&#x6280;&#x672F;&#x4EA4;&#x6D41;&#x5E73;&#x53F0;](https://mongoing.com/wp-content/uploads/2020/09/6de8a4680ef684d-2.png)
-
 > [MongoDB中文社区](https://mongoing.com/)与社区合作伙伴[上海锦木](http://www.jinmuinfo.com/)已完成本手册的大部分翻译。[欢迎更多mongoers加入进来](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md)，您提交的翻译内容将由MongoDB中文社区专家进行审核，审核通过后将保留署名权发布到本手册及MongoDB中文社区微信内容平台。
 
 维护地址  
@@ -30,10 +28,12 @@ MongoDB是专为可扩展性，高性能和高可用性而设计的数据库。�
 [文档翻译贡献者名单](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/List-of-contributors.md)  
 点击[文档翻译认领列表](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md)参与翻译。
 
-## 其他
-
-欢迎任何人参与和完善：一个人可以走的很快，但是一群人却可以走的更远。  
-予人成功才是最大的成功 。
 
 ## [LICENSE](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/LICENSE)
+
+## [MongoDB中文社区](https://mongoing.com/)
+
+![MongoDB&#x4E2D;&#x6587;&#x793E;&#x533A;&#x2014;MongoDB&#x7231;&#x597D;&#x8005;&#x6280;&#x672F;&#x4EA4;&#x6D41;&#x5E73;&#x53F0;](https://mongoing.com/wp-content/uploads/2020/09/6de8a4680ef684d-2.png)
+
+
 
