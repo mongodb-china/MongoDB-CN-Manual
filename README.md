@@ -18,7 +18,7 @@ MongoDB是专为可扩展性，高性能和高可用性而设计的数据库。�
   <tbody>
     <tr>
       <td style="text-align:left">&#x672C;&#x624B;&#x518C;&#x6587;&#x6863;&#x7248;&#x672C;</td>
-      <td style="text-align:left">&#x57FA;&#x4E8E;4.2&#x7248;&#x672C;&#xFF0C;&#x4E0D;&#x65AD;&#x4E0E;&#x6700;&#x65B0;&#x7248;&#x4FDD;&#x6301;&#x540C;&#x6B65;&#x3002;</td>
+      <td style="text-align:left">&#x57FA;&#x4E8E;4.2&#x7248;&#x672C;&#xFF0C;&#x4E0D;&#x65AD;&#x4E0E;&#x5B98;&#x65B9;&#x6700;&#x65B0;&#x7248;&#x4FDD;&#x6301;&#x540C;&#x6B65;&#x3002;</td>
     </tr>
     <tr>
       <td style="text-align:left">&#x7EF4;&#x62A4;&#x5730;&#x5740;</td>
