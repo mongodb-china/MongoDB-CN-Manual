@@ -97,9 +97,12 @@ MongoDB 在以下版本中提供了“ [入门指南”](https://docs.mongodb.co
 原文链接：[https://docs.mongodb.com/v4.2/](https://docs.mongodb.com/v4.2/)
 
 
-#### MongoDB中文社区
+
+### MongoDB中文社区
+
 
 ![MongoDB&#x4E2D;&#x6587;&#x793E;&#x533A;&#x2014;MongoDB&#x7231;&#x597D;&#x8005;&#x6280;&#x672F;&#x4EA4;&#x6D41;&#x5E73;&#x53F0;](https://mongoing.com/wp-content/uploads/2020/09/6de8a4680ef684d-2.png)
+
 
 | 资源列表推荐 | 资源入口 |
 | :--- | :--- |
