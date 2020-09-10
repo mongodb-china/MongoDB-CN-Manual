@@ -75,5 +75,12 @@ MongoDB是专为可扩展性，高性能和高可用性而设计的数据库。�
 
 ![MongoDB&#x4E2D;&#x6587;&#x793E;&#x533A;&#x2014;MongoDB&#x7231;&#x597D;&#x8005;&#x6280;&#x672F;&#x4EA4;&#x6D41;&#x5E73;&#x53F0;](https://mongoing.com/wp-content/uploads/2020/09/6de8a4680ef684d-2.png)
 
-
+| 资源列表推荐 | 说明 |
+| :--- | :--- |
+| MongoDB中文社区官网 | [https://mongoing.com/](https://mongoing.com/) |
+| 微信服务号 ——最新资讯和优质文章 | Mongoing中文社区（mongoing-mongoing） |
+| 微信订阅号 ——发布文档翻译内容 | MongoDB中文用户组（mongoing123） |
+| MongoDB中文社区组委会成员介绍 | [https://mongoing.com/core-team-members](https://mongoing.com/core-team-members) |
+| MongoDB中文社区微信技术交流群 | 添加社区助理小芒果微信（ID:mongoingcom），并备注 mongo |
+|  |  |
 
