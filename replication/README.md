@@ -23,7 +23,7 @@ MongoDB中的副本集是一组维护相同数据集合的 [`mongod`](https://do
 
 副本集是一组维护相同数据集合的 [`mongod`](https://docs.mongodb.com/manual/reference/program/mongod/#bin.mongod)实例。副本集包含多个数据承载节点和一个可选的仲裁节点。在数据承载节点中，有且仅有一个成员为主节点，其他节点为从节点。
 
-[主节点](https://docs.mongodb.com/manual/core/replica-set-primary/) 接收所有的写操作。一个副本集仅有一个主节点能够用\[`{ w: "majority" }`\]\([https://docs.mongodb.com/manual/reference/write-concern/\#writeconcern."majority](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern."majority)"\) 写关注点级别来确认写操作；虽然在某些情况下，另一个mongod的实例也可以暂时认为自己是主节点。[\[1\]](https://docs.mongodb.com/manual/replication/#edge-cases-2-primaries) 主节点会将其数据集合所有的变化记录到操作日志中，即[oplog](https://docs.mongodb.com/manual/core/replica-set-oplog/).。有关主节点操作的更多信息，请参见 [副本集主节点](https://docs.mongodb.com/manual/core/replica-set-primary/)。
+[主节点](https://docs.mongodb.com/manual/core/replica-set-primary/) 接收所有的写操作。一个副本集仅有一个主节点能够用\[`{ w: "majority" }`\]\(\[[https://docs.mongodb.com/manual/reference/write-concern/\#writeconcern."majority\]\(https://docs.mongodb.com/manual/reference/write-concern/\#writeconcern."majority\)"\](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern."majority]%28https://docs.mongodb.com/manual/reference/write-concern/#writeconcern."majority%29"\)\) 写关注点级别来确认写操作；虽然在某些情况下，另一个mongod的实例也可以暂时认为自己是主节点。[\[1\]](https://docs.mongodb.com/manual/replication/#edge-cases-2-primaries) 主节点会将其数据集合所有的变化记录到操作日志中，即[oplog](https://docs.mongodb.com/manual/core/replica-set-oplog/).。有关主节点操作的更多信息，请参见 [副本集主节点](https://docs.mongodb.com/manual/core/replica-set-primary/)。
 
 ![Diagram of default routing of reads and writes to the primary.](https://docs.mongodb.com/manual/_images/replica-set-read-write-operations-primary.bakedsvg.svg)
 
@@ -106,14 +106,14 @@ MongoDB中的副本集是一组维护相同数据集合的 [`mongod`](https://do
 
 根据读关注，客户端可以在写[持久化](https://docs.mongodb.com/manual/reference/glossary/#term-durable)前看到写结果：
 
-* 不管写的 [write concern](https://docs.mongodb.com/manual/reference/write-concern/)级别是什么，其他使用了读关注级别为 \[`"local"`\]\([https://docs.mongodb.com/manual/reference/read-concern-local/\#readconcern."local](https://docs.mongodb.com/manual/reference/read-concern-local/#readconcern."local)"\) 或 \[`"available"`\]\([https://docs.mongodb.com/manual/reference/read-concern-available/\#readconcern."available](https://docs.mongodb.com/manual/reference/read-concern-available/#readconcern."available)"\) 的客户端，可以在发起写操作的客户端确认其写成功之前查看该客户端写的结果。
-* 使用了读关注级别为 \[`"local"`\]\([https://docs.mongodb.com/manual/reference/read-concern-local/\#readconcern."local](https://docs.mongodb.com/manual/reference/read-concern-local/#readconcern."local)"\) 或 \[`"available"`\]\([https://docs.mongodb.com/manual/reference/read-concern-available/\#readconcern."available](https://docs.mongodb.com/manual/reference/read-concern-available/#readconcern."available)"\) 的客户端，能读取在副本集故障转移期间可能随后被[回滚](https://docs.mongodb.com/manual/core/replica-set-rollbacks/) 掉的数据。
+* 不管写的 [write concern](https://docs.mongodb.com/manual/reference/write-concern/)级别是什么，其他使用了读关注级别为 \[`"local"`\]\(\[[https://docs.mongodb.com/manual/reference/read-concern-local/\#readconcern."local\]\(https://docs.mongodb.com/manual/reference/read-concern-local/\#readconcern."local\)"\](https://docs.mongodb.com/manual/reference/read-concern-local/#readconcern."local]%28https://docs.mongodb.com/manual/reference/read-concern-local/#readconcern."local%29"\)\) 或 \[`"available"`\]\(\[[https://docs.mongodb.com/manual/reference/read-concern-available/\#readconcern."available\]\(https://docs.mongodb.com/manual/reference/read-concern-available/\#readconcern."available\)"\](https://docs.mongodb.com/manual/reference/read-concern-available/#readconcern."available]%28https://docs.mongodb.com/manual/reference/read-concern-available/#readconcern."available%29"\)\) 的客户端，可以在发起写操作的客户端确认其写成功之前查看该客户端写的结果。
+* 使用了读关注级别为 \[`"local"`\]\(\[[https://docs.mongodb.com/manual/reference/read-concern-local/\#readconcern."local\]\(https://docs.mongodb.com/manual/reference/read-concern-local/\#readconcern."local\)"\](https://docs.mongodb.com/manual/reference/read-concern-local/#readconcern."local]%28https://docs.mongodb.com/manual/reference/read-concern-local/#readconcern."local%29"\)\) 或 \[`"available"`\]\(\[[https://docs.mongodb.com/manual/reference/read-concern-available/\#readconcern."available\]\(https://docs.mongodb.com/manual/reference/read-concern-available/\#readconcern."available\)"\](https://docs.mongodb.com/manual/reference/read-concern-available/#readconcern."available]%28https://docs.mongodb.com/manual/reference/read-concern-available/#readconcern."available%29"\)\) 的客户端，能读取在副本集故障转移期间可能随后被[回滚](https://docs.mongodb.com/manual/core/replica-set-rollbacks/) 掉的数据。
 
 对于[多文档事务](https://docs.mongodb.com/manual/core/transactions/)中的操作，当事务提交时，在事务中所做的所有数据更改都会被保存并在事务外部可见。也就是说，事务在回滚其他更改时不会提交某些更改。
 
 在事务提交之前，事务中所做的数据更改在事务外部是不可见的。
 
-然而，当一个事务写入多个分片时，并不是所有外部的读操作都需要等待提交的事务的结果在分片中可见。例如，如果提交了一个事务，并且在分片a上可以看到写1，但是在分片B上还不能看到写2，那么外部读关注为 \[`"local"`\]\([https://docs.mongodb.com/manual/reference/read-concern-local/\#readconcern."local](https://docs.mongodb.com/manual/reference/read-concern-local/#readconcern."local)"\) 的读可以在不看到写2的情况下读取写1的结果。
+然而，当一个事务写入多个分片时，并不是所有外部的读操作都需要等待提交的事务的结果在分片中可见。例如，如果提交了一个事务，并且在分片a上可以看到写1，但是在分片B上还不能看到写2，那么外部读关注为 \[`"local"`\]\(\[[https://docs.mongodb.com/manual/reference/read-concern-local/\#readconcern."local\]\(https://docs.mongodb.com/manual/reference/read-concern-local/\#readconcern."local\)"\](https://docs.mongodb.com/manual/reference/read-concern-local/#readconcern."local]%28https://docs.mongodb.com/manual/reference/read-concern-local/#readconcern."local%29"\)\) 的读可以在不看到写2的情况下读取写1的结果。
 
 有关MongoDB读隔离、一致性和近因性的更多信息，请参见[Read Isolation, Consistency, and Recency](https://docs.mongodb.com/manual/core/read-isolation-consistency-recency/)。
 
@@ -125,7 +125,7 @@ MongoDB中的副本集是一组维护相同数据集合的 [`mongod`](https://do
 
 在事务提交之前，事务中所做的数据更改在事务外部是不可见的。
 
-然而，当一个事务写入多个分片时，并不是所有外部的读操作都需要等待提交的事务的结果在分片中可见。例如，如果提交了一个事务，并且在分片a上可以看到写1，但是在分片B上还不能看到写2，那么外部读关注点为 \[`"local"`\]\([https://docs.mongodb.com/manual/reference/read-concern-local/\#readconcern."local](https://docs.mongodb.com/manual/reference/read-concern-local/#readconcern."local)"\) 的读可以在不看到写2的情况下读取写1的结果。
+然而，当一个事务写入多个分片时，并不是所有外部的读操作都需要等待提交的事务的结果在分片中可见。例如，如果提交了一个事务，并且在分片a上可以看到写1，但是在分片B上还不能看到写2，那么外部读关注点为 \[`"local"`\]\(\[[https://docs.mongodb.com/manual/reference/read-concern-local/\#readconcern."local\]\(https://docs.mongodb.com/manual/reference/read-concern-local/\#readconcern."local\)"\](https://docs.mongodb.com/manual/reference/read-concern-local/#readconcern."local]%28https://docs.mongodb.com/manual/reference/read-concern-local/#readconcern."local%29"\)\) 的读可以在不看到写2的情况下读取写1的结果。
 
 ## 变更流[¶](https://docs.mongodb.com/manual/replication/#change-streams)
 
@@ -137,14 +137,13 @@ MongoDB中的副本集是一组维护相同数据集合的 [`mongod`](https://do
 
 更多有关信息请参见[优先级0的副本集成员](https://docs.mongodb.com/manual/core/replica-set-priority-0-member/#replica-set-secondary-only-members)，[隐藏副本集成员](https://docs.mongodb.com/manual/core/replica-set-hidden-member/#replica-set-hidden-members)和[延迟副本集成员](https://docs.mongodb.com/manual/core/replica-set-delayed-member/#replica-set-delayed-members) 。
 
-| \[1\] | _\(_[_1_](https://docs.mongodb.com/manual/replication/#id2)_,_ [_2_](https://docs.mongodb.com/manual/replication/#id4)_\)_ 在 [某些场景下](https://docs.mongodb.com/manual/core/read-preference-use-cases/#edge-cases), 一个复制集中的两个节点可能会认为它们是主节点，但最多，他们中的一个将能够完成写关注点为\[`{ w: "majority" }`\]\([https://docs.mongodb.com/manual/reference/write-concern/\#writeconcern."majority"\)写操作。](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern."majority"%29写操作。) 可以完成 \[`{ w: "majority" }`\]\([https://docs.mongodb.com/manual/reference/write-concern/\#writeconcern."majority](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern."majority)"\) 写的节点是当前主节点，而另一个节点是原先的主节点，通常是由于[网络分区](https://docs.mongodb.com/manual/reference/glossary/#term-network-partition)导致它还没有意识到自己的降级。当这种情况发生时，连接到原先主节点的客户端尽管已经请求了读偏好[`primary`](https://docs.mongodb.com/manual/core/read-preference/#primary)，但可能还 会观察到过时的数据，并且对原先主节点新写的操作最终将回滚掉。 |
+| \[1\] | _\(_[_1_](https://docs.mongodb.com/manual/replication/#id2)_,_ [_2_](https://docs.mongodb.com/manual/replication/#id4)_\)_ 在 [某些场景下](https://docs.mongodb.com/manual/core/read-preference-use-cases/#edge-cases), 一个复制集中的两个节点可能会认为它们是主节点，但最多，他们中的一个将能够完成写关注点为\[`{ w: "majority" }`\]\(\[[https://docs.mongodb.com/manual/reference/write-concern/\#writeconcern."majority"\)写操作。\]\(https://docs.mongodb.com/manual/reference/write-concern/\#writeconcern."majority"%29写操作。](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern."majority"%29写操作。]%28https://docs.mongodb.com/manual/reference/write-concern/#writeconcern."majority"%29写操作。)\) 可以完成 \[`{ w: "majority" }`\]\(\[[https://docs.mongodb.com/manual/reference/write-concern/\#writeconcern."majority\]\(https://docs.mongodb.com/manual/reference/write-concern/\#writeconcern."majority\)"\](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern."majority]%28https://docs.mongodb.com/manual/reference/write-concern/#writeconcern."majority%29"\)\) 写的节点是当前主节点，而另一个节点是原先的主节点，通常是由于[网络分区](https://docs.mongodb.com/manual/reference/glossary/#term-network-partition)导致它还没有意识到自己的降级。当这种情况发生时，连接到原先主节点的客户端尽管已经请求了读偏好[`primary`](https://docs.mongodb.com/manual/core/read-preference/#primary)，但可能还 会观察到过时的数据，并且对原先主节点新写的操作最终将回滚掉。 |
 | :--- | :--- |
 |  |  |
 
 原文链接：[https://docs.mongodb.com/manual/replication/](https://docs.mongodb.com/manual/replication/)
 
 译者：李正洋
-
 
 ### MongoDB中文社区
 
@@ -164,5 +163,4 @@ MongoDB中的副本集是一组维护相同数据集合的 [`mongod`](https://do
 | MongoDB白皮书 | [https://mongoing.com/mongodb-download-white-paper](https://mongoing.com/mongodb-download-white-paper) |
 | MongoDB初学者教程-7天入门 | [https://mongoing.com/mongodb-beginner-tutorial](https://mongoing.com/mongodb-beginner-tutorial) |
 | 社区活动邮件订阅 | [https://sourl.cn/spszjN](https://sourl.cn/spszjN) |
-
 

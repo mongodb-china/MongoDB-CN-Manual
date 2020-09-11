@@ -221,7 +221,6 @@ MongoDB版本中引入的新的恢复令牌格式不能被早期MongoDB版本使
 
 译者： 王恒
 
-
 ### MongoDB中文社区
 
 ![MongoDB&#x4E2D;&#x6587;&#x793E;&#x533A;&#x2014;MongoDB&#x7231;&#x597D;&#x8005;&#x6280;&#x672F;&#x4EA4;&#x6D41;&#x5E73;&#x53F0;](https://mongoing.com/wp-content/uploads/2020/09/6de8a4680ef684d-2.png)
@@ -240,6 +239,4 @@ MongoDB版本中引入的新的恢复令牌格式不能被早期MongoDB版本使
 | MongoDB白皮书 | [https://mongoing.com/mongodb-download-white-paper](https://mongoing.com/mongodb-download-white-paper) |
 | MongoDB初学者教程-7天入门 | [https://mongoing.com/mongodb-beginner-tutorial](https://mongoing.com/mongodb-beginner-tutorial) |
 | 社区活动邮件订阅 | [https://sourl.cn/spszjN](https://sourl.cn/spszjN) |
-
-
 

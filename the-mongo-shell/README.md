@@ -162,18 +162,16 @@ mongo --ssl --host replA/mongodb0.example.com.local:27017,mongodb1.example.com.l
 db
 ```
 
-该操作应返回**test** 数据库名，这是默认数据库。 要切换数据库，请发出**use &lt;`db`&gt;**帮助器，如以下示例所示：  
-
+该操作应返回**test** 数据库名，这是默认数据库。 要切换数据库，请发出**use &lt;`db`&gt;**帮助器，如以下示例所示：
 
 ```text
 use <database>
 ```
 
 另请参见[`db.getSiblingDB()`](https://docs.mongodb.com/master/reference/method/db.getSiblingDB/#db.getSiblingDB)方法，以从当前数据库访问其他数据库，而无需切换当前数库上下文（即**db**）。  
- 要列出用户可用的数据库，可使用：**show dbs** &lt;显示用户列表里所有数据库&gt;
+要列出用户可用的数据库，可使用：**show dbs** &lt;显示用户列表里所有数据库&gt;
 
-您可以切换到不存在的数据库。首次将数据存储在数据库中（例如通过创建集合）时，MongoDB会创建数据库。 例如，以下代码在insertOne（）操作期间创建数据库**myNewDatabase**和[集合](https://docs.mongodb.com/master/reference/glossary/#term-collection) **myCollection**：  
-
+您可以切换到不存在的数据库。首次将数据存储在数据库中（例如通过创建集合）时，MongoDB会创建数据库。 例如，以下代码在insertOne（）操作期间创建数据库**myNewDatabase**和[集合](https://docs.mongodb.com/master/reference/glossary/#term-collection) **myCollection**：
 
 ```text
 use myNewDatabase
@@ -202,13 +200,11 @@ db.getCollection("stats").find()
 * [Delete Documents](https://docs.mongodb.com/manual/tutorial/remove-documents/)
 * [mongo Shell Methods](https://docs.mongodb.com/manual/reference/method/)
 
-如果部署使用访问控制运行，则该操作将根据用户权限返回不同的值。 有关详细信息，请参见[listDatabases Behavior](https://docs.mongodb.com/manual/reference/command/listDatabases/#listdatabases-behavior)。  
-
+如果部署使用访问控制运行，则该操作将根据用户权限返回不同的值。 有关详细信息，请参见[listDatabases Behavior](https://docs.mongodb.com/manual/reference/command/listDatabases/#listdatabases-behavior)。
 
 ### **格式化打印结果**
 
-`db.collection.find()`方法是用于从集合中检索文档的JavaScript方法。 `db.collection.find()`方法将游标返回到结果。 但是，在mongo shell中，如果未使用**var**关键字将返回的游标分配给变量，则该游标会自动迭代最多20次，来打印与查询匹配的前20个文档。 mongo shell将提示 输入`it`以使其再次迭代20次。  
-
+`db.collection.find()`方法是用于从集合中检索文档的JavaScript方法。 `db.collection.find()`方法将游标返回到结果。 但是，在mongo shell中，如果未使用**var**关键字将返回的游标分配给变量，则该游标会自动迭代最多20次，来打印与查询匹配的前20个文档。 mongo shell将提示 输入`it`以使其再次迭代20次。
 
 要格式化打印结果，可以将`.pretty()`添加到操作中，如下所示：
 
@@ -235,8 +231,7 @@ db.myCollection.find().pretty()
 ... }
 ```
 
-如果输入两个空行，则可以退出行继续模式，如以下示例所示：  
-
+如果输入两个空行，则可以退出行继续模式，如以下示例所示：
 
 ```text
 > if (x > 0
@@ -257,17 +252,15 @@ db.myCollection.c<Tab>
 ```
 
 因为有许多以字母'**c**'开头的收集方法，所以&lt;`Tab`&gt;将列出以**'c'**开头的各种方法。  
- 有关快捷键的完整列表，请参见：Shell 快捷命令（[Shell Keyboard Shortcuts](https://docs.mongodb.com/manual/reference/program/mongo/#mongo-keyboard-shortcuts)）。
+有关快捷键的完整列表，请参见：Shell 快捷命令（[Shell Keyboard Shortcuts](https://docs.mongodb.com/manual/reference/program/mongo/#mongo-keyboard-shortcuts)）。
 
 ## mongorc.js文件
 
-启动时，mongo将在用户的HOME目录中检查名为`.mongorc.js`的JavaScript文件。 如果找到，mongo会在首次显示提示之前解释`.mongorc.js`的内容。如果您使用舍shell程序来评估JavaScript文件或表达式，或者通过在命令行上使用--eval选项，或者通过将.js文件指定给mongo，则mongo将在JavaScript完成处理后读取`.mongorc.js`文件。 您可以使用--norc选项防止加载`.mongorc.js`。  
-
+启动时，mongo将在用户的HOME目录中检查名为`.mongorc.js`的JavaScript文件。 如果找到，mongo会在首次显示提示之前解释`.mongorc.js`的内容。如果您使用舍shell程序来评估JavaScript文件或表达式，或者通过在命令行上使用--eval选项，或者通过将.js文件指定给mongo，则mongo将在JavaScript完成处理后读取`.mongorc.js`文件。 您可以使用--norc选项防止加载`.mongorc.js`。
 
 ## 退出Shell
 
-要退出shell，请键入`quit（）`或使用 `<Ctrl-C>`快捷方式。  
-
+要退出shell，请键入`quit（）`或使用 `<Ctrl-C>`快捷方式。
 
 另可参考：
 
@@ -275,7 +268,6 @@ db.myCollection.c<Tab>
 * [mongo](https://docs.mongodb.com/manual/reference/program/mongo/#bin.mongo) Reference Page
 
 译者：王恒 金江
-
 
 ### MongoDB中文社区
 
@@ -295,6 +287,4 @@ db.myCollection.c<Tab>
 | MongoDB白皮书 | [https://mongoing.com/mongodb-download-white-paper](https://mongoing.com/mongodb-download-white-paper) |
 | MongoDB初学者教程-7天入门 | [https://mongoing.com/mongodb-beginner-tutorial](https://mongoing.com/mongodb-beginner-tutorial) |
 | 社区活动邮件订阅 | [https://sourl.cn/spszjN](https://sourl.cn/spszjN) |
-
-
 

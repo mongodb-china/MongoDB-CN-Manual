@@ -83,7 +83,6 @@ MongoDB支持[多个存储引擎](https://docs.mongodb.com/v4.2/core/storage-eng
 
 原文链接：[https://docs.mongodb.com/v4.2/introduction/](https://docs.mongodb.com/v4.2/introduction/)
 
-
 ### MongoDB中文社区
 
 ![MongoDB&#x4E2D;&#x6587;&#x793E;&#x533A;&#x2014;MongoDB&#x7231;&#x597D;&#x8005;&#x6280;&#x672F;&#x4EA4;&#x6D41;&#x5E73;&#x53F0;](https://mongoing.com/wp-content/uploads/2020/09/6de8a4680ef684d-2.png)
@@ -102,6 +101,4 @@ MongoDB支持[多个存储引擎](https://docs.mongodb.com/v4.2/core/storage-eng
 | MongoDB白皮书 | [https://mongoing.com/mongodb-download-white-paper](https://mongoing.com/mongodb-download-white-paper) |
 | MongoDB初学者教程-7天入门 | [https://mongoing.com/mongodb-beginner-tutorial](https://mongoing.com/mongodb-beginner-tutorial) |
 | 社区活动邮件订阅 | [https://sourl.cn/spszjN](https://sourl.cn/spszjN) |
-
-
 
