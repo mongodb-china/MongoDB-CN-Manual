@@ -119,7 +119,7 @@
    mongo --tls --tlsCertificateSelector subject="<TestClientCertificateCommonName>"
    ```
 
-   虽然仍然可以使用，[`--sslMode`](https://docs.mongodb.com/manual/reference/program/mongod/#cmdoption-mongod-sslmode)和[`--sslCertificateSelector`](https://docs.mongodb.com/manual/reference/program/mongod/#cmdoption-mongod-sslcertificateselector)在[MongoDB 4.2中已废弃](https://docs.mongodb.com/manual/release-notes/4.2/#tls)。
+   虽然仍然可以使用，[`--ssl`](https://docs.mongodb.com/manual/reference/program/mongod/#cmdoption-mongod-sslmode)和[`--sslCertificateSelector`](https://docs.mongodb.com/manual/reference/program/mongod/#cmdoption-mongod-sslcertificateselector)在[MongoDB 4.2中已废弃](https://docs.mongodb.com/manual/release-notes/4.2/#tls)。
 
    **对于MongoDB 4.0及更早版本**
 
