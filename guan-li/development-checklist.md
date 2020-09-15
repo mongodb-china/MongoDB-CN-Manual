@@ -1,7 +1,7 @@
 # 开发检查列表
 
 * [数据持久性](https://docs.mongodb.com/v4.2/administration/production-checklist-development/#data-durability)
-* [架构设计](https://docs.mongodb.com/v4.2/administration/production-checklist-development/#schema-design)
+* [模式设计](https://docs.mongodb.com/v4.2/administration/production-checklist-development/#schema-design)
 * [复制](https://docs.mongodb.com/v4.2/administration/production-checklist-development/#replication)
 * [分片](https://docs.mongodb.com/v4.2/administration/production-checklist-development/#sharding)
 * [驱动](https://docs.mongodb.com/v4.2/administration/production-checklist-development/#drivers)
@@ -13,14 +13,14 @@
 * 确保您的副本集包含至少三个带有`w:majority` [写关注](https://docs.mongodb.com/v4.2/reference/write-concern/)的数据承载节点。副本集范围内的数据持久性需要三个数据承载节点。
 * 确保所有实例都使用[日志](https://docs.mongodb.com/v4.2/core/journaling/)。
 
-## 架构设计
+## 模式设计
 
 MongoDB中的数据有一个_动态设计_。[集合](https://docs.mongodb.com/v4.2/reference/glossary/#term-collection)强制执行[文档](https://docs.mongodb.com/v4.2/reference/glossary/#term-document)结构。这有助于迭代开发和多态性。然而，集合通常保存具有高度同质结构的文档。 有关详细信息，请参阅[数据建模概念](https://docs.mongodb.com/v4.2/core/data-models/)。
 
 * 确定支持查询所需的集合集和所需的索引。除了`_id` 索引之外，您必须显式地创建所有索引：MongoDB不会自动创建除`_id`之外的任何索引。                                                                                          
-* 确保架构设计支持您的部署类型：如果您计划使用[分片集群](https://docs.mongodb.com/v4.2/reference/glossary/#term-sharded-cluster)进行水平扩展，请设计您的架构以包含一个强健的片键。片键通过确定MongoDB如何划分数据来影响读写性能。请参见：[片键对集群操作的影响](https://docs.mongodb.com/v4.2/core/sharding-shard-key/)以获取有关片键应具有哪些质量的信息。一旦设置了片键，就不能更改它。
-* 请确保您的架构设计不依赖长度不受限制的索引数组。通常，当这种索引数组的元素少于1000个时，可以获得最佳性能。
-* 设计架构时请考虑文档大小限制。[BSON文档大小](https://docs.mongodb.com/v4.2/reference/limits/#BSON-Document-Size)限制为每个文档16MB。如果需要更大的文档，请使用[GridFS](https://docs.mongodb.com/v4.2/core/gridfs/)。
+* 确保模式设计支持您的部署类型：如果您计划使用[分片集群](https://docs.mongodb.com/v4.2/reference/glossary/#term-sharded-cluster)进行水平扩展，请设计您的模式以包含一个强健的片键。片键通过确定MongoDB如何划分数据来影响读写性能。请参见：[片键对集群操作的影响](https://docs.mongodb.com/v4.2/core/sharding-shard-key/)以获取有关片键应具有哪些质量的信息。一旦设置了片键，就不能更改它。
+* 请确保您的模式设计不依赖长度不受限制的索引数组。通常，当这种索引数组的元素少于1000个时，可以获得最佳性能。
+* 模式架构时请考虑文档大小限制。[BSON文档大小](https://docs.mongodb.com/v4.2/reference/limits/#BSON-Document-Size)限制为每个文档16MB。如果需要更大的文档，请使用[GridFS](https://docs.mongodb.com/v4.2/core/gridfs/)。
 
 ## 复制
 
