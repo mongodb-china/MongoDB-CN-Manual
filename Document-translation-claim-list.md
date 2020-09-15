@@ -20,7 +20,7 @@
 | 1.6  [Comparison/Sort Order](https://docs.mongodb.com/v4.2/reference/bson-type-comparison-order/) |          |        |      |
 | 1.6  [MongoDB Extended JSON (v2)](https://docs.mongodb.com/v4.2/reference/mongodb-extended-json/) |          |        |      |
 | 1.6  [MongoDB Extended JSON (v1))](https://docs.mongodb.com/v4.2/reference/mongodb-extended-json-v1/) |          |        |      |
-| 6.3  [Data Model Design](https://docs.mongodb.com/v4.2/core/data-model-design/) | 张鹏 |        |      |
+| 6.3  ~[Data Model Design](https://docs.mongodb.com/v4.2/core/data-model-design/)~ | 张鹏 |        |  100% |
 | 6.3  [Operational Factors and Data Models](https://docs.mongodb.com/v4.2/core/data-model-operations/) | 张鹏 |        |      |
 | 6.4  [Model One-to-One Relationships with Embedded Documents](https://docs.mongodb.com/v4.2/tutorial/model-embedded-one-to-one-relationships-between-documents/) |          |        |      |
 | 6.4  [Model One-to-Many Relationships with Embedded Documents](https://docs.mongodb.com/v4.2/tutorial/model-embedded-one-to-many-relationships-between-documents/) |          |        |      |
