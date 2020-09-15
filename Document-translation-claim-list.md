@@ -68,9 +68,9 @@
 | 9.10 [Configure Windows `netsh` Firewall for MongoDB](https://docs.mongodb.com/v4.2/tutorial/configure-windows-netsh-firewall/) |          |        |      |
 | 9.11 [Implement Field Level Redaction](https://docs.mongodb.com/v4.2/tutorial/implement-field-level-redaction/) |          |        |      |
 | 9.13 [Create a Vulnerability Report](https://docs.mongodb.com/v4.2/tutorial/create-a-vulnerability-report/) |          |        |      |
-| 11.2 [Replica Set Primary](https://docs.mongodb.com/v4.2/core/replica-set-primary/) |          |        |      |
-| 11.2 [Replica Set Secondary Members及下方3篇](https://docs.mongodb.com/v4.2/core/replica-set-secondary/) |          |        |      |
-| 11.2 [Replica Set Arbiter](https://docs.mongodb.com/v4.2/core/replica-set-arbiter/) |          |        |      |
+| 11.2 [Replica Set Primary](https://docs.mongodb.com/v4.2/core/replica-set-primary/) |    理宽      |        |      |
+| 11.2 [Replica Set Secondary Members及下方3篇](https://docs.mongodb.com/v4.2/core/replica-set-secondary/) |     理宽宽     |        |      |
+| 11.2 [Replica Set Arbiter](https://docs.mongodb.com/v4.2/core/replica-set-arbiter/) |     理宽     |        |      |
 | 11.5 [Three Member Replica Sets](https://docs.mongodb.com/v4.2/core/replica-set-architecture-three-members/) |  |        |      |
 | 11.5 [Replica Sets Distributed Across Two or More Data Centers](https://docs.mongodb.com/v4.2/core/replica-set-architecture-geographically-distributed/) |          |        |      |
 | 11.6 [Replica Set High Availability及下方2篇](https://docs.mongodb.com/v4.2/core/replica-set-high-availability/) |  |        |      |
