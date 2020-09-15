@@ -103,6 +103,7 @@
 * [数据模型](shu-ju-mo-xing/README.md)
   * [数据建模介绍](shu-ju-mo-xing/data-modeling-introduction.md)
   * [模式验证](shu-ju-mo-xing/schema-validation.md)
+  * [数据模型设计](shu-ju-mo-xing/data-model-design.md)
 * [事务](transactions/README.md)
   * [驱动程序 API](transactions/qu-dong-cheng-xu-api.md)
   * [生产注意事项](transactions/sheng-chan-zhu-yi-shi-xiang.md)
