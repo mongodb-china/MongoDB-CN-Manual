@@ -54,7 +54,7 @@
 | 5.4 MongoDB聚合参考                   | 李冠飞(上海锦木) | 100% |
 | 6.1 MongoDB数据建模介绍          | 张鹏 | 100% |
 | 6.2 MongoDB模式验证                       | 张鹏 | 100% |
-| 6.3 MongoDB数据建模设计                | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
+| 6.3 MongoDB数据模型设计                | 张鹏 | 100% |
 | 6.4 MongoDB数据模型示例和模式 | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
 | 6.5 MongoDB数据模型参考               | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
 | 7.1 MongoDB事务                                | 王金铷 | 100% |
