@@ -60,7 +60,7 @@
 | 7.1 MongoDB事务                                | 王金铷 | 100% |
 | 7.2 MongoDB驱动程序API                          | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
 | 7.3 MongoDB生产注意事项           | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
-| 7.4 MongoDB生产注意事项（分片集群） | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
+| 7.4 MongoDB生产注意事项（分片集群） | 王金铷 | 100% |
 | 7.5 MongoDB事务操作           | 王金铷 | 100% |
 | 8.1 MongoDB索引                                     | 莫薇 | 100% |
 | 8.2 MongoDB单字段索引                  | 莫薇 | 100% |
@@ -129,7 +129,7 @@
 | 13.9 MongoDB监控                     | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
 | 14.1 MongoDB存储                                    | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |  |
 | 14.2 MongoDB存储引擎                        | 徐雷 | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |
-| 14.3 MongoDB日志记录                             | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
+| 14.3 MongoDB日志记录                             | 王金铷 | 100% |
 | 14.4 MongoDB GridFS                                          | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
 | 14.5 常见问题解答：MongoDB 存储        | 刘翔 | 100% |
 | 15.1 常见问题解答：MongoDB基础知识 | 钟秋，小芒果 | 100% |
@@ -160,7 +160,7 @@
 | 17.1 MongoDB 4.2发行说明      | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
 | 17.2 MongoDB 4.0发行说明 | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
 | 17.3 MongoDB 3.6发行说明 |[加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md)||
-| 17.4 MongoDB版本控制 |[加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md)||
+| 17.4 MongoDB版本控制 | 罗治军 | 100% |
 
 
 
