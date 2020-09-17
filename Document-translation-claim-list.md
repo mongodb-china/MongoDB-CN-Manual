@@ -39,7 +39,7 @@
 | 6.5 [Database References](https://docs.mongodb.com/v4.2/reference/database-references/) | 张鹏 |        |      |
 | 7.2 [Drivers API](https://docs.mongodb.com/v4.2/core/transactions-in-applications/) |          |        |      |
 | 7.3 [Production Considerations](https://docs.mongodb.com/v4.2/core/transactions-production-consideration/) |          |        |      |
-| 7.4 [Production Considerations (Sharded Clusters)](https://docs.mongodb.com/v4.2/core/transactions-sharded-clusters/) | 王金铷 |        | 100% |
+| 7.4 ~[Production Considerations (Sharded Clusters)](https://docs.mongodb.com/v4.2/core/transactions-sharded-clusters/)~ | 王金铷 |        | 100% |
 | 9.4 [Users及下方1篇](https://docs.mongodb.com/v4.2/core/security-users/) |          |        |      |
 | 9.4 [Authentication Mechanisms及下方3篇](https://docs.mongodb.com/v4.2/core/authentication-mechanisms/) |          |        |      |
 | 9.4 [Enterprise Authentication Mechanisms及下方10篇](https://docs.mongodb.com/v4.2/core/authentication-mechanisms-enterprise/) |          |        |      |
@@ -137,7 +137,7 @@
 | 13.9 [Troubleshoot SNMP](https://docs.mongodb.com/v4.2/tutorial/troubleshoot-snmp/) |          |        |      |
 | 14.1 [Storage](https://docs.mongodb.com/v4.2/storage/)       | 张建威 |        |      |
 | 14.2 [Storage Engines](https://docs.mongodb.com/v4.2/core/storage-engines/) |          |        |      |
-| 14.3 [Journaling](https://docs.mongodb.com/v4.2/core/journaling/) | 王金铷 |        | 100% |
+| 14.3 ~[Journaling](https://docs.mongodb.com/v4.2/core/journaling/)~ | 王金铷 |        | 100% |
 | 14.3 [Manage Journaling](https://docs.mongodb.com/v4.2/tutorial/manage-journaling/) |          |        |      |
 | 14.4 [GridFS](https://docs.mongodb.com/v4.2/core/gridfs/)    | 傅立 |        |      |
 | 16.1 [Aggregation Pipeline Stages下方30篇](https://docs.mongodb.com/v4.2/reference/operator/aggregation-pipeline/) |          |        |      |
@@ -187,5 +187,5 @@
 | 17.1 [Release Notes for MongoDB 4.2](https://docs.mongodb.com/v4.2/release-notes/4.2/) |          |        |      |
 | 17.2 [Release Notes for MongoDB 4.0](https://docs.mongodb.com/v4.2/release-notes/4.0/) |          |        |      |
 | 17.3 [Release Notes for MongoDB 3.6](https://docs.mongodb.com/v4.2/release-notes/3.6/) |          |        |      |
-| 17.4 [MongoDB Versioning](https://docs.mongodb.com/v4.2/reference/versioning/) | 罗治军 |        | 100% |
+| 17.4 ~[MongoDB Versioning](https://docs.mongodb.com/v4.2/reference/versioning/)~ | 罗治军 |        | 100% |
 
