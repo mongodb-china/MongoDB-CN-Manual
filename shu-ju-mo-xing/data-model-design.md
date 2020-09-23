@@ -15,17 +15,17 @@ Effective data models support your application needs. The key consideration for 
 
 
 
-有效的数据模型支持您的应用程序需求。文档结构的关键考虑因素是嵌入[嵌入](https://docs.mongodb.com/manual/core/data-model-design/#data-modeling-embedding)或使用引用 [使用引用](https://docs.mongodb.com/manual/core/data-model-design/#data-modeling-referencing)的决定。
+有效的数据模型支持您的应用程序需求。文档结构的关键考虑因素是决定[嵌入](https://docs.mongodb.com/manual/core/data-model-design/#data-modeling-embedding)或引用 [使用引用](https://docs.mongodb.com/manual/core/data-model-design/#data-modeling-referencing)。
 
 
 
 ## Embedded Data Models 嵌入式数据模型
 
-With MongoDB, you may embed related data in a single structure or document. These schema are generally known as “denormalized” models, and take advantage of MongoDB’s rich documents. Consider the following diagram:
+With MongoDB, you may embed related data in a single structure or document. These schema are generally known as “denormalized” models, and take advantage of MongoDB’s rich documents.Consider the following diagram:
 
 
 
-使用MongoDB，您可以将相关数据嵌入到单个结构或文档中。这些模式通常被称为“非规范化”模型，并利用MongoDB的丰富文档。考虑下图：
+使用MongoDB，您可以将相关数据嵌入到单个结构或文档中。这些模式通常被称为“非规范化”模型，并利用MongoDB的丰富文档。参考下图：
 
 ![Data model with embedded fields that contain all related information.](https://docs.mongodb.com/manual/_images/data-model-denormalized.bakedsvg.svg)
 
