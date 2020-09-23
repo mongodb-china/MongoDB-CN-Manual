@@ -28,7 +28,8 @@ MongoDB的版本管理按照`X.Y.Z`的形式，其中`X.Y`是发行版本序列�
 MongoDB的版本编号系统与用于MongoDB驱动程序的版本编号系统不同。
 
 
-←  [MongoDB 1.2.x 发行版本说明](https://docs.mongodb.com/v4.2/release-notes/1.2/)[技术支持](https://docs.mongodb.com/v4.2/support/) →
+←  [MongoDB 1.2.x 发行版本说明](https://docs.mongodb.com/v4.2/release-notes/1.2/)
+[技术支持](https://docs.mongodb.com/v4.2/support/) →
 
 
 
