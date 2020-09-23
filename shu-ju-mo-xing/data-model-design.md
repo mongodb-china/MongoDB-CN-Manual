@@ -22,8 +22,8 @@
 
 通常，在以下情况下使用嵌入式数据模型：
 
-- 实体之间存在“包含”关系。 见[与嵌入文档建立一对一关系模型](https://docs.mongodb.com/manual/tutorial/model-embedded-one-to-one-relationships-between-documents/#data-modeling-example-one-to-one).
-- 实体之间有一对多的关系。在这些关系中，“多个”或子文档始终与“一个”或父文档一起出现或在其上下文中查看。 见[与嵌入文档建立一对多关系模型](https://docs.mongodb.com/manual/tutorial/model-embedded-one-to-many-relationships-between-documents/#data-modeling-example-one-to-many).
+- 实体之间存在“包含”关系。 见[与嵌入文档建立一对一关系模型](https://docs.mongodb.com/manual/tutorial/model-embedded-one-to-one-relationships-between-documents/#data-modeling-example-one-to-one)。
+- 实体之间有一对多的关系。在这些关系中，“多个”或子文档始终与“一个”或父文档一起出现或在其上下文中查看。 见[与嵌入文档建立一对多关系模型](https://docs.mongodb.com/manual/tutorial/model-embedded-one-to-many-relationships-between-documents/#data-modeling-example-one-to-many)。
 
 一般来说，嵌入为读取操作提供了更好的性能，并且能够在单个数据库操作中请求和检索相关数据。嵌入式数据模型使得在单个原子写入操作中更新相关数据成为可能。
 
