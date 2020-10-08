@@ -17,29 +17,29 @@
 
 | 章节                                                         | 认领人   | 校对人 | 进度 |
 | ------------------------------------------------------------ | -------- | ------ | ---- |
-| 1.4  [On-Demand Materialized Views](https://docs.mongodb.com/v4.2/core/materialized-views/) |          |        |      |
-| 1.6  [Comparison/Sort Order](https://docs.mongodb.com/v4.2/reference/bson-type-comparison-order/) |          |        |      |
-| 1.6  [MongoDB Extended JSON (v2)](https://docs.mongodb.com/v4.2/reference/mongodb-extended-json/) |          |        |      |
-| 1.6  [MongoDB Extended JSON (v1)](https://docs.mongodb.com/v4.2/reference/mongodb-extended-json-v1/) |          |        |      |
+| 1.4  [On-Demand Materialized Views](https://docs.mongodb.com/manual/core/materialized-views/) |          |        |      |
+| 1.6  [Comparison/Sort Order](https://docs.mongodb.com/manual/reference/bson-type-comparison-order/) |          |        |      |
+| 1.6  [MongoDB Extended JSON (v2)](https://docs.mongodb.com/manual/reference/mongodb-extended-json/) |          |        |      |
+| 1.6  [MongoDB Extended JSON (v1)](https://docs.mongodb.com/manual/reference/mongodb-extended-json-v1/) |          |        |      |
 | 6.3  ~[Data Model Design](https://docs.mongodb.com/v4.2/core/data-model-design/)~ | 张鹏 |        |  100% |
-| 6.3  [Operational Factors and Data Models](https://docs.mongodb.com/v4.2/core/data-model-operations/) | 张鹏 |        |      |
+| 6.3  [Operational Factors and Data Models](https://docs.mongodb.com/manual/core/data-model-operations/) | 张鹏 |        |      |
 | 6.4  [Model One-to-One Relationships with Embedded Documents](https://docs.mongodb.com/v4.2/tutorial/model-embedded-one-to-one-relationships-between-documents/) | 朱俊豪         |        |      |
-| 6.4  [Model One-to-Many Relationships with Embedded Documents](https://docs.mongodb.com/v4.2/tutorial/model-embedded-one-to-many-relationships-between-documents/) |          |        |      |
-| 6.4  [Model One-to-Many Relationships with Document References](https://docs.mongodb.com/v4.2/tutorial/model-referenced-one-to-many-relationships-between-documents/) |          |        |      |
-| 6.4  [Model Tree Structures with Parent References](https://docs.mongodb.com/v4.2/tutorial/model-tree-structures-with-parent-references/) |          |        |      |
-| 6.4 [Model Tree Structures with Child References](https://docs.mongodb.com/v4.2/tutorial/model-tree-structures-with-child-references/) |          |        |      |
-| 6.4 [Model Tree Structures with an Array of Ancestors](https://docs.mongodb.com/v4.2/tutorial/model-tree-structures-with-ancestors-array/) |          |        |      |
-| 6.4 [Model Tree Structures with Materialized Paths](https://docs.mongodb.com/v4.2/tutorial/model-tree-structures-with-materialized-paths/) |          |        |      |
-| 6.4 [Model Tree Structures with Nested Sets](https://docs.mongodb.com/v4.2/tutorial/model-tree-structures-with-nested-sets/) |          |        |      |
-| 6.4 [Model Data for Atomic Operations](https://docs.mongodb.com/v4.2/tutorial/model-data-for-atomic-operations/) |          |        |      |
-| 6.4 [Model Data to Support Keyword Search](https://docs.mongodb.com/v4.2/tutorial/model-data-for-keyword-search/) |          |        |      |
-| 6.4 [Model Data for Schema Versioning](https://docs.mongodb.com/v4.2/tutorial/model-data-for-schema-versioning/) |          |        |      |
-| 6.4 [Model Monetary Data](https://docs.mongodb.com/v4.2/tutorial/model-monetary-data/) |          |        |      |
-| 6.4 [Model Time Data](https://docs.mongodb.com/v4.2/tutorial/model-time-data/) |          |        |      |
-| 6.4 [Model Computed Data](https://docs.mongodb.com/v4.2/tutorial/model-computed-data/) |          |        |      |
-| 6.5 [Database References](https://docs.mongodb.com/v4.2/reference/database-references/) | 张鹏 |        |      |
-| 7.2 [Drivers API](https://docs.mongodb.com/v4.2/core/transactions-in-applications/) |          |        |      |
-| 7.3 [Production Considerations](https://docs.mongodb.com/v4.2/core/transactions-production-consideration/) |          |        |      |
+| 6.4  [Model One-to-Many Relationships with Embedded Documents](https://docs.mongodb.com/manual/tutorial/model-embedded-one-to-many-relationships-between-documents/) |          |        |      |
+| 6.4  [Model One-to-Many Relationships with Document References](https://docs.mongodb.com/manual/tutorial/model-referenced-one-to-many-relationships-between-documents/) |          |        |      |
+| 6.4  [Model Tree Structures with Parent References](https://docs.mongodb.com/manual/tutorial/model-tree-structures-with-parent-references/) |          |        |      |
+| 6.4 [Model Tree Structures with Child References](https://docs.mongodb.com/manual/tutorial/model-tree-structures-with-child-references/) |          |        |      |
+| 6.4 [Model Tree Structures with an Array of Ancestors](https://docs.mongodb.com/manual/tutorial/model-tree-structures-with-ancestors-array/) |          |        |      |
+| 6.4 [Model Tree Structures with Materialized Paths](https://docs.mongodb.com/manual/tutorial/model-tree-structures-with-materialized-paths/) |          |        |      |
+| 6.4 [Model Tree Structures with Nested Sets](https://docs.mongodb.com/manual/tutorial/model-tree-structures-with-nested-sets/) |          |        |      |
+| 6.4 [Model Data for Atomic Operations](https://docs.mongodb.com/manual/tutorial/model-data-for-atomic-operations/) |          |        |      |
+| 6.4 [Model Data to Support Keyword Search](https://docs.mongodb.com/manual/tutorial/model-data-for-keyword-search/) |          |        |      |
+| 6.4 [Model Data for Schema Versioning](https://docs.mongodb.com/manual/tutorial/model-data-for-schema-versioning/) |          |        |      |
+| 6.4 [Model Monetary Data](https://docs.mongodb.com/manual/tutorial/model-monetary-data/) |          |        |      |
+| 6.4 [Model Time Data](https://docs.mongodb.com/manual/tutorial/model-time-data/) |          |        |      |
+| 6.4 [Model Computed Data](https://docs.mongodb.com/manual/tutorial/model-computed-data/) |          |        |      |
+| 6.5 [Database References](https://docs.mongodb.com/manual/reference/database-references/) | 张鹏 |        |      |
+| 7.2 [Drivers API](https://docs.mongodb.com/manual/core/transactions-in-applications/) |          |        |      |
+| 7.3 [Production Considerations](https://docs.mongodb.com/manual/core/transactions-production-consideration/) |          |        |      |
 | 7.4 ~[Production Considerations (Sharded Clusters)](https://docs.mongodb.com/v4.2/core/transactions-sharded-clusters/)~ | 王金铷 |        | 100% |
 | 9.4 [Users及下方1篇](https://docs.mongodb.com/v4.2/core/security-users/) |          |        |      |
 | 9.4 [Authentication Mechanisms及下方3篇](https://docs.mongodb.com/v4.2/core/authentication-mechanisms/) |          |        |      |
