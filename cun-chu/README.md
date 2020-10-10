@@ -1,5 +1,19 @@
 # 存储
 
+[存储引擎](https://docs.mongodb.com/manual/core/storage-engines/)是MongoDB负责管理数据的主要组件。 MongoDB提供了多种存储引擎，使您可以选择最适合您的应用程序的一种。
+
+[journal](https://docs.mongodb.com/manual/reference/glossary/#term-journal)是一种日志，可在硬关闭时帮助数据库恢复。 有多个可配置的选项使日志可以在适用于特定用例的性能和可靠性之间取得平衡。
+
+[GridFS](https://docs.mongodb.com/manual/core/gridfs/)是一种通用的存储系统，适用于处理大文件，例如超出16 MB文档大小限制的文件。
+
+
+
+←  [Troubleshoot SNMP 排除SNMP故障](https://docs.mongodb.com/manual/tutorial/troubleshoot-snmp/)<br/>[Storage Engines 存储引擎](https://docs.mongodb.com/manual/core/storage-engines/) →
+
+
+原文链接：https://docs.mongodb.com/manual/storage/
+
+
 ## MongoDB中文社区
 
 ![MongoDB&#x4E2D;&#x6587;&#x793E;&#x533A;&#x2014;MongoDB&#x7231;&#x597D;&#x8005;&#x6280;&#x672F;&#x4EA4;&#x6D41;&#x5E73;&#x53F0;](https://mongoing.com/wp-content/uploads/2020/09/6de8a4680ef684d-2.png)
