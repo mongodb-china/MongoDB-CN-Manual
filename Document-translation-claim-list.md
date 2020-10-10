@@ -41,34 +41,34 @@
 | 7.2 [Drivers API](https://docs.mongodb.com/manual/core/transactions-in-applications/) |          |        |      |
 | 7.3 [Production Considerations](https://docs.mongodb.com/manual/core/transactions-production-consideration/) |          |        |      |
 | 7.4 ~[Production Considerations (Sharded Clusters)](https://docs.mongodb.com/v4.2/core/transactions-sharded-clusters/)~ | 王金铷 |        | 100% |
-| 9.4 [Users及下方1篇](https://docs.mongodb.com/v4.2/core/security-users/) |          |        |      |
-| 9.4 [Authentication Mechanisms及下方3篇](https://docs.mongodb.com/v4.2/core/authentication-mechanisms/) |          |        |      |
-| 9.4 [Enterprise Authentication Mechanisms及下方10篇](https://docs.mongodb.com/v4.2/core/authentication-mechanisms-enterprise/) |          |        |      |
-| 9.4 [Internal/Membership Authentication及下方11篇](https://docs.mongodb.com/v4.2/core/security-internal-authentication/) |          |        |      |
-| 9.5 [Role-Based Access Control](https://docs.mongodb.com/v4.2/core/authorization/) |  |        |      |
-| 9.5 [Built-In Roles](https://docs.mongodb.com/v4.2/reference/built-in-roles/) |          |        |      |
-| 9.5 [User-Defined Roles](https://docs.mongodb.com/v4.2/core/security-user-defined-roles/) |          |        |      |
-| 9.5 [Manage Users and Roles](https://docs.mongodb.com/v4.2/tutorial/manage-users-and-roles/) |          |        |      |
-| 9.5 [Change Your Password and Custom Data](https://docs.mongodb.com/v4.2/tutorial/change-own-password-and-custom-data/) |          |        |      |
-| 9.5 [Collection-Level Access Control](https://docs.mongodb.com/v4.2/core/collection-level-access-control/) |          |        |      |
-| 9.6 [TLS/SSL (Transport Encryption)](https://docs.mongodb.com/v4.2/core/security-transport-encryption/) |  |        |      |
-| 9.6 [Configure `mongod` and `mongos` for TLS/SSL](https://docs.mongodb.com/v4.2/tutorial/configure-ssl/) |          |        |      |
-| 9.6 [TLS/SSL Configuration for Clients](https://docs.mongodb.com/v4.2/tutorial/configure-ssl-clients/) |          |        |      |
-| 9.6 [Upgrade a Cluster to Use TLS/SSL](https://docs.mongodb.com/v4.2/tutorial/upgrade-cluster-to-ssl/) |          |        |      |
-| 9.6 [Configure MongoDB for FIPS](https://docs.mongodb.com/v4.2/tutorial/configure-fips/) |          |        |      |
-| 9.7 [Encryption at Rest](https://docs.mongodb.com/v4.2/core/security-encryption-at-rest/) |  |        |      |
-| 9.7 [Configure Encryption](https://docs.mongodb.com/v4.2/tutorial/configure-encryption/) |          |        |      |
-| 9.7 [Rotate Encryption Keys](https://docs.mongodb.com/v4.2/tutorial/rotate-encryption-key/) |          |        |      |
-| 9.8 [Client-Side Field Level Encryption](https://docs.mongodb.com/v4.2/core/security-client-side-encryption/) |  |        |      |
-| 9.8 [Automatic Client-Side Field Level Encryption及下方3篇](https://docs.mongodb.com/v4.2/core/security-automatic-client-side-encryption/) |          |        |      |
-| 9.8 [Explicit (Manual) Client-Side Field Level Encryption](https://docs.mongodb.com/v4.2/core/security-explicit-client-side-encryption/) |          |        |      |
-| 9.8 [Master Key and Data Encryption Key Management及下方1篇](https://docs.mongodb.com/v4.2/core/security-client-side-encryption-key-management/) |          |        |      |
-| 9.8 [Limitations](https://docs.mongodb.com/v4.2/reference/security-client-side-encryption-limitations/) |          |        |      |
-| 9.10 [IP Binding](https://docs.mongodb.com/v4.2/core/security-mongodb-configuration/) |          |        |      |
-| 9.10 [Configure Linux `iptables` Firewall for MongoDB](https://docs.mongodb.com/v4.2/tutorial/configure-linux-iptables-firewall/) |          |        |      |
-| 9.10 [Configure Windows `netsh` Firewall for MongoDB](https://docs.mongodb.com/v4.2/tutorial/configure-windows-netsh-firewall/) |          |        |      |
-| 9.11 [Implement Field Level Redaction](https://docs.mongodb.com/v4.2/tutorial/implement-field-level-redaction/) |          |        |      |
-| 9.13 [Create a Vulnerability Report](https://docs.mongodb.com/v4.2/tutorial/create-a-vulnerability-report/) |          |        |      |
+| 9.4 [Users及下方1篇](https://docs.mongodb.com/manual/core/security-users/) |          |        |      |
+| 9.4 [Authentication Mechanisms及下方3篇](https://docs.mongodb.com/manual/core/authentication-mechanisms/) |          |        |      |
+| 9.4 [Enterprise Authentication Mechanisms及下方10篇](https://docs.mongodb.com/manual/core/authentication-mechanisms-enterprise/) |          |        |      |
+| 9.4 [Internal/Membership Authentication及下方11篇](https://docs.mongodb.com/manual/core/security-internal-authentication/) |          |        |      |
+| 9.5 [Role-Based Access Control](https://docs.mongodb.com/manual/core/authorization/) |  |        |      |
+| 9.5 [Built-In Roles](https://docs.mongodb.com/manual/reference/built-in-roles/) |          |        |      |
+| 9.5 [User-Defined Roles](https://docs.mongodb.com/manual/core/security-user-defined-roles/) |          |        |      |
+| 9.5 [Manage Users and Roles](https://docs.mongodb.com/manual/tutorial/manage-users-and-roles/) |          |        |      |
+| 9.5 [Change Your Password and Custom Data](https://docs.mongodb.com/manual/tutorial/change-own-password-and-custom-data/) |          |        |      |
+| 9.5 [Collection-Level Access Control](https://docs.mongodb.com/manual/core/collection-level-access-control/) |          |        |      |
+| 9.6 [TLS/SSL (Transport Encryption)](https://docs.mongodb.com/manual/tutorial/configure-ssl/) |  |        |      |
+| 9.6 [Configure `mongod` and `mongos` for TLS/SSL](https://docs.mongodb.com/manual/tutorial/configure-ssl-clients/) |          |        |      |
+| 9.6 [TLS/SSL Configuration for Clients](https://docs.mongodb.com/manual/tutorial/upgrade-cluster-to-ssl/) |          |        |      |
+| 9.6 [Upgrade a Cluster to Use TLS/SSL](https://docs.mongodb.com/manual/tutorial/upgrade-cluster-to-ssl/) |          |        |      |
+| 9.6 [Configure MongoDB for FIPS](https://docs.mongodb.com/manual/tutorial/configure-fips/) |          |        |      |
+| 9.7 [Encryption at Rest](https://docs.mongodb.com/manual/core/security-encryption-at-rest/) |  |        |      |
+| 9.7 [Configure Encryption](https://docs.mongodb.com/manual/tutorial/configure-encryption/) |          |        |      |
+| 9.7 [Rotate Encryption Keys](https://docs.mongodb.com/manual/tutorial/rotate-encryption-key/) |          |        |      |
+| 9.8 [Client-Side Field Level Encryption](https://docs.mongodb.com/manual/core/security-client-side-encryption/) |  |        |      |
+| 9.8 [Automatic Client-Side Field Level Encryption及下方3篇](https://docs.mongodb.com/manual/core/security-automatic-client-side-encryption/) |          |        |      |
+| 9.8 [Explicit (Manual) Client-Side Field Level Encryption](https://docs.mongodb.com/manual/core/security-explicit-client-side-encryption/) |          |        |      |
+| 9.8 [Master Key and Data Encryption Key Management及下方1篇](https://docs.mongodb.com/manual/core/security-client-side-encryption-key-management/) |          |        |      |
+| 9.8 [Limitations](https://docs.mongodb.com/manual/reference/security-client-side-encryption-limitations/) |          |        |      |
+| 9.10 [IP Binding](https://docs.mongodb.com/manual/core/security-mongodb-configuration/) |          |        |      |
+| 9.10 [Configure Linux `iptables` Firewall for MongoDB](https://docs.mongodb.com/manual/tutorial/configure-linux-iptables-firewall/) |          |        |      |
+| 9.10 [Configure Windows `netsh` Firewall for MongoDB](https://docs.mongodb.com/manual/tutorial/configure-windows-netsh-firewall/) |          |        |      |
+| 9.11 [Implement Field Level Redaction](https://docs.mongodb.com/manual/tutorial/implement-field-level-redaction/) |          |        |      |
+| 9.13 [Create a Vulnerability Report](https://docs.mongodb.com/manual/tutorial/create-a-vulnerability-report/) |          |        |      |
 | 11.2 [Replica Set Primary](https://docs.mongodb.com/v4.2/core/replica-set-primary/) |    理宽      |        |      |
 | 11.2 [Replica Set Secondary Members及下方3篇](https://docs.mongodb.com/v4.2/core/replica-set-secondary/) |     理宽宽     |        |      |
 | 11.2 [Replica Set Arbiter](https://docs.mongodb.com/v4.2/core/replica-set-arbiter/) |     理宽     |        |      |
