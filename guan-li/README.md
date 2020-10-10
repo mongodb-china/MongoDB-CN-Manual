@@ -1,5 +1,13 @@
 # 管理
 
+管理文档介绍了MongoDB实例和部署的持续运行和维护。 本文档既包括这些问题的高度概述，也包括涵盖特定过程和MongoDB操作过程的教程。
+
+←  [Config Database 配置数据库](https://docs.mongodb.com/manual/reference/config-database/)<br/>[Production Notes 产品说明](https://docs.mongodb.com/manual/administration/production-notes/) →
+
+原文链接：https://docs.mongodb.com/manual/administration/
+
+
+
 ## MongoDB中文社区
 
 ![MongoDB&#x4E2D;&#x6587;&#x793E;&#x533A;&#x2014;MongoDB&#x7231;&#x597D;&#x8005;&#x6280;&#x672F;&#x4EA4;&#x6D41;&#x5E73;&#x53F0;](https://mongoing.com/wp-content/uploads/2020/09/6de8a4680ef684d-2.png)
