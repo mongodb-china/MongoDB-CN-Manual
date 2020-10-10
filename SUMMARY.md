@@ -104,7 +104,7 @@
   * [数据建模介绍](shu-ju-mo-xing/data-modeling-introduction.md)
   * [模式验证](shu-ju-mo-xing/schema-validation.md)
   * [数据模型设计](shu-ju-mo-xing/data-model-design.md)
-    * [一对一嵌套关系模型](Model-One-to-One-Relationships-with-Embedded-Documents.md)
+    * [一对一嵌套关系模型](shu-ju-mo-xing/Model-One-to-One-Relationships-with-Embedded-Documents.md)
 * [事务](transactions/README.md)
   * [驱动程序 API](transactions/qu-dong-cheng-xu-api.md)
   * [生产注意事项](transactions/sheng-chan-zhu-yi-shi-xiang.md)
