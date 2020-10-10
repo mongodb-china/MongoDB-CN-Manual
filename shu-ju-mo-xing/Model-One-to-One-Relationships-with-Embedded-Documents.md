@@ -14,7 +14,7 @@ On this page
 
 
 
-## Overview 概述¶](https://docs.mongodb.com/v4.2/tutorial/model-embedded-one-to-one-relationships-between-documents/#overview)
+## Overview [概述¶](https://docs.mongodb.com/v4.2/tutorial/model-embedded-one-to-one-relationships-between-documents/#overview)
 
 This page describes a data model that uses [embedded](https://docs.mongodb.com/v4.2/core/data-model-design/#data-modeling-embedding) documents to describe a one-to-one relationship between connected data. Embedding connected data in a single document can reduce the number of read operations required to obtain data. In general, you should structure your schema so your application receives all of its required information in a single read operation.
 
@@ -22,9 +22,7 @@ This page describes a data model that uses [embedded](https://docs.mongodb.com/v
 
 
 
-## Embedded Document Pattern
-
-## 嵌套文档模式[¶](https://docs.mongodb.com/v4.2/tutorial/model-embedded-one-to-one-relationships-between-documents/#embedded-document-pattern)
+## Embedded Document Pattern 嵌套文档模式[¶](https://docs.mongodb.com/v4.2/tutorial/model-embedded-one-to-one-relationships-between-documents/#embedded-document-pattern)
 
 Consider the following example that maps patron and address relationships. The example illustrates the advantage of embedding over referencing if you need to view one data entity in context of the other. In this one-to-one relationship between `patron` a nd `address` data, the `address` belongs to the `patron`.
 
@@ -78,7 +76,7 @@ With the embedded data model, your application can retrieve the complete patron 
 
 
 
-## Subset Pattern 子集模式¶](https://docs.mongodb.com/v4.2/tutorial/model-embedded-one-to-one-relationships-between-documents/#subset-pattern)
+## Subset Pattern 子集模式[¶](https://docs.mongodb.com/v4.2/tutorial/model-embedded-one-to-one-relationships-between-documents/#subset-pattern)
 
 A potential problem with the [embedded document pattern](https://docs.mongodb.com/v4.2/tutorial/model-embedded-one-to-many-relationships-between-documents/#one-to-many-embedded-document-pattern) is that it can lead to large documents that contain fields that the application does not need. This unnecessary data can cause extra load on your server and slow down read operations. Instead, you can use the subset pattern to retrieve the subset of data which is accessed the most frequently in a single database call.
 
@@ -205,7 +203,7 @@ To learn how to use the subset pattern to model one-to-many relationships betwee
 
 
 
-### Trade-Offs of the Subset Pattern 
+### Trade-Offs of the Subset Pattern 子集模式的权衡
 
 Using smaller documents containing more frequently-accessed data reduces the overall size of the working set. These smaller documents result in improved read performance and make more memory available for the application.
 
