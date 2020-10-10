@@ -225,8 +225,8 @@ In addition, splitting your data into many small collections may increase requir
 
 
 
-
-
 原文链接：https://docs.mongodb.com/v4.2/tutorial/model-embedded-one-to-one-relationships-between-documents/
 
 译者：朱俊豪
+
+
