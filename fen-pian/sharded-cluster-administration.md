@@ -1,4 +1,4 @@
-# Shared Cluster Administration 分片集群管理
+# Sharded Cluster Administration 分片集群管理
 
 [Config Server Administration](https://docs.mongodb.com/v4.2/administration/sharded-cluster-config-servers/)
 
