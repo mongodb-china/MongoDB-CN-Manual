@@ -118,7 +118,7 @@
 | 12.9 MongoDB分片集群平衡器         | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
 | 12.10 MongoDB分片管理                        | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
 | 12.11 MongoDB分片参考                    | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
-| 13.1 MongoDB管理                             | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
+| 13.1 MongoDB管理                             | 小芒果 | 100% |
 | 13.2 MongoDB产品说明                       | 孔令升 | 100% |
 | 13.3 MongoDB操作检查表                 | 孔令升 | 100% |
 | 13.4 MongoDB开发检查表                | 孔令升 | 100% |
@@ -127,7 +127,7 @@
 | 13.7 MongoDB数据中心意识              | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
 | 13.8 MogoDB 备份方法                 | 谢伟成 | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |
 | 13.9 MongoDB监控                     | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
-| 14.1 MongoDB存储                                    | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |  |
+| 14.1 MongoDB存储                                    | 小芒果 | 100%  |
 | 14.2 MongoDB存储引擎                        | 徐雷 | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |
 | 14.3 MongoDB日志记录                             | 王金铷 | 100% |
 | 14.4 MongoDB GridFS                                          | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
