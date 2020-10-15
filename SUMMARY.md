@@ -65,7 +65,7 @@
     * [读关注 "linearizable"](mongodb-crud-operations/read-isolation-read-concern/read-concern-linearizable.md)
     * [读关注 "snapshot"](mongodb-crud-operations/read-isolation-read-concern/read-concern-snapshot.md)
   * [写关注](mongodb-crud-operations/write-acknowledgement-write-concern.md)
-  * [MongoDB CRUD 概念](mongodb-crud-operations/mongodb-crud-concepts/README.md)
+  * [MongoDB CRUD概念](mongodb-crud-operations/mongodb-crud-concepts/README.md)
     * [原子性和事务](mongodb-crud-operations/mongodb-crud-concepts/yuan-zi-xing-he-shi-wu.md)
     * [读隔离性，一致性和近因性](mongodb-crud-operations/mongodb-crud-concepts/read-isolation-consistency-and-recency/README.md)
       * [因果一致性和读写关注](mongodb-crud-operations/mongodb-crud-concepts/read-isolation-consistency-and-recency/causal-consistency-and-read-and-write-concerns.md)
