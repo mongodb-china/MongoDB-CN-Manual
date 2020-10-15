@@ -115,7 +115,7 @@
 | 12.11 [Operational Restrictions in Sharded Clusters](https://docs.mongodb.com/v4.2/core/sharded-cluster-requirements/) |          |        |      |
 | 12.11 [Troubleshoot Sharded Clusters](https://docs.mongodb.com/v4.2/tutorial/troubleshoot-sharded-clusters/) |          |        |      |
 | 12.11 [Config Database](https://docs.mongodb.com/v4.2/reference/config-database/) |          |        |      |
-| 13.1 [Administration](https://docs.mongodb.com/v4.2/administration/) |          |        |      |
+| 13.1 ~[Administration](https://docs.mongodb.com/v4.2/administration/)~ |   小芒果  |        |  100%  |
 | 13.5 [Database Profiler](https://docs.mongodb.com/v4.2/tutorial/manage-the-database-profiler/) |          |        |      |
 | 13.5 [Database Profiler Output](https://docs.mongodb.com/v4.2/reference/database-profiler/) |          |        |      |
 | 13.5 [Disable Transparent Huge Pages (THP)](https://docs.mongodb.com/v4.2/tutorial/transparent-huge-pages/) |          |        |      |
@@ -136,7 +136,7 @@
 | 13.9 [Monitor MongoDB With SNMP on Linux](https://docs.mongodb.com/v4.2/tutorial/monitor-with-snmp/) |          |        |      |
 | 13.9 [Monitor MongoDB Windows with SNMP](https://docs.mongodb.com/v4.2/tutorial/monitor-with-snmp-on-windows/) |          |        |      |
 | 13.9 [Troubleshoot SNMP](https://docs.mongodb.com/v4.2/tutorial/troubleshoot-snmp/) |          |        |      |
-| 14.1 [Storage](https://docs.mongodb.com/v4.2/storage/)       | 张建威 |        |      |
+| 14.1 [Storage](https://docs.mongodb.com/v4.2/storage/)       | 小芒果 |        | 100%  |
 | 14.2 [Storage Engines](https://docs.mongodb.com/v4.2/core/storage-engines/) |          |        |      |
 | 14.3 ~[Journaling](https://docs.mongodb.com/v4.2/core/journaling/)~ | 王金铷 |        | 100% |
 | 14.3 [Manage Journaling](https://docs.mongodb.com/v4.2/tutorial/manage-journaling/) |          |        |      |
