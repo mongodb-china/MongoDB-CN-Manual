@@ -136,7 +136,7 @@
 | 13.9 [Monitor MongoDB With SNMP on Linux](https://docs.mongodb.com/v4.2/tutorial/monitor-with-snmp/) |          |        |      |
 | 13.9 [Monitor MongoDB Windows with SNMP](https://docs.mongodb.com/v4.2/tutorial/monitor-with-snmp-on-windows/) |          |        |      |
 | 13.9 [Troubleshoot SNMP](https://docs.mongodb.com/v4.2/tutorial/troubleshoot-snmp/) |          |        |      |
-| 14.1 [Storage](https://docs.mongodb.com/v4.2/storage/)       | 小芒果 |        | 100%  |
+| 14.1 ~[Storage](https://docs.mongodb.com/v4.2/storage/)~  | 小芒果 |        | 100%  |
 | 14.2 [Storage Engines](https://docs.mongodb.com/v4.2/core/storage-engines/) |          |        |      |
 | 14.3 ~[Journaling](https://docs.mongodb.com/v4.2/core/journaling/)~ | 王金铷 |        | 100% |
 | 14.3 [Manage Journaling](https://docs.mongodb.com/v4.2/tutorial/manage-journaling/) |          |        |      |
