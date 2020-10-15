@@ -83,7 +83,7 @@
 | 11.9 [Member Configuration Tutorials系列一共6篇](https://docs.mongodb.com/v4.2/administration/replica-set-member-configuration/) |          |        |      |
 | 11.10 [Replica Set Maintenance Tutorials一共9篇](https://docs.mongodb.com/v4.2/administration/replica-set-maintenance/) |          |        |      |
 | 11.11 [Replication Reference一共5篇](https://docs.mongodb.com/v4.2/reference/replication/) |          |        |      |
-| 12.1 [Sharding](https://docs.mongodb.com/v4.2/sharding/)     |          |        |      |
+| 12.1 ~[Sharding](https://docs.mongodb.com/v4.2/sharding/)~     |   小芒果  |        |  100%  |
 | 12.2 [Sharded Cluster Components及下方3篇](https://docs.mongodb.com/v4.2/core/sharded-cluster-components/) |          |        |      |
 | 12.6 [Deploy a Sharded Cluster](https://docs.mongodb.com/v4.2/tutorial/deploy-shard-cluster/) |          |        |      |
 | 12.7 [Zones](https://docs.mongodb.com/v4.2/core/zone-sharding/) | 桂陈 |        |      |
@@ -99,7 +99,7 @@
 | 12.9 [Sharded Cluster Balancer](https://docs.mongodb.com/v4.2/core/sharding-balancer-administration/) | 桂陈 |        |      |
 | 12.9 [Manage Sharded Cluster Balancer](https://docs.mongodb.com/v4.2/tutorial/manage-sharded-cluster-balancer/) |          |        |      |
 | 12.9 [Migrate Chunks in a Sharded Cluster](https://docs.mongodb.com/v4.2/tutorial/migrate-chunks-in-sharded-cluster/) |          |        |      |
-| 12.10 [Sharded Cluster Administration](https://docs.mongodb.com/v4.2/administration/sharded-cluster-administration/) | 张建威 |        |      |
+| 12.10 ~[Sharded Cluster Administration](https://docs.mongodb.com/v4.2/administration/sharded-cluster-administration/)~ | 张建威 |        | 100% |
 | 12.10 [Replace a Config Server](https://docs.mongodb.com/v4.2/tutorial/replace-config-server/) |          |        |      |
 | 12.10 [View Cluster Configuration](https://docs.mongodb.com/v4.2/tutorial/view-sharded-cluster-configuration/) |          |        |      |
 | 12.10 [Restart a Sharded Cluster](https://docs.mongodb.com/v4.2/tutorial/restart-sharded-cluster/) |          |        |      |
@@ -111,7 +111,7 @@
 | 12.10 [Convert Sharded Cluster to Replica Set](https://docs.mongodb.com/v4.2/tutorial/convert-sharded-cluster-to-replica-set/) |          |        |      |
 | 12.10 [Convert a Replica Set to a Sharded Cluster](https://docs.mongodb.com/v4.2/tutorial/convert-replica-set-to-replicated-shard-cluster/) |          |        |      |
 | 12.10 [Convert a Shard Standalone to a Shard Replica Set](https://docs.mongodb.com/v4.2/tutorial/convert-shard-standalone-to-shard-replica-set/) |          |        |      |
-| 12.11 [Sharding Reference](https://docs.mongodb.com/v4.2/reference/sharding/) | 张建威 |        |      |
+| 12.11 ~[Sharding Reference](https://docs.mongodb.com/v4.2/reference/sharding/)~ | 张建威 |        | 100% |
 | 12.11 [Operational Restrictions in Sharded Clusters](https://docs.mongodb.com/v4.2/core/sharded-cluster-requirements/) |          |        |      |
 | 12.11 [Troubleshoot Sharded Clusters](https://docs.mongodb.com/v4.2/tutorial/troubleshoot-sharded-clusters/) |          |        |      |
 | 12.11 [Config Database](https://docs.mongodb.com/v4.2/reference/config-database/) |          |        |      |
@@ -131,7 +131,7 @@
 | 13.8 [Restore a Replica Set from MongoDB Backups](https://docs.mongodb.com/v4.2/tutorial/restore-replica-set-from-backup/) |          |        |      |
 | 13.8 [Backup and Restore Sharded Clusters及下方3篇](https://docs.mongodb.com/v4.2/administration/backup-sharded-clusters/) |          |        |      |
 | 13.8 [Recover a Standalone after an Unexpected Shutdown](https://docs.mongodb.com/v4.2/tutorial/recover-data-following-unexpected-shutdown/) |          |        |      |
-| 13.9 [Monitoring for MongoDB](https://docs.mongodb.com/v4.2/administration/monitoring/) | 谢伟成 |        |      |
+| 13.9 ~[Monitoring for MongoDB](https://docs.mongodb.com/v4.2/administration/monitoring/)~ | 谢伟成 |        | 100%  |
 | 13.9 [Free Monitoring](https://docs.mongodb.com/v4.2/administration/free-monitoring/) |          |        |      |
 | 13.9 [Monitor MongoDB With SNMP on Linux](https://docs.mongodb.com/v4.2/tutorial/monitor-with-snmp/) |          |        |      |
 | 13.9 [Monitor MongoDB Windows with SNMP](https://docs.mongodb.com/v4.2/tutorial/monitor-with-snmp-on-windows/) |          |        |      |
