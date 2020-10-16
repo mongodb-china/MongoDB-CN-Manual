@@ -515,9 +515,10 @@ Once a [`mongod`](https://docs.mongodb.com/manual/reference/program/mongod/#bin.
 
 The maximum time the Storage Node Watchdog can take to detect an unresponsive filesystem and terminate is nearly _twice_ the value of [`watchdogPeriodSeconds`](https://docs.mongodb.com/manual/reference/parameters/#param.watchdogPeriodSeconds).
 
-存储节点看门狗检测无响应的文件系并终止的最长时间几乎是[`watchdogPeriodSeconds`](https://docs.mongodb.com/manual/reference/parameters/#param.watchdogPeriodSeconds)的值的两倍。
+存储节点看门狗检测无响应的文件系统并终止的最长时间几乎是[`watchdogPeriodSeconds`](https://docs.mongodb.com/manual/reference/parameters/#param.watchdogPeriodSeconds)的值的两倍。
 
-
+  
+  
 
 原文链接：https://docs.mongodb.com/v4.2/administration/monitoring/
 
