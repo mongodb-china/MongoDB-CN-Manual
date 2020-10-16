@@ -1,5 +1,9 @@
 # MongoDB中文手册\|官方文档中文版
 
+![https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/img/logo/MongoDB.png)
+![https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/img/logo/MongoDB%E4%B8%AD%E6%96%87%E7%A4%BE%E5%8C%BA.png)
+![https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/img/logo/%E9%94%A6%E6%9C%A8.png)
+
 ## 项目介绍
 
 MongoDB是专为可扩展性，高性能和高可用性而设计的数据库。它可以从单服务器部署扩展到大型、复杂的多数据中心架构。利用内存计算的优势，MongoDB能够提供高性能的数据读写操作。 MongoDB的本地复制和自动故障转移功能使您的应用程序具有企业级的可靠性和操作灵活性。
