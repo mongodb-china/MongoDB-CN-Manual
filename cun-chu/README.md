@@ -1,4 +1,4 @@
-# 存储
+# MongoDB存储
 
 [存储引擎](https://docs.mongodb.com/manual/core/storage-engines/)是MongoDB负责管理数据的主要组件。 MongoDB提供了多种存储引擎，使您可以选择最适合您的应用程序的一种。
 
@@ -6,13 +6,10 @@
 
 [GridFS](https://docs.mongodb.com/manual/core/gridfs/)是一种通用的存储系统，适用于处理大文件，例如超出16 MB文档大小限制的文件。
 
+← [Troubleshoot SNMP 排除SNMP故障](https://docs.mongodb.com/manual/tutorial/troubleshoot-snmp/)  
+[Storage Engines 存储引擎](https://docs.mongodb.com/manual/core/storage-engines/) →
 
-
-←  [Troubleshoot SNMP 排除SNMP故障](https://docs.mongodb.com/manual/tutorial/troubleshoot-snmp/)<br/>[Storage Engines 存储引擎](https://docs.mongodb.com/manual/core/storage-engines/) →
-
-
-原文链接：https://docs.mongodb.com/manual/storage/
-
+原文链接：[https://docs.mongodb.com/manual/storage/](https://docs.mongodb.com/manual/storage/)
 
 ## MongoDB中文社区
 

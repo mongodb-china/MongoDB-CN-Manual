@@ -1,4 +1,4 @@
-# FAQ: 索引
+# FAQ: MongoDB索引
 
 在本页面
 

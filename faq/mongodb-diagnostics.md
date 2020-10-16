@@ -1,4 +1,4 @@
-# FAQ: MongoDB 诊断
+# FAQ: MongoDB诊断
 
 在本页面
 

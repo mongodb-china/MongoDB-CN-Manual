@@ -1,4 +1,4 @@
-# FAQ: MongoDB 存储
+# FAQ: MongoDB存储
 
 在本页面
 

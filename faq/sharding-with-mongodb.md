@@ -1,4 +1,4 @@
-# FAQ: MongoDB 分片
+# FAQ: MongoDB分片
 
 在本页面
 

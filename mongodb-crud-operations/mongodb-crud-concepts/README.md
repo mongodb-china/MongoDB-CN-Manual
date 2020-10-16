@@ -1,4 +1,4 @@
-# MongoDB CRUD 概念
+# MongoDB CRUD概念
 
 本节包含与MongoDB中的CRUD操作相关的其他概念的信息。
 

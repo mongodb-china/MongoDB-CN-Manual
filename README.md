@@ -1,9 +1,5 @@
 # MongoDB中文手册\|官方文档中文版
 
-<img src="https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/img/logo/MongoDB.png" width="40%" height="40%">
-<img src="https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/img/logo/MongoDB-Community.png" width="46%" height="46%">
-<img src="https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/img/logo/jinmu.png" width="40%" height="40%">
-
 ## 项目介绍
 
 MongoDB是专为可扩展性，高性能和高可用性而设计的数据库。它可以从单服务器部署扩展到大型、复杂的多数据中心架构。利用内存计算的优势，MongoDB能够提供高性能的数据读写操作。 MongoDB的本地复制和自动故障转移功能使您的应用程序具有企业级的可靠性和操作灵活性。
@@ -73,12 +69,9 @@ MongoDB是专为可扩展性，高性能和高可用性而设计的数据库。�
 
 ## LICENSE
 
-  本项目为署名-非商业性使用-相同方式共享 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)
-
-<br/>
+本项目为署名-非商业性使用-相同方式共享 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)
 
 ## MongoDB中文社区
-
 
 | 资源列表推荐 | 资源入口 |
 | :--- | :--- |
@@ -90,7 +83,7 @@ MongoDB是专为可扩展性，高性能和高可用性而设计的数据库。�
 | MongoDB中文社区翻译小组介绍 | [https://mongoing.com/translators](https://mongoing.com/translators) |
 | MongoDB中文社区微信技术交流群 | 添加社区助理小芒果微信（ID:mongoingcom），并备注 mongo |
 | MongoDB中文社区会议及文档资源 | [https://mongoing.com/resources](https://mongoing.com/resources) |
-| MongoDB中文社区大咖博客 |  [基础知识](https://mongoing.com/basic-knowledge)  [性能优化](https://mongoing.com/performance-optimization)  [原理解读](https://mongoing.com/interpretation-of-principles)  [运维监控](https://mongoing.com/operation-and-maintenance-monitoring)  [最佳实践](https://mongoing.com/best-practices)  |
+| MongoDB中文社区大咖博客 | [基础知识](https://mongoing.com/basic-knowledge)  [性能优化](https://mongoing.com/performance-optimization)  [原理解读](https://mongoing.com/interpretation-of-principles)  [运维监控](https://mongoing.com/operation-and-maintenance-monitoring)  [最佳实践](https://mongoing.com/best-practices) |
 | MongoDB白皮书 | [https://mongoing.com/mongodb-download-white-paper](https://mongoing.com/mongodb-download-white-paper) |
 | MongoDB初学者教程-7天入门 | [https://mongoing.com/mongodb-beginner-tutorial](https://mongoing.com/mongodb-beginner-tutorial) |
 | 社区活动通知邮件订阅 | [https://sourl.cn/spszjN](https://sourl.cn/spszjN) |

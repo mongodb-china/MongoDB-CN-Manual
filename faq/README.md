@@ -1,22 +1,14 @@
-# FAQ
+# MongoDB FAQ
 
 本章节包括：
 
-- MongoDB基础知识
-
-- MongoDB索引
-
-- MongoDB并发
-
-- MongoDB分片
-
-- MongoDB复制和副本集
-
-- MongoDB存储
-
-- MongoDB诊断
-
-
+* MongoDB基础知识
+* MongoDB索引
+* MongoDB并发
+* MongoDB分片
+* MongoDB复制和副本集
+* MongoDB存储
+* MongoDB诊断
 
 ## MongoDB中文社区
 

@@ -1,4 +1,4 @@
-# FAQ: 并发
+# FAQ: MongoDB并发
 
 在本页面
 
