@@ -1,7 +1,7 @@
 # MongoDB中文手册\|官方文档中文版
 
 <img src="https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/img/logo/MongoDB.png" width="30%" height="30%">
-<img src="https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/img/logo/MongoDB-Community.png" width="30%" height="30%">
+<img src="https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/img/logo/MongoDB-Community.png" width="35%" height="35%">
 <img src="https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/img/logo/jinmu.png" width="30%" height="30%">
 
 ## 项目介绍
