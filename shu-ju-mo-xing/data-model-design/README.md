@@ -6,7 +6,7 @@
 * [规范化数据模型](https://docs.mongodb.com/manual/core/data-model-design/#normalized-data-models)
 * [进一步阅读](https://docs.mongodb.com/manual/core/data-model-design/#further-reading)
 
-有效的数据模型支持您的应用程序需求。文档结构的关键考虑因素是决定[嵌入](https://docs.mongodb.com/manual/core/data-model-design/#data-modeling-embedding)或引用 [使用引用](https://docs.mongodb.com/manual/core/data-model-design/#data-modeling-referencing)。
+有效的数据模型支持您的应用程序需求。文档结构的关键考虑因素是[嵌入](https://docs.mongodb.com/manual/core/data-model-design/#data-modeling-embedding)或[使用引用](https://docs.mongodb.com/manual/core/data-model-design/#data-modeling-referencing)的决定。
 
 ## 嵌入式数据模型
 
