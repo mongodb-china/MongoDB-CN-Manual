@@ -11,36 +11,36 @@ On this page **在本页面**
 * [Sharded and Non-Sharded Collections 分片和非分片集合](https://docs.mongodb.com/manual/sharding/#sharded-and-non-sharded-collections)
 * [Connecting to a Sharded Cluster 连接到分片群集](https://docs.mongodb.com/manual/sharding/#connecting-to-a-sharded-cluster)
 * [Sharding Strategy 分片策略](https://docs.mongodb.com/manual/sharding/#sharding-strategy)
-* [Zones in Sharded Clusters 分片群集中的区域](https://docs.mongodb.com/manual/sharding/#zones-in-sharded-clusters)
+* [Zones in Sharded Clusters 分片集群中的区域](https://docs.mongodb.com/manual/sharding/#zones-in-sharded-clusters)
 * [Collations in Sharding 分片中的排序规则](https://docs.mongodb.com/manual/sharding/#collations-in-sharding)
 * [Change Streams 变更流](https://docs.mongodb.com/manual/sharding/#change-streams)
 * [Transactions 事务](https://docs.mongodb.com/manual/sharding/#transactions)
 
 [Sharding](https://docs.mongodb.com/manual/reference/glossary/#term-sharding) is a method for distributing data across multiple machines. MongoDB uses sharding to support deployments with very large data sets and high throughput operations.
 
-[分片](https://docs.mongodb.com/manual/reference/glossary/#term-sharding)是一种用于在多台计算机之间分配数据的方法。MongoDB使用分片来支持具有非常大的数据集和高吞吐量操作的部署。
+[分片](https://docs.mongodb.com/manual/reference/glossary/#term-sharding)是一种将数据分配到多个机器上的方法。MongoDB通过分片技术来支持具有海量数据集和高吞吐量操作的部署方案。
 
 Database systems with large data sets or high throughput applications can challenge the capacity of a single server. For example, high query rates can exhaust the CPU capacity of the server. Working set sizes larger than the system’s RAM stress the I/O capacity of disk drives.
 
-具有大数据集或高吞吐量应用程序的数据库系统可能会挑战单个服务器的容量。例如，高查询率可能会耗尽服务器的CPU容量。大于系统RAM的工作集大小会增加磁盘驱动器的I / O容量。
+数据库系统的数据集或应用的吞吐量比较大的情况下，会给单台服务器的处理能力带来极大的挑战。例如，高查询率会耗尽服务器的CPU资源。工作的数据集大于系统的内存压力、磁盘驱动器的I/O容量。
 
 There are two methods for addressing system growth: vertical and horizontal scaling.
 
-解决系统增长的方法有两种：垂直缩放和水平缩放。
+解决系统增长的方法有两种：垂直扩展和水平扩展。
 
 _Vertical Scaling_ involves increasing the capacity of a single server, such as using a more powerful CPU, adding more RAM, or increasing the amount of storage space. Limitations in available technology may restrict a single machine from being sufficiently powerful for a given workload. Additionally, Cloud-based providers have hard ceilings based on available hardware configurations. As a result, there is a practical maximum for vertical scaling.
 
-_垂直扩展_涉及增加单个服务器的容量，例如使用功能更强大的CPU，添加更多RAM或增加存储空间量。可用技术的局限性可能会让一台计算机对于给定的工作负载没有足够的功能。此外，基于云的提供程序具有基于可用硬件配置的严格上限。由此垂直缩放有一个实际的最大值。
+*垂直扩展* 通过增加单个服务器的能力来实现，例如使用更强大的CPU，增加更多的内存或存储空间量。由于现有技术的局限性，不能无限制地增加单个机器的配置。此外，云计算供应商提供可用的硬件配置具有严格的上限。其结果是，垂直扩展有一个实际的最大值。
 
 _Horizontal Scaling_ involves dividing the system dataset and load over multiple servers, adding additional servers to increase capacity as required. While the overall speed or capacity of a single machine may not be high, each machine handles a subset of the overall workload, potentially providing better efficiency than a single high-speed high-capacity server. Expanding the capacity of the deployment only requires adding additional servers as needed, which can be a lower overall cost than high-end hardware for a single machine. The trade off is increased complexity in infrastructure and maintenance for the deployment.
 
-_水平扩展_涉及划分系统数据集并在多台服务器上加载，并添加其他服务器以根据需要增加容量。虽然单台计算机的整体速度或容量可能不高，但是每台计算机只能处理一部分整体工作负载，因此与单台高速大容量服务器相比，可能提供更高的效率。扩展部署的容量仅需要根据需要添加其他服务器，这可以比一台机器的高端硬件降低总体成本。折衷方案是增加基础结构和部署维护的复杂性。
+*水平扩展*是通过将系统数据集划分至多台机器，并根据需要添加服务器来提升容量。虽然单个机器的总体速度或容量可能不高，但每台机器只需处理整个数据集的某个子集，所以可能会提供比单个高速大容量服务器更高的效率，而且机器的数量只需要根据数据集大小来进行扩展，与单个机器的高端硬件相比，这个方案可以降低总体成本。不过，这种方式会提高基础设施部署维护的复杂性。
 
 MongoDB supports _horizontal scaling_ through [sharding](https://docs.mongodb.com/manual/reference/glossary/#term-sharding).
 
-MongoDB通过[分片](https://docs.mongodb.com/manual/reference/glossary/#term-sharding)支持_水平扩展_。
+MongoDB通过[分片](https://docs.mongodb.com/manual/reference/glossary/#term-sharding)来实现_水平扩展_。
 
-## Sharded Cluster 分片群集
+## Sharded Cluster 分片集群
 
 A MongoDB [sharded cluster](https://docs.mongodb.com/manual/reference/glossary/#term-sharded-cluster) consists of the following components:
 
@@ -50,7 +50,7 @@ A MongoDB [sharded cluster](https://docs.mongodb.com/manual/reference/glossary/#
 
 The following graphic describes the interaction of components within a sharded cluster:
 
-MongoDB分片[群集](https://docs.mongodb.com/manual/reference/glossary/#term-sharded-cluster)由以下组件组成：
+MongoDB分片[集群](https://docs.mongodb.com/manual/reference/glossary/#term-sharded-cluster)由以下组件组成：
 
 * [分片](https://docs.mongodb.com/manual/core/sharded-cluster-shards/)：每个分片包含分片数据的子集。每个分片都可以部署为[副本集](https://docs.mongodb.com/manual/reference/glossary/#term-replica-set)。
 * [mongos](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/)：`mongos`充当查询路由器，在客户端应用程序和分片群集之间提供接口。从MongoDB 4.4开始，`mongos`可以支持 [对冲读取（hedged reads）](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/#mongos-hedged-reads)以最大程度地减少延迟。
