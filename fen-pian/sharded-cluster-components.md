@@ -1,6 +1,6 @@
 # Sharded Cluster Components
 
-# 分片集群组件
+# MongoDB分片集群组件
 
 - On this page
 
