@@ -246,13 +246,13 @@ See [Hashed Sharding](https://docs.mongodb.com/manual/core/hashed-sharding/) for
 
 Ranged sharding involves dividing data into ranges based on the shard key values. Each [chunk](https://docs.mongodb.com/manual/reference/glossary/#term-chunk) is then assigned a range based on the shard key values.
 
-范围分片涉及根据分片键值将数据划分为多个范围。然后，根据分片键值为每个[块](https://docs.mongodb.com/manual/reference/glossary/#term-chunk)分配一个范围。
+范围分片根据分片键的值将数据划分为多个范围，然后基于分片键的值分配每个[块](https://docs.mongodb.com/manual/reference/glossary/#term-chunk)的范围。
 
 ![Diagram of the shard key value space segmented into smaller ranges or chunks.](https://docs.mongodb.com/manual/_images/sharding-range-based.bakedsvg.svg)
 
 A range of shard keys whose values are “close” are more likely to reside on the same [chunk](https://docs.mongodb.com/manual/reference/glossary/#term-chunk). This allows for [targeted operations](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/#sharding-mongos-targeted) as a [`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos) can route the operations to only the shards that contain the required data.
 
-值“接近”的一系列分片键更有可能驻留在同[一块上](https://docs.mongodb.com/manual/reference/glossary/#term-chunk)。这允许有[针对性的操作，](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/#sharding-mongos-targeted)因为[`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos)可以将操作仅路由到包含所需数据的分片。
+值“接近”的一系列分片键更有可能分布在同[一块上](https://docs.mongodb.com/manual/reference/glossary/#term-chunk)。好处是便于[`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos)执行[针对性的操作](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/#sharding-mongos-targeted)，可以仅将操作路由到包含所需数据的分片上。
 
 The efficiency of ranged sharding depends on the shard key chosen. Poorly considered shard keys can result in uneven distribution of data, which can negate some benefits of sharding or can cause performance bottlenecks. See [shard key selection for range-based sharding](https://docs.mongodb.com/manual/core/ranged-sharding/#sharding-ranged-shard-key).
 
@@ -262,25 +262,25 @@ See [Ranged Sharding](https://docs.mongodb.com/manual/core/ranged-sharding/) for
 
 有关更多信息，请参见[范围分片](https://docs.mongodb.com/manual/core/ranged-sharding/)。
 
-## Zones in Sharded Clusters 分片群集中的区域
+## Zones in Sharded Clusters 分片集群中的区域
 
 Zones can help improve the locality of data for sharded clusters that span multiple data centers.
 
-Zones区域可以帮助提高跨多个数据中心的分片群集的数据局部性。
+Zones区域可以改善跨多个数据中心的分片集群的数据局部性。
 
 In sharded clusters, you can create [zones](https://docs.mongodb.com/manual/reference/glossary/#term-zone) of sharded data based on the [shard key](https://docs.mongodb.com/manual/reference/glossary/#term-shard-key). You can associate each zone with one or more shards in the cluster. A shard can associate with any number of zones. In a balanced cluster, MongoDB migrates [chunks](https://docs.mongodb.com/manual/reference/glossary/#term-chunk) covered by a zone only to those shards associated with the zone.
 
-在分片群集中，您可以基于[分片键](https://docs.mongodb.com/manual/reference/glossary/#term-shard-key)创建分片数据[区域](https://docs.mongodb.com/manual/reference/glossary/#term-zone)。您可以将每个区域与集群中的一个或多个分片关联。分片可以与任意数量的区域关联。在平衡群集中，MongoDB仅将区域覆盖的[块](https://docs.mongodb.com/manual/reference/glossary/#term-chunk)迁移到与该区域关联的分片。
+在分片集群中，您可以根据分片键创建分片数据的[区域](https://docs.mongodb.com/manual/reference/glossary/#term-zone)。您可以将每个区域与集群中的一个或多个分片相关联。分片节点可以与任何数量的区域相关联。在分片集群中（已开启均衡器），MongoDB仅迁移到与区域相关的分片节点覆盖的块。
 
 Each zone covers one or more ranges of [shard key](https://docs.mongodb.com/manual/reference/glossary/#term-shard-key) values. Each range a zone covers is always inclusive of its lower boundary and exclusive of its upper boundary.
 
-每个区域覆盖一个或多个分片[键值](https://docs.mongodb.com/manual/reference/glossary/#term-shard-key)范围。区域覆盖的每个范围始终包括其下边界和上边界。
+每个区域都覆盖了一个或多个分片[键值](https://docs.mongodb.com/manual/reference/glossary/#term-shard-key)的范围。区域覆盖的每个范围始终包括其下边界和上边界。
 
 ![Diagram of data distribution based on zones in a sharded cluster](https://docs.mongodb.com/manual/_images/sharded-cluster-zones.bakedsvg.svg)
 
 You must use fields contained in the [shard key](https://docs.mongodb.com/manual/reference/glossary/#term-shard-key) when defining a new range for a zone to cover. If using a [compound](https://docs.mongodb.com/manual/reference/glossary/#term-compound-index) shard key, the range must include the prefix of the shard key. See [shard keys in zones](https://docs.mongodb.com/manual/core/zone-sharding/#zone-sharding-shard-key) for more information.
 
-在定义要覆盖的区域的新范围时，必须使用分片[键中](https://docs.mongodb.com/manual/reference/glossary/#term-shard-key)包含的字段。如果使用[复合分片](https://docs.mongodb.com/manual/reference/glossary/#term-compound-index)键，则范围必须包含分片键的前缀。有关更多信息，请参见[区域中的分片键](https://docs.mongodb.com/manual/core/zone-sharding/#zone-sharding-shard-key)。
+在为区域定义区域的新范围时，必须使用分片[键中](https://docs.mongodb.com/manual/reference/glossary/#term-shard-key)包含的字段。如果使用[复合分片](https://docs.mongodb.com/manual/reference/glossary/#term-compound-index)键，则范围必须包含分片键的前缀。有关更多信息，请参见[区域中的分片键](https://docs.mongodb.com/manual/core/zone-sharding/#zone-sharding-shard-key)。
 
 The possible use of zones in the future should be taken into consideration when choosing a shard key.
 
@@ -290,7 +290,7 @@ The possible use of zones in the future should be taken into consideration when 
 >
 > Starting in MongoDB 4.0.3, setting up zones and zone ranges _before_ you shard an empty or a non-existing collection allows for a faster setup of zoned sharding.
 >
-> 从MongoDB 4.0.3开始，在 对空集合或不存在的集合进行分片_之前_设置区域和区域范围可以更快地设置区域分片。
+> 从MongoDB 4.0.3开始，在对空集合或不存在的集合进行分片_之前_设置区域和区域范围可以更快地设置区域分片。
 
 See [zones](https://docs.mongodb.com/manual/core/zone-sharding/#zone-sharding) for more information.
 
@@ -305,12 +305,12 @@ Use the [`shardCollection`](https://docs.mongodb.com/manual/reference/command/sh
 
 When creating new collections with a collation, ensure these conditions are met prior to sharding the collection.
 
-使用带有`collation : { locale : "simple" }`选项的[`shardCollection`](https://docs.mongodb.com/manual/reference/command/shardCollection/#dbcmd.shardCollection)命令可以分片具有[默认排序规则](https://docs.mongodb.com/manual/reference/collation/)的集合 。成功的分片需要：
+使用带有`collation : { locale : "simple" }`选项的[`shardCollection`](https://docs.mongodb.com/manual/reference/command/shardCollection/#dbcmd.shardCollection)命令可以对具备[默认排序规则](https://docs.mongodb.com/manual/reference/collation/)的集合进行分片。分片成功需具备下述条件：
 
-* 集合必须具有前缀为分片键的索引
+* 集合必须具有索引，且该索引的前缀是分片键
 * 索引必须具有`{ locale: "simple" }`排序规则 
 
-使用排序规则创建新集合时，在分片集合之前，请确保满足这些条件。
+使用排序规则创建新集合时，请在分片集合之前确保满足这些条件。
 
 > NOTE
 >
@@ -318,31 +318,31 @@ When creating new collections with a collation, ensure these conditions are met 
 >
 > 注意
 >
-> 分片集合上的查询继续使用为集合配置的默认排序规则。要使用分片索引的`simple`归类，请在查询的[归类文档中](https://docs.mongodb.com/manual/reference/collation/)指定`{locale : "simple"}`。
+> 分片集合上的查询继续使用为集合配置的默认排序规则。要使用分片索引的简单排序规则，请在查询的[排序文档](https://docs.mongodb.com/manual/reference/collation/)中指定`{locale：“ simple”}`。
 
 See [`shardCollection`](https://docs.mongodb.com/manual/reference/command/shardCollection/#dbcmd.shardCollection) for more information about sharding and collation.
 
-请参阅[`shardCollection`](https://docs.mongodb.com/manual/reference/command/shardCollection/#dbcmd.shardCollection)以获取有关分片和整理的更多信息。
+请参阅[`shardCollection`](https://docs.mongodb.com/manual/reference/command/shardCollection/#dbcmd.shardCollection)以获取有关分片和集群的更多信息。
 
 ## Change Streams 变更流
 
 Starting in MongoDB 3.6, [change streams](https://docs.mongodb.com/manual/changeStreams/) are available for replica sets and sharded clusters. Change streams allow applications to access real-time data changes without the complexity and risk of tailing the oplog. Applications can use change streams to subscribe to all data changes on a collection or collections.
 
-从MongoDB 3.6开始，[变更流](https://docs.mongodb.com/manual/changeStreams/)可用于副本集和分片群集。更改流允许应用程序访问实时数据更改，而不会带来复杂性和拖延操作日志的风险。应用程序可以使用变更流来订阅一个或多个集合上的所有数据更改。
+从MongoDB 3.6开始，[变更流](https://docs.mongodb.com/manual/changeStreams/)可用于副本集和分片集群。更改流允许应用程序访问实时的数据更改，避免使用tail oplog带来的复杂性和风险。应用程序可以使用变更流来订阅一个或多个集合上的所有数据变更信息。
 
 ## Transactions 事务
 
 Starting in MongoDB 4.2, with the introduction of [distributed transactions](https://docs.mongodb.com/manual/core/transactions/), multi-document transactions are available on sharded clusters.
 
-从MongoDB 4.2开始，随着[分布式事务](https://docs.mongodb.com/manual/core/transactions/)的引入，[分片](https://docs.mongodb.com/manual/core/transactions/)群集上可以使用多文档事务。
+从MongoDB 4.2开始，随着[分布式事务](https://docs.mongodb.com/manual/core/transactions/)功能的引入，[分片](https://docs.mongodb.com/manual/core/transactions/)集群上可以支持多文档事务。
 
 Until a transaction commits, the data changes made in the transaction are not visible outside the transaction.
 
-在提交事务之前，在事务外部看不到在事务中进行的数据更改。
+在提交事务之前，在事务外部看不到在事务中进行的数据变更。
 
 However, when a transaction writes to multiple shards, not all outside read operations need to wait for the result of the committed transaction to be visible across the shards. For example, if a transaction is committed and write 1 is visible on shard A but write 2 is not yet visible on shard B, an outside read at read concern \[`"local"`\]\([https://docs.mongodb.com/manual/reference/read-concern-local/\#readconcern."local](https://docs.mongodb.com/manual/reference/read-concern-local/#readconcern."local)"\) can read the results of write 1 without seeing write 2.
 
-但是，当事务写入多个分片时，并非所有外部读取操作都需要等待已提交事务的结果在所有分片上可见。例如，如果提交了一个事务，并且在分片A上可以看到写1，但是在分片B上仍然看不到写2，则在读问题上进行的外部读取 \[`"local"`\]\([https://docs.mongodb.com/manual/reference/read-concern-local/\#readconcern."local"\)可以读取写1的结果而看不到写2。](https://docs.mongodb.com/manual/reference/read-concern-local/#readconcern."local"%29可以读取写1的结果而看不到写2。)
+但是，当事务写入多个分片时，并非所有外部读取操作都需要等待已提交事务的结果在所有分片上可见。例如，如果提交了一个事务，并且在分片A上可以看到写1，但是在分片B上仍然看不到写2，在外部读取时设置读关注为[`"local"`](https://docs.mongodb.com/v4.2/reference/read-concern-local/#readconcern."local")，则可以读取写1的结果而看不到写2的结果。
 
 For details, see:
 
