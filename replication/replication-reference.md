@@ -85,3 +85,9 @@ On this page
 - [副本集成员状态](https://docs.mongodb.com/v4.2/reference/replica-states/)
 
   副本集成员状态的参考。
+  
+  原文链接：https://docs.mongodb.com/v4.2/reference/replication/
+  
+  译者：桂陈
+  
+  
