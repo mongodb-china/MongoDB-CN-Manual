@@ -92,5 +92,5 @@ MongoDB是专为可扩展性，高性能和高可用性而设计的数据库。�
 | MongoDB中文社区大咖博客 | [基础知识](https://mongoing.com/basic-knowledge)  [性能优化](https://mongoing.com/performance-optimization)  [原理解读](https://mongoing.com/interpretation-of-principles)  [运维监控](https://mongoing.com/operation-and-maintenance-monitoring)  [最佳实践](https://mongoing.com/best-practices) |
 | MongoDB白皮书 | [https://mongoing.com/mongodb-download-white-paper](https://mongoing.com/mongodb-download-white-paper) |
 | MongoDB初学者教程-7天入门 | [https://mongoing.com/mongodb-beginner-tutorial](https://mongoing.com/mongodb-beginner-tutorial) |
-| 社区活动通知邮件订阅 | [https://sourl.cn/spszjN](https://sourl.cn/spszjN) |
+| 社区活动通知邮件订阅 | [http://mongoingmongoing.mikecrm.com/tlAwSHM](http://mongoingmongoing.mikecrm.com/tlAwSHM) |
 
