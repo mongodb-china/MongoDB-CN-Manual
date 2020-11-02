@@ -128,7 +128,7 @@
   
   原文链接：https://docs.mongodb.com/manual/core/sharded-cluster-components/
   
-  译者：徐雷
+  译者：桂陈
   
   
   
