@@ -30,11 +30,11 @@ There are two methods for addressing system growth: vertical and horizontal scal
 
 _Vertical Scaling_ involves increasing the capacity of a single server, such as using a more powerful CPU, adding more RAM, or increasing the amount of storage space. Limitations in available technology may restrict a single machine from being sufficiently powerful for a given workload. Additionally, Cloud-based providers have hard ceilings based on available hardware configurations. As a result, there is a practical maximum for vertical scaling.
 
-*垂直扩展* 通过增加单个服务器的能力来实现，例如使用更强大的CPU，增加更多的内存或存储空间量。由于现有技术的局限性，不能无限制地增加单个机器的配置。此外，云计算供应商提供可用的硬件配置具有严格的上限。其结果是，垂直扩展有一个实际的最大值。
+_垂直扩展_ 通过增加单个服务器的能力来实现，例如使用更强大的CPU，增加更多的内存或存储空间量。由于现有技术的局限性，不能无限制地增加单个机器的配置。此外，云计算供应商提供可用的硬件配置具有严格的上限。其结果是，垂直扩展有一个实际的最大值。
 
 _Horizontal Scaling_ involves dividing the system dataset and load over multiple servers, adding additional servers to increase capacity as required. While the overall speed or capacity of a single machine may not be high, each machine handles a subset of the overall workload, potentially providing better efficiency than a single high-speed high-capacity server. Expanding the capacity of the deployment only requires adding additional servers as needed, which can be a lower overall cost than high-end hardware for a single machine. The trade off is increased complexity in infrastructure and maintenance for the deployment.
 
-*水平扩展*是通过将系统数据集划分至多台机器，并根据需要添加服务器来提升容量。虽然单个机器的总体速度或容量可能不高，但每台机器只需处理整个数据集的某个子集，所以可能会提供比单个高速大容量服务器更高的效率，而且机器的数量只需要根据数据集大小来进行扩展，与单个机器的高端硬件相比，这个方案可以降低总体成本。不过，这种方式会提高基础设施部署维护的复杂性。
+_水平扩展_是通过将系统数据集划分至多台机器，并根据需要添加服务器来提升容量。虽然单个机器的总体速度或容量可能不高，但每台机器只需处理整个数据集的某个子集，所以可能会提供比单个高速大容量服务器更高的效率，而且机器的数量只需要根据数据集大小来进行扩展，与单个机器的高端硬件相比，这个方案可以降低总体成本。不过，这种方式会提高基础设施部署维护的复杂性。
 
 MongoDB supports _horizontal scaling_ through [sharding](https://docs.mongodb.com/manual/reference/glossary/#term-sharding).
 
@@ -340,9 +340,9 @@ Until a transaction commits, the data changes made in the transaction are not vi
 
 在提交事务之前，在事务外部看不到在事务中进行的数据变更。
 
-However, when a transaction writes to multiple shards, not all outside read operations need to wait for the result of the committed transaction to be visible across the shards. For example, if a transaction is committed and write 1 is visible on shard A but write 2 is not yet visible on shard B, an outside read at read concern \[`"local"`\]\([https://docs.mongodb.com/manual/reference/read-concern-local/\#readconcern."local](https://docs.mongodb.com/manual/reference/read-concern-local/#readconcern."local)"\) can read the results of write 1 without seeing write 2.
+However, when a transaction writes to multiple shards, not all outside read operations need to wait for the result of the committed transaction to be visible across the shards. For example, if a transaction is committed and write 1 is visible on shard A but write 2 is not yet visible on shard B, an outside read at read concern \[`"local"`\]\(\[[https://docs.mongodb.com/manual/reference/read-concern-local/\#readconcern."local\]\(https://docs.mongodb.com/manual/reference/read-concern-local/\#readconcern."local\)"\](https://docs.mongodb.com/manual/reference/read-concern-local/#readconcern."local]%28https://docs.mongodb.com/manual/reference/read-concern-local/#readconcern."local%29"\)\) can read the results of write 1 without seeing write 2.
 
-但是，当事务写入多个分片时，并非所有外部读取操作都需要等待已提交事务的结果在所有分片上可见。例如，如果提交了一个事务，并且在分片A上可以看到写1，但是在分片B上仍然看不到写2，在外部读取时设置读关注为[`"local"`](https://docs.mongodb.com/v4.2/reference/read-concern-local/#readconcern."local")，则可以读取写1的结果而看不到写2的结果。
+但是，当事务写入多个分片时，并非所有外部读取操作都需要等待已提交事务的结果在所有分片上可见。例如，如果提交了一个事务，并且在分片A上可以看到写1，但是在分片B上仍然看不到写2，在外部读取时设置读关注为\[`"local"`\]\([https://docs.mongodb.com/v4.2/reference/read-concern-local/\#readconcern."local"\)，则可以读取写1的结果而看不到写2的结果。](https://docs.mongodb.com/v4.2/reference/read-concern-local/#readconcern."local"%29，则可以读取写1的结果而看不到写2的结果。)
 
 For details, see:
 
