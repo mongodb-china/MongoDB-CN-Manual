@@ -84,7 +84,7 @@
 | 11.10 [Replica Set Maintenance Tutorials一共9篇](https://docs.mongodb.com/v4.2/administration/replica-set-maintenance/) |  桂陈   |        | 1/9，第1篇已完成 |
 | 11.11 [Replication Reference一共5篇](https://docs.mongodb.com/v4.2/reference/replication/) |  桂陈   |        | 1/5，第1篇已完成 |
 | 12.1 ~[Sharding](https://docs.mongodb.com/v4.2/sharding/)~     | 桂陈，小芒果  |        |  100%  |
-| 12.2 [Sharded Cluster Components及下方3篇](https://docs.mongodb.com/v4.2/core/sharded-cluster-components/) |          |        |      |
+| 12.2 [Sharded Cluster Components及下方3篇](https://docs.mongodb.com/v4.2/core/sharded-cluster-components/) |   桂陈  |        |  1/4，第1篇已完成 |
 | 12.6 [Deploy a Sharded Cluster](https://docs.mongodb.com/v4.2/tutorial/deploy-shard-cluster/) |          |        |      |
 | 12.7 [Zones](https://docs.mongodb.com/v4.2/core/zone-sharding/) | 桂陈 |        |      |
 | 12.7 [Manage Shard Zones](https://docs.mongodb.com/v4.2/tutorial/manage-shard-zone/) |          |        |      |
