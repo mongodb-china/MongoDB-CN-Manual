@@ -77,3 +77,10 @@ The following tutorials provide information in maintaining existing replica sets
   Specify the member that a secondary member synchronizes from.
 
   指定从节点要从哪个成员上同步数据。
+  
+  原文链接：https://docs.mongodb.com/v4.2/administration/replica-set-maintenance/
+  
+  译者：桂陈
+  
+  
+  
