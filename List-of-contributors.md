@@ -107,7 +107,7 @@
 | 11.9 MongoDB成员配置教程     | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
 | 11.10 MongoDB副本集维护教程 | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
 | 11.11 MongoDB复制参考                 | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
-| 12.1 MongoDB分片                                   | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
+| 12.1 MongoDB分片                                   | 桂陈，小芒果 | 100% |
 | 12.2 MongoDB分片集群组件         | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
 | 12.3 MongoDB分片键                               | 刘翔 | 100% |
 | 12.4 MongoDB哈希分片                        | 刘翔 | 100% |
