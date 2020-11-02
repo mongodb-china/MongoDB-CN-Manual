@@ -38,7 +38,7 @@ _Horizontal Scaling_ involves dividing the system dataset and load over multiple
 
 MongoDB supports _horizontal scaling_ through [sharding](https://docs.mongodb.com/manual/reference/glossary/#term-sharding).
 
-MongoDB通过[分片](https://docs.mongodb.com/manual/reference/glossary/#term-sharding)来实现_水平扩展_。
+MongoDB通过[分片](https://docs.mongodb.com/manual/reference/glossary/#term-sharding)来实现水平扩展。
 
 ## Sharded Cluster 分片集群
 
@@ -50,13 +50,13 @@ A MongoDB [sharded cluster](https://docs.mongodb.com/manual/reference/glossary/#
 
 The following graphic describes the interaction of components within a sharded cluster:
 
-MongoDB分片[集群](https://docs.mongodb.com/manual/reference/glossary/#term-sharded-cluster)由以下组件组成：
+MongoDB分片[集群](https://docs.mongodb.com/manual/reference/glossary/#term-sharded-cluster)包括以下组件：
 
-* [分片](https://docs.mongodb.com/manual/core/sharded-cluster-shards/)：每个分片包含分片数据的子集。每个分片都可以部署为[副本集](https://docs.mongodb.com/manual/reference/glossary/#term-replica-set)。
-* [mongos](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/)：`mongos`充当查询路由器，在客户端应用程序和分片群集之间提供接口。从MongoDB 4.4开始，`mongos`可以支持 [对冲读取（hedged reads）](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/#mongos-hedged-reads)以最大程度地减少延迟。
-* [config服务器](https://docs.mongodb.com/manual/core/sharded-cluster-config-servers/)：配置服务器存储集群的元数据和配置设置。
+* [分片](https://docs.mongodb.com/manual/core/sharded-cluster-shards/)：每个shard（分片）包含被分片的数据集中的一个子集。每个分片可以被部署为[副本集](https://docs.mongodb.com/manual/reference/glossary/#term-replica-set)架构。
+* [mongos](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/)：`mongos`充当查询路由器，在客户端应用程序和分片集群之间提供接口。从MongoDB 4.4开始，`mongos`可以支持 [对冲读取（hedged reads）](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/#mongos-hedged-reads)以最大程度地减少延迟。
+* [config服务器](https://docs.mongodb.com/manual/core/sharded-cluster-config-servers/)：config servers存储了分片集群的元数据和配置信息。
 
-下图描述了分片群集中组件的交互：
+下图描述了分片集群中各组件的交互：
 
 ![Diagram of a sample sharded cluster for production purposes. Contains exactly 3 config servers, 2 or more \`\`mongos\`\` query routers, and at least 2 shards. The shards are replica sets.](https://docs.mongodb.com/manual/_images/sharded-cluster-production-architecture.bakedsvg.svg)
 
@@ -71,7 +71,7 @@ MongoDB uses the [shard key](https://docs.mongodb.com/manual/core/sharding-shard
 * Starting in version 4.4, documents in sharded collections can be missing the shard key fields. Missing shard key fields are treated as having null values when distributing the documents across shards but not when routing queries. For more information, see [Missing Shard Key](https://docs.mongodb.com/manual/core/sharding-shard-key/#shard-key-missing).
 * In version 4.2 and earlier, shard key fields must exist in every document for a sharded collection.
 
-MongoDB使用分片[键](https://docs.mongodb.com/manual/core/sharding-shard-key/)在各个分片之间分发集合的文档。分片键由文档中的一个或多个字段组成。
+MongoDB使用分片[键](https://docs.mongodb.com/manual/core/sharding-shard-key/)在各个分片之间分发集合中的文档。分片键由文档中的一个或多个字段组成。
 
 * 从版本4.4开始，分片集合中的文档可能缺少分片键字段。在跨分片分布文档时，缺少分片键字段将被视为具有空值，但在路由查询时则不会。有关更多信息，请参见 [分片键缺失](https://docs.mongodb.com/manual/core/sharding-shard-key/#shard-key-missing)。
 * 在4.2及更早版本中，分片键字段必须在每个文档中存在一个分片集合。
@@ -118,19 +118,19 @@ MongoDB partitions sharded data into [chunks](https://docs.mongodb.com/manual/re
 
 MongoDB将分片数据拆分成[块](https://docs.mongodb.com/manual/reference/glossary/#term-chunk)。每个分块都有一个基于分片[键的](https://docs.mongodb.com/manual/reference/glossary/#term-shard-key)上下限范围 。
 
-## Balancer and Even Chunk Distribution 均衡器和均匀块分配
+## Balancer and Even Chunk Distribution 均衡器和均匀分配
 
 In an attempt to achieve an even distribution of chunks across all shards in the cluster, a [balancer](https://docs.mongodb.com/manual/core/sharding-balancer-administration/) runs in the background to migrate [chunks](https://docs.mongodb.com/manual/reference/glossary/#term-chunk) across the [shards](https://docs.mongodb.com/manual/reference/glossary/#term-shard) .
 
 See [Data Partitioning with Chunks](https://docs.mongodb.com/manual/core/sharding-data-partitioning/) for more information.
 
-为了在整个集群中的所有分片上实现块的均匀分布，[平衡器](https://docs.mongodb.com/manual/core/sharding-balancer-administration/)在后台运行，以在各分[片](https://docs.mongodb.com/manual/reference/glossary/#term-shard)上迁移[块](https://docs.mongodb.com/manual/reference/glossary/#term-chunk)。
+[均衡器](https://docs.mongodb.com/manual/core/sharding-balancer-administration/)通过在后台迁移各个[分片](https://docs.mongodb.com/manual/reference/glossary/#term-shard)上的[块](https://docs.mongodb.com/manual/reference/glossary/#term-chunk)，来实现集群的所有分片中块的均匀分布。
 
 有关更多信息，请参见[使用块](https://docs.mongodb.com/manual/core/sharding-data-partitioning/)进行[数据分区](https://docs.mongodb.com/manual/core/sharding-data-partitioning/)。
 
 ## Advantages of Sharding 分片的优势
 
-### Reads / Writes 读/写
+### Reads / Writes 读写负载
 
 MongoDB distributes the read and write workload across the [shards](https://docs.mongodb.com/manual/reference/glossary/#term-shard) in the [sharded cluster](https://docs.mongodb.com/manual/reference/glossary/#term-sharded-cluster), allowing each shard to process a subset of cluster operations. Both read and write workloads can be scaled horizontally across the cluster by adding more shards.
 
@@ -138,7 +138,7 @@ MongoDB将读写工作负载分布在分[片](https://docs.mongodb.com/manual/re
 
 For queries that include the shard key or the prefix of a [compound](https://docs.mongodb.com/manual/reference/glossary/#term-compound-index) shard key, [`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos) can target the query at a specific shard or set of shards. These [targeted operations](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/#sharding-mongos-targeted) are generally more efficient than [broadcasting](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/#sharding-mongos-broadcast) to every shard in the cluster.
 
-对于包含分片键或[复合分片](https://docs.mongodb.com/manual/reference/glossary/#term-compound-index)键的前缀的查询，[`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos)可以将查询定位到特定的分片或一组分片。这些[目标操作](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/#sharding-mongos-targeted)通常比[广播](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/#sharding-mongos-broadcast)到群集中的每个分片更有效 。
+对于包含分片键或[复合分片](https://docs.mongodb.com/manual/reference/glossary/#term-compound-index)键的前缀的查询，[`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos)可以将查询定位到特定的分片或一组分片。这些[目标操作](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/#sharding-mongos-targeted)通常比[广播](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/#sharding-mongos-broadcast)到集群中的每个分片更有效。
 
 Starting in MongoDB 4.4, [`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos) can support [hedged reads](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/#mongos-hedged-reads) to minimize latencies.
 
@@ -148,7 +148,7 @@ Starting in MongoDB 4.4, [`mongos`](https://docs.mongodb.com/manual/reference/pr
 
 [Sharding](https://docs.mongodb.com/manual/reference/glossary/#term-sharding) distributes data across the [shards](https://docs.mongodb.com/manual/reference/glossary/#term-shard) in the cluster, allowing each shard to contain a subset of the total cluster data. As the data set grows, additional shards increase the storage capacity of the cluster.
 
-[分片](https://docs.mongodb.com/manual/reference/glossary/#term-sharding)横跨分发数据[碎片](https://docs.mongodb.com/manual/reference/glossary/#term-shard)在集群中，允许每个碎片以包含总簇数据的子集。随着数据集的增长，其他分片将增加群集的存储容量。
+通过[分片技术](https://docs.mongodb.com/manual/reference/glossary/#term-sharding)将数据分布到分片集群中的各个[分片](https://docs.mongodb.com/manual/reference/glossary/#term-shard)中，每个分片只需存储数据集中的部分子集。随着数据集的增长， 通过增加分片的数量即可增加整个集群的存储容量。
 
 ### High Availability 高可用性
 
@@ -158,7 +158,7 @@ The deployment of config servers and shards as replica sets provide increased av
 
 Even if one or more shard replica sets become completely unavailable, the sharded cluster can continue to perform partial reads and writes. That is, while data on the unavailable shard\(s\) cannot be accessed, reads or writes directed at the available shards can still succeed.
 
-即使一个或多个分片副本集变得完全不可用，分片群集也可以继续执行部分读取和写入。也就是说，虽然无法访问不可用分片上的数据，但是针对可用分片的读取或写入仍然可以成功。
+即使一个或多个分片副本集变得完全不可用，分片群集也可以继续提供部分的读取或写入服务。也就是说，虽然停机期间无法访问不可用分片中的数据子集，但是针对可用分片执行读取或写入操作仍然可以成功。
 
 ## Considerations Before Sharding 分片前的注意事项
 
