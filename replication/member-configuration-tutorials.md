@@ -59,3 +59,9 @@ Avoid reconfiguring replica sets that contain members of different MongoDB versi
 - [将从节点转换为仲裁节点](https://docs.mongodb.com/v4.2/tutorial/convert-secondary-into-arbiter/)
 
   将一个从节点转换为仲裁节点。
+  
+  原文链接：https://docs.mongodb.com/v4.2/administration/replica-set-member-configuration/
+  
+  译者：桂陈
+  
+  
