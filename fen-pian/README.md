@@ -164,7 +164,7 @@ Even if one or more shard replica sets become completely unavailable, the sharde
 
 Sharded cluster infrastructure requirements and complexity require careful planning, execution, and maintenance.
 
-分片群集基础结构的要求和复杂性要求仔细计划，执行和维护。
+鉴于分片集群基础架构的要求和复杂性，您需要仔细地制定计划、执行和维护。
 
 Once a collection has been sharded, MongoDB provides no method to unshard a sharded collection.
 
@@ -172,15 +172,15 @@ Once a collection has been sharded, MongoDB provides no method to unshard a shar
 
 Careful consideration in choosing the shard key is necessary for ensuring cluster performance and efficiency. See [Choosing a Shard Key](https://docs.mongodb.com/manual/core/sharding-shard-key/#sharding-shard-key-selection).
 
-为了确保群集的性能和效率，在选择分片键时需要仔细考虑。请参阅 [选择分片键](https://docs.mongodb.com/manual/core/sharding-shard-key/#sharding-shard-key-selection)。
+为了确保集群的性能和效率，在选择分片键时需要仔细考虑。请参阅 [选择分片键](https://docs.mongodb.com/manual/core/sharding-shard-key/#sharding-shard-key-selection)。
 
 Sharding has certain [operational requirements and restrictions](https://docs.mongodb.com/manual/core/sharded-cluster-requirements/#sharding-operational-restrictions). See [Operational Restrictions in Sharded Clusters](https://docs.mongodb.com/manual/core/sharded-cluster-requirements/) for more information.
 
-分片有一定的[操作要求和限制](https://docs.mongodb.com/manual/core/sharded-cluster-requirements/#sharding-operational-restrictions)。有关更多信息，请参见 [分片群集中的操作限制](https://docs.mongodb.com/manual/core/sharded-cluster-requirements/)。
+分片有一定的[操作要求和限制](https://docs.mongodb.com/manual/core/sharded-cluster-requirements/#sharding-operational-restrictions)。有关更多信息，请参见 [分片集群中的操作限制](https://docs.mongodb.com/manual/core/sharded-cluster-requirements/)。
 
 If queries do _not_ include the shard key or the prefix of a [compound](https://docs.mongodb.com/manual/reference/glossary/#term-compound-index) shard key, [`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos) performs a [broadcast operation](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/#sharding-mongos-broadcast), querying _all_ shards in the sharded cluster. These scatter/gather queries can be long running operations.
 
-如果查询_不_包含分片键或[复合分片](https://docs.mongodb.com/manual/reference/glossary/#term-compound-index)键的前缀 ，请[`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos)执行[广播操作](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/#sharding-mongos-broadcast)，查询分 片群集中的_所有分_片。这些分散/聚集查询可能是长时间运行的操作。
+如果查询条件中没有包含拆分键或[复合](https://docs.mongodb.com/manual/reference/glossary/#term-compound-index)拆分键的前缀，[`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos)节点将执行[广播操作](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/#sharding-mongos-broadcast)，即查询分片集群中的所有分片。这些分散/聚集查询可能会变成长耗时的操作。
 
 NOTE
 
@@ -188,33 +188,33 @@ If you have an active support contract with MongoDB, consider contacting your ac
 
 > 注意
 >
-> 如果您与MongoDB签订了有效的支持合同，请考虑与您的客户代表联系，以获取分片群集计划和部署方面的帮助。
+> 如果您与MongoDB签订了有效的支持合同，请考虑与您的客户代表联系，以获取分片集群计划和部署方面的帮助。
 
-## Sharded and Non-Sharded Collections 分片和非分片集合
+## Sharded and Non-Sharded Collections 分片和未分片集合
 
 A database can have a mixture of sharded and unsharded collections. Sharded collections are [partitioned](https://docs.mongodb.com/manual/reference/glossary/#term-data-partition) and distributed across the [shards](https://docs.mongodb.com/manual/reference/glossary/#term-shard) in the cluster. Unsharded collections are stored on a [primary shard](https://docs.mongodb.com/manual/reference/glossary/#term-primary-shard). Each database has its own primary shard.
 
-数据库可以包含分片和未分片集合的混合。分片集合在群集中的分[片](https://docs.mongodb.com/manual/reference/glossary/#term-shard)上[分区](https://docs.mongodb.com/manual/reference/glossary/#term-data-partition)和分布 。未分片的集合存储在[主分片上](https://docs.mongodb.com/manual/reference/glossary/#term-primary-shard)。每个数据库都有其自己的主分片。
+数据库可以混合使用分片和未分片集合。分片集合被[分区](https://docs.mongodb.com/manual/reference/glossary/#term-data-partition)并分布在集群中的各个[分片](https://docs.mongodb.com/manual/reference/glossary/#term-shard)中。而未分片集合仅存储在[主分片](https://docs.mongodb.com/manual/reference/glossary/#term-primary-shard)中。每个数据库都有自己的主分片。
 
 ![Diagram of a primary shard. A primary shard contains non-sharded collections as well as chunks of documents from sharded collections. Shard A is the primary shard.](https://docs.mongodb.com/manual/_images/sharded-cluster-primary-shard.bakedsvg.svg)
 
-## Connecting to a Sharded Cluster 连接到分片群集
+## Connecting to a Sharded Cluster 连接到分片集群
 
 You must connect to a [mongos](https://docs.mongodb.com/manual/reference/glossary/#term-mongos) router to interact with any collection in the [sharded cluster](https://docs.mongodb.com/manual/reference/glossary/#term-sharded-cluster). This includes sharded _and_ unsharded collections. Clients should _never_ connect to a single shard in order to perform read or write operations.
 
-您必须连接到[mongos](https://docs.mongodb.com/manual/reference/glossary/#term-mongos)路由器才能与分片[群集中的](https://docs.mongodb.com/manual/reference/glossary/#term-sharded-cluster)任何集合进行交互。这包括分片_和_未分片的集合。客户端_永远不要_连接到单个分片以执行读取或写入操作。
+您必须连接到[mongos](https://docs.mongodb.com/manual/reference/glossary/#term-mongos)路由器才能与分片[集群中的](https://docs.mongodb.com/manual/reference/glossary/#term-sharded-cluster)任何集合进行交互。这包括分片_和_未分片的集合。客户端永远不要直接连到单个分片来执行读或写操作。
 
 ![Diagram of applications/drivers issuing queries to mongos for unsharded collection as well as sharded collection. Config servers not shown.](https://docs.mongodb.com/manual/_images/sharded-cluster-mixed.bakedsvg.svg)
 
 You can connect to a [`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos) the same way you connect to a [`mongod`](https://docs.mongodb.com/manual/reference/program/mongod/#bin.mongod), such as via the [`mongo`](https://docs.mongodb.com/manual/reference/program/mongo/#bin.mongo) shell or a MongoDB [driver](https://docs.mongodb.com/ecosystem/drivers?jump=docs).
 
-您可以通过与[`mongod`](https://docs.mongodb.com/manual/reference/program/mongod/#bin.mongod)相同的方式连接[`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos) ，例如通过[`mongo`](https://docs.mongodb.com/manual/reference/program/mongo/#bin.mongo) shell 或MongoDB [驱动程序](https://docs.mongodb.com/ecosystem/drivers?jump=docs)。
+您可以像连接[`mongod`](https://docs.mongodb.com/manual/reference/program/mongod/#bin.mongod)一样来连接[`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos)，例如通过[`mongo`](https://docs.mongodb.com/manual/reference/program/mongo/#bin.mongo) shell或MongoDB[驱动程序](https://docs.mongodb.com/ecosystem/drivers?jump=docs)。
 
 ## Sharding Strategy 分片策略
 
 MongoDB supports two sharding strategies for distributing data across [sharded clusters](https://docs.mongodb.com/manual/reference/glossary/#term-sharded-cluster).
 
-MongoDB支持两种分片策略，用于在分片[群集](https://docs.mongodb.com/manual/reference/glossary/#term-sharded-cluster)之间分布数据。
+MongoDB支持如下两种分片策略来实现[分片集群](https://docs.mongodb.com/manual/reference/glossary/#term-sharded-cluster)中的分布数据。
 
 ### Hashed Sharding 哈希分片
 
@@ -226,7 +226,7 @@ TIP 提示
 
 MongoDB automatically computes the hashes when resolving queries using hashed indexes. Applications do **not** need to compute hashes.
 
-使用哈希索引解析查询时，MongoDB自动计算哈希值。应用程序也**不会**需要计算哈希值。
+使用哈希索引解析查询时，MongoDB会自动计算哈希值，**不需要**应用程序来计算。
 
 ![Diagram of the hashed based segmentation.](https://docs.mongodb.com/manual/_images/sharding-hash-based.bakedsvg.svg)
 
