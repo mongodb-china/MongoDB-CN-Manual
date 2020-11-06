@@ -1,3 +1,7 @@
+# MongoDB日志记录
+
+Storage > Journaling
+
 ## 日志记录
 
 在本页面
