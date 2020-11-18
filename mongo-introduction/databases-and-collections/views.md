@@ -77,7 +77,7 @@ _3.4 版本新功能_
 
 ### 视图创建
 
-* 视图是在读操邹期间根据需要实时计算的, 同时 MongoDB 基于视图的读操作是底层聚合管道 \(aggregation pipeline\) 的一部分. 因此, 视图不支持一下操作:
+* 视图是在读操作期间根据需要实时计算的, 同时 MongoDB 基于视图的读操作是底层聚合管道 \(aggregation pipeline\) 的一部分. 因此, 视图不支持一下操作:
   * [`db.collection.mapReduce()`](https://docs.mongodb.com/manual/reference/method/db.collection.mapReduce/#db.collection.mapReduce),
   * [`$text`](https://docs.mongodb.com/manual/reference/operator/query/text/#op._S_text) 操作, 因为 `$text` 只在聚合的第一阶段有效,
   * [`geoNear`](https://docs.mongodb.com/manual/reference/command/geoNear/#dbcmd.geoNear) 命令和 [`$geoNear`](https://docs.mongodb.com/manual/reference/operator/aggregation/geoNear/#pipe._S_geoNear)
