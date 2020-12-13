@@ -41,10 +41,10 @@
 | 7.2 [Drivers API](https://docs.mongodb.com/manual/core/transactions-in-applications/) |          |        |      |
 | 7.3 [Production Considerations](https://docs.mongodb.com/manual/core/transactions-production-consideration/) |          |        |      |
 | 7.4 ~[Production Considerations (Sharded Clusters)](https://docs.mongodb.com/v4.2/core/transactions-sharded-clusters/)~ | 王金铷 |        | 100% |
-| 9.4 [Users及下方1篇](https://docs.mongodb.com/manual/core/security-users/) |          |        |      |
-| 9.4 [Authentication Mechanisms及下方3篇](https://docs.mongodb.com/manual/core/authentication-mechanisms/) |          |        |      |
-| 9.4 [Enterprise Authentication Mechanisms及下方10篇](https://docs.mongodb.com/manual/core/authentication-mechanisms-enterprise/) |          |        |      |
-| 9.4 [Internal/Membership Authentication及下方11篇](https://docs.mongodb.com/manual/core/security-internal-authentication/) |          |        |      |
+| 9.4 [Users及下方1篇](https://docs.mongodb.com/manual/core/security-users/) |  管祥青   |        |      |
+| 9.4 [Authentication Mechanisms及下方3篇](https://docs.mongodb.com/manual/core/authentication-mechanisms/) |  管祥青  |        |      |
+| 9.4 [Enterprise Authentication Mechanisms及下方10篇](https://docs.mongodb.com/manual/core/authentication-mechanisms-enterprise/) |   管祥青   |        |      |
+| 9.4 [Internal/Membership Authentication及下方11篇](https://docs.mongodb.com/manual/core/security-internal-authentication/) |   管祥青   |        |      |
 | 9.5 [Role-Based Access Control](https://docs.mongodb.com/manual/core/authorization/) |  |        |      |
 | 9.5 [Built-In Roles](https://docs.mongodb.com/manual/reference/built-in-roles/) |          |        |      |
 | 9.5 [User-Defined Roles](https://docs.mongodb.com/manual/core/security-user-defined-roles/) |          |        |      |
