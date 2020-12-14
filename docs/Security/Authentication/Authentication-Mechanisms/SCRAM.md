@@ -102,5 +102,5 @@ The minimum driver versions that support `SCRAM` are:
 - [博客文章:MongoDB 3.0改进的基于密码的身份验证:SCRAM解释(Part 2)](https://www.mongodb.com/blog/post/improved-password-based-authentication-mongodb-30-scram-explained-part-2?tck=docs_server)
 
 
-
+英文原文地址：https://docs.mongodb.com/v4.2/core/security-scram/
 译者：管祥青

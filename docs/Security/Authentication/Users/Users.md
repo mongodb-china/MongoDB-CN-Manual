@@ -1,4 +1,3 @@
-参考网址：https://docs.mongodb.com/v4.2/core/security-users/
 
 # Users （用户）
 
@@ -150,6 +149,6 @@ In the case of a sharded cluster, the localhost exception applies to each shard 
 - 在启动时禁用localhost异常。要禁用本地异常，请将 [`enableLocalhostAuthBypass`](https://docs.mongodb.com/v4.2/reference/parameters/#param.enableLocalhostAuthBypass) 参数设置为`0`。
 
 
-
+英文原文地址：https://docs.mongodb.com/v4.2/core/security-users/
 译者：管祥青
 

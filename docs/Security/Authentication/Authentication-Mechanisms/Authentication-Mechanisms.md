@@ -47,6 +47,6 @@ Clients specify the authentication mechanism in the [`db.auth()`](https://docs.m
 客户端在 [`db.auth()`](https://docs.mongodb.com/v4.2/reference/method/db.auth/#db.auth) 方法中指定身份验证机制。对于 [`mongo`](https://docs.mongodb.com/v4.2/reference/program/mongo/#bin.mongo) 命令和MongoDB工具，还可以从命令行指定身份验证机制。
 
 
-
+英文原文地址：https://docs.mongodb.com/v4.2/core/authentication-mechanisms/
 译者：管祥青
 

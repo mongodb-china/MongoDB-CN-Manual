@@ -260,6 +260,6 @@ db.createUser(
 [使用客户端x.509证书认证](https://docs.mongodb.com/v4.2/tutorial/configure-x509-client-authentication/) 提供了关于为MongoDB部署设置x.509客户端证书认证的详细信息。
 
 
-
+英文原文：https://docs.mongodb.com/v4.2/tutorial/create-users/
 译者：管祥青
 
