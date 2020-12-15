@@ -217,7 +217,7 @@ Zones区域可以改善跨多个数据中心的分片集群的数据局部性。
 
 在提交事务之前，在事务外部看不到在事务中进行的数据变更。
 
-但是，当事务写入多个分片时，并非所有外部读取操作都需要等待已提交事务的结果在所有分片上可见。例如，如果提交了一个事务，并且在分片A上可以看到写1，但是在分片B上仍然看不到写2，在外部读取时设置读关注为\[`"local"`\]\([https://docs.mongodb.com/v4.2/reference/read-concern-local/\#readconcern."local"\)，则可以读取写1的结果而看不到写2的结果。](https://docs.mongodb.com/v4.2/reference/read-concern-local/#readconcern."local"%29，则可以读取写1的结果而看不到写2的结果。)
+但是，当事务写入多个分片时，并非所有外部读取操作都需要等待已提交事务的结果在所有分片上可见。例如，如果提交了一个事务，并且在分片A上可以看到写1，但是在分片B上仍然看不到写2，在外部读取时设置读关注为\[`"local"`\]\(https://docs.mongodb.com/v4.2/reference/read-concern-local/\#readconcern."local"\)，则可以读取写1的结果而看不到写2的结果。
 
 
 有关详细信息，请参见：
