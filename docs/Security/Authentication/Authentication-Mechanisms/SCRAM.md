@@ -103,4 +103,5 @@ The minimum driver versions that support `SCRAM` are:
 
 
 英文原文地址：https://docs.mongodb.com/v4.2/core/security-scram/
+
 译者：管祥青
