@@ -1,6 +1,5 @@
 # MongoDB监控
 
-MongoDB Manual (Version 4.2）> Administration > Monitoring for MongoDB
 
 在本页面
 
