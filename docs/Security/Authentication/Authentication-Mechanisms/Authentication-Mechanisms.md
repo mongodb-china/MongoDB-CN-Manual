@@ -48,5 +48,6 @@ Clients specify the authentication mechanism in the [`db.auth()`](https://docs.m
 
 
 英文原文地址：https://docs.mongodb.com/v4.2/core/authentication-mechanisms/
+
 译者：管祥青
 
