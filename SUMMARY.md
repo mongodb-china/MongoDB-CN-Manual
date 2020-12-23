@@ -156,7 +156,7 @@
   * [安全检查列表](security/security-checklist.md)
   * [启用访问控制](security/enable-access-control.md)
   * [身份验证](security/authentication.md)
-    * [用户](Security/Authentication/Users/Users.md)
+    * [用户](security/authentication/users/users.md)
       * [添加用户](Security/Authentication/Users/Add-Users.md)
      * [权限认证机制](Security/Authentication/Authentication-Mechanisms/Authentication-Mechanisms.md)
        * [SCRAM](Security/Authentication/Authentication-Mechanisms/SCRAM.md)
