@@ -1,4 +1,4 @@
-# Add Users（添加用户）
+# Add Users 添加用户
 
 On this page
 
@@ -261,5 +261,6 @@ db.createUser(
 
 
 英文原文：https://docs.mongodb.com/v4.2/tutorial/create-users/
+
 译者：管祥青
 
