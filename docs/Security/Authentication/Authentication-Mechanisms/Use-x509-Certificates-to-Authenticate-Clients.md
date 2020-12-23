@@ -396,5 +396,6 @@ mongo --ssl --sslPEMKeyFile <path to CA signed client PEM file> --sslCAFile <pat
 
 
 英文原文地址：https://docs.mongodb.com/v4.2/tutorial/configure-x509-client-authentication/
+
 译者：管祥青
 
