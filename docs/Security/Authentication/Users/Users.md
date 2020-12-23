@@ -1,5 +1,5 @@
 
-# Users （用户）
+# Users 用户
 
 On this page
 
@@ -150,5 +150,6 @@ In the case of a sharded cluster, the localhost exception applies to each shard 
 
 
 英文原文地址：https://docs.mongodb.com/v4.2/core/security-users/
+
 译者：管祥青
 
