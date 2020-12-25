@@ -313,7 +313,7 @@ rs.status()
 
 
 
-### 过期的锁
+### 耗时长的锁
 
 要检查数据库的锁定状态，请使用[`mongo`](https://docs.mongodb.com/manual/reference/program/mongo/#bin.mongo) shell 连接到[`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos) 实例。发出以下命令序列以切换到 `config` 数据库并显示分片数据库上的所有未完成锁：
 
