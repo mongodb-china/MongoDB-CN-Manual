@@ -62,7 +62,7 @@ db.myNewCollection3.createIndex( { y: 1 } )
 
 
 
-### 显示创建
+### 显式创建
 
 MongoDB提供了[`db.createCollection()`](https://docs.mongodb.com/v4.2/reference/method/db.createCollection/#db.createCollection)使用各种选项显式创建集合的方法，例如设置最大大小或文档验证规则。如果未指定这些选项，则无需显式创建集合，因为在首次存储集合数据时，MongoDB会创建新集合。
 
