@@ -82,7 +82,7 @@
 | 9.1 MongoDB安全                                    | 傅立 | 100% |
 | 9.2 MongoDB安全检查列表                  | 傅立 | 100% |
 | 9.3 MongoDB启用访问控制               | 傅立 | 100% |
-| 9.4 MongoDB身份验证                          | 傅立 | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |
+| 9.4 MongoDB身份验证                          | 傅立，管祥青 | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |
 | 9.5 MongoDB基于角色的访问控制     | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
 | 9.6 MongoDBTLS / SSL（传输加密） | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
 | 9.7 MongoDB静态加密                      | [加入翻译](https://github.com/mongodb-china/MongoDB-CN-Manual/blob/master/Document-translation-claim-list.md) |      |
