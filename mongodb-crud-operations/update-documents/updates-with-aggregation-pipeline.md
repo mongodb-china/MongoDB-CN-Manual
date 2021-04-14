@@ -108,7 +108,7 @@ db.students3.find()
            { }, 
            [
                { $set: { average : { $trunc: [ { $avg: "$tests" }, 0 ] }, modified: "$$NOW" } },  
-               { $set: { grade: { $switch:                      
+               { $set: { grade: { $switch: {                     
                                branches: [                     
                                            { case: { $gte: [ "$average", 90 ] }, then: "A" },     
                                            { case: { $gte: [ "$average", 80 ] }, then: "B" },  
