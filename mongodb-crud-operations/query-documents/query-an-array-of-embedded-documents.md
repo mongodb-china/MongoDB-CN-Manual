@@ -76,7 +76,7 @@ db.inventory.find( { "instock": { $elemMatch: { qty: { $gt: 10, $lte: 20 } } } }
 
 ### 元素组合满足标准
 
-如果数组字段上的复合查询条件未使用\[$ [`$elemMatch`](https://docs.mongodb.com/master/reference/operator/query/elemMatch/#op._S_elemMatch) 运算符，则查询将选择其数组包含满足条件的元素的任意组合的那些文档。
+如果数组字段上的复合查询条件未使用[`$elemMatch`](https://docs.mongodb.com/master/reference/operator/query/elemMatch/#op._S_elemMatch) 运算符，则查询将选择其数组包含满足条件的元素的任意组合的那些文档。
 
 例如，以下查询匹配文档，其中嵌套在**instock**阵列中的任何文档的数量字段大于10，并且阵列中任何文档（但不一定是同一嵌入文档）的数量字段小于或等于20：
 
