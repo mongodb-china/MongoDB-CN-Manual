@@ -1,5 +1,3 @@
-[TOC]
-
 # MongoDB Limits and Thresholds MongoDB中的限制与阈值
 
 This document provides a collection of hard and soft limitations of the MongoDB system.
@@ -14,7 +12,7 @@ This document provides a collection of hard and soft limitations of the MongoDB 
 
   The maximum document size helps ensure that a single document cannot use excessive amount of RAM or, during transmission, excessive amount of bandwidth. To store documents larger than the maximum size, MongoDB provides the GridFS API. See [`mongofiles`](https://docs.mongodb.com/database-tools/mongofiles/#mongodb-binary-bin.mongofiles) and the documentation for your [driver](https://docs.mongodb.com/drivers/) for more information about GridFS.
 
-  最大的BSON文档大小为 16MB。
+  BSON最大文档大小为 16MB。
 
   最大文档大小有助于确保单个文档不会使用过多的RAM或在传输过程中占用过多的带宽。 要存储大于该限制的文档，MongoDB提供了GridFS API。 有关GridFS的更多信息，请参靠[mongofiles](https://docs.mongodb.com/database-tools/mongofiles/#mongodb-binary-bin.mongofiles)和[驱动程序](https://docs.mongodb.com/drivers/)的文档。
 
@@ -60,7 +58,7 @@ This document provides a collection of hard and soft limitations of the MongoDB 
 
   同样的，数据库名不能包含空字符。 
 
-- `Length of Database Names` **数据名的长度**
+- `Length of Database Names` **数据库名的长度**
 
   Database names cannot be empty and must have fewer than 64 characters.
 
@@ -580,7 +578,7 @@ This table illustrates the approximate maximum collection sizes using the formul
 
   > **TIP 提示**
   >
-  > **See: 参考：**
+  > **查看: 参考：**
   >
   > - [`$or`](https://docs.mongodb.com/manual/reference/operator/query/or/#mongodb-query-op.-or)
   > - [`2d` Index Internals](https://docs.mongodb.com/manual/core/geospatial-indexes/)
