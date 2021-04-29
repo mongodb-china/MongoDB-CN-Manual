@@ -2,7 +2,7 @@
 
 This document provides a collection of hard and soft limitations of the MongoDB system.
 
-本文档提供了MongoDB系统的各种硬性限制和软性限制。
+本文档提供了MongoDB系统的各种硬性和软性限制。
 
 ## BSON Documents BSON文档
 
@@ -12,19 +12,19 @@ This document provides a collection of hard and soft limitations of the MongoDB 
 
   The maximum document size helps ensure that a single document cannot use excessive amount of RAM or, during transmission, excessive amount of bandwidth. To store documents larger than the maximum size, MongoDB provides the GridFS API. See [`mongofiles`](https://docs.mongodb.com/database-tools/mongofiles/#mongodb-binary-bin.mongofiles) and the documentation for your [driver](https://docs.mongodb.com/drivers/) for more information about GridFS.
 
-  BSON最大文档大小为 16MB。
+  BSON的最大文档大小为16MB。
 
-  最大文档大小有助于确保单个文档不会使用过多的RAM或在传输过程中占用过多的带宽。 要存储大于该限制的文档，MongoDB提供了GridFS API。 有关GridFS的更多信息，请参靠[mongofiles](https://docs.mongodb.com/database-tools/mongofiles/#mongodb-binary-bin.mongofiles)和[驱动程序](https://docs.mongodb.com/drivers/)的文档。
+  最大文档大小有助于确保单个文档不会使用过多的RAM或在传输过程中占用过多的带宽。要存储大于该限制的文档，MongoDB提供了GridFS API。有关GridFS的更多信息，请参阅[mongofiles](https://docs.mongodb.com/database-tools/mongofiles/#mongodb-binary-bin.mongofiles)和[驱动程序](https://docs.mongodb.com/drivers/)的文档。
 
 - `Nested Depth for BSON Documents` **BSON文档的嵌套深度**
 
   MongoDB supports no more than 100 levels of nesting for [BSON documents](https://docs.mongodb.com/manual/reference/glossary/#std-term-document).
 
-  MongoDB支持不超过100层嵌套深度的BSON文档。
+  MongoDB支持不超过100层嵌套深度的[BSON文档](https://docs.mongodb.com/manual/reference/glossary/#std-term-document)。
 
 ## Naming Restrictions 命名限制
 
-- `Database Name Case Sensitivity` **数据库名区分大小写**
+- `Database Name Case Sensitivity` **数据库名称的大小写敏感性**
 
   Since database names are case *insensitive* in MongoDB, database names cannot differ only by the case of the characters.
 
@@ -34,7 +34,7 @@ This document provides a collection of hard and soft limitations of the MongoDB 
 
   For MongoDB deployments running on Windows, database names cannot contain any of the following characters:
 
-  对于在Windows上运行的MongoDB集群，数据库名不能包含以下任意一个字符：
+  对于在Windows上运行的MongoDB环境，数据库名不能包含以下任意一个字符：
 
   ````bash
   /\. "$*<>:|?
@@ -42,13 +42,13 @@ This document provides a collection of hard and soft limitations of the MongoDB 
 
   Also database names cannot contain the null character.
 
-  另外，数据库名不能包含空字符。 
+  另外，数据库名不能包含空字符。
 
 - `Restrictions on Database Names for Unix and Linux Systems` **Unix/Linux系统中的数据库名称限制**
 
   For MongoDB deployments running on Unix and Linux systems, database names cannot contain any of the following characters:
 
-  对于在Unix和Linux系统上运行的MongoDB集群，数据库名不能包含以下任意一个字符：
+  对于在Unix和Linux系统上运行的MongoDB环境，数据库名不能包含以下任意一个字符：
 
   ```bash
   `/\. "$`
@@ -56,15 +56,15 @@ This document provides a collection of hard and soft limitations of the MongoDB 
 
   Also database names cannot contain the null character.
 
-  同样的，数据库名不能包含空字符。 
+  同样的，数据库名不能包含空字符。
 
-- `Length of Database Names` **数据库名的长度**
+- `Length of Database Names` **数据库名称的长度**
 
   Database names cannot be empty and must have fewer than 64 characters.
 
-  数据库名不能为空并且必须小于64字符。
+  数据库名不能为空并且必须小于64个字符。
 
-- `Restriction on Collection Names` **集合名的限制**
+- `Restriction on Collection Names` **集合名称的限制**
 
   Collection names should begin with an underscore or a letter character, and *cannot*:
 
@@ -94,8 +94,8 @@ This document provides a collection of hard and soft limitations of the MongoDB 
   
   命名空间长度：
   
-  - 对于[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置为**`"4.4"`**及以上的集群，MongoDB会将对集合/视图名称空间的限制提高到255个字节。 对于集合或视图，命名空间包括数据库名称、点号（**`.`**）分隔符和集合/视图名称（例如**`<database>.<collection>`**）;
-  - 对于[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置为`"4.2"`及以下的集群，集合/视图名称空间的最大长度保持为120个字节。
+  - 对于[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置为**`"4.4"`**及以上的集群，MongoDB会将对集合/视图名称空间的限制提高到255个字节。对于集合或视图，命名空间包括数据库名称、点号（**`.`**）分隔符和集合/视图名称（例如**`<database>.<collection>`**）;
+  - 对于[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置为`"4.2"`及以下的集群，集合/视图名称空间的最大长度仍然为120个字节。
   
 - `Restrictions on Field Names` **字段名称的限制**
 
@@ -105,7 +105,7 @@ This document provides a collection of hard and soft limitations of the MongoDB 
 
   - 字段名称**不能**包含空字符。
   
-  -  顶级字段名称**不能**以美元符号（`$`）字符开头。
+  - 顶级字段名称**不能**以美元符号（`$`）字符开头。
   
   此外，从MongoDB 3.6开始，服务器允许存储包含点（即`.`）和美元符号（即`$`）的字段名称。
   
@@ -113,8 +113,7 @@ This document provides a collection of hard and soft limitations of the MongoDB 
     >
     > The MongoDB Query Language cannot always meaningfully express queries over documents whose field names contain these characters (see [SERVER-30575](https://jira.mongodb.org/browse/SERVER-30575)).Until support is added in the query language, the use of `$` and `.` in field names is not recommended and is not supported by the official MongoDB drivers.
     >
-    > MongoDB查询语言无法始终有效地对字段名称包含这些字符的文档表示查询（请参阅[SERVER-30575](https://jira.mongodb.org/browse/SERVER-30575)）。
-    >
+    > MongoDB查询语言无法始终对字段名称包含这些字符的文档查询进行有效地表达（请参阅[SERVER-30575](https://jira.mongodb.org/browse/SERVER-30575)）。
     > 在查询语言添加相关支持之前，建议不要在字段名称中包含`.`和`$`，并且不受MongoDB官方驱动程序支持。
   
   > **WARNING 警告**
@@ -125,7 +124,7 @@ This document provides a collection of hard and soft limitations of the MongoDB 
   >
   > **MongoDB不支持重复的字段名称**
   >
-  > MongoDB查询语言对于具有重复字段名称的文档是未定义的。 BSON构建器可能支持使用重复的字段名称创建BSON文档。尽管BSON构建器可能不会抛出错误，但是*即使*插入成功，也不支持将这些文档插入MongoDB。例如，通过MongoDB驱动程序插入具有重复字段名称的BSON文档可能会导致驱动程序在插入之前静默删除重复值。 
+  > MongoDB查询语言对于具有重复字段名称的文档是未定义的。BSON构建器可能支持使用重复的字段名称创建BSON文档。尽管BSON构建器可能不会抛出错误，但是*即使*插入操作返回成功，也不支持将这些文档插入MongoDB。例如，通过MongoDB驱动程序插入具有重复字段名称的BSON文档可能会导致驱动程序在插入之前静默删除重复值。
 
 ## Namespaces 命名空间
 
@@ -133,8 +132,8 @@ This document provides a collection of hard and soft limitations of the MongoDB 
 
   - For [featureCompatibilityVersion](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv) set to `"4.4"` or greater, MongoDB raises the limit on collection/view namespace to 255 bytes. For a collection or a view, the namespace includes the database name, the dot (`.`) separator, and the collection/view name (e.g. `<database>.<collection>`)
   - For [featureCompatibilityVersion](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv) set to `"4.2"` or earlier, the maximum length of the collection/view namespace remains 120 bytes.
-  - 对于[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置为**`"4.4"`**及以上的集群，MongoDB会将对集合/视图名称空间的限制提高到255个字节。 对于集合或视图，命名空间包括数据库名称、点号（**`.`**）分隔符和集合/视图名称（例如**`<database>.<collection>`**）;
-  - 对于[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置为**`"4.2"`**及以下的集群，集合/视图名称空间的最大长度保持为120个字节。
+  - 对于[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置为**`"4.4"`**及以上的环境，MongoDB会将对集合/视图名称空间的限制提高到255个字节。对于集合或视图，命名空间包括数据库名称、点号（**`.`**）分隔符和集合/视图名称（例如**`<database>.<collection>`**）;
+  - 对于[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置为**`"4.2"`**及以下的环境，集合/视图名称空间的最大长度仍然为120个字节。
 
   > **TIP 提示**
   >
@@ -153,7 +152,7 @@ This document provides a collection of hard and soft limitations of the MongoDB 
   >
   > Starting in version 4.2, MongoDB removes the [`Index Key Limit`](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit) for [featureCompatibilityVersion](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv) (fCV) set to `"4.2"` or greater.
   >
-  > 从4.2版本开始，MongoDB对于将[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置成**`"4.2"`**及以上的集群去除了此[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Name-Length)。
+  > 从4.2版本开始，MongoDB对于将[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置成**`"4.2"`**及以上的环境去除了此[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Name-Length)。
   
   For MongoDB 2.6 through MongoDB versions with fCV set to `"4.0"` or earlier, the *total size* of an index entry, which can include structural overhead depending on the BSON type, must be *less than* 1024 bytes.
   
@@ -173,11 +172,11 @@ This document provides a collection of hard and soft limitations of the MongoDB 
   
   - 如果现有文档的索引条目超过[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit)，则MongoDB**不会**在集合上创建索引。
   - 如果索引字段的索引条目超过[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit)，则重新索引操作将出错。重新索引操作是[compact]()命令以及[db.collection.reIndex()]()方法的一部分，因为这些操作会删除集合中的*所有*索引，然后按顺序重新创建它们，所以[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit)中的错误阻止了这些操作的重建集合的所有剩余索引。
-  - MongoDB不会将任何具有索引字段的文档插入到索引集合中，该文档的索引字段的对应索引条目将超过[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit)，而是将返回错误。 MongoDB的早期版本将插入此类文档，但不会为其创建索引。
-  - 如果更新的值导致索引条目超过[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit)，则对索引字段的更新将出错。如果现有文档包含索引条目超过该限制的索引字段，则导致该文档在磁盘上重新定位的*任何*更新都将返回错误。 
-  - [mongorestore](https://docs.mongodb.com/database-tools/mongorestore/#mongodb-binary-bin.mongorestore)和[mongoimport](https://docs.mongodb.com/database-tools/mongoimport/#mongodb-binary-bin.mongoimport)将不会插入包含索引字段的文档，该字段的相应索引条目将超过[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit)。 
-  - 在MongoDB 2.6中，如果该索引字段的对应索引条目在初始同步时超出了[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit)，副本集的从节点将继续复制带有索引字段的文档，但会在日志中显示警告信息。从节点还允许对包含了对应的索引条目超过了[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit)的索引字段的集合进行索引构建和重建操作，但在日志中显示警告信息。使用混合版本副本集（其中次要版本为2.6和主版本为版本2.4），从节点将复制在2.4主版本上插入或更新的文档，但是如果文档包含一个索引字段（其对应的索引条目超过了[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit)），则会在日志中显示错误消息。 
-  - 对于现有分片集合，如果块中包含文档的索引条目超过[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit)的索引字段，则块迁移将失败。 
+  - MongoDB不会将任何具有索引字段的文档插入到索引集合中，该文档的索引字段的对应索引条目将超过[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit)，而是将返回错误。MongoDB的早期版本将插入此类文档，但不会为其创建索引。
+  - 如果更新的值导致索引条目超过[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit)，则对索引字段的更新将出错。如果现有文档包含索引条目超过该限制的索引字段，则导致该文档在磁盘上重新定位的*任何*更新都将返回错误。
+  - [mongorestore](https://docs.mongodb.com/database-tools/mongorestore/#mongodb-binary-bin.mongorestore)和[mongoimport](https://docs.mongodb.com/database-tools/mongoimport/#mongodb-binary-bin.mongoimport)将不会插入包含索引字段的文档，该字段的相应索引条目将超过[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit)。
+  - 在MongoDB 2.6中，如果该索引字段的对应索引条目在初始同步时超出了[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit)，副本集的从节点将继续复制带有索引字段的文档，但会在日志中显示警告信息。从节点还允许对包含了对应的索引条目超过了[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit)的索引字段的集合进行索引构建和重建操作，但在日志中显示警告信息。使用混合版本副本集（其中次要版本为2.6和主版本为版本2.4），从节点将复制在2.4主版本上插入或更新的文档，但是如果文档包含一个索引字段（其对应的索引条目超过了[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit)），则会在日志中显示错误消息。
+  - 对于现有分片集合，如果块中包含文档的索引条目超过[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit)的索引字段，则块迁移将失败。
   
 - `Number of Indexes per Collection` **每个集合中的索引个数**
 
@@ -193,33 +192,33 @@ This document provides a collection of hard and soft limitations of the MongoDB 
   >
   > Starting in version 4.2, MongoDB removes the [`Index Name Length`](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Name-Length) limit for MongoDB versions with[featureCompatibilityVersion](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv) (fCV) set to `"4.2"` or greater.
   >
-  > 从4.2版本开始，MongoDB对于将[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置成**`"4.2"`**及以上的集群去除了此[索引名称长度限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Name-Length)。
+  > 从4.2版本开始，MongoDB对于将[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置成**`"4.2"`**及以上的环境去除了此[索引名称长度限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Name-Length)。
 
   In previous versions of MongoDB or MongoDB versions with fCV set to `"4.0"` or earlier, fully qualified index names, which include the namespace and the dot separators (i.e. `<database name>.<collection name>.$<index name>`), cannot be longer than 127 bytes.
 
   By default, `<index name>` is the concatenation of the field names and index type. You can explicitly specify the `<index name>` to the [`createIndex()`](https://docs.mongodb.com/manual/reference/method/db.collection.createIndex/#mongodb-method-db.collection.createIndex) method to ensure that the fully qualified index name does not exceed the limit.
 
-  在将fCV设置为**`"4.0"`**及以下的MongoDB或MongoDB的早期版本中，标准的索引名称，包括名称空间和点分隔符（即`<database name>.<collection name>.$<index name>`）， 不能超过127个字节。 
+  在将fCV设置为**`"4.0"`**及以下的MongoDB或MongoDB的早期版本中，标准的索引名称，包括名称空间和点分隔符（即`<database name>.<collection name>.$<index name>`），不能超过127个字节。
 
-  默认情况下，`<index name>`是字段名称和索引类型的串联。 您可以为`createIndex()`方法显式指定`<index name>`，以确保标准索引名称不超过限制。
+  默认情况下，`<index name>`是字段名称和索引类型的串联。您可以为`createIndex()`方法显式指定`<index name>`，以确保标准索引名称不超过限制。
 
 - `Number of Indexed Fields in a Compound Index` **复合索引的字段数量**
 
   There can be no more than 32 fields in a compound index.
 
-  复合索引中最多只能包含32个字段。 
+  复合索引中所包含的字段不能超过32个。
 
 - `Queries cannot use both text and Geospatial Indexes` **查询不能同时使用文本索引和地理空间索引**
 
   You cannot combine the [`$text`](https://docs.mongodb.com/manual/reference/operator/query/text/#mongodb-query-op.-text) query, which requires a special [text index](https://docs.mongodb.com/manual/core/index-text/#std-label-create-text-index), with a query operator that requires a different type of special index. For example you cannot combine [`$text`](https://docs.mongodb.com/manual/reference/operator/query/text/#mongodb-query-op.-text) query with the [`$near`](https://docs.mongodb.com/manual/reference/operator/query/near/#mongodb-query-op.-near) operator.
 
-  您不能将需要特殊[文本索引](https://docs.mongodb.com/manual/core/index-text/#std-label-create-text-index)的[$text](https://docs.mongodb.com/manual/reference/operator/query/text/#mongodb-query-op.-text)查询与需要不同类型特殊索引的查询运算符组合在一起。 例如，您不能将[$text](https://docs.mongodb.com/manual/reference/operator/query/text/#mongodb-query-op.-text)查询与[$near](https://docs.mongodb.com/manual/reference/operator/query/near/#mongodb-query-op.-near)运算符结合使用。
+  您不能将需要特殊[文本索引](https://docs.mongodb.com/manual/core/index-text/#std-label-create-text-index)的[$text](https://docs.mongodb.com/manual/reference/operator/query/text/#mongodb-query-op.-text)查询与需要不同类型特殊索引的查询运算符组合在一起。例如，您不能将[$text](https://docs.mongodb.com/manual/reference/operator/query/text/#mongodb-query-op.-text)查询与[$near](https://docs.mongodb.com/manual/reference/operator/query/near/#mongodb-query-op.-near)运算符结合使用。
 
 - `Fields with 2dsphere Indexes can only hold Geometries` **具有2dsphere索引的字段只能保存几何数据**
 
   Fields with [2dsphere](https://docs.mongodb.com/manual/core/2dsphere/) indexes must hold geometry data in the form of [coordinate pairs](https://docs.mongodb.com/manual/reference/glossary/#std-term-legacy-coordinate-pairs) or [GeoJSON](https://docs.mongodb.com/manual/reference/glossary/#std-term-GeoJSON) data. If you attempt to insert a document with non-geometry data in a `2dsphere` indexed field, or build a `2dsphere`index on a collection where the indexed field has non-geometry data, the operation will fail.
 
-  具有[2dsphere](https://docs.mongodb.com/manual/core/2dsphere/)索引的字段必须以[坐标对](https://docs.mongodb.com/manual/reference/glossary/#std-term-legacy-coordinate-pairs)或[GeoJSON](https://docs.mongodb.com/manual/reference/glossary/#std-term-GeoJSON)数据的形式保存几何数据。 如果您尝试在**2dsphere**索引字段中插入包含非几何数据的文档，或者在索引字段包含非几何数据的集合上构建**2dsphere**索引，则该操作将失败。 
+  具有[2dsphere](https://docs.mongodb.com/manual/core/2dsphere/)索引的字段必须以[坐标对](https://docs.mongodb.com/manual/reference/glossary/#std-term-legacy-coordinate-pairs)或[GeoJSON](https://docs.mongodb.com/manual/reference/glossary/#std-term-GeoJSON)数据的形式保存几何数据。如果您尝试在**2dsphere**索引字段中插入包含非几何数据的文档，或者在索引字段包含非几何数据的集合上构建**2dsphere**索引，则该操作将失败。
 
   > **TIP 提示**
   >
@@ -253,9 +252,9 @@ This document provides a collection of hard and soft limitations of the MongoDB 
 
   You can override the memory limit by setting the [`maxIndexBuildMemoryUsageMegabytes`](https://docs.mongodb.com/manual/reference/parameters/#mongodb-parameter-param.maxIndexBuildMemoryUsageMegabytes) server parameter. Setting a higher memory limit may result in faster completion of index builds. However, setting this limit too high relative to the unused RAM on your system can result in memory exhaustion and server shutdown.
 
-  [createIndexes](https://docs.mongodb.com/manual/reference/command/createIndexes/#mongodb-dbcommand-dbcmd.createIndexes)支持在集合上构建一个或多个索引。 [createIndexes](https://docs.mongodb.com/manual/reference/command/createIndexes/#mongodb-dbcommand-dbcmd.createIndexes)使用内存和磁盘上的临时文件的组合来完成索引构建。 [createIndexes](https://docs.mongodb.com/manual/reference/command/createIndexes/#mongodb-dbcommand-dbcmd.createIndexes)的内存使用量的默认限制是200MB（对于4.2.3和更高版本）和500MB（对于版本4.2.2和更早版本），这是使用单个[createIndexes](https://docs.mongodb.com/manual/reference/command/createIndexes/#mongodb-dbcommand-dbcmd.createIndexes)命令构建的所有索引之间共享的。 一旦达到内存限制，[createIndexes](https://docs.mongodb.com/manual/reference/command/createIndexes/#mongodb-dbcommand-dbcmd.createIndexes)将使用[--dbpath](https://docs.mongodb.com/manual/reference/program/mongod/#std-option-mongod.--dbpath)指定的目录中名为`_tmp`的子目录中的临时磁盘文件来完成构建。 
+  [createIndexes](https://docs.mongodb.com/manual/reference/command/createIndexes/#mongodb-dbcommand-dbcmd.createIndexes)支持在集合上构建一个或多个索引。[createIndexes](https://docs.mongodb.com/manual/reference/command/createIndexes/#mongodb-dbcommand-dbcmd.createIndexes)使用内存和磁盘上的临时文件的组合来完成索引构建。[createIndexes](https://docs.mongodb.com/manual/reference/command/createIndexes/#mongodb-dbcommand-dbcmd.createIndexes)的内存使用量的默认限制是200MB（对于4.2.3和更高版本）和500MB（对于4.2.2和更早版本），这是使用单个[createIndexes](https://docs.mongodb.com/manual/reference/command/createIndexes/#mongodb-dbcommand-dbcmd.createIndexes)命令构建的所有索引之间共享的。一旦达到内存限制，[createIndexes](https://docs.mongodb.com/manual/reference/command/createIndexes/#mongodb-dbcommand-dbcmd.createIndexes)将使用[--dbpath](https://docs.mongodb.com/manual/reference/program/mongod/#std-option-mongod.--dbpath)指定的目录中名为`_tmp`子目录中的临时磁盘文件来完成构建。
 
-  您可以通过设置[maxIndexBuildMemoryUsageMegabytes](https://docs.mongodb.com/manual/reference/parameters/#mongodb-parameter-param.maxIndexBuildMemoryUsageMegabytes)这一服务器参数来覆盖内存限制。 设置更高的内存限制可能会导致索引构建更快地完成。 但是，相对于系统上未使用的RAM设置此限制过高会导致内存耗尽和MongoDB服务停止。 
+  您可以通过设置[maxIndexBuildMemoryUsageMegabytes](https://docs.mongodb.com/manual/reference/parameters/#mongodb-parameter-param.maxIndexBuildMemoryUsageMegabytes)这一服务器参数来覆盖该内存限制。设置更高的内存限制可能会导致索引构建更快地完成。但是，相对于系统上未使用的RAM设置此限制过高会导致内存耗尽和MongoDB服务停止。
 
   *Changed in version 4.2*. 
 
@@ -264,16 +263,16 @@ This document provides a collection of hard and soft limitations of the MongoDB 
 
   *4.2版本有更新*
 
-  - 对于[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置为**`"4.2"`**的集群，索引创建的内存限制对所有索引创建生效；
-  - 对于[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置为**`"4.0"`**的集群，索引创建的内存限制仅对前台建索引生效；
+  - 对于[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置为**`"4.2"`**的环境，索引创建的内存限制对所有索引创建生效；
+  - 对于[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置为**`"4.0"`**的环境，索引创建的内存限制仅对前台建索引生效；
 
   Index builds may be initiated either by a user command such as [Create Index](https://docs.mongodb.com/manual/reference/method/db.collection.createIndex/) or by an administrative process such as an [initial sync](https://docs.mongodb.com/manual/core/replica-set-sync/). Both are subject to the limit set by [`maxIndexBuildMemoryUsageMegabytes`](https://docs.mongodb.com/manual/reference/parameters/#mongodb-parameter-param.maxIndexBuildMemoryUsageMegabytes).
 
   An [initial sync operation](https://docs.mongodb.com/manual/core/replica-set-sync/) populates only one collection at a time and has no risk of exceeding the memory limit. However, it is possible for a user to start index builds on multiple collections in multiple databases simultaneously and potentially consume an amount of memory greater than the limit set in [`maxIndexBuildMemoryUsageMegabytes`](https://docs.mongodb.com/manual/reference/parameters/#mongodb-parameter-param.maxIndexBuildMemoryUsageMegabytes).
 
-  可以通过诸如[创建索引](https://docs.mongodb.com/manual/reference/method/db.collection.createIndex/)之类的用户命令或诸如[初始化同步](https://docs.mongodb.com/manual/core/replica-set-sync/)之类的管理过程来启动索引构建。 两者均受[maxIndexBuildMemoryUsageMegabytes](https://docs.mongodb.com/manual/reference/parameters/#mongodb-parameter-param.maxIndexBuildMemoryUsageMegabytes)设置的限制。 
+  可以通过诸如[创建索引](https://docs.mongodb.com/manual/reference/method/db.collection.createIndex/)之类的用户命令或诸如[初始化同步](https://docs.mongodb.com/manual/core/replica-set-sync/)之类的管理过程来启动索引构建。两者均受[maxIndexBuildMemoryUsageMegabytes](https://docs.mongodb.com/manual/reference/parameters/#mongodb-parameter-param.maxIndexBuildMemoryUsageMegabytes)设置的限制。
 
-  [初始化同步操作](https://docs.mongodb.com/manual/core/replica-set-sync/)一次仅填充一个集合，并且没有超过内存限制的风险。 但是，用户可能会同时在多个数据库中的多个集合上启动索引构建，并且可能消耗的内存量大于[maxIndexBuildMemoryUsageMegabytes]()中设置的限制。 
+  [初始化同步操作](https://docs.mongodb.com/manual/core/replica-set-sync/)一次仅填充一个集合，并且没有超过内存限制的风险。但是，用户可能会同时在多个数据库中的多个集合上启动索引构建，并且可能消耗的内存量大于[maxIndexBuildMemoryUsageMegabytes]()中设置的限制。
 
   >**TIP 提示**
   >To minimize the impact of building an index on replica sets and sharded clusters with replica set shards, use a rolling index build procedure as described on [Rolling Index Builds on Replica Sets](https://docs.mongodb.com/manual/tutorial/build-indexes-on-replica-sets/).
@@ -314,7 +313,7 @@ This document provides a collection of hard and soft limitations of the MongoDB 
 
   If you specify a maximum number of documents for a capped collection using the `max` parameter to [`create`](https://docs.mongodb.com/manual/reference/command/create/#mongodb-dbcommand-dbcmd.create), the limit must be less than 2^32 documents. If you do not specify a maximum number of documents when creating a capped collection, there is no limit on the number of documents.
   
-  如果使用`max`参数为限制集合指定最大文档数，则该限制必须少于`2^32`个文档。 如果在创建上限集合时未指定最大文档数，则对文档数没有限制。
+  如果使用`max`参数为限制集合指定最大文档数，则该限制必须少于`2^32`个文档。如果在创建上限集合时未指定最大文档数，则对文档数没有限制。
 
 ## Replica Sets 副本集
 
@@ -326,15 +325,15 @@ This document provides a collection of hard and soft limitations of the MongoDB 
 
   Replica sets can have up to 7 voting members. For replica sets with more than 7 total members, see [Non-Voting Members](https://docs.mongodb.com/manual/core/replica-set-elections/#std-label-replica-set-non-voting-members).
 
-  副本集最多可以有7个投票成员。 有关成员总数超过7个的副本集，请参阅[非投票成员](https://docs.mongodb.com/manual/core/replica-set-elections/#std-label-replica-set-non-voting-members)。
+  副本集最多可以有7个投票成员。有关成员总数超过7个的副本集，请参阅[非投票成员](https://docs.mongodb.com/manual/core/replica-set-elections/#std-label-replica-set-non-voting-members)。
 
 - `Maximum Size of Auto-Created Oplog` **自动创建的oplog表的最大大小**
 
   If you do not explicitly specify an oplog size (i.e. with [`oplogSizeMB`](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-replication.oplogSizeMB) or [`--oplogSize`](https://docs.mongodb.com/manual/reference/program/mongod/#std-option-mongod.--oplogSize)) MongoDB will create an oplog that is no larger than 50 gigabytes. [[1\]](https://docs.mongodb.com/manual/reference/limits/#footnote-oplog)[[1](https://docs.mongodb.com/manual/reference/limits/#ref-oplog-id1)]Starting in MongoDB 4.0, the oplog can grow past its configured size limit to avoid deleting the [`majority commit point`](https://docs.mongodb.com/manual/reference/command/replSetGetStatus/#mongodb-data-replSetGetStatus.optimes.lastCommittedOpTime).
   
-  如果您未明确指定oplog表的大小（即使用[oplogSizeMB](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-replication.oplogSizeMB)或[--oplogSize](https://docs.mongodb.com/manual/reference/program/mongod/#std-option-mongod.--oplogSize)），则MongoDB将创建一个不超过50 GB的oplog表。 [1]
+  如果您未明确指定oplog表的大小（即使用[oplogSizeMB](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-replication.oplogSizeMB)或[--oplogSize](https://docs.mongodb.com/manual/reference/program/mongod/#std-option-mongod.--oplogSize)），则MongoDB将创建一个不超过50GB的oplog表。[1]
   
-  > [1]从MongoDB 4.0开始，操作日志可以超过其配置的大小限制，以避免删除[大多数提交点](https://docs.mongodb.com/manual/reference/command/replSetGetStatus/#mongodb-data-replSetGetStatus.optimes.lastCommittedOpTime)。 
+  > [1]从MongoDB 4.0开始，操作日志可以超过其配置的大小限制，以避免删除[大多数提交点](https://docs.mongodb.com/manual/reference/command/replSetGetStatus/#mongodb-data-replSetGetStatus.optimes.lastCommittedOpTime)。
 
 ## Sharded Clusters 分片集群
 
@@ -367,13 +366,13 @@ Sharded clusters have the restrictions and thresholds described here.
 
   An existing collection can only be sharded if its size does not exceed specific limits. These limits can be estimated based on the average size of all [shard key](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard-key) values, and the configured [chunk](https://docs.mongodb.com/manual/reference/glossary/#std-term-chunk) size.
 
-  如果现有集合的大小未超过特定限制，则只能对其进行分片。 可以基于所有分片键值的平均大小以及配置的块大小来估计这些限制。
+  如果现有集合的大小未超过特定限制，则只能对其进行分片。可以基于所有分片键值的平均大小以及配置的块大小来估计这些限制。
   
   >  **IMPORTANT 重要**
   >
   >  These limits only apply for the initial sharding operation. Sharded collections can grow to *any* size after successfully enabling sharding.
 >
-  >  这些限制仅适用于初始化分片操作。 成功启用分片后，分片集合可以增长到任何大小。
+  >  这些限制仅适用于初始化分片操作。成功启用分片后，分片集合可以增长到任何大小。
 
   Use the following formulas to calculate the *theoretical* maximum collection size.
 
@@ -399,15 +398,15 @@ After successful initial sharding, you can reduce the chunk size as needed. If y
 
 This table illustrates the approximate maximum collection sizes using the formulas described above:
 
-如果**maxCollectionSize**小于或几乎等于目标集合，则增加块大小以确保成功进行初始分片。 如果对计算结果是否过于“接近”目标集合大小有疑问，最好增加块大小。 
+如果**maxCollectionSize**小于或几乎等于目标集合，则增加块大小以确保成功进行初始分片。如果对计算结果是否过于“接近”目标集合大小有疑问，最好增加块大小。
 
-成功完成初始化分片后，您可以根据需要减小块大小。 如果以后减小块大小，则所有块可能都需要花费一些时间才能拆分为新的大小。 有关修改块大小的说明，请参阅[修改分片群集中的块大小](https://docs.mongodb.com/manual/tutorial/modify-chunk-size-in-sharded-cluster/)。 
+成功完成初始化分片后，您可以根据需要减小块大小。如果以后减小块大小，则所有块可能都需要花费一些时间才能拆分为新的大小。有关修改块大小的说明，请参阅[修改分片群集中的块大小](https://docs.mongodb.com/manual/tutorial/modify-chunk-size-in-sharded-cluster/)。
 
 下表使用上述公式说明了最大的集合规模： 
 
 | 分片键值的平均大小              | 512字节 | 256字节 | 128字节 | 64字节 |
 | :------------------------------ | ------- | ------- | ------- | ------ |
-| **分割的最大次数**              | 32768   | 65536   | 131072  | 262144 |
+| **拆分的最大次数**              | 32768   | 65536   | 131072  | 262144 |
 | **最大集合大小（块大小64MB）**  | 1TB     | 2TB     | 4TB     | 8TB    |
 | **最大集合大小（块大小128MB）** | 2TB     | 4TB     | 8TB     | 16TB   |
 | **最大集合大小（块大小256MB）** | 4TB     | 8TB     | 16TB    | 32TB   |
@@ -422,7 +421,7 @@ This table illustrates the approximate maximum collection sizes using the formul
 
   MongoDB does not support unique indexes across shards, except when the unique index contains the full shard key as a prefix of the index. In these situations MongoDB will enforce uniqueness across the full key, not a single field.
   
-  MongoDB不支持跨分片的唯一索引，除非唯一索引包含完整的分片键作为索引前缀。 在这些情况下，MongoDB将在整个索引键上而不是单个字段上进行唯一性约束。 
+  MongoDB不支持跨分片的唯一索引，除非唯一索引包含完整的分片键作为索引前缀。在这些情况下，MongoDB将在整个索引键上而不是单个字段上进行唯一性约束。
   
   > **TIP 提示**
   >
@@ -439,12 +438,12 @@ This table illustrates the approximate maximum collection sizes using the formul
   - A new balancer setting `attemptToBalanceJumboChunks` allows the balancer to migrate chunks too large to move as long as the chunks are not labeled [jumbo](https://docs.mongodb.com/manual/core/sharding-data-partitioning/#std-label-jumbo-chunk). See [Balance Chunks that Exceed Size Limit](https://docs.mongodb.com/manual/tutorial/manage-sharded-cluster-balancer/#std-label-balance-chunks-that-exceed-size-limit) for details.
   - The [`moveChunk`](https://docs.mongodb.com/manual/reference/command/moveChunk/#mongodb-dbcommand-dbcmd.moveChunk) command can specify a new option [forceJumbo](https://docs.mongodb.com/manual/reference/command/moveChunk/#std-label-movechunk-forceJumbo) to allow for the migration of chunks that are too large to move. The chunks may or may not be labeled [jumbo](https://docs.mongodb.com/manual/core/sharding-data-partitioning/#std-label-jumbo-chunk).
   
-  默认情况下，如果块中的文档数大于配置的[块大小](https://docs.mongodb.com/manual/core/sharding-data-partitioning/#std-label-sharding-chunk-size)除以平均文档大小所得结果的1.3倍，则MongoDB无法移动该块。 [`db.collection.stats()`](https://docs.mongodb.com/manual/reference/method/db.collection.stats/#mongodb-method-db.collection.stats)的返回结果包含了`avgObjSize`字段，该字段表示集合中的平均文档大小。
+  默认情况下，如果块中的文档数大于配置的[块大小](https://docs.mongodb.com/manual/core/sharding-data-partitioning/#std-label-sharding-chunk-size)除以平均文档大小所得结果的1.3倍，则MongoDB无法移动该块。[`db.collection.stats()`](https://docs.mongodb.com/manual/reference/method/db.collection.stats/#mongodb-method-db.collection.stats)的返回结果包含了`avgObjSize`字段，该字段表示集合中的平均文档大小。
   
   对于[太大而无法迁移](https://docs.mongodb.com/manual/core/sharding-balancer-administration/#std-label-migration-chunk-size-limit)的块，从MongoDB 4.4开始：
   
-  - 新的平衡器设置——`tryToBalanceJumboChunks`允许平衡器迁移太大而无法移动的块，只要这些块未标记为[巨型(Jubmo)](https://docs.mongodb.com/manual/core/sharding-data-partitioning/#std-label-jumbo-chunk)即可。 有关详细信息请参见[均衡超出大小限制的块](https://docs.mongodb.com/manual/tutorial/manage-sharded-cluster-balancer/#std-label-balance-chunks-that-exceed-size-limit)。
-  - [`moveChunk`](https://docs.mongodb.com/manual/reference/command/moveChunk/#mongodb-dbcommand-dbcmd.moveChunk)命令可以指定一个新选项[forceJumbo](https://docs.mongodb.com/manual/reference/command/moveChunk/#std-label-movechunk-forceJumbo)，以允许迁移太大而无法移动的块，无论该块有没有被标记为[巨型(Jubmo)](https://docs.mongodb.com/manual/core/sharding-data-partitioning/#std-label-jumbo-chunk)。
+  - 新的平衡器设置——`tryToBalanceJumboChunks`允许平衡器迁移过大而无法移动的块，只要这些块未标记为[巨型(Jubmo)](https://docs.mongodb.com/manual/core/sharding-data-partitioning/#std-label-jumbo-chunk)即可。有关详细信息请参见[均衡超出大小限制的块](https://docs.mongodb.com/manual/tutorial/manage-sharded-cluster-balancer/#std-label-balance-chunks-that-exceed-size-limit)。
+  - [`moveChunk`](https://docs.mongodb.com/manual/reference/command/moveChunk/#mongodb-dbcommand-dbcmd.moveChunk)命令可以指定一个新选项[forceJumbo](https://docs.mongodb.com/manual/reference/command/moveChunk/#std-label-movechunk-forceJumbo)，以允许迁移过大而无法移动的块，无论该块有没有被标记为[巨型(Jubmo)](https://docs.mongodb.com/manual/core/sharding-data-partitioning/#std-label-jumbo-chunk)。
 
 ### Shard Key Limitations 分片键限制
 
@@ -464,7 +463,7 @@ This table illustrates the approximate maximum collection sizes using the formul
 
   A [shard key](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard-key) index cannot be an index that specifies a [multikey index](https://docs.mongodb.com/manual/core/index-multikey/), a [text index](https://docs.mongodb.com/manual/core/index-text/) or a [geospatial index](https://docs.mongodb.com/manual/geospatial-queries/#std-label-index-feature-geospatial) on the [shard key](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard-key) fields.
 
-  [分片键](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard-key)索引可以是分片键上的升序索引，也可以是以分片键开头并为分片键指定升序的复合索引，也可以是[哈希索引](https://docs.mongodb.com/manual/core/index-hashed/)。 
+  [分片键](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard-key)索引可以是分片键上的升序索引，也可以是以分片键开头并为分片键指定升序的复合索引，也可以是[哈希索引](https://docs.mongodb.com/manual/core/index-hashed/)。
 
   [分片键](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard-key)索引不能是在[分片键](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard-key)字段上指定的[多键索引](https://docs.mongodb.com/manual/core/index-multikey/)，[文本索引](https://docs.mongodb.com/manual/core/index-text/)或[地理空间索引](https://docs.mongodb.com/manual/geospatial-queries/#std-label-index-feature-geospatial)。
 
@@ -478,7 +477,7 @@ This table illustrates the approximate maximum collection sizes using the formul
   >
   > **4.4版本中更新**
   >
-  > 从MongoDB 4.4开始，您可以通过向现有键添加一个或多个后缀字段来优化集合的分片键。 请参阅[fineCollectionShardKey](https://docs.mongodb.com/manual/reference/command/refineCollectionShardKey/#mongodb-dbcommand-dbcmd.refineCollectionShardKey)。
+  > 从MongoDB 4.4开始，您可以通过向现有键添加一个或多个后缀字段来优化集合的分片键。请参阅[fineCollectionShardKey](https://docs.mongodb.com/manual/reference/command/refineCollectionShardKey/#mongodb-dbcommand-dbcmd.refineCollectionShardKey)。
 
   In MongoDB 4.2 and earlier, once you shard a collection, the selection of the shard key is immutable; i.e. you cannot select a different shard key for that collection.
 
@@ -490,7 +489,7 @@ This table illustrates the approximate maximum collection sizes using the formul
   - [Pre-split](https://docs.mongodb.com/manual/tutorial/create-chunks-in-sharded-cluster/) the shard key range to ensure initial even distribution.
   - Restore the dumped data into MongoDB.
 
-  在MongoDB 4.2和更早版本中，一旦对集合进行分片，则分片键是不可改变的。 也就是说，您不能为该集合选择其他分片键。 
+  在MongoDB 4.2和更早版本中，一旦对集合进行分片，则分片键是不可改变的。也就是说，您不能为该集合选择其他分片键。
 
   如果必须更改分片键（则需要进行以下的重建步骤）：
 
@@ -512,9 +511,9 @@ This table illustrates the approximate maximum collection sizes using the formul
   
   [Hashed shard keys](https://docs.mongodb.com/manual/core/hashed-sharding/#std-label-sharding-hashed-sharding) and [hashed indexes](https://docs.mongodb.com/manual/core/index-hashed/#std-label-index-type-hashed) store hashes of keys with ascending values.
   
-  对于具有高插入量的集群，具有单调递增和递减性质的分片键可能会影响插入的吞吐量。 如果您的分片键是`_id`字段，请注意`_id`字段的默认值是通常具有递增值的[ObjectId](https://docs.mongodb.com/manual/reference/glossary/#std-term-ObjectId)。
+  对于具有高插入量的集群，具有单调递增和递减性质的分片键可能会影响插入的吞吐量。如果您的分片键是`_id`字段，请注意`_id`字段的默认值是通常具有递增值的[ObjectId](https://docs.mongodb.com/manual/reference/glossary/#std-term-ObjectId)。
   
-  当使用单调递增的分片键进行插入文档操作时，所有的插入都落在单个[分片](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard)上的同一[块](https://docs.mongodb.com/manual/reference/glossary/#std-term-chunk)。系统最终划分接收所有写操作的块范围，并迁移其内容以更均匀地分配数据。 但是，群集在任何时候都只将插入操作定向到单个分片，这会造成插入吞吐量的瓶颈。
+  当使用单调递增的分片键进行插入文档操作时，所有的插入都落在单个[分片](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard)上的同一[块](https://docs.mongodb.com/manual/reference/glossary/#std-term-chunk)。系统最终划分接收所有写操作的块范围，并迁移其内容以更均匀地分配数据。但是，群集在任何时候都只将插入操作定向到单个分片，这会造成插入吞吐量的瓶颈。
   
   如果集群上的操作主要是读取操作和更新，则此限制可能不会影响集群。
   
@@ -534,23 +533,23 @@ This table illustrates the approximate maximum collection sizes using the formul
   
   For more information on sorts and index use, see [Sort and Index Use](https://docs.mongodb.com/manual/reference/method/cursor.sort/#std-label-sort-index-use).
   
-  如果MongoDB无法使用一个或多个索引来获取排序顺序，则MongoDB必须对数据执行阻塞式排序操作。 该名称指的是`SORT`阶段在返回任何输出文档之前读取所有输入文档的要求，从而阻止了该特定查询的数据流。 
+  如果MongoDB无法使用一个或多个索引来获取排序顺序，则MongoDB必须对数据执行阻塞式排序操作。该名称指的是`SORT`阶段在返回任何输出文档之前读取所有输入文档的要求，从而阻止了该特定查询的数据流。
   
   如果MongoDB要求使用100MB以上的系统内存进行阻塞排序操作，则除非查询指定[`cursor.allowDiskUse()`](https://docs.mongodb.com/manual/reference/method/cursor.allowDiskUse/#mongodb-method-cursor.allowDiskUse)（*MongoDB 4.4中的新增功能*），否则MongoDB将返回错误。[allowDiskUse](https://docs.mongodb.com/manual/reference/method/cursor.allowDiskUse/#mongodb-method-cursor.allowDiskUse)允许MongoDB在处理阻塞排序操作时使用磁盘上的临时文件来存储超过100MB系统内存限制的数据。
   
-   *在版本4.4中进行了更改*：对于MongoDB 4.2和更低版本，阻塞排序操作不能超过32 MB系统内存。 
+   *在版本4.4中进行了更改*：对于MongoDB 4.2和更低版本，阻塞排序操作不能超过32MB系统内存。
   
-  有关排序和索引使用的更多信息，请参见[排序和索引使用](https://docs.mongodb.com/manual/reference/method/cursor.sort/#std-label-sort-index-use)。 
+  有关排序和索引使用的更多信息，请参见[排序和索引使用](https://docs.mongodb.com/manual/reference/method/cursor.sort/#std-label-sort-index-use)。
   
 - `Aggregation Pipeline Operation` **聚合管道操作**
 
   Pipeline stages have a limit of 100 megabytes of RAM. If a stage exceeds this limit, MongoDB will produce an error. To allow for the handling of large datasets, use the `allowDiskUse` option to enable aggregation pipeline stages to write data to temporary files.*Changed in version 3.4*.The [`$graphLookup`](https://docs.mongodb.com/manual/reference/operator/aggregation/graphLookup/#mongodb-pipeline-pipe.-graphLookup) stage must stay within the 100 megabyte memory limit. If `allowDiskUse: true` is specified for the [`aggregate()`](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregate) operation, the [`$graphLookup`](https://docs.mongodb.com/manual/reference/operator/aggregation/graphLookup/#mongodb-pipeline-pipe.-graphLookup) stage ignores the option. If there are other stages in the [`aggregate()`](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregate) operation, `allowDiskUse: true` option is in effect for these other stages.Starting in MongoDB 4.2, the [profiler log messages](https://docs.mongodb.com/manual/tutorial/manage-the-database-profiler/) and [diagnostic log messages](https://docs.mongodb.com/manual/reference/log-messages/) includes a `usedDisk`indicator if any aggregation stage wrote data to temporary files due to [memory restrictions](https://docs.mongodb.com/manual/core/aggregation-pipeline-limits/#std-label-agg-memory-restrictions).
 
-  流水线级的RAM限制为100 MB。 如果阶段超出此限制，则MongoDB将产生错误。 要允许处理大型数据集，请使用`allowDiskUse`选项启用聚合管道阶段以将数据写入临时文件。
+  流水线级的RAM限制为100MB。如果阶段超出此限制，则MongoDB将产生错误。要允许处理大型数据集，请使用`allowDiskUse`选项启用聚合管道阶段以将数据写入临时文件。
 
   *在版本3.4中进行了更改*。
 
-  [`$graphLookup`](https://docs.mongodb.com/manual/reference/operator/aggregation/graphLookup/#mongodb-pipeline-pipe.-graphLookup)阶段必须保持在100 MB内存限制内。 如果为[`aggregate()`](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregate)操作指定了`allowDiskUse:true`，则[`$graphLookup`](https://docs.mongodb.com/manual/reference/operator/aggregation/graphLookup/#mongodb-pipeline-pipe.-graphLookup)阶段将忽略该选项。 如果[`aggregate()`](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregate)操作中还有其他阶段，则`allowDiskUse:true`选项对这些其他阶段有效。
+  [`$graphLookup`](https://docs.mongodb.com/manual/reference/operator/aggregation/graphLookup/#mongodb-pipeline-pipe.-graphLookup)阶段必须保持在100 MB内存限制内。如果为[`aggregate()`](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregate)操作指定了`allowDiskUse:true`，则[`$graphLookup`](https://docs.mongodb.com/manual/reference/operator/aggregation/graphLookup/#mongodb-pipeline-pipe.-graphLookup)阶段将忽略该选项。如果[`aggregate()`](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregate)操作中还有其他阶段，则`allowDiskUse:true`选项对这些其他阶段有效。
 
   从MongoDB 4.2开始，[事件探查器日志消息]()和[诊断日志消息]()均包含`usedDisk`字段，其指示了是有否有聚合阶段由于[内存限制](https://docs.mongodb.com/manual/core/aggregation-pipeline-limits/#std-label-agg-memory-restrictions)而将数据写入磁盘上临时文件。
 
@@ -571,8 +570,8 @@ This table illustrates the approximate maximum collection sizes using the formul
 
   - Starting in MongoDB 4.2, the [`$out`](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#mongodb-pipeline-pipe.-out) stage cannot be used in conjunction with read concern [`"linearizable"`](https://docs.mongodb.com/manual/reference/read-concern-linearizable/#mongodb-readconcern-readconcern.-linearizable-). That is, if you specify [`"linearizable"`](https://docs.mongodb.com/manual/reference/read-concern-linearizable/#mongodb-readconcern-readconcern.-linearizable-) read concern for[`db.collection.aggregate()`](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregate), you cannot include the [`$out`](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#mongodb-pipeline-pipe.-out) stage in the pipeline.
   - The [`$merge`](https://docs.mongodb.com/manual/reference/operator/aggregation/merge/#mongodb-pipeline-pipe.-merge) stage cannot be used in conjunction with read concern [`"linearizable"`](https://docs.mongodb.com/manual/reference/read-concern-linearizable/#mongodb-readconcern-readconcern.-linearizable-). That is, if you specify [`"linearizable"`](https://docs.mongodb.com/manual/reference/read-concern-linearizable/#mongodb-readconcern-readconcern.-linearizable-) read concern for [`db.collection.aggregate()`](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregate), you cannot include the [`$merge`](https://docs.mongodb.com/manual/reference/operator/aggregation/merge/#mongodb-pipeline-pipe.-merge) stage in the pipeline.
-  - 从MongoDB 4.2开始，[`$out`](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#mongodb-pipeline-pipe.-out)阶段不能与[`"linearizable"`](https://docs.mongodb.com/manual/reference/read-concern-linearizable/#mongodb-readconcern-readconcern.-linearizable-)级别的读关注结合使用。 也就是说，如果为[`db.collection.aggregate()`](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregate)指定[`"linearizable"`](https://docs.mongodb.com/manual/reference/read-concern-linearizable/#mongodb-readconcern-readconcern.-linearizable-)级别的读关注，则不能在管道中包括[`$out`](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#mongodb-pipeline-pipe.-out)阶段。
-  -  [`$merge`](https://docs.mongodb.com/manual/reference/operator/aggregation/merge/#mongodb-pipeline-pipe.-merge)阶段不能与已关注的[`"linearizable"`](https://docs.mongodb.com/manual/reference/read-concern-linearizable/#mongodb-readconcern-readconcern.-linearizable-)结合使用。 也就是说，如果为[`db.collection.aggregate()`](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregate)指定[`"linearizable"`](https://docs.mongodb.com/manual/reference/read-concern-linearizable/#mongodb-readconcern-readconcern.-linearizable-)读取关注点，则不能在管道中包括[`$merge`](https://docs.mongodb.com/manual/reference/operator/aggregation/merge/#mongodb-pipeline-pipe.-merge)阶段。 
+  - 从MongoDB 4.2开始，[`$out`](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#mongodb-pipeline-pipe.-out)阶段不能与[`"linearizable"`](https://docs.mongodb.com/manual/reference/read-concern-linearizable/#mongodb-readconcern-readconcern.-linearizable-)级别的读关注结合使用。也就是说，如果为[`db.collection.aggregate()`](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregate)指定[`"linearizable"`](https://docs.mongodb.com/manual/reference/read-concern-linearizable/#mongodb-readconcern-readconcern.-linearizable-)级别的读关注，则不能在管道中包括[`$out`](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#mongodb-pipeline-pipe.-out)阶段。
+  -  [`$merge`](https://docs.mongodb.com/manual/reference/operator/aggregation/merge/#mongodb-pipeline-pipe.-merge)阶段不能与[`"linearizable"`](https://docs.mongodb.com/manual/reference/read-concern-linearizable/#mongodb-readconcern-readconcern.-linearizable-)级别的读关注结合使用。也就是说，如果为[`db.collection.aggregate()`](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregate)指定[`"linearizable"`](https://docs.mongodb.com/manual/reference/read-concern-linearizable/#mongodb-readconcern-readconcern.-linearizable-)读取关注点，则不能在管道中包括[`$merge`](https://docs.mongodb.com/manual/reference/operator/aggregation/merge/#mongodb-pipeline-pipe.-merge)阶段。
 
 - `2d Geospatial queries cannot use the $or operator` **2d地理位置查询无法使用`$or`操作符**
 
@@ -604,7 +603,7 @@ This table illustrates the approximate maximum collection sizes using the formul
 
   For [`$geoIntersects`](https://docs.mongodb.com/manual/reference/operator/query/geoIntersects/#mongodb-query-op.-geoIntersects) or [`$geoWithin`](https://docs.mongodb.com/manual/reference/operator/query/geoWithin/#mongodb-query-op.-geoWithin), if you specify a single-ringed polygon that has an area greater than a single hemisphere, include [`the custom MongoDB coordinate reference system in the $geometry`](https://docs.mongodb.com/manual/reference/operator/query/geometry/#mongodb-query-op.-geometry) expression; otherwise, [`$geoIntersects`](https://docs.mongodb.com/manual/reference/operator/query/geoIntersects/#mongodb-query-op.-geoIntersects) or [`$geoWithin`](https://docs.mongodb.com/manual/reference/operator/query/geoWithin/#mongodb-query-op.-geoWithin) queries for the complementary geometry. For all other GeoJSON polygons with areas greater than a hemisphere, [`$geoIntersects`](https://docs.mongodb.com/manual/reference/operator/query/geoIntersects/#mongodb-query-op.-geoIntersects) or [`$geoWithin`](https://docs.mongodb.com/manual/reference/operator/query/geoWithin/#mongodb-query-op.-geoWithin) queries for the complementary geometry.
 
-  对于[`$geoIntersects`](https://docs.mongodb.com/manual/reference/operator/query/geoIntersects/#mongodb-query-op.-geoIntersects)或 [`$geoWithin`](https://docs.mongodb.com/manual/reference/operator/query/geoWithin/#mongodb-query-op.-geoWithin)，如果您指定面积大于单个半球的单环多边形，则[在$ geometry表达式中包括自定义MongoDB坐标参考系统](https://docs.mongodb.com/manual/reference/operator/query/geometry/#mongodb-query-op.-geometry)； 否则，[`$geoIntersects`](https://docs.mongodb.com/manual/reference/operator/query/geoIntersects/#mongodb-query-op.-geoIntersects) 或 [`$geoWithin`](https://docs.mongodb.com/manual/reference/operator/query/geoWithin/#mongodb-query-op.-geoWithin) 将查询互补几何。 对于面积大于半球的所有其他GeoJSON多边形，[`$geoIntersects`](https://docs.mongodb.com/manual/reference/operator/query/geoIntersects/#mongodb-query-op.-geoIntersects) 或 [`$geoWithin`](https://docs.mongodb.com/manual/reference/operator/query/geoWithin/#mongodb-query-op.-geoWithin) 查询互补几何。
+  对于[`$geoIntersects`](https://docs.mongodb.com/manual/reference/operator/query/geoIntersects/#mongodb-query-op.-geoIntersects)或 [`$geoWithin`](https://docs.mongodb.com/manual/reference/operator/query/geoWithin/#mongodb-query-op.-geoWithin)，如果您指定面积大于单个半球的单环多边形，则[在$ geometry表达式中包括自定义MongoDB坐标参考系统](https://docs.mongodb.com/manual/reference/operator/query/geometry/#mongodb-query-op.-geometry)； 否则，[`$geoIntersects`](https://docs.mongodb.com/manual/reference/operator/query/geoIntersects/#mongodb-query-op.-geoIntersects) 或 [`$geoWithin`](https://docs.mongodb.com/manual/reference/operator/query/geoWithin/#mongodb-query-op.-geoWithin) 将查询互补几何。对于面积大于半球的所有其他GeoJSON多边形，[`$geoIntersects`](https://docs.mongodb.com/manual/reference/operator/query/geoIntersects/#mongodb-query-op.-geoIntersects) 或 [`$geoWithin`](https://docs.mongodb.com/manual/reference/operator/query/geoWithin/#mongodb-query-op.-geoWithin) 查询互补几何。
 
 - `Multi-document Transactions` **多文档事务**
 
@@ -638,7 +637,7 @@ This table illustrates the approximate maximum collection sizes using the formul
 
   - 使用[fcv](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)**`“4.4”`**或更高版本时，可以在事务中创建集合和索引。有关详细信息，请参见[在事务中创建集合和索引](https://docs.mongodb.com/manual/core/transactions/#std-label-transactions-create-collections-indexes)。
 
-  - 事务中使用的集合可以位于不同的数据库中。 
+  - 事务中使用的集合可以位于不同的数据库中。
 
     > **注意** 
     >
@@ -650,9 +649,9 @@ This table illustrates the approximate maximum collection sizes using the formul
 
   -  您无法写入`system.*`集合。
 
-  - 您无法返回受支持操作的查询计划（即`explain`）。 
+  - 您无法返回受支持操作的查询计划（即`explain`）。
 
-  - 对于在事务外部创建的游标，不能在事务内部调用[`getMore`](https://docs.mongodb.com/manual/reference/command/getMore/#mongodb-dbcommand-dbcmd.getMore)。 对于在事务中创建的游标，不能在事务外部调用[`getMore`](https://docs.mongodb.com/manual/reference/command/getMore/#mongodb-dbcommand-dbcmd.getMore)。 从MongoDB 4.2开始，您不能将 [`killCursors`](https://docs.mongodb.com/manual/reference/command/killCursors/#mongodb-dbcommand-dbcmd.killCursors)指定为[事务](https://docs.mongodb.com/manual/core/transactions/)中的第一个操作。 
+  - 对于在事务外部创建的游标，不能在事务内部调用[`getMore`](https://docs.mongodb.com/manual/reference/command/getMore/#mongodb-dbcommand-dbcmd.getMore)。对于在事务中创建的游标，不能在事务外部调用[`getMore`](https://docs.mongodb.com/manual/reference/command/getMore/#mongodb-dbcommand-dbcmd.getMore)。从MongoDB 4.2开始，您不能将 [`killCursors`](https://docs.mongodb.com/manual/reference/command/killCursors/#mongodb-dbcommand-dbcmd.killCursors)指定为[事务](https://docs.mongodb.com/manual/core/transactions/)中的第一个操作。
 
   *Changed in version 4.4*.
 
@@ -670,13 +669,13 @@ This table illustrates the approximate maximum collection sizes using the formul
 
   以下操作在事务中不被允许：
 
-  - 影响数据库目录的操作，例如在使用[fcv](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)**`"4.2"`**或更低版本时创建/删除集合或索引。使用fcv**`"4.4"`**或更高版本时，您可以在事务中创建集合和索引，除非该事务是跨分片写入事务。有关详细信息，请参考[在事务中创建集合和索引](https://docs.mongodb.com/manual/core/transactions/#std-label-transactions-create-collections-indexes)。 
-  - 在跨分片写入事务中创建新集合。例如，如果您在一个分片中写入现有集合，而在另一个分片中隐式创建一个集合，则MongoDB无法在同一事务中执行这两项操作。 
+  - 影响数据库目录的操作，例如在使用[fcv](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)**`"4.2"`**或更低版本时创建/删除集合或索引。使用fcv**`"4.4"`**或更高版本时，您可以在事务中创建集合和索引，除非该事务是跨分片写入事务。有关详细信息，请参考[在事务中创建集合和索引](https://docs.mongodb.com/manual/core/transactions/#std-label-transactions-create-collections-indexes)。
+  - 在跨分片写入事务中创建新集合。例如，如果您在一个分片中写入现有集合，而在另一个分片中隐式创建一个集合，则MongoDB无法在同一事务中执行这两项操作。
   - 当使用除[`"local"`](https://docs.mongodb.com/manual/reference/read-concern-local/#mongodb-readconcern-readconcern.-local-)以外的其他读关注级别时[显示创建集合](https://docs.mongodb.com/manual/core/transactions-operations/#std-label-transactions-operations-ddl-explicit)，如 [`db.createCollection()`](https://docs.mongodb.com/manual/reference/method/db.createCollection/#mongodb-method-db.createCollection)方法；以及显示创建索引，如[`db.collection.createIndexes()`](https://docs.mongodb.com/manual/reference/method/db.collection.createIndexes/#mongodb-method-db.collection.createIndexes) 和 [`db.collection.createIndex()`](https://docs.mongodb.com/manual/reference/method/db.collection.createIndex/#mongodb-method-db.collection.createIndex) 方法。
-  - [`listCollections`](https://docs.mongodb.com/manual/reference/command/listCollections/#mongodb-dbcommand-dbcmd.listCollections) 和 [`listIndexes`](https://docs.mongodb.com/manual/reference/command/listIndexes/#mongodb-dbcommand-dbcmd.listIndexes)命令及其辅助方法。 
+  - [`listCollections`](https://docs.mongodb.com/manual/reference/command/listCollections/#mongodb-dbcommand-dbcmd.listCollections) 和 [`listIndexes`](https://docs.mongodb.com/manual/reference/command/listIndexes/#mongodb-dbcommand-dbcmd.listIndexes)命令及其辅助方法。
   - 其他非CRUD和非信息性操作，例如[`createUser`](https://docs.mongodb.com/manual/reference/command/createUser/#mongodb-dbcommand-dbcmd.createUser), [`getParameter`](https://docs.mongodb.com/manual/reference/command/getParameter/#mongodb-dbcommand-dbcmd.getParameter), [`count`](https://docs.mongodb.com/manual/reference/command/count/#mongodb-dbcommand-dbcmd.count)等及其辅助方法。
 
-  事务存在一个生命周期限制，由[`transactionLifetimeLimitSeconds`](https://docs.mongodb.com/manual/reference/parameters/#mongodb-parameter-param.transactionLifetimeLimitSeconds)指定，缺省值为60s。
+  事务存在一个生命周期限制，由[`transactionLifetimeLimitSeconds`](https://docs.mongodb.com/manual/reference/parameters/#mongodb-parameter-param.transactionLifetimeLimitSeconds)指定，默认值为60s。
 
 - `Write Command Batch Limit Size` **批量写大小限制**
 
@@ -688,9 +687,9 @@ This table illustrates the approximate maximum collection sizes using the formul
 
   在单个批处理操作中允许`100,000`次[写入](https://docs.mongodb.com/manual/reference/command/nav-crud/)，这由对服务器的单个请求定义。
 
-  *在3.6版中进行了更改*：写入限制从`1,000`增加到`100,000`。 此限制也适用于旧式`OP_INSERT`消息。 
+  *在3.6版中进行了更改*：写入限制从`1,000`增加到`100,000`。此限制也适用于旧式`OP_INSERT`消息。
 
-  [`mongo`](https://docs.mongodb.com/manual/reference/program/mongo/#mongodb-binary-bin.mongo)shell中的[`Bulk()`](https://docs.mongodb.com/manual/reference/method/Bulk/#mongodb-method-Bulk) 操作和驱动程序中的类似方法没有此限制。 
+  [`mongo`](https://docs.mongodb.com/manual/reference/program/mongo/#mongodb-binary-bin.mongo)shell中的[`Bulk()`](https://docs.mongodb.com/manual/reference/method/Bulk/#mongodb-method-Bulk) 操作和驱动程序中的类似方法没有此限制。
 
 - `Views` **视图**
 
@@ -709,7 +708,7 @@ This table illustrates the approximate maximum collection sizes using the formul
   - [Views](https://docs.mongodb.com/manual/core/views/) do not support map-reduce operations.
   - [Views](https://docs.mongodb.com/manual/core/views/) do not support geoNear operations (i.e. [`$geoNear`](https://docs.mongodb.com/manual/reference/operator/aggregation/geoNear/#mongodb-pipeline-pipe.-geoNear) pipeline stage).
 
-  视图定义`管道`不能包含 [`$out`](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#mongodb-pipeline-pipe.-out) 或者 [`$merge`](https://docs.mongodb.com/manual/reference/operator/aggregation/merge/#mongodb-pipeline-pipe.-merge) 阶段。 如果视图定义包括嵌套管道（例如，视图定义包括[`$lookup`](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#mongodb-pipeline-pipe.-lookup) 或者[`$facet`](https://docs.mongodb.com/manual/reference/operator/aggregation/facet/#mongodb-pipeline-pipe.-facet) 阶段），则此限制也适用于嵌套管道。
+  视图定义`管道`不能包含 [`$out`](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#mongodb-pipeline-pipe.-out) 或者 [`$merge`](https://docs.mongodb.com/manual/reference/operator/aggregation/merge/#mongodb-pipeline-pipe.-merge) 阶段。如果视图定义包括嵌套管道（例如，视图定义包括[`$lookup`](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#mongodb-pipeline-pipe.-lookup) 或者[`$facet`](https://docs.mongodb.com/manual/reference/operator/aggregation/facet/#mongodb-pipeline-pipe.-facet) 阶段），则此限制也适用于嵌套管道。
 
   视图具有以下操作限制：
 
@@ -720,7 +719,7 @@ This table illustrates the approximate maximum collection sizes using the formul
   - 不支持map-reduce操作
   - 不支持geoNear操作（即[$geoNear](https://docs.mongodb.com/manual/reference/operator/aggregation/geoNear/#mongodb-pipeline-pipe.-geoNear)管道阶段）
 
-- `Projection Restrictions` **投影限制**
+- `Projection Restrictions` **投射限制**
 
   *New in version 4.4* 4.4版的新功能:
 
@@ -728,7 +727,7 @@ This table illustrates the approximate maximum collection sizes using the formul
 
   Starting in MongoDB 4.4, the [`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find) and [`findAndModify()`](https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/#mongodb-method-db.collection.findAndModify) projection cannot project a field that starts with `$` with the exception of the [DBRef fields](https://docs.mongodb.com/manual/reference/database-references/#std-label-dbref-explanation).For example, starting in MongoDB 4.4, the following operation is invalid:
 
-  从MongoDB 4.4开始， [`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find)和[`findAndModify()`](https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/#mongodb-method-db.collection.findAndModify) 投影无法投影以`$`开头的字段，但[DBRef字段](https://docs.mongodb.com/manual/reference/database-references/#std-label-dbref-explanation)除外。例如，从MongoDB 4.4开始，以下操作无效：
+  从MongoDB 4.4开始， [`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find)和[`findAndModify()`](https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/#mongodb-method-db.collection.findAndModify) 无法投射以`$`开头的字段，但[DBRef字段](https://docs.mongodb.com/manual/reference/database-references/#std-label-dbref-explanation)除外。例如，从MongoDB 4.4开始，以下操作无效：
 
   ```js
   db.inventory.find( {}, { "$instock.warehouse": 0, "$item": 0, "detail.$price": 1 } ) // Invalid starting in 4.4
@@ -736,13 +735,13 @@ This table illustrates the approximate maximum collection sizes using the formul
 
   MongoDB already has a [`restriction`](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Restrictions-on-Field-Names) where top-level field names cannot start with the dollar sign (`$`).In earlier version, MongoDB ignores the `$`-prefixed field projections.
 
-  MongoDB已经有一个[限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Restrictions-on-Field-Names)，即顶级字段名称不能以美元符号（`$`）开头。在早期版本中，MongoDB忽略`$`前缀的字段投影。
+  MongoDB已经有一个[限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Restrictions-on-Field-Names)，即顶级字段名称不能以美元符号（`$`）开头。在早期版本中，MongoDB忽略`$`前缀的字段投射。
 
   **`$` Positional Operator Placement Restriction** **$位置运算符的放置限制**
 
   Starting in MongoDB 4.4, the [`$`](https://docs.mongodb.com/manual/reference/operator/projection/positional/#mongodb-projection-proj.-) projection operator can only appear at the end of the field path; e.g. `"field.$"` or `"fieldA.fieldB.$"`.For example, starting in MongoDB 4.4, the following operation is invalid:
 
-  从MongoDB 4.4开始，[`$`](https://docs.mongodb.com/manual/reference/operator/projection/positional/#mongodb-projection-proj.-)投影运算符只能出现在字段路径的末尾。 例如`"field.$"`或`"fieldA.fieldB.$"`。例如，从MongoDB 4.4开始，以下操作无效： 
+  从MongoDB 4.4开始，[`$`](https://docs.mongodb.com/manual/reference/operator/projection/positional/#mongodb-projection-proj.-)投射运算符只能出现在字段路径的末尾。例如`"field.$"`或`"fieldA.fieldB.$"`。例如，从MongoDB 4.4开始，以下操作无效： 
 
   ```js
   db.inventory.find( { }, { "instock.$.qty": 1 } ) // Invalid starting in 4.4
@@ -750,13 +749,13 @@ This table illustrates the approximate maximum collection sizes using the formul
 
   To resolve, remove the component of the field path that follows the [`$`](https://docs.mongodb.com/manual/reference/operator/projection/positional/#mongodb-projection-proj.-) projection operator.In previous versions, MongoDB ignores the part of the path that follows the `$`; i.e. the projection is treated as `"instock.$"`.
 
-  要解决此问题，请删除`$`投影运算符后面的字段路径部分。在以前的版本中，MongoDB会忽略`$`后面的路径部分； 即，该投影被视为`"instock.$"`。
+  要解决此问题，请删除`$`投射运算符后面的字段路径部分。在以前的版本中，MongoDB会忽略`$`后面的路径部分； 即，该投射被视为`"instock.$"`。
 
-  **Empty Field Name Projection Restriction** **空字段名称投影限制**
+  **Empty Field Name Projection Restriction** **空字段名称投射限制**
 
   Starting in MongoDB 4.4, [`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find) and [`findAndModify()`](https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/#mongodb-method-db.collection.findAndModify) projection cannot include a projection of an empty field name.For example, starting in MongoDB 4.4, the following operation is invalid:
 
-  从MongoDB 4.4开始，[`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find)和[`findAndModify()`](https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/#mongodb-method-db.collection.findAndModify)投影不能包含空字段名称的投影。例如，从MongoDB 4.4开始，以下操作无效： 
+  从MongoDB 4.4开始，[`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find)和[`findAndModify()`](https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/#mongodb-method-db.collection.findAndModify)不能包含空字段名称的投射。例如，从MongoDB 4.4开始，以下操作无效： 
 
   ```js
   db.inventory.find( { }, { "": 0 } ) // Invalid starting in 4.4
@@ -764,13 +763,13 @@ This table illustrates the approximate maximum collection sizes using the formul
 
   In previous versions, MongoDB treats the inclusion/exclusion of the empty field as it would the projection of non-existing fields.
 
-  在以前的版本中，MongoDB将空字段的包含/排除视为不存在字段的投影。
+  在以前的版本中，MongoDB将空字段的包含/排除视为不存在字段的投射。
 
   **Path Collision: Embedded Documents and Its Fields** **路径冲突：嵌入式文档及其字段**
 
   Starting in MongoDB 4.4, it is illegal to project an embedded document with any of the embedded document's fields.For example, consider a collection `inventory` with documents that contain a `size`field:
 
-  从MongoDB 4.4开始，使用嵌入文档的任何字段来投影嵌入文档都是非法的，例如，考虑包含文档的集合`inventory`，其中包含`size`字段： 
+  从MongoDB 4.4开始，使用嵌入文档的任何字段来投射嵌入文档都是非法的，例如，考虑包含文档的集合`inventory`，其中包含`size`字段： 
 
   ```js
   { ..., size: { h: 10, w: 15.25, uom: "cm" }, ... }
@@ -778,7 +777,7 @@ This table illustrates the approximate maximum collection sizes using the formul
 
   Starting in MongoDB 4.4, the following operation fails with a `Path collision` error because it attempts to project both `size` document and the `size.uom` field:
 
-  从MongoDB 4.4开始，以下操作因`路径冲突`错误而失败，因为它尝试同时投影`size`文档和`size.uom`字段： 
+  从MongoDB 4.4开始，以下操作因`路径冲突`错误而失败，因为它尝试同时投射`size`文档和`size.uom`字段： 
 
   ```js
   db.inventory.find( {}, { size: 1, "size.uom": 1 } )  // Invalid starting in 4.4
@@ -789,16 +788,16 @@ This table illustrates the approximate maximum collection sizes using the formul
   - If the projection of the embedded document comes after any and all projections of its fields, MongoDB projects the embedded document. For example, the projection document `{ "size.uom": 1, size: 1 }` produces the same result as the projection document `{ size: 1 }`.
   - If the projection of the embedded document comes before the projection any of its fields, MongoDB projects the specified field or fields. For example, the projection document `{ "size.uom": 1, size: 1, "size.h": 1 }` produces the same result as the projection document `{"size.uom": 1, "size.h": 1 }`.
 
-  在以前的版本中，根据嵌入文档及其字段之间的最新投影确定投影：
+  在以前的版本中，嵌入文档及其字段之间的最后一个投射决定了整个投射：
 
-  - 如果嵌入式文档的投影紧随其字段的所有投影之后，则MongoDB会投影嵌入式文档。 例如，投影文档`{"size.uom"：1, size：1}`产生与投影文档`{size：1}`相同的结果。
-  - 如果嵌入式文档的投影先于其任何字段的投影，则MongoDB会投影指定的一个或多个字段。 例如，投影文档`{"size.uom"：1, size：1,"size.h"：1}`产生与投影文档`{"size.uom"：1, "size.h":1}`相同的结果。 
+  - 如果嵌入式文档的投射紧随其字段的所有投射之后，则MongoDB会投射嵌入式文档。例如，投射文档`{"size.uom"：1, size：1}`产生与投射文档`{size：1}`相同的结果。
+  - 如果嵌入式文档的投射先于其任何字段的投射，则MongoDB会投射指定的一个或多个字段。例如，投射文档`{"size.uom"：1, size：1,"size.h"：1}`产生与投射文档`{"size.uom"：1, "size.h":1}`相同的结果。
 
   **Path Collision: `$slice` of an Array and Embedded Fields** **路径冲突：数组和嵌入式字段的`$slice`**
 
   Starting in MongoDB 4.4, [`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find) and [`findAndModify()`](https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/#mongodb-method-db.collection.findAndModify) projection cannot contain both a [`$slice`](https://docs.mongodb.com/manual/reference/operator/projection/slice/#mongodb-projection-proj.-slice)of an array and a field embedded in the array.For example, consider a collection `inventory` that contains an array field `instock`:
 
-  从MongoDB 4.4开始，[`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find)和[`findAndModify()`](https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/#mongodb-method-db.collection.findAndModify)投影不能同时包含数组的[$slice](https://docs.mongodb.com/manual/reference/operator/projection/slice/#mongodb-projection-proj.-slice)和数组中嵌入的字段，例如，考虑包含数组字段`instock`的集合`inventory`： 
+  从MongoDB 4.4开始，[`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find)和[`findAndModify()`](https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/#mongodb-method-db.collection.findAndModify)投射不能同时包含数组的[$slice](https://docs.mongodb.com/manual/reference/operator/projection/slice/#mongodb-projection-proj.-slice)和数组中嵌入的字段，例如，考虑包含数组字段`instock`的集合`inventory`： 
 
   ```js
   { ..., instock: [ { warehouse: "A", qty: 35 }, { warehouse: "B", qty: 15 }, { warehouse: "C", qty: 35 } ], ... }
@@ -814,13 +813,13 @@ This table illustrates the approximate maximum collection sizes using the formul
 
   In previous versions, the projection applies both projections and returns the first element (`$slice: 1`) in the `instock` array but suppresses the `warehouse` field in the projected element. Starting in MongoDB 4.4, to achieve the same result, use the [`db.collection.aggregate()`](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregate) method with two separate[`$project`](https://docs.mongodb.com/manual/reference/operator/aggregation/project/#mongodb-pipeline-pipe.-project) stages.
 
-  在以前的版本中，投影会同时应用这两个投影并返回`instock`数组中的第一个元素（`$slice: 1`），但会抑制投影元素中的`warehouse`字段。 从MongoDB 4.4开始，要获得相同的结果，请使用带两个独立[`$project`](https://docs.mongodb.com/manual/reference/operator/aggregation/project/#mongodb-pipeline-pipe.-project)阶段的[`db.collection.aggregate()`](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregate)方法。
+  在以前的版本中，投射会同时应用这两个投射并返回`instock`数组中的第一个元素（`$slice: 1`），但会抑制投射元素中的`warehouse`字段。从MongoDB 4.4开始，要获得相同的结果，请使用带两个独立[`$project`](https://docs.mongodb.com/manual/reference/operator/aggregation/project/#mongodb-pipeline-pipe.-project)阶段的[`db.collection.aggregate()`](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregate)方法。
 
   **`$` Positional Operator and `$slice` Restriction** **`$`位置运算符和`$slice`限制**
 
   Starting in MongoDB 4.4, [`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find) and [`findAndModify()`](https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/#mongodb-method-db.collection.findAndModify) projection cannot include [`$slice`](https://docs.mongodb.com/manual/reference/operator/projection/slice/#mongodb-projection-proj.-slice)projection expression as part of a [`$`](https://docs.mongodb.com/manual/reference/operator/projection/positional/#mongodb-projection-proj.-) projection expression.For example, starting in MongoDB 4.4, the following operation is invalid:
 
-  从MongoDB 4.4开始，[`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find)和[`findAndModify()`](https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/#mongodb-method-db.collection.findAndModify) 投影不能包含`$slice`投影表达式作为`$`投影表达式的一部分。例如，从MongoDB 4.4开始，以下操作无效：
+  从MongoDB 4.4开始，[`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find)和[`findAndModify()`](https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/#mongodb-method-db.collection.findAndModify) 投射不能包含`$slice`投射表达式作为`$`投射表达式的一部分。例如，从MongoDB 4.4开始，以下操作无效：
 
   ```js
   db.inventory.find( { "instock.qty": { $gt: 25 } }, { "instock.$": { $slice: 1 } } ) // Invalid starting in 4.4
@@ -828,7 +827,7 @@ This table illustrates the approximate maximum collection sizes using the formul
 
   MongoDB already has a [`restriction`](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Restrictions-on-Field-Names) where top-level field names cannot start with the dollar sign (`$`).In previous versions, MongoDB returns the first element (`instock.$`) in the `instock` array that matches the query condition; i.e. the positional projection `"instock.$"` takes precedence and the `$slice:1` is a no-op. The `"instock.$": { $slice: 1 }` does not exclude any other document field.
 
-  MongoDB已经有一个[限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Restrictions-on-Field-Names)，即顶级字段名称不能以美元符号（`$`）开头。在以前的版本中，MongoDB返回`instock`数组中与查询条件匹配的第一个元素（`instock.$`）； 即位置投影`"instock.$"`优先，而`$slice：1`是空操作。 `"instock.$"：{$slice：1}`不排除任何其他文档字段。 
+  MongoDB已经有一个[限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Restrictions-on-Field-Names)，即顶级字段名称不能以美元符号（`$`）开头。在以前的版本中，MongoDB返回`instock`数组中与查询条件匹配的第一个元素（`instock.$`）； 即位置投射`"instock.$"`优先，而`$slice：1`是空操作。`"instock.$"：{$slice：1}`不排除任何其他文档字段。
 
 ## Sessions 会话
 
@@ -836,7 +835,7 @@ This table illustrates the approximate maximum collection sizes using the formul
 
   *Changed in version 3.6.3*: To use sessions with `$external` authentication users (i.e. Kerberos, LDAP, x.509 users), the usernames cannot be greater than 10k bytes.
 
-  *在版本3.6.3中更改*：要与`$external`身份验证用户（即Kerberos，LDAP，x.509用户）一起使用会话，用户名不能大于10kB。
+  *在版本3.6.3中更改*：要与`$external`身份验证用户（即Kerberos，LDAP，x.509用户）一起使用会话，用户名不能大于10KB。
 
 - `Session Idle Timeout` **会话空闲超时**
 
@@ -898,15 +897,15 @@ This table illustrates the approximate maximum collection sizes using the formul
   }
   ```
   
-  在示例操作中，[`db.collection.find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find)方法与显式会话相关联。 游标使用[`noCursorTimeout()`](https://docs.mongodb.com/manual/reference/method/cursor.noCursorTimeout/#mongodb-method-cursor.noCursorTimeout)配置，以防止服务器在空闲时关闭游标。 `while`循环包含一个代码块，使用[`refreshSessions`](https://docs.mongodb.com/manual/reference/command/refreshSessions/#mongodb-dbcommand-dbcmd.refreshSessions)每5分钟刷新一次会话。 由于会话将永远不会超过30分钟的空闲超时，因此游标可以无限期保持打开状态。 
+  在示例操作中，[`db.collection.find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find)方法与显式会话相关联。游标使用[`noCursorTimeout()`](https://docs.mongodb.com/manual/reference/method/cursor.noCursorTimeout/#mongodb-method-cursor.noCursorTimeout)配置，以防止服务器在空闲时关闭游标。`while`循环包含一个代码块，使用[`refreshSessions`](https://docs.mongodb.com/manual/reference/command/refreshSessions/#mongodb-dbcommand-dbcmd.refreshSessions)每5分钟刷新一次会话。由于会话将永远不会超过30分钟的空闲超时，因此游标可以无限期保持打开状态。
   
-  对于MongoDB驱动程序，请参考[驱动程序文档](https://docs.mongodb.com/drivers/)中有关创建会话的说明和语法。 
+  对于MongoDB驱动程序，请参考[驱动程序文档](https://docs.mongodb.com/drivers/)中有关创建会话的说明和语法。
 
 ## Shell 终端
 
 The [`mongo`](https://docs.mongodb.com/manual/reference/program/mongo/#mongodb-binary-bin.mongo) shell prompt has a limit of 4095 codepoints for each line. If you enter a line with more than 4095 codepoints, the shell will truncate it.
 
-[`mongo`](https://docs.mongodb.com/manual/reference/program/mongo/#mongodb-binary-bin.mongo)终端提示符每行的限制为4095个代码点。 如果您输入的行中包含4095个以上的代码点，则将被截断。 
+[`mongo`](https://docs.mongodb.com/manual/reference/program/mongo/#mongodb-binary-bin.mongo)终端提示符每行的限制为4095个代码点。如果您输入的行中包含4095个以上的代码点，则将被截断。
 
 
 
