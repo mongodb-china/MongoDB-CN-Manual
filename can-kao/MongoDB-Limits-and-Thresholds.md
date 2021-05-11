@@ -201,72 +201,52 @@
 
 ## 文档数
 
-- `Maximum Number of Documents in a Capped Collection` **限制集合中的最大文档数量**
-
-  If you specify a maximum number of documents for a capped collection using the `max` parameter to [`create`](https://docs.mongodb.com/manual/reference/command/create/#mongodb-dbcommand-dbcmd.create), the limit must be less than 2^32 documents. If you do not specify a maximum number of documents when creating a capped collection, there is no limit on the number of documents.
+**限制集合中的最大文档数量**
   
   如果使用`max`参数为限制集合指定最大文档数，则该限制必须少于`2^32`个文档。如果在创建上限集合时未指定最大文档数，则对文档数没有限制。
 
-## Replica Sets 副本集
+## 副本集
 
-- `Number of Members of a Replica Set` **副本集成员个数**
+**副本集成员个数**
 
-  Replica sets can have up to 50 members. 副本集能拥有不超过50个成员。
+副本集能拥有不超过50个成员。
 
-- `Number of Voting Members of a Replica Set` **副本集中可投票成员个数**
-
-  Replica sets can have up to 7 voting members. For replica sets with more than 7 total members, see [Non-Voting Members](https://docs.mongodb.com/manual/core/replica-set-elections/#std-label-replica-set-non-voting-members).
+**副本集中可投票成员个数**
 
   副本集最多可以有7个投票成员。有关成员总数超过7个的副本集，请参阅[非投票成员](https://docs.mongodb.com/manual/core/replica-set-elections/#std-label-replica-set-non-voting-members)。
 
-- `Maximum Size of Auto-Created Oplog` **自动创建的oplog表的最大大小**
-
-  If you do not explicitly specify an oplog size (i.e. with [`oplogSizeMB`](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-replication.oplogSizeMB) or [`--oplogSize`](https://docs.mongodb.com/manual/reference/program/mongod/#std-option-mongod.--oplogSize)) MongoDB will create an oplog that is no larger than 50 gigabytes. [[1\]](https://docs.mongodb.com/manual/reference/limits/#footnote-oplog)[[1](https://docs.mongodb.com/manual/reference/limits/#ref-oplog-id1)]Starting in MongoDB 4.0, the oplog can grow past its configured size limit to avoid deleting the [`majority commit point`](https://docs.mongodb.com/manual/reference/command/replSetGetStatus/#mongodb-data-replSetGetStatus.optimes.lastCommittedOpTime).
+**自动创建的oplog表的最大大小**
   
   如果您未明确指定oplog表的大小（即使用[oplogSizeMB](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-replication.oplogSizeMB)或[--oplogSize](https://docs.mongodb.com/manual/reference/program/mongod/#std-option-mongod.--oplogSize)），则MongoDB将创建一个不超过50GB的oplog表。[1]
   
   > [1]从MongoDB 4.0开始，操作日志可以超过其配置的大小限制，以避免删除[大多数提交点](https://docs.mongodb.com/manual/reference/command/replSetGetStatus/#mongodb-data-replSetGetStatus.optimes.lastCommittedOpTime)。
 
-## Sharded Clusters 分片集群
-
-Sharded clusters have the restrictions and thresholds described here.
+## 分片集群
 
 分片群集具有此处描述的限制和阈值。
 
-### Sharding Operational Restrictions 分片操作限制
+### 分片操作限制
 
-- `Operations Unavailable in Sharded Environments` **分片环境中无法执行的操作**
-
-   [`$where`](https://docs.mongodb.com/manual/reference/operator/query/where/#mongodb-query-op.-where) does not permit references to the `db` object from the [`$where`](https://docs.mongodb.com/manual/reference/operator/query/where/#mongodb-query-op.-where) function. This is uncommon in un-sharded collections.
+**分片环境中无法执行的操作**
 
   The [`geoSearch`](https://docs.mongodb.com/manual/reference/command/geoSearch/#mongodb-dbcommand-dbcmd.geoSearch) command is not supported in sharded environments.
   [`$where`](https://docs.mongodb.com/manual/reference/operator/query/where/#mongodb-query-op.-where) 不允许从[`$where`](https://docs.mongodb.com/manual/reference/operator/query/where/#mongodb-query-op.-where) 函数引用db对象。这在未分片的集合中并不常见。
 
   分片环境不支持[geoSearch](https://docs.mongodb.com/manual/reference/command/geoSearch/#mongodb-dbcommand-dbcmd.geoSearch)命令。
 
-- `Covered Queries in Sharded Clusters` **分片集群中的覆盖索引**
-
-  Starting in MongoDB 3.0, an index cannot [cover](https://docs.mongodb.com/manual/core/query-optimization/#std-label-covered-queries) a query on a [sharded](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard) collection when run against a [`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#mongodb-binary-bin.mongos)if the index does not contain the shard key, with the following exception for the `_id` index: If a query on a sharded collection only specifies a condition on the `_id` field and returns only the `_id` field, the `_id` index can cover the query when run against a [`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#mongodb-binary-bin.mongos) even if the `_id` field is not the shard key.
-
-  In previous versions, an index cannot [cover](https://docs.mongodb.com/manual/core/query-optimization/#std-label-covered-queries) a query on a [sharded](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard) collection when run against a [`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#mongodb-binary-bin.mongos).
+**分片集群中的覆盖索引**
 
   从MongoDB 3.0开始，如果索引不包含分片键，则对于运行在[mongos](https://docs.mongodb.com/manual/reference/program/mongos/#mongodb-binary-bin.mongos)上的查询而言，索引不能[覆盖](https://docs.mongodb.com/manual/core/query-optimization/#std-label-covered-queries)[分片](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard)集合上的查询，但`_id`索引除外：如果分片集合上的查询仅指定条件在`_id`字段上并仅返回`_id`字段，即使`_id`字段不是分片键，`_id`索引也可以覆盖查询。
 
   在以前的版本中，对于运行在[mongos](https://docs.mongodb.com/manual/reference/program/mongos/#mongodb-binary-bin.mongos)上的查询而言，索引无法[覆盖](https://docs.mongodb.com/manual/core/query-optimization/#std-label-covered-queries)[分片](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard)集合上的查询。
 
-- `Sharding Existing Collection Data Size` 对已存在的集合进行分片的数据大小限制
-
-  An existing collection can only be sharded if its size does not exceed specific limits. These limits can be estimated based on the average size of all [shard key](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard-key) values, and the configured [chunk](https://docs.mongodb.com/manual/reference/glossary/#std-term-chunk) size.
+对已存在的集合进行分片的数据大小限制
 
   如果现有集合的大小未超过特定限制，则只能对其进行分片。可以基于所有分片键值的平均大小以及配置的块大小来估计这些限制。
   
-  >  **IMPORTANT 重要**
+  >  **重要**
   >
-  >  These limits only apply for the initial sharding operation. Sharded collections can grow to *any* size after successfully enabling sharding.
->
   >  这些限制仅适用于初始化分片操作。成功启用分片后，分片集合可以增长到任何大小。
-
-  Use the following formulas to calculate the *theoretical* maximum collection size.
 
   如果如下的公式来计算*理论*最大集合大小。
 
@@ -274,21 +254,12 @@ Sharded clusters have the restrictions and thresholds described here.
   maxSplits = 16777216 (bytes) / <average size of shard key values in bytes> maxCollectionSize (MB) = maxSplits * (chunkSize / 2)
   ```
 
-  > **NOTE 注意**
-  >
-  > The maximum [BSON](https://docs.mongodb.com/manual/reference/glossary/#std-term-BSON) document size is 16MB or `16777216` bytes.
-  >
-  > All conversions should use base-2 scale, e.g. 1024 kilobytes = 1 megabyte.
+  > **注意**
   >
   > BSON文档的最大大小为`16MB`或者`16777216B`。
   >
   > 所有的转换都是基于二进制的，比如1024KB = 1MB。
 
-If `maxCollectionSize` is less than or nearly equal to the target collection, increase the chunk size to ensure successful initial sharding. If there is doubt as to whether the result of the calculation is too 'close' to the target collection size, it is likely better to increase the chunk size.
-
-After successful initial sharding, you can reduce the chunk size as needed. If you later reduce the chunk size, it may take time for all chunks to split to the new size. See [Modify Chunk Size in a Sharded Cluster](https://docs.mongodb.com/manual/tutorial/modify-chunk-size-in-sharded-cluster/) for instructions on modifying chunk size.
-
-This table illustrates the approximate maximum collection sizes using the formulas described above:
 
 如果**maxCollectionSize**小于或几乎等于目标集合，则增加块大小以确保成功进行初始分片。如果对计算结果是否过于“接近”目标集合大小有疑问，最好增加块大小。
 
@@ -304,31 +275,18 @@ This table illustrates the approximate maximum collection sizes using the formul
 | **最大集合大小（块大小256MB）** | 4TB     | 8TB     | 16TB    | 32TB   |
 
 - `Single Document Modification Operations in Sharded Collections` **分片集合中的单文档修改操作**
-
-  All [`update()`](https://docs.mongodb.com/manual/reference/method/db.collection.update/#mongodb-method-db.collection.update) and [`remove()`](https://docs.mongodb.com/manual/reference/method/db.collection.remove/#mongodb-method-db.collection.remove) operations for a sharded collection that specify the `justOne` or `multi: false` option must include the [shard key](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard-key) *or* the `_id` field in the query specification. [`update()`](https://docs.mongodb.com/manual/reference/method/db.collection.update/#mongodb-method-db.collection.update) and [`remove()`](https://docs.mongodb.com/manual/reference/method/db.collection.remove/#mongodb-method-db.collection.remove) operations specifying `justOne` or `multi: false` in a sharded collection which do not contain either the [shard key](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard-key) or the `_id` field return an error.
   
   指定了`justOne`或`multi：false`选项的分片集合的所有[`update()`](https://docs.mongodb.com/manual/reference/method/db.collection.update/#mongodb-method-db.collection.update)和[`remove()`](https://docs.mongodb.com/manual/reference/method/db.collection.remove/#mongodb-method-db.collection.remove)操作必须在查询条件中包括[分片键](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard-key)或`_id`字段。否则将返回错误。
 
-- `Unique Indexes in Sharded Collections` **分片集合中的唯一索引**
-
-  MongoDB does not support unique indexes across shards, except when the unique index contains the full shard key as a prefix of the index. In these situations MongoDB will enforce uniqueness across the full key, not a single field.
+**分片集合中的唯一索引**
   
   MongoDB不支持跨分片的唯一索引，除非唯一索引包含完整的分片键作为索引前缀。在这些情况下，MongoDB将在整个索引键上而不是单个字段上进行唯一性约束。
   
-  > **TIP 提示**
-  >
-  > See:[Unique Constraints on Arbitrary Fields](https://docs.mongodb.com/manual/tutorial/unique-constraints-on-arbitrary-fields/#std-label-shard-key-arbitrary-uniqueness) for an alternate approach.
+  > **提示**
   >
   > 替代方法请参考[任意字段的唯一性约束](https://docs.mongodb.com/manual/tutorial/unique-constraints-on-arbitrary-fields/#std-label-shard-key-arbitrary-uniqueness)。
 
-- `Maximum Number of Documents Per Chunk to Migrate` **迁移时每个块的最大文档数量**
-
-  By default, MongoDB cannot move a chunk if the number of documents in the chunk is greater than 1.3 times the result of dividing the configured [chunk size](https://docs.mongodb.com/manual/core/sharding-data-partitioning/#std-label-sharding-chunk-size) by the average document size. [`db.collection.stats()`](https://docs.mongodb.com/manual/reference/method/db.collection.stats/#mongodb-method-db.collection.stats)includes the `avgObjSize` field, which represents the average document size in the collection.
-  
-  For chunks that are [too large to migrate](https://docs.mongodb.com/manual/core/sharding-balancer-administration/#std-label-migration-chunk-size-limit), starting in MongoDB 4.4:
-  
-  - A new balancer setting `attemptToBalanceJumboChunks` allows the balancer to migrate chunks too large to move as long as the chunks are not labeled [jumbo](https://docs.mongodb.com/manual/core/sharding-data-partitioning/#std-label-jumbo-chunk). See [Balance Chunks that Exceed Size Limit](https://docs.mongodb.com/manual/tutorial/manage-sharded-cluster-balancer/#std-label-balance-chunks-that-exceed-size-limit) for details.
-  - The [`moveChunk`](https://docs.mongodb.com/manual/reference/command/moveChunk/#mongodb-dbcommand-dbcmd.moveChunk) command can specify a new option [forceJumbo](https://docs.mongodb.com/manual/reference/command/moveChunk/#std-label-movechunk-forceJumbo) to allow for the migration of chunks that are too large to move. The chunks may or may not be labeled [jumbo](https://docs.mongodb.com/manual/core/sharding-data-partitioning/#std-label-jumbo-chunk).
+**迁移时每个块的最大文档数量**
   
   默认情况下，如果块中的文档数大于配置的[块大小](https://docs.mongodb.com/manual/core/sharding-data-partitioning/#std-label-sharding-chunk-size)除以平均文档大小所得结果的1.3倍，则MongoDB无法移动该块。[`db.collection.stats()`](https://docs.mongodb.com/manual/reference/method/db.collection.stats/#mongodb-method-db.collection.stats)的返回结果包含了`avgObjSize`字段，该字段表示集合中的平均文档大小。
   
@@ -337,49 +295,27 @@ This table illustrates the approximate maximum collection sizes using the formul
   - 新的平衡器设置——`tryToBalanceJumboChunks`允许平衡器迁移过大而无法移动的块，只要这些块未标记为[巨型(Jubmo)](https://docs.mongodb.com/manual/core/sharding-data-partitioning/#std-label-jumbo-chunk)即可。有关详细信息请参见[均衡超出大小限制的块](https://docs.mongodb.com/manual/tutorial/manage-sharded-cluster-balancer/#std-label-balance-chunks-that-exceed-size-limit)。
   - [`moveChunk`](https://docs.mongodb.com/manual/reference/command/moveChunk/#mongodb-dbcommand-dbcmd.moveChunk)命令可以指定一个新选项[forceJumbo](https://docs.mongodb.com/manual/reference/command/moveChunk/#std-label-movechunk-forceJumbo)，以允许迁移过大而无法移动的块，无论该块有没有被标记为[巨型(Jubmo)](https://docs.mongodb.com/manual/core/sharding-data-partitioning/#std-label-jumbo-chunk)。
 
-### Shard Key Limitations 分片键限制
+### 分片键限制
 
-- `Shard Key Size` **分片键大小**
-
-  Starting in version 4.4, MongoDB removes the limit on the shard key size.
-
-  For MongoDB 4.2 and earlier, a shard key cannot exceed 512 bytes.
+**分片键大小**
 
   从4.4版本开始，MongoDB去除了关于分片键大小的限制。
 
   在4.2及之前的版本，一个分片键大小不能超过512B。
 
-- `Shard Key Index Type` **分片键索引类型**
-
-  A [shard key](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard-key) index can be an ascending index on the shard key, a compound index that start with the shard key and specify ascending order for the shard key, or a [hashed index](https://docs.mongodb.com/manual/core/index-hashed/).
-
-  A [shard key](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard-key) index cannot be an index that specifies a [multikey index](https://docs.mongodb.com/manual/core/index-multikey/), a [text index](https://docs.mongodb.com/manual/core/index-text/) or a [geospatial index](https://docs.mongodb.com/manual/geospatial-queries/#std-label-index-feature-geospatial) on the [shard key](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard-key) fields.
+**分片键索引类型**
 
   [分片键](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard-key)索引可以是分片键上的升序索引，也可以是以分片键开头并为分片键指定升序的复合索引，也可以是[哈希索引](https://docs.mongodb.com/manual/core/index-hashed/)。
 
   [分片键](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard-key)索引不能是在[分片键](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard-key)字段上指定的[多键索引](https://docs.mongodb.com/manual/core/index-multikey/)，[文本索引](https://docs.mongodb.com/manual/core/index-text/)或[地理空间索引](https://docs.mongodb.com/manual/geospatial-queries/#std-label-index-feature-geospatial)。
 
-- `Shard Key Selection is Immutable in MongoDB 4.2 and Earlier` **分片键在MongoDB4.2及以前的版本中是不可改变的**
+**分片键在MongoDB4.2及以前的版本中是不可改变的**
 
-  > **NOTE 注意**
-  >
-  > **Changed in Version 4.4**
-  >
-  > Starting in MongoDB 4.4, you can refine a collection's shard key by adding a suffix field or fields to the existing key. See [`refineCollectionShardKey`](https://docs.mongodb.com/manual/reference/command/refineCollectionShardKey/#mongodb-dbcommand-dbcmd.refineCollectionShardKey).
+  > **注意**
   >
   > **4.4版本中更新**
   >
   > 从MongoDB 4.4开始，您可以通过向现有键添加一个或多个后缀字段来优化集合的分片键。请参阅[fineCollectionShardKey](https://docs.mongodb.com/manual/reference/command/refineCollectionShardKey/#mongodb-dbcommand-dbcmd.refineCollectionShardKey)。
-
-  In MongoDB 4.2 and earlier, once you shard a collection, the selection of the shard key is immutable; i.e. you cannot select a different shard key for that collection.
-
-  If you must change a shard key:
-
-  - Dump all data from MongoDB into an external format.
-  - Drop the original sharded collection.
-  - Configure sharding using the new shard key.
-  - [Pre-split](https://docs.mongodb.com/manual/tutorial/create-chunks-in-sharded-cluster/) the shard key range to ensure initial even distribution.
-  - Restore the dumped data into MongoDB.
 
   在MongoDB 4.2和更早版本中，一旦对集合进行分片，则分片键是不可改变的。也就是说，您不能为该集合选择其他分片键。
 
@@ -391,18 +327,8 @@ This table illustrates the approximate maximum collection sizes using the formul
   - 对分片建范围进行[预分片](https://docs.mongodb.com/manual/tutorial/create-chunks-in-sharded-cluster/)以确保初始均匀分配。
   - 将转储的数据还原到MongoDB中。
 
-- `Monotonically Increasing Shard Keys Can Limit Insert Throughput` **单调递增的分片键会限制插入性能**
+**单调递增的分片键会限制插入性能**
 
-  For clusters with high insert volumes, a shard keys with monotonically increasing and decreasing keys can affect insert throughput. If your shard key is the `_id` field, be aware that the default values of the `_id` fields are [ObjectIds](https://docs.mongodb.com/manual/reference/glossary/#std-term-ObjectId) which have generally increasing values.
-  
-  When inserting documents with monotonically increasing shard keys, all inserts belong to the same [chunk](https://docs.mongodb.com/manual/reference/glossary/#std-term-chunk) on a single [shard](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard). The system eventually divides the chunk range that receives all write operations and migrates its contents to distribute data more evenly. However, at any moment the cluster directs insert operations only to a single shard, which creates an insert throughput bottleneck.
-  
-  If the operations on the cluster are predominately read operations and updates, this limitation may not affect the cluster.
-  
-  To avoid this constraint, use a [hashed shard key](https://docs.mongodb.com/manual/core/hashed-sharding/#std-label-sharding-hashed-sharding) or select a field that does not increase or decrease monotonically.
-  
-  [Hashed shard keys](https://docs.mongodb.com/manual/core/hashed-sharding/#std-label-sharding-hashed-sharding) and [hashed indexes](https://docs.mongodb.com/manual/core/index-hashed/#std-label-index-type-hashed) store hashes of keys with ascending values.
-  
   对于具有高插入量的集群，具有单调递增和递减性质的分片键可能会影响插入的吞吐量。如果您的分片键是`_id`字段，请注意`_id`字段的默认值是通常具有递增值的[ObjectId](https://docs.mongodb.com/manual/reference/glossary/#std-term-ObjectId)。
   
   当使用单调递增的分片键进行插入文档操作时，所有的插入都落在单个[分片](https://docs.mongodb.com/manual/reference/glossary/#std-term-shard)上的同一[块](https://docs.mongodb.com/manual/reference/glossary/#std-term-chunk)。系统最终划分接收所有写操作的块范围，并迁移其内容以更均匀地分配数据。但是，群集在任何时候都只将插入操作定向到单个分片，这会造成插入吞吐量的瓶颈。
@@ -413,7 +339,7 @@ This table illustrates the approximate maximum collection sizes using the formul
   
   [哈希分片键](https://docs.mongodb.com/manual/core/hashed-sharding/#std-label-sharding-hashed-sharding)和[哈希索引](https://docs.mongodb.com/manual/core/index-hashed/#std-label-index-type-hashed)存储具有升序值的键的哈希值。
 
-## Operations 操作
+## 操作
 
 - `Sort Operations` **排序操作**
 
