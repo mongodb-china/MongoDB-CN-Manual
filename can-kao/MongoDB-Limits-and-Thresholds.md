@@ -1,38 +1,26 @@
 # MongoDB中的限制与阈值
 
-This document provides a collection of hard and soft limitations of the MongoDB system.
-
 本文档提供了MongoDB系统的各种硬性和软性限制。
 
 ## BSON Documents BSON文档
 
-- `BSON Document Size` **BSON文档大小**
-
-  The maximum BSON document size is 16 megabytes.
-
-  The maximum document size helps ensure that a single document cannot use excessive amount of RAM or, during transmission, excessive amount of bandwidth. To store documents larger than the maximum size, MongoDB provides the GridFS API. See [`mongofiles`](https://docs.mongodb.com/database-tools/mongofiles/#mongodb-binary-bin.mongofiles) and the documentation for your [driver](https://docs.mongodb.com/drivers/) for more information about GridFS.
+**BSON文档大小**
 
   BSON的最大文档大小为16MB。
 
   最大文档大小有助于确保单个文档不会使用过多的RAM或在传输过程中占用过多的带宽。要存储大于该限制的文档，MongoDB提供了GridFS API。有关GridFS的更多信息，请参阅[mongofiles](https://docs.mongodb.com/database-tools/mongofiles/#mongodb-binary-bin.mongofiles)和[驱动程序](https://docs.mongodb.com/drivers/)的文档。
 
-- `Nested Depth for BSON Documents` **BSON文档的嵌套深度**
-
-  MongoDB supports no more than 100 levels of nesting for [BSON documents](https://docs.mongodb.com/manual/reference/glossary/#std-term-document).
+**BSON文档的嵌套深度**
 
   MongoDB支持不超过100层嵌套深度的[BSON文档](https://docs.mongodb.com/manual/reference/glossary/#std-term-document)。
 
-## Naming Restrictions 命名限制
+## 命名限制
 
-- `Database Name Case Sensitivity` **数据库名称的大小写敏感性**
-
-  Since database names are case *insensitive* in MongoDB, database names cannot differ only by the case of the characters.
+ **数据库名称的大小写敏感性**
 
   由于数据库名称在MongoDB中*不区分大小写*，因此数据库名称不能仅因字符的大小写而不同。
 
-- `Restrictions on Database Names for Windows` **Windows环境下的数据库名称限制**
-
-  For MongoDB deployments running on Windows, database names cannot contain any of the following characters:
+**Windows环境下的数据库名称限制**
 
   对于在Windows上运行的MongoDB环境，数据库名不能包含以下任意一个字符：
 
@@ -40,13 +28,9 @@ This document provides a collection of hard and soft limitations of the MongoDB 
   /\. "$*<>:|?
   ````
 
-  Also database names cannot contain the null character.
-
   另外，数据库名不能包含空字符。
-
-- `Restrictions on Database Names for Unix and Linux Systems` **Unix/Linux系统中的数据库名称限制**
-
-  For MongoDB deployments running on Unix and Linux systems, database names cannot contain any of the following characters:
+  
+ **Unix/Linux系统中的数据库名称限制**
 
   对于在Unix和Linux系统上运行的MongoDB环境，数据库名不能包含以下任意一个字符：
 
@@ -54,29 +38,15 @@ This document provides a collection of hard and soft limitations of the MongoDB 
   `/\. "$`
   ```
 
-  Also database names cannot contain the null character.
-
   同样的，数据库名不能包含空字符。
 
-- `Length of Database Names` **数据库名称的长度**
+**数据库名称的长度**
 
-  Database names cannot be empty and must have fewer than 64 characters.
 
   数据库名不能为空并且必须小于64个字符。
 
-- `Restriction on Collection Names` **集合名称的限制**
+ **集合名称的限制**
 
-  Collection names should begin with an underscore or a letter character, and *cannot*:
-
-  - contain the `$`.
-
-  - be an empty string (e.g. `""`).
-
-  - contain the null character.
-
-  - begin with the `system.` prefix. (Reserved for internal use.)
-  
-  If your collection name includes special characters, such as the underscore character, or begins with numbers, then to access the collection use the [`db.getCollection()`](https://docs.mongodb.com/manual/reference/method/db.getCollection/#mongodb-method-db.getCollection) method in the [`mongo`](https://docs.mongodb.com/manual/reference/program/mongo/#mongodb-binary-bin.mongo) shell or a [similar method for your driver](https://api.mongodb.com/).
   
   集合名必须以下划线或者字母符号开始，并且*不能*：
   
@@ -87,21 +57,12 @@ This document provides a collection of hard and soft limitations of the MongoDB 
   
   如果您的集合名称包含特殊字符（例如下划线字符）或以数字开头，则可以使用[mongo](https://docs.mongodb.com/manual/reference/program/mongo/#mongodb-binary-bin.mongo) shell中的[db.getCollection()](https://docs.mongodb.com/manual/reference/method/db.getCollection/#mongodb-method-db.getCollection)方法或[驱动程序的类似方法](https://api.mongodb.com/)来访问集合。
   
-  Namespace Length:
-  
-  - For [featureCompatibilityVersion](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv) set to `"4.4"` or greater, MongoDB raises the limit on collection/view namespace to 255 bytes. For a collection or a view, the namespace includes the database name, the dot (`.`) separator, and the collection/view name (e.g. `<database>.<collection>`),
-  - For [featureCompatibilityVersion](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv) set to `"4.2"` or earlier, the maximum length of the collection/view namespace remains 120 bytes.
-  
   命名空间长度：
   
   - 对于[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置为**`"4.4"`**及以上的集群，MongoDB会将对集合/视图名称空间的限制提高到255个字节。对于集合或视图，命名空间包括数据库名称、点号（**`.`**）分隔符和集合/视图名称（例如**`<database>.<collection>`**）;
   - 对于[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置为`"4.2"`及以下的集群，集合/视图名称空间的最大长度仍然为120个字节。
   
-- `Restrictions on Field Names` **字段名称的限制**
-
-  - Field names **cannot** contain the `null` character.
-
-  - Top-level field names **cannot** start with the dollar sign (`$`) character.Otherwise, starting in MongoDB 3.6, the server permits storage of field names that contain dots (i.e. `.`) and dollar signs (i.e. `$`).
+**字段名称的限制**
 
   - 字段名称**不能**包含空字符。
   
@@ -109,62 +70,40 @@ This document provides a collection of hard and soft limitations of the MongoDB 
   
   此外，从MongoDB 3.6开始，服务器允许存储包含点（即`.`）和美元符号（即`$`）的字段名称。
   
-    > **IMPORTANT  重要**
-    >
-    > The MongoDB Query Language cannot always meaningfully express queries over documents whose field names contain these characters (see [SERVER-30575](https://jira.mongodb.org/browse/SERVER-30575)).Until support is added in the query language, the use of `$` and `.` in field names is not recommended and is not supported by the official MongoDB drivers.
+    > **重要**
     >
     > MongoDB查询语言无法始终对字段名称包含这些字符的文档查询进行有效地表达（请参阅[SERVER-30575](https://jira.mongodb.org/browse/SERVER-30575)）。
     > 在查询语言添加相关支持之前，建议不要在字段名称中包含`.`和`$`，并且不受MongoDB官方驱动程序支持。
   
-  > **WARNING 警告**
+  > **警告**
   >
   > **MongoDB does not support duplicate field names**
-  >
-  > The MongoDB Query Language is undefined over documents with duplicate field names. BSON builders may support creating a BSON document with duplicate field names. While the BSON builder may not throw an error, inserting these documents into MongoDB is not supported *even if* the insert succeeds. For example, inserting a BSON document with duplicate field names through a MongoDB driver may result in the driver silently dropping the duplicate values prior to insertion.
   >
   > **MongoDB不支持重复的字段名称**
   >
   > MongoDB查询语言对于具有重复字段名称的文档是未定义的。BSON构建器可能支持使用重复的字段名称创建BSON文档。尽管BSON构建器可能不会抛出错误，但是*即使*插入操作返回成功，也不支持将这些文档插入MongoDB。例如，通过MongoDB驱动程序插入具有重复字段名称的BSON文档可能会导致驱动程序在插入之前静默删除重复值。
 
-## Namespaces 命名空间
+## 命名空间
 
-- `Namespace Length` **命名空间长度**
+**命名空间长度**
 
-  - For [featureCompatibilityVersion](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv) set to `"4.4"` or greater, MongoDB raises the limit on collection/view namespace to 255 bytes. For a collection or a view, the namespace includes the database name, the dot (`.`) separator, and the collection/view name (e.g. `<database>.<collection>`)
-  - For [featureCompatibilityVersion](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv) set to `"4.2"` or earlier, the maximum length of the collection/view namespace remains 120 bytes.
   - 对于[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置为**`"4.4"`**及以上的环境，MongoDB会将对集合/视图名称空间的限制提高到255个字节。对于集合或视图，命名空间包括数据库名称、点号（**`.`**）分隔符和集合/视图名称（例如**`<database>.<collection>`**）;
   - 对于[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置为**`"4.2"`**及以下的环境，集合/视图名称空间的最大长度仍然为120个字节。
 
-  > **TIP 提示**
-  >
-  > See also:[Naming Restrictions](https://docs.mongodb.com/manual/reference/limits/#std-label-faq-restrictions-on-collection-names)
+  > **提示**
   >
   > 另请参考：[命名限制](https://docs.mongodb.com/manual/reference/limits/#std-label-faq-restrictions-on-collection-names)
 
 
-## Indexes 索引
+## 索引
 
-- `Index Key Limit` **索引键的限制**
+**索引键的限制**
 
-  > **NOTE 注意**
+  > **注意**
   >
-  > **Changed in version 4.2 4.2版本有变更**
-  >
-  > Starting in version 4.2, MongoDB removes the [`Index Key Limit`](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit) for [featureCompatibilityVersion](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv) (fCV) set to `"4.2"` or greater.
+  > **4.2版本有变更**
   >
   > 从4.2版本开始，MongoDB对于将[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置成**`"4.2"`**及以上的环境去除了此[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Name-Length)。
-  
-  For MongoDB 2.6 through MongoDB versions with fCV set to `"4.0"` or earlier, the *total size* of an index entry, which can include structural overhead depending on the BSON type, must be *less than* 1024 bytes.
-  
-  When the [`Index Key Limit`](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit) applies:
-  
-  - MongoDB will **not** create an index on a collection if the index entry for an existing document exceeds the [`index key limit`](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit).
-  - Reindexing operations will error if the index entry for an indexed field exceeds the [`index key limit`](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit). Reindexing operations occur as part of the [`compact`](https://docs.mongodb.com/manual/reference/command/compact/#mongodb-dbcommand-dbcmd.compact) command as well as the [`db.collection.reIndex()`](https://docs.mongodb.com/manual/reference/method/db.collection.reIndex/#mongodb-method-db.collection.reIndex) method.Because these operations drop *all* the indexes from a collection and then recreate them sequentially, the error from the [`index key limit`](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit) prevents these operations from rebuilding any remaining indexes for the collection.
-  - MongoDB will not insert into an indexed collection any document with an indexed field whose corresponding index entry would exceed the [`index key limit`](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit), and instead, will return an error. Previous versions of MongoDB would insert but not index such documents.
-  - Updates to the indexed field will error if the updated value causes the index entry to exceed the [`index key limit`](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit).If an existing document contains an indexed field whose index entry exceeds the limit, *any*update that results in the relocation of that document on disk will error.
-  -  and [`mongoimport`](https://docs.mongodb.com/database-tools/mongoimport/#mongodb-binary-bin.mongoimport) will not insert documents that contain an indexed field whose corresponding index entry would exceed the [`index key limit`](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit).
-  - In MongoDB 2.6, secondary members of replica sets will continue to replicate documents with an indexed field whose corresponding index entry exceeds the [`index key limit`](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit) on initial sync but will print warnings in the logs.Secondary members also allow index build and rebuild operations on a collection that contains an indexed field whose corresponding index entry exceeds the [`index key limit`](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit) but with warnings in the logs.With *mixed version* replica sets where the secondaries are version 2.6 and the primary is version 2.4, secondaries will replicate documents inserted or updated on the 2.4 primary, but will print error messages in the log if the documents contain an indexed field whose corresponding index entry exceeds the [`index key limit`](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit).
-  - For existing sharded collections, [chunk migration](https://docs.mongodb.com/manual/core/sharding-balancer-administration/) will fail if the chunk has a document that contains an indexed field whose index entry exceeds the [`index key limit`](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit).
   
   对于从MongoDB 2.6到将fCV设置为**`"4.2"`**或更早的MongoDB版本，索引条目的*总大小*必须*小于*1024字节，该总大小可能包括结构体开销，具体取决于BSON类型。
   
@@ -178,114 +117,72 @@ This document provides a collection of hard and soft limitations of the MongoDB 
   - 在MongoDB 2.6中，如果该索引字段的对应索引条目在初始同步时超出了[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit)，副本集的从节点将继续复制带有索引字段的文档，但会在日志中显示警告信息。从节点还允许对包含了对应的索引条目超过了[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit)的索引字段的集合进行索引构建和重建操作，但在日志中显示警告信息。使用混合版本副本集（其中次要版本为2.6和主版本为版本2.4），从节点将复制在2.4主版本上插入或更新的文档，但是如果文档包含一个索引字段（其对应的索引条目超过了[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit)），则会在日志中显示错误消息。
   - 对于现有分片集合，如果块中包含文档的索引条目超过[索引键限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Key-Limit)的索引字段，则块迁移将失败。
   
-- `Number of Indexes per Collection` **每个集合中的索引个数**
-
-  A single collection can have *no more* than 64 indexes.
+**每个集合中的索引个数**
 
   单个集合内*不能超过*64个索引。
 
-- `Index Name Length` **索引名称长度**
+**索引名称长度**
 
-  > **NOTE 注意**
+  > **注意**
   >
-  > **Changed in version 4.2 4.2版本有变更**
-  >
-  > Starting in version 4.2, MongoDB removes the [`Index Name Length`](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Name-Length) limit for MongoDB versions with[featureCompatibilityVersion](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv) (fCV) set to `"4.2"` or greater.
+  > **4.2版本有变更**
   >
   > 从4.2版本开始，MongoDB对于将[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置成**`"4.2"`**及以上的环境去除了此[索引名称长度限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Index-Name-Length)。
-
-  In previous versions of MongoDB or MongoDB versions with fCV set to `"4.0"` or earlier, fully qualified index names, which include the namespace and the dot separators (i.e. `<database name>.<collection name>.$<index name>`), cannot be longer than 127 bytes.
-
-  By default, `<index name>` is the concatenation of the field names and index type. You can explicitly specify the `<index name>` to the [`createIndex()`](https://docs.mongodb.com/manual/reference/method/db.collection.createIndex/#mongodb-method-db.collection.createIndex) method to ensure that the fully qualified index name does not exceed the limit.
 
   在将fCV设置为**`"4.0"`**及以下的MongoDB或MongoDB的早期版本中，标准的索引名称，包括名称空间和点分隔符（即`<database name>.<collection name>.$<index name>`），不能超过127个字节。
 
   默认情况下，`<index name>`是字段名称和索引类型的串联。您可以为`createIndex()`方法显式指定`<index name>`，以确保标准索引名称不超过限制。
 
-- `Number of Indexed Fields in a Compound Index` **复合索引的字段数量**
-
-  There can be no more than 32 fields in a compound index.
+**复合索引的字段数量**
 
   复合索引中所包含的字段不能超过32个。
 
-- `Queries cannot use both text and Geospatial Indexes` **查询不能同时使用文本索引和地理空间索引**
-
-  You cannot combine the [`$text`](https://docs.mongodb.com/manual/reference/operator/query/text/#mongodb-query-op.-text) query, which requires a special [text index](https://docs.mongodb.com/manual/core/index-text/#std-label-create-text-index), with a query operator that requires a different type of special index. For example you cannot combine [`$text`](https://docs.mongodb.com/manual/reference/operator/query/text/#mongodb-query-op.-text) query with the [`$near`](https://docs.mongodb.com/manual/reference/operator/query/near/#mongodb-query-op.-near) operator.
+**查询不能同时使用文本索引和地理空间索引**
 
   您不能将需要特殊[文本索引](https://docs.mongodb.com/manual/core/index-text/#std-label-create-text-index)的[$text](https://docs.mongodb.com/manual/reference/operator/query/text/#mongodb-query-op.-text)查询与需要不同类型特殊索引的查询运算符组合在一起。例如，您不能将[$text](https://docs.mongodb.com/manual/reference/operator/query/text/#mongodb-query-op.-text)查询与[$near](https://docs.mongodb.com/manual/reference/operator/query/near/#mongodb-query-op.-near)运算符结合使用。
 
-- `Fields with 2dsphere Indexes can only hold Geometries` **具有2dsphere索引的字段只能保存几何数据**
-
-  Fields with [2dsphere](https://docs.mongodb.com/manual/core/2dsphere/) indexes must hold geometry data in the form of [coordinate pairs](https://docs.mongodb.com/manual/reference/glossary/#std-term-legacy-coordinate-pairs) or [GeoJSON](https://docs.mongodb.com/manual/reference/glossary/#std-term-GeoJSON) data. If you attempt to insert a document with non-geometry data in a `2dsphere` indexed field, or build a `2dsphere`index on a collection where the indexed field has non-geometry data, the operation will fail.
+**具有2dsphere索引的字段只能保存几何数据**
 
   具有[2dsphere](https://docs.mongodb.com/manual/core/2dsphere/)索引的字段必须以[坐标对](https://docs.mongodb.com/manual/reference/glossary/#std-term-legacy-coordinate-pairs)或[GeoJSON](https://docs.mongodb.com/manual/reference/glossary/#std-term-GeoJSON)数据的形式保存几何数据。如果您尝试在**2dsphere**索引字段中插入包含非几何数据的文档，或者在索引字段包含非几何数据的集合上构建**2dsphere**索引，则该操作将失败。
 
-  > **TIP 提示**
+  > **提示**
   >
-  > **See also: 另请参考：**
-  >
-  > The unique indexes limit in [Sharding Operational Restrictions](https://docs.mongodb.com/manual/reference/limits/#std-label-limits-sharding-operations).
+  > **另请参考：**
   >
   > [分片操作限制](https://docs.mongodb.com/manual/reference/limits/#std-label-limits-sharding-operations)中的唯一索引限制
 
-- `NaN values returned from Covered Queries by the WiredTiger Storage Engine are always of type double` **WiredTiger存储引擎从覆盖查询返回的NaN值始终为double类型**
-
-  If the value of a field returned from a query that is [covered by an index](https://docs.mongodb.com/manual/core/query-optimization/#std-label-covered-queries) is `NaN`, the type of that `NaN` value is *always* `double`.
+**WiredTiger存储引擎从覆盖查询返回的NaN值始终为double类型**
 
   如果从索引覆盖的查询返回的字段的值为**NaN**，则该**NaN**值的类型*始终*为**double**。
 
-- `Multikey Index` **多键索引**
-
-  [Multikey indexes](https://docs.mongodb.com/manual/core/index-multikey/#std-label-index-type-multikey) cannot cover queries over array field(s).
+**多键索引**
 
   多键索引不能覆盖对数组字段的查询。
 
-- `Geospatial Index` **地理位置索引**
-
-  [Geospatial indexes](https://docs.mongodb.com/manual/geospatial-queries/#std-label-index-feature-geospatial) cannot [cover a query](https://docs.mongodb.com/manual/core/query-optimization/#std-label-covered-queries).
+**地理位置索引**
 
   地理位置索引无法覆盖查询。
 
-- `Memory Usage in Index Builds` **索引构建中的内存使用情况** 
-
-  supports building one or more indexes on a collection. [`createIndexes`](https://docs.mongodb.com/manual/reference/command/createIndexes/#mongodb-dbcommand-dbcmd.createIndexes) uses a combination of memory and temporary files on disk to complete index builds. The default limit on memory usage for [`createIndexes`](https://docs.mongodb.com/manual/reference/command/createIndexes/#mongodb-dbcommand-dbcmd.createIndexes) is 200 megabytes (for versions 4.2.3 and later) and 500 (for versions 4.2.2 and earlier), shared between all indexes built using a single [`createIndexes`](https://docs.mongodb.com/manual/reference/command/createIndexes/#mongodb-dbcommand-dbcmd.createIndexes) command. Once the memory limit is reached, [`createIndexes`](https://docs.mongodb.com/manual/reference/command/createIndexes/#mongodb-dbcommand-dbcmd.createIndexes) uses temporary disk files in a subdirectory named `_tmp` within the [`--dbpath`](https://docs.mongodb.com/manual/reference/program/mongod/#std-option-mongod.--dbpath)directory to complete the build.
-
-  You can override the memory limit by setting the [`maxIndexBuildMemoryUsageMegabytes`](https://docs.mongodb.com/manual/reference/parameters/#mongodb-parameter-param.maxIndexBuildMemoryUsageMegabytes) server parameter. Setting a higher memory limit may result in faster completion of index builds. However, setting this limit too high relative to the unused RAM on your system can result in memory exhaustion and server shutdown.
+**索引构建中的内存使用情况** 
 
   [createIndexes](https://docs.mongodb.com/manual/reference/command/createIndexes/#mongodb-dbcommand-dbcmd.createIndexes)支持在集合上构建一个或多个索引。[createIndexes](https://docs.mongodb.com/manual/reference/command/createIndexes/#mongodb-dbcommand-dbcmd.createIndexes)使用内存和磁盘上的临时文件的组合来完成索引构建。[createIndexes](https://docs.mongodb.com/manual/reference/command/createIndexes/#mongodb-dbcommand-dbcmd.createIndexes)的内存使用量的默认限制是200MB（对于4.2.3和更高版本）和500MB（对于4.2.2和更早版本），这是使用单个[createIndexes](https://docs.mongodb.com/manual/reference/command/createIndexes/#mongodb-dbcommand-dbcmd.createIndexes)命令构建的所有索引之间共享的。一旦达到内存限制，[createIndexes](https://docs.mongodb.com/manual/reference/command/createIndexes/#mongodb-dbcommand-dbcmd.createIndexes)将使用[--dbpath](https://docs.mongodb.com/manual/reference/program/mongod/#std-option-mongod.--dbpath)指定的目录中名为`_tmp`子目录中的临时磁盘文件来完成构建。
 
   您可以通过设置[maxIndexBuildMemoryUsageMegabytes](https://docs.mongodb.com/manual/reference/parameters/#mongodb-parameter-param.maxIndexBuildMemoryUsageMegabytes)这一服务器参数来覆盖该内存限制。设置更高的内存限制可能会导致索引构建更快地完成。但是，相对于系统上未使用的RAM设置此限制过高会导致内存耗尽和MongoDB服务停止。
-
-  *Changed in version 4.2*. 
-
-  - For [feature compatibility version (fcv)](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv) `"4.2"`, the index build memory limit applies to all index builds.
-  - For [feature compatibility version (fcv)](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv) `"4.0"`, the index build memory limit only applies to foreground index builds.
 
   *4.2版本有更新*
 
   - 对于[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置为**`"4.2"`**的环境，索引创建的内存限制对所有索引创建生效；
   - 对于[fCV](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)设置为**`"4.0"`**的环境，索引创建的内存限制仅对前台建索引生效；
 
-  Index builds may be initiated either by a user command such as [Create Index](https://docs.mongodb.com/manual/reference/method/db.collection.createIndex/) or by an administrative process such as an [initial sync](https://docs.mongodb.com/manual/core/replica-set-sync/). Both are subject to the limit set by [`maxIndexBuildMemoryUsageMegabytes`](https://docs.mongodb.com/manual/reference/parameters/#mongodb-parameter-param.maxIndexBuildMemoryUsageMegabytes).
-
-  An [initial sync operation](https://docs.mongodb.com/manual/core/replica-set-sync/) populates only one collection at a time and has no risk of exceeding the memory limit. However, it is possible for a user to start index builds on multiple collections in multiple databases simultaneously and potentially consume an amount of memory greater than the limit set in [`maxIndexBuildMemoryUsageMegabytes`](https://docs.mongodb.com/manual/reference/parameters/#mongodb-parameter-param.maxIndexBuildMemoryUsageMegabytes).
-
   可以通过诸如[创建索引](https://docs.mongodb.com/manual/reference/method/db.collection.createIndex/)之类的用户命令或诸如[初始化同步](https://docs.mongodb.com/manual/core/replica-set-sync/)之类的管理过程来启动索引构建。两者均受[maxIndexBuildMemoryUsageMegabytes](https://docs.mongodb.com/manual/reference/parameters/#mongodb-parameter-param.maxIndexBuildMemoryUsageMegabytes)设置的限制。
 
   [初始化同步操作](https://docs.mongodb.com/manual/core/replica-set-sync/)一次仅填充一个集合，并且没有超过内存限制的风险。但是，用户可能会同时在多个数据库中的多个集合上启动索引构建，并且可能消耗的内存量大于[maxIndexBuildMemoryUsageMegabytes]()中设置的限制。
 
-  >**TIP 提示**
-  >To minimize the impact of building an index on replica sets and sharded clusters with replica set shards, use a rolling index build procedure as described on [Rolling Index Builds on Replica Sets](https://docs.mongodb.com/manual/tutorial/build-indexes-on-replica-sets/).
+  >**提示**
   >
   >为了最大程度地减少在副本集和具有副本集分片的分片集群上建立索引的影响，请使用滚动索引生成过程，如[在副本集上滚动索引构建](https://docs.mongodb.com/manual/tutorial/build-indexes-on-replica-sets/)所述。
 
-- `Collation and Index Types` **字节序和索引类型**
-
-  The following index types only support simple binary comparison and do not support [collation](https://docs.mongodb.com/manual/reference/bson-type-comparison-order/#std-label-collation):
-
-  -  [text](https://docs.mongodb.com/manual/core/index-text/) indexes,
-  -  [2d](https://docs.mongodb.com/manual/core/2d/) indexes, and
-  -  [geoHaystack](https://docs.mongodb.com/manual/core/geohaystack/) indexes.
+**字节序和索引类型**
 
   以下索引类型仅支持简单的二进制比较规则而不支持[字节序](https://docs.mongodb.com/manual/reference/bson-type-comparison-order/#std-label-collation)：
 
@@ -293,21 +190,16 @@ This document provides a collection of hard and soft limitations of the MongoDB 
   - [2d](https://docs.mongodb.com/manual/core/2d/)索引；
   - [geoHaystack](https://docs.mongodb.com/manual/core/geohaystack/)索引。
 
-  > **TIP 提示**
-  >
-  > To create a `text`, a `2d`, or a `geoHaystack` index on a collection that has a non-simple collation, you must explicitly specify `{collation: {locale: "simple"} }` when creating the index.
+  > **提示**
   >
   > 为了在一个包含非简单字节序的集合上创建一个`text`，`2d`或`geoHaystack`索引，您必须在创建索引时显示指定`collation: {locale: "simple"}`。
 
-- `Hidden Indexes` **隐藏索引**
+**隐藏索引**
 
-  - You cannot [hide](https://docs.mongodb.com/manual/core/index-hidden/) the `_id` index.
-  
-  - You cannot use [`hint()`](https://docs.mongodb.com/manual/reference/method/cursor.hint/#mongodb-method-cursor.hint) on a [hidden index](https://docs.mongodb.com/manual/core/index-hidden/).
   - 你无法[隐藏](https://docs.mongodb.com/manual/core/index-hidden/)`_id`索引。
   - 在[隐藏索引](https://docs.mongodb.com/manual/core/index-hidden/)上无法使用[hint()](https://docs.mongodb.com/manual/reference/method/cursor.hint/#mongodb-method-cursor.hint)
 
-## Data 数据
+## 文档数
 
 - `Maximum Number of Documents in a Capped Collection` **限制集合中的最大文档数量**
 
