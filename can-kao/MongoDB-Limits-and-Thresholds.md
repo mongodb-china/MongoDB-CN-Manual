@@ -341,15 +341,7 @@
 
 ## 操作
 
-- `Sort Operations` **排序操作**
-
-  If MongoDB cannot use an index or indexes to obtain the sort order, MongoDB must perform a blocking sort operation on the data. The name refers to the requirement that the `SORT` stage reads all input documents before returning any output documents, blocking the flow of data for that specific query.
-  
-  If MongoDB requires using more than 100 megabytes of system memory for the blocking sort operation, MongoDB returns an error *unless* the query specifies [`cursor.allowDiskUse()`](https://docs.mongodb.com/manual/reference/method/cursor.allowDiskUse/#mongodb-method-cursor.allowDiskUse) (*New in MongoDB 4.4*). [`allowDiskUse()`](https://docs.mongodb.com/manual/reference/method/cursor.allowDiskUse/#mongodb-method-cursor.allowDiskUse) allows MongoDB to use temporary files on disk to store data exceeding the 100 megabyte system memory limit while processing a blocking sort operation.
-  
-  *Changed in version 4.4*: For MongoDB 4.2 and prior, blocking sort operations could not exceed 32 megabytes of system memory.
-  
-  For more information on sorts and index use, see [Sort and Index Use](https://docs.mongodb.com/manual/reference/method/cursor.sort/#std-label-sort-index-use).
+**排序操作**
   
   如果MongoDB无法使用一个或多个索引来获取排序顺序，则MongoDB必须对数据执行阻塞式排序操作。该名称指的是`SORT`阶段在返回任何输出文档之前读取所有输入文档的要求，从而阻止了该特定查询的数据流。
   
@@ -359,9 +351,7 @@
   
   有关排序和索引使用的更多信息，请参见[排序和索引使用](https://docs.mongodb.com/manual/reference/method/cursor.sort/#std-label-sort-index-use)。
   
-- `Aggregation Pipeline Operation` **聚合管道操作**
-
-  Pipeline stages have a limit of 100 megabytes of RAM. If a stage exceeds this limit, MongoDB will produce an error. To allow for the handling of large datasets, use the `allowDiskUse` option to enable aggregation pipeline stages to write data to temporary files.*Changed in version 3.4*.The [`$graphLookup`](https://docs.mongodb.com/manual/reference/operator/aggregation/graphLookup/#mongodb-pipeline-pipe.-graphLookup) stage must stay within the 100 megabyte memory limit. If `allowDiskUse: true` is specified for the [`aggregate()`](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregate) operation, the [`$graphLookup`](https://docs.mongodb.com/manual/reference/operator/aggregation/graphLookup/#mongodb-pipeline-pipe.-graphLookup) stage ignores the option. If there are other stages in the [`aggregate()`](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregate) operation, `allowDiskUse: true` option is in effect for these other stages.Starting in MongoDB 4.2, the [profiler log messages](https://docs.mongodb.com/manual/tutorial/manage-the-database-profiler/) and [diagnostic log messages](https://docs.mongodb.com/manual/reference/log-messages/) includes a `usedDisk`indicator if any aggregation stage wrote data to temporary files due to [memory restrictions](https://docs.mongodb.com/manual/core/aggregation-pipeline-limits/#std-label-agg-memory-restrictions).
+**聚合管道操作**
 
   流水线级的RAM限制为100MB。如果阶段超出此限制，则MongoDB将产生错误。要允许处理大型数据集，请使用`allowDiskUse`选项启用聚合管道阶段以将数据写入临时文件。
 
@@ -371,83 +361,43 @@
 
   从MongoDB 4.2开始，[事件探查器日志消息]()和[诊断日志消息]()均包含`usedDisk`字段，其指示了是有否有聚合阶段由于[内存限制](https://docs.mongodb.com/manual/core/aggregation-pipeline-limits/#std-label-agg-memory-restrictions)而将数据写入磁盘上临时文件。
 
-  > **TIP 提示**
-  >
-  > **See also:**
-  >
-  > - [`$sort` and Memory Restrictions](https://docs.mongodb.com/manual/reference/operator/aggregation/sort/#std-label-sort-memory-limit) 
-  >
-  > - [`$group` Operator and Memory](https://docs.mongodb.com/manual/reference/operator/aggregation/group/#std-label-group-memory-limit)
+  > **提示**
   >
   > **另请参考：**
   >
   > - [`$sort`与内存限制](https://docs.mongodb.com/manual/reference/operator/aggregation/sort/#std-label-sort-memory-limit)
   > - [`$group`操作符与内存](https://docs.mongodb.com/manual/reference/operator/aggregation/group/#std-label-group-memory-limit)
 
-- `Aggregation and Read Concern` **聚合以及读关注**
+**聚合以及读关注**
 
-  - Starting in MongoDB 4.2, the [`$out`](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#mongodb-pipeline-pipe.-out) stage cannot be used in conjunction with read concern [`"linearizable"`](https://docs.mongodb.com/manual/reference/read-concern-linearizable/#mongodb-readconcern-readconcern.-linearizable-). That is, if you specify [`"linearizable"`](https://docs.mongodb.com/manual/reference/read-concern-linearizable/#mongodb-readconcern-readconcern.-linearizable-) read concern for[`db.collection.aggregate()`](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregate), you cannot include the [`$out`](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#mongodb-pipeline-pipe.-out) stage in the pipeline.
-  - The [`$merge`](https://docs.mongodb.com/manual/reference/operator/aggregation/merge/#mongodb-pipeline-pipe.-merge) stage cannot be used in conjunction with read concern [`"linearizable"`](https://docs.mongodb.com/manual/reference/read-concern-linearizable/#mongodb-readconcern-readconcern.-linearizable-). That is, if you specify [`"linearizable"`](https://docs.mongodb.com/manual/reference/read-concern-linearizable/#mongodb-readconcern-readconcern.-linearizable-) read concern for [`db.collection.aggregate()`](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregate), you cannot include the [`$merge`](https://docs.mongodb.com/manual/reference/operator/aggregation/merge/#mongodb-pipeline-pipe.-merge) stage in the pipeline.
   - 从MongoDB 4.2开始，[`$out`](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#mongodb-pipeline-pipe.-out)阶段不能与[`"linearizable"`](https://docs.mongodb.com/manual/reference/read-concern-linearizable/#mongodb-readconcern-readconcern.-linearizable-)级别的读关注结合使用。也就是说，如果为[`db.collection.aggregate()`](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregate)指定[`"linearizable"`](https://docs.mongodb.com/manual/reference/read-concern-linearizable/#mongodb-readconcern-readconcern.-linearizable-)级别的读关注，则不能在管道中包括[`$out`](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#mongodb-pipeline-pipe.-out)阶段。
   -  [`$merge`](https://docs.mongodb.com/manual/reference/operator/aggregation/merge/#mongodb-pipeline-pipe.-merge)阶段不能与[`"linearizable"`](https://docs.mongodb.com/manual/reference/read-concern-linearizable/#mongodb-readconcern-readconcern.-linearizable-)级别的读关注结合使用。也就是说，如果为[`db.collection.aggregate()`](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregate)指定[`"linearizable"`](https://docs.mongodb.com/manual/reference/read-concern-linearizable/#mongodb-readconcern-readconcern.-linearizable-)读取关注点，则不能在管道中包括[`$merge`](https://docs.mongodb.com/manual/reference/operator/aggregation/merge/#mongodb-pipeline-pipe.-merge)阶段。
 
-- `2d Geospatial queries cannot use the $or operator` **2d地理位置查询无法使用`$or`操作符**
+**2d地理位置查询无法使用`$or`操作符**
 
-  > **TIP 提示**
+  > **提示**
   >
   > **查看: 参考：**
   >
   > - [`$or`](https://docs.mongodb.com/manual/reference/operator/query/or/#mongodb-query-op.-or)
   > - [`2d` Index Internals](https://docs.mongodb.com/manual/core/geospatial-indexes/)
 
-- `Geospatial Queries` **地理位置查询**
-
-  For spherical queries, use the `2dsphere` index result.
-
-  The use of `2d` index for spherical queries may lead to incorrect results, such as the use of the `2d` index for spherical queries that wrap around the poles.
+**地理位置查询**
 
   对于地理位置查询，使用`dusphere`索引的结果。
 
   将`2d`索引用于球形查询可能会导致错误的结果，例如将`2d`索引用于环绕两极的球形查询。
 
-- `Geospatial Coordinates` **地理空间坐标**
+**地理空间坐标**
 
-  - Valid longitude values are between `-180` and `180`, both inclusive.
-  - Valid latitude values are between `-90` and `90`, both inclusive.
   - 有效的经度值在-180到180之间（包括两者）。
   - 有效的纬度值在-90到90之间（包括两者）。
 
-- `Area of GeoJSON Polygons` **GeoJSON多边形的面积**
-
-  For [`$geoIntersects`](https://docs.mongodb.com/manual/reference/operator/query/geoIntersects/#mongodb-query-op.-geoIntersects) or [`$geoWithin`](https://docs.mongodb.com/manual/reference/operator/query/geoWithin/#mongodb-query-op.-geoWithin), if you specify a single-ringed polygon that has an area greater than a single hemisphere, include [`the custom MongoDB coordinate reference system in the $geometry`](https://docs.mongodb.com/manual/reference/operator/query/geometry/#mongodb-query-op.-geometry) expression; otherwise, [`$geoIntersects`](https://docs.mongodb.com/manual/reference/operator/query/geoIntersects/#mongodb-query-op.-geoIntersects) or [`$geoWithin`](https://docs.mongodb.com/manual/reference/operator/query/geoWithin/#mongodb-query-op.-geoWithin) queries for the complementary geometry. For all other GeoJSON polygons with areas greater than a hemisphere, [`$geoIntersects`](https://docs.mongodb.com/manual/reference/operator/query/geoIntersects/#mongodb-query-op.-geoIntersects) or [`$geoWithin`](https://docs.mongodb.com/manual/reference/operator/query/geoWithin/#mongodb-query-op.-geoWithin) queries for the complementary geometry.
+**GeoJSON多边形的面积**
 
   对于[`$geoIntersects`](https://docs.mongodb.com/manual/reference/operator/query/geoIntersects/#mongodb-query-op.-geoIntersects)或 [`$geoWithin`](https://docs.mongodb.com/manual/reference/operator/query/geoWithin/#mongodb-query-op.-geoWithin)，如果您指定面积大于单个半球的单环多边形，则[在$ geometry表达式中包括自定义MongoDB坐标参考系统](https://docs.mongodb.com/manual/reference/operator/query/geometry/#mongodb-query-op.-geometry)； 否则，[`$geoIntersects`](https://docs.mongodb.com/manual/reference/operator/query/geoIntersects/#mongodb-query-op.-geoIntersects) 或 [`$geoWithin`](https://docs.mongodb.com/manual/reference/operator/query/geoWithin/#mongodb-query-op.-geoWithin) 将查询互补几何。对于面积大于半球的所有其他GeoJSON多边形，[`$geoIntersects`](https://docs.mongodb.com/manual/reference/operator/query/geoIntersects/#mongodb-query-op.-geoIntersects) 或 [`$geoWithin`](https://docs.mongodb.com/manual/reference/operator/query/geoWithin/#mongodb-query-op.-geoWithin) 查询互补几何。
 
-- `Multi-document Transactions` **多文档事务**
-
-  For [multi-document transactions](https://docs.mongodb.com/manual/core/transactions/):
-
-  - You can specify read/write (CRUD) operations on **existing** collections. For a list of CRUD operations, see [CRUD Operations](https://docs.mongodb.com/manual/core/transactions-operations/#std-label-transactions-operations-crud).
-
-  - When using  `"4.4"` or greater, you can create collections and indexes in transactions. For details, see [Create Collections and Indexes In a Transaction](https://docs.mongodb.com/manual/core/transactions/#std-label-transactions-create-collections-indexes)
-
-  - The collections used in a transaction can be in different databases.
-
-    >  NOTEYou cannot create new collections in cross-shard write transactions. For example, if you write to an existing collection in one shard and implicitly create a collection in a different shard, MongoDB cannot perform both operations in the same transaction.
-
-  - You cannot write to [capped](https://docs.mongodb.com/manual/core/capped-collections/) collections. (Starting in MongoDB 4.2)
-
-  - You cannot read/write to collections in the `config`, `admin`, or `local` databases.
-
-  - You cannot write to `system.*` collections.
-
-  - You cannot return the supported operation's query plan (i.e. `explain`).
-
-  - For cursors created outside of a transaction, you cannot call [`getMore`](https://docs.mongodb.com/manual/reference/command/getMore/#mongodb-dbcommand-dbcmd.getMore) inside the transaction.
-
-  - For cursors created in a transaction, you cannot call [`getMore`](https://docs.mongodb.com/manual/reference/command/getMore/#mongodb-dbcommand-dbcmd.getMore) outside the transaction.
-
-  - Starting in MongoDB 4.2, you cannot specify [`killCursors`](https://docs.mongodb.com/manual/reference/command/killCursors/#mongodb-dbcommand-dbcmd.killCursors) as the first operation in a [transaction](https://docs.mongodb.com/manual/core/transactions/).
+**多文档事务**
 
   对于[多文档事务](https://docs.mongodb.com/manual/core/transactions/)而言：
 
@@ -471,18 +421,6 @@
 
   - 对于在事务外部创建的游标，不能在事务内部调用[`getMore`](https://docs.mongodb.com/manual/reference/command/getMore/#mongodb-dbcommand-dbcmd.getMore)。对于在事务中创建的游标，不能在事务外部调用[`getMore`](https://docs.mongodb.com/manual/reference/command/getMore/#mongodb-dbcommand-dbcmd.getMore)。从MongoDB 4.2开始，您不能将 [`killCursors`](https://docs.mongodb.com/manual/reference/command/killCursors/#mongodb-dbcommand-dbcmd.killCursors)指定为[事务](https://docs.mongodb.com/manual/core/transactions/)中的第一个操作。
 
-  *Changed in version 4.4*.
-
-  The following operations are not allowed in transactions:
-
-  - Operations that affect the database catalog, such as creating or dropping a collection or an index when using [feature compatibility version (fcv)](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv) `"4.2"` or lower. With fcv `"4.4"` or greater, you can create collections and indexes in transactions unless the transaction is a cross-shard write transaction. For details, see [Create Collections and Indexes In a Transaction](https://docs.mongodb.com/manual/core/transactions/#std-label-transactions-create-collections-indexes).
-  - Creating new collections in cross-shard write transactions. For example, if you write to an existing collection in one shard and implicitly create a collection in a different shard, MongoDB cannot perform both operations in the same transaction.
-  - , e.g. [`db.createCollection()`](https://docs.mongodb.com/manual/reference/method/db.createCollection/#mongodb-method-db.createCollection) method, and indexes, e.g.[`db.collection.createIndexes()`](https://docs.mongodb.com/manual/reference/method/db.collection.createIndexes/#mongodb-method-db.collection.createIndexes) and [`db.collection.createIndex()`](https://docs.mongodb.com/manual/reference/method/db.collection.createIndex/#mongodb-method-db.collection.createIndex) methods, when using a read concern level other than [`"local"`](https://docs.mongodb.com/manual/reference/read-concern-local/#mongodb-readconcern-readconcern.-local-).
-  - The [`listCollections`](https://docs.mongodb.com/manual/reference/command/listCollections/#mongodb-dbcommand-dbcmd.listCollections) and [`listIndexes`](https://docs.mongodb.com/manual/reference/command/listIndexes/#mongodb-dbcommand-dbcmd.listIndexes) commands and their helper methods.
-  - Other non-CRUD and non-informational operations, such as [`createUser`](https://docs.mongodb.com/manual/reference/command/createUser/#mongodb-dbcommand-dbcmd.createUser), [`getParameter`](https://docs.mongodb.com/manual/reference/command/getParameter/#mongodb-dbcommand-dbcmd.getParameter), [`count`](https://docs.mongodb.com/manual/reference/command/count/#mongodb-dbcommand-dbcmd.count), etc. and their helpers.
-
-  Transactions have a lifetime limit as specified by [`transactionLifetimeLimitSeconds`](https://docs.mongodb.com/manual/reference/parameters/#mongodb-parameter-param.transactionLifetimeLimitSeconds). The default is 60 seconds.
-
   *4.4版本中有更新*
 
   以下操作在事务中不被允许：
@@ -495,13 +433,7 @@
 
   事务存在一个生命周期限制，由[`transactionLifetimeLimitSeconds`](https://docs.mongodb.com/manual/reference/parameters/#mongodb-parameter-param.transactionLifetimeLimitSeconds)指定，默认值为60s。
 
-- `Write Command Batch Limit Size` **批量写大小限制**
-
-  `100,000` [writes](https://docs.mongodb.com/manual/reference/command/nav-crud/) are allowed in a single batch operation, defined by a single request to the server.
-
-  *Changed in version 3.6*: The limit raises from `1,000` to `100,000` writes. This limit also applies to legacy `OP_INSERT` messages.
-
-  The [`Bulk()`](https://docs.mongodb.com/manual/reference/method/Bulk/#mongodb-method-Bulk) operations in the [`mongo`](https://docs.mongodb.com/manual/reference/program/mongo/#mongodb-binary-bin.mongo) shell and comparable methods in the drivers do not have this limit.
+**批量写大小限制**
 
   在单个批处理操作中允许`100,000`次[写入](https://docs.mongodb.com/manual/reference/command/nav-crud/)，这由对服务器的单个请求定义。
 
@@ -509,22 +441,7 @@
 
   [`mongo`](https://docs.mongodb.com/manual/reference/program/mongo/#mongodb-binary-bin.mongo)shell中的[`Bulk()`](https://docs.mongodb.com/manual/reference/method/Bulk/#mongodb-method-Bulk) 操作和驱动程序中的类似方法没有此限制。
 
-- `Views` **视图**
-
-  The view definition `pipeline` cannot include the [`$out`](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#mongodb-pipeline-pipe.-out) or the [`$merge`](https://docs.mongodb.com/manual/reference/operator/aggregation/merge/#mongodb-pipeline-pipe.-merge) stage. If the view definition includes nested pipeline (e.g. the view definition includes [`$lookup`](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#mongodb-pipeline-pipe.-lookup) or [`$facet`](https://docs.mongodb.com/manual/reference/operator/aggregation/facet/#mongodb-pipeline-pipe.-facet) stage), this restriction applies to the nested pipelines as well.
-
-  Views have the following operation restrictions:
-
-  - Views are read-only.
-  - You cannot rename [views](https://docs.mongodb.com/manual/core/views/).
-  -  operations on views do not support the following [projection](https://docs.mongodb.com/manual/reference/operator/projection/) operators:
-    - [`$`](https://docs.mongodb.com/manual/reference/operator/projection/positional/#mongodb-projection-proj.-)
-    - [`$elemMatch`](https://docs.mongodb.com/manual/reference/operator/projection/elemMatch/#mongodb-projection-proj.-elemMatch)
-    - [`$slice`](https://docs.mongodb.com/manual/reference/operator/projection/slice/#mongodb-projection-proj.-slice)
-    - [`$meta`](https://docs.mongodb.com/manual/reference/operator/aggregation/meta/#mongodb-expression-exp.-meta)
-  - [Views](https://docs.mongodb.com/manual/core/views/) do not support text search.
-  - [Views](https://docs.mongodb.com/manual/core/views/) do not support map-reduce operations.
-  - [Views](https://docs.mongodb.com/manual/core/views/) do not support geoNear operations (i.e. [`$geoNear`](https://docs.mongodb.com/manual/reference/operator/aggregation/geoNear/#mongodb-pipeline-pipe.-geoNear) pipeline stage).
+**视图**
 
   视图定义`管道`不能包含 [`$out`](https://docs.mongodb.com/manual/reference/operator/aggregation/out/#mongodb-pipeline-pipe.-out) 或者 [`$merge`](https://docs.mongodb.com/manual/reference/operator/aggregation/merge/#mongodb-pipeline-pipe.-merge) 阶段。如果视图定义包括嵌套管道（例如，视图定义包括[`$lookup`](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#mongodb-pipeline-pipe.-lookup) 或者[`$facet`](https://docs.mongodb.com/manual/reference/operator/aggregation/facet/#mongodb-pipeline-pipe.-facet) 阶段），则此限制也适用于嵌套管道。
 
@@ -537,13 +454,11 @@
   - 不支持map-reduce操作
   - 不支持geoNear操作（即[$geoNear](https://docs.mongodb.com/manual/reference/operator/aggregation/geoNear/#mongodb-pipeline-pipe.-geoNear)管道阶段）
 
-- `Projection Restrictions` **投射限制**
+**投射限制**
 
-  *New in version 4.4* 4.4版的新功能:
+*4.4版的新功能:*
 
-  **`$`-Prefixed Field Path Restriction** **$前缀的字段路径限制**
-
-  Starting in MongoDB 4.4, the [`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find) and [`findAndModify()`](https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/#mongodb-method-db.collection.findAndModify) projection cannot project a field that starts with `$` with the exception of the [DBRef fields](https://docs.mongodb.com/manual/reference/database-references/#std-label-dbref-explanation).For example, starting in MongoDB 4.4, the following operation is invalid:
+**$前缀的字段路径限制**
 
   从MongoDB 4.4开始， [`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find)和[`findAndModify()`](https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/#mongodb-method-db.collection.findAndModify) 无法投射以`$`开头的字段，但[DBRef字段](https://docs.mongodb.com/manual/reference/database-references/#std-label-dbref-explanation)除外。例如，从MongoDB 4.4开始，以下操作无效：
 
@@ -551,13 +466,10 @@
   db.inventory.find( {}, { "$instock.warehouse": 0, "$item": 0, "detail.$price": 1 } ) // Invalid starting in 4.4
   ```
 
-  MongoDB already has a [`restriction`](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Restrictions-on-Field-Names) where top-level field names cannot start with the dollar sign (`$`).In earlier version, MongoDB ignores the `$`-prefixed field projections.
+MongoDB已经有一个[限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Restrictions-on-Field-Names)，即顶级字段名称不能以美元符号（`$`）开头。在早期版本中，MongoDB忽略`$`前缀的字段投射。
 
-  MongoDB已经有一个[限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Restrictions-on-Field-Names)，即顶级字段名称不能以美元符号（`$`）开头。在早期版本中，MongoDB忽略`$`前缀的字段投射。
+**$位置运算符的放置限制**
 
-  **`$` Positional Operator Placement Restriction** **$位置运算符的放置限制**
-
-  Starting in MongoDB 4.4, the [`$`](https://docs.mongodb.com/manual/reference/operator/projection/positional/#mongodb-projection-proj.-) projection operator can only appear at the end of the field path; e.g. `"field.$"` or `"fieldA.fieldB.$"`.For example, starting in MongoDB 4.4, the following operation is invalid:
 
   从MongoDB 4.4开始，[`$`](https://docs.mongodb.com/manual/reference/operator/projection/positional/#mongodb-projection-proj.-)投射运算符只能出现在字段路径的末尾。例如`"field.$"`或`"fieldA.fieldB.$"`。例如，从MongoDB 4.4开始，以下操作无效： 
 
@@ -565,27 +477,19 @@
   db.inventory.find( { }, { "instock.$.qty": 1 } ) // Invalid starting in 4.4
   ```
 
-  To resolve, remove the component of the field path that follows the [`$`](https://docs.mongodb.com/manual/reference/operator/projection/positional/#mongodb-projection-proj.-) projection operator.In previous versions, MongoDB ignores the part of the path that follows the `$`; i.e. the projection is treated as `"instock.$"`.
-
   要解决此问题，请删除`$`投射运算符后面的字段路径部分。在以前的版本中，MongoDB会忽略`$`后面的路径部分； 即，该投射被视为`"instock.$"`。
 
-  **Empty Field Name Projection Restriction** **空字段名称投射限制**
+**空字段名称投射限制**
 
-  Starting in MongoDB 4.4, [`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find) and [`findAndModify()`](https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/#mongodb-method-db.collection.findAndModify) projection cannot include a projection of an empty field name.For example, starting in MongoDB 4.4, the following operation is invalid:
-
-  从MongoDB 4.4开始，[`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find)和[`findAndModify()`](https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/#mongodb-method-db.collection.findAndModify)不能包含空字段名称的投射。例如，从MongoDB 4.4开始，以下操作无效： 
+从MongoDB 4.4开始，[`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find)和[`findAndModify()`](https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/#mongodb-method-db.collection.findAndModify)不能包含空字段名称的投射。例如，从MongoDB 4.4开始，以下操作无效： 
 
   ```js
   db.inventory.find( { }, { "": 0 } ) // Invalid starting in 4.4
   ```
 
-  In previous versions, MongoDB treats the inclusion/exclusion of the empty field as it would the projection of non-existing fields.
-
   在以前的版本中，MongoDB将空字段的包含/排除视为不存在字段的投射。
 
-  **Path Collision: Embedded Documents and Its Fields** **路径冲突：嵌入式文档及其字段**
-
-  Starting in MongoDB 4.4, it is illegal to project an embedded document with any of the embedded document's fields.For example, consider a collection `inventory` with documents that contain a `size`field:
+**路径冲突：嵌入式文档及其字段**
 
   从MongoDB 4.4开始，使用嵌入文档的任何字段来投射嵌入文档都是非法的，例如，考虑包含文档的集合`inventory`，其中包含`size`字段： 
 
@@ -593,27 +497,18 @@
   { ..., size: { h: 10, w: 15.25, uom: "cm" }, ... }
   ```
 
-  Starting in MongoDB 4.4, the following operation fails with a `Path collision` error because it attempts to project both `size` document and the `size.uom` field:
-
   从MongoDB 4.4开始，以下操作因`路径冲突`错误而失败，因为它尝试同时投射`size`文档和`size.uom`字段： 
 
   ```js
   db.inventory.find( {}, { size: 1, "size.uom": 1 } )  // Invalid starting in 4.4
   ```
 
-  In previous versions, lattermost projection between the embedded documents and its fields determines the projection:
-
-  - If the projection of the embedded document comes after any and all projections of its fields, MongoDB projects the embedded document. For example, the projection document `{ "size.uom": 1, size: 1 }` produces the same result as the projection document `{ size: 1 }`.
-  - If the projection of the embedded document comes before the projection any of its fields, MongoDB projects the specified field or fields. For example, the projection document `{ "size.uom": 1, size: 1, "size.h": 1 }` produces the same result as the projection document `{"size.uom": 1, "size.h": 1 }`.
-
   在以前的版本中，嵌入文档及其字段之间的最后一个投射决定了整个投射：
 
   - 如果嵌入式文档的投射紧随其字段的所有投射之后，则MongoDB会投射嵌入式文档。例如，投射文档`{"size.uom"：1, size：1}`产生与投射文档`{size：1}`相同的结果。
   - 如果嵌入式文档的投射先于其任何字段的投射，则MongoDB会投射指定的一个或多个字段。例如，投射文档`{"size.uom"：1, size：1,"size.h"：1}`产生与投射文档`{"size.uom"：1, "size.h":1}`相同的结果。
 
-  **Path Collision: `$slice` of an Array and Embedded Fields** **路径冲突：数组和嵌入式字段的`$slice`**
-
-  Starting in MongoDB 4.4, [`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find) and [`findAndModify()`](https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/#mongodb-method-db.collection.findAndModify) projection cannot contain both a [`$slice`](https://docs.mongodb.com/manual/reference/operator/projection/slice/#mongodb-projection-proj.-slice)of an array and a field embedded in the array.For example, consider a collection `inventory` that contains an array field `instock`:
+**路径冲突：数组和嵌入式字段的`$slice`**
 
   从MongoDB 4.4开始，[`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find)和[`findAndModify()`](https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/#mongodb-method-db.collection.findAndModify)投射不能同时包含数组的[$slice](https://docs.mongodb.com/manual/reference/operator/projection/slice/#mongodb-projection-proj.-slice)和数组中嵌入的字段，例如，考虑包含数组字段`instock`的集合`inventory`： 
 
@@ -621,78 +516,36 @@
   { ..., instock: [ { warehouse: "A", qty: 35 }, { warehouse: "B", qty: 15 }, { warehouse: "C", qty: 35 } ], ... }
   ```
 
-  Starting in MongoDB 4.4, the following operation fails with a `Path collision` error:
-
   从MongoDB 4.4开始，以下操作会因`路径冲突`而失败：
 
   ```js
   db.inventory.find( {}, { "instock": { $slice: 1 }, "instock.warehouse": 0 } ) // Invalid starting in 4.4
   ```
 
-  In previous versions, the projection applies both projections and returns the first element (`$slice: 1`) in the `instock` array but suppresses the `warehouse` field in the projected element. Starting in MongoDB 4.4, to achieve the same result, use the [`db.collection.aggregate()`](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregate) method with two separate[`$project`](https://docs.mongodb.com/manual/reference/operator/aggregation/project/#mongodb-pipeline-pipe.-project) stages.
-
   在以前的版本中，投射会同时应用这两个投射并返回`instock`数组中的第一个元素（`$slice: 1`），但会抑制投射元素中的`warehouse`字段。从MongoDB 4.4开始，要获得相同的结果，请使用带两个独立[`$project`](https://docs.mongodb.com/manual/reference/operator/aggregation/project/#mongodb-pipeline-pipe.-project)阶段的[`db.collection.aggregate()`](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#mongodb-method-db.collection.aggregate)方法。
 
-  **`$` Positional Operator and `$slice` Restriction** **`$`位置运算符和`$slice`限制**
+**`$`位置运算符和`$slice`限制**
 
-  Starting in MongoDB 4.4, [`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find) and [`findAndModify()`](https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/#mongodb-method-db.collection.findAndModify) projection cannot include [`$slice`](https://docs.mongodb.com/manual/reference/operator/projection/slice/#mongodb-projection-proj.-slice)projection expression as part of a [`$`](https://docs.mongodb.com/manual/reference/operator/projection/positional/#mongodb-projection-proj.-) projection expression.For example, starting in MongoDB 4.4, the following operation is invalid:
-
-  从MongoDB 4.4开始，[`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find)和[`findAndModify()`](https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/#mongodb-method-db.collection.findAndModify) 投射不能包含`$slice`投射表达式作为`$`投射表达式的一部分。例如，从MongoDB 4.4开始，以下操作无效：
+从MongoDB 4.4开始，[`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find)和[`findAndModify()`](https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/#mongodb-method-db.collection.findAndModify) 投射不能包含`$slice`投射表达式作为`$`投射表达式的一部分。例如，从MongoDB 4.4开始，以下操作无效：
 
   ```js
   db.inventory.find( { "instock.qty": { $gt: 25 } }, { "instock.$": { $slice: 1 } } ) // Invalid starting in 4.4
   ```
 
-  MongoDB already has a [`restriction`](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Restrictions-on-Field-Names) where top-level field names cannot start with the dollar sign (`$`).In previous versions, MongoDB returns the first element (`instock.$`) in the `instock` array that matches the query condition; i.e. the positional projection `"instock.$"` takes precedence and the `$slice:1` is a no-op. The `"instock.$": { $slice: 1 }` does not exclude any other document field.
+MongoDB已经有一个[限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Restrictions-on-Field-Names)，即顶级字段名称不能以美元符号（`$`）开头。在以前的版本中，MongoDB返回`instock`数组中与查询条件匹配的第一个元素（`instock.$`）； 即位置投射`"instock.$"`优先，而`$slice：1`是空操作。`"instock.$"：{$slice：1}`不排除任何其他文档字段。
 
-  MongoDB已经有一个[限制](https://docs.mongodb.com/manual/reference/limits/#mongodb-limit-Restrictions-on-Field-Names)，即顶级字段名称不能以美元符号（`$`）开头。在以前的版本中，MongoDB返回`instock`数组中与查询条件匹配的第一个元素（`instock.$`）； 即位置投射`"instock.$"`优先，而`$slice：1`是空操作。`"instock.$"：{$slice：1}`不排除任何其他文档字段。
+## 会话
 
-## Sessions 会话
-
-- `Sessions and $external Username Limit`**会话和`$external`用户名限制**
-
-  *Changed in version 3.6.3*: To use sessions with `$external` authentication users (i.e. Kerberos, LDAP, x.509 users), the usernames cannot be greater than 10k bytes.
+**会话和`$external`用户名限制**
 
   *在版本3.6.3中更改*：要与`$external`身份验证用户（即Kerberos，LDAP，x.509用户）一起使用会话，用户名不能大于10KB。
 
-- `Session Idle Timeout` **会话空闲超时**
-
-  Sessions that receive no read or write operations for 30 minutes *or* that are not refreshed using [`refreshSessions`](https://docs.mongodb.com/manual/reference/command/refreshSessions/#mongodb-dbcommand-dbcmd.refreshSessions) within this threshold are marked as expired and can be closed by the MongoDB server at any time. Closing a session kills any in-progress operations and open cursors associated with the session. This includes cursors configured with [`noCursorTimeout()`](https://docs.mongodb.com/manual/reference/method/cursor.noCursorTimeout/#mongodb-method-cursor.noCursorTimeout) or a [`maxTimeMS()`](https://docs.mongodb.com/manual/reference/method/cursor.maxTimeMS/#mongodb-method-cursor.maxTimeMS) greater than 30 minutes.
+**会话空闲超时**
   
-  Consider an application that issues a [`db.collection.find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find). The server returns a cursor along with a batch of documents defined by the [`cursor.batchSize()`](https://docs.mongodb.com/manual/reference/method/cursor.batchSize/#mongodb-method-cursor.batchSize) of the [`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find). The session refreshes each time the application requests a new batch of documents from the server. However, if the application takes longer than 30 minutes to process the current batch of documents, the session is marked as expired and closed. When the application requests the next batch of documents, the server returns an error as the cursor was killed when the session was closed.
+在30分钟内未执行任何读或写操作或未使用[`refreshSessions`](https://docs.mongodb.com/manual/reference/command/refreshSessions/#mongodb-dbcommand-dbcmd.refreshSessions) 刷新的会话在此阈值之内被标记为已过期，并且MongoDB服务器可以随时将其关闭。关闭会话将终止所有正在进行的操作以及与该会话关联的已打开游标。这包括使用[`noCursorTimeout()`](https://docs.mongodb.com/manual/reference/method/cursor.noCursorTimeout/#mongodb-method-cursor.noCursorTimeout) 或 [`maxTimeMS()`](https://docs.mongodb.com/manual/reference/method/cursor.maxTimeMS/#mongodb-method-cursor.maxTimeMS) 大于30分钟配置的游标。
   
-  在30分钟内未执行任何读或写操作或未使用[`refreshSessions`](https://docs.mongodb.com/manual/reference/command/refreshSessions/#mongodb-dbcommand-dbcmd.refreshSessions) 刷新的会话在此阈值之内被标记为已过期，并且MongoDB服务器可以随时将其关闭。关闭会话将终止所有正在进行的操作以及与该会话关联的已打开游标。这包括使用[`noCursorTimeout()`](https://docs.mongodb.com/manual/reference/method/cursor.noCursorTimeout/#mongodb-method-cursor.noCursorTimeout) 或 [`maxTimeMS()`](https://docs.mongodb.com/manual/reference/method/cursor.maxTimeMS/#mongodb-method-cursor.maxTimeMS) 大于30分钟配置的游标。
-  
-   考虑一个发出[`db.collection.find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find)命令的应用程序。服务器返回一个游标以及由[`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find)的 [`cursor.batchSize()`](https://docs.mongodb.com/manual/reference/method/cursor.batchSize/#mongodb-method-cursor.batchSize)定义的一批文档。每次应用程序从服务器请求新一批文档时，会话都会刷新。但是，如果应用程序花费超过30分钟的时间来处理当前批次的文档，则该会话将被标记为已过期并关闭。当应用程序请求下一批文档时，服务器将返回错误，因为在关闭会话时游标已被杀死。
-  
-  For operations that return a cursor, if the cursor may be idle for longer than 30 minutes, issue the operation within an explicit session using [`Mongo.startSession()`](https://docs.mongodb.com/manual/reference/method/Mongo.startSession/#mongodb-method-Mongo.startSession) and periodically refresh the session using the [`refreshSessions`](https://docs.mongodb.com/manual/reference/command/refreshSessions/#mongodb-dbcommand-dbcmd.refreshSessions) command. For example:
-  
-  ```js
-  var session = db.getMongo().startSession()
-  var sessionId = session.getSessionId().id
-  
-  var cursor = session.getDatabase("examples").getCollection("data").find().noCursorTimeout()
-  var refreshTimestamp = new Date() // take note of time at operation start
-  
-  while (cursor.hasNext()) {
-  
-    // Check if more than 5 minutes have passed since the last refresh
-    if ( (new Date()-refreshTimestamp)/1000 > 300 ) {
-      print("refreshing session")
-      db.adminCommand({"refreshSessions" : [sessionId]})
-      refreshTimestamp = new Date()
-    }
-  
-    // process cursor normally
-  
-  }
-  ```
-  
-  In the example operation, the [`db.collection.find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find) method is associated with an explicit session. The cursor is configured with [`noCursorTimeout()`](https://docs.mongodb.com/manual/reference/method/cursor.noCursorTimeout/#mongodb-method-cursor.noCursorTimeout) to prevent the server from closing the cursor if idle. The `while` loop includes a block that uses [`refreshSessions`](https://docs.mongodb.com/manual/reference/command/refreshSessions/#mongodb-dbcommand-dbcmd.refreshSessions) to refresh the session every 5 minutes. Since the session will never exceed the 30 minute idle timeout, the cursor can remain open indefinitely.
-  
-  For MongoDB drivers, defer to the [driver documentation](https://docs.mongodb.com/drivers/) for instructions and syntax for creating sessions.
-  
-  对于返回游标的操作，如果游标可能闲置30分钟以上，请使用[`Mongo.startSession()`](https://docs.mongodb.com/manual/reference/method/Mongo.startSession/#mongodb-method-Mongo.startSession) 在显式会话中发出该操作，并使用[`refreshSessions`](https://docs.mongodb.com/manual/reference/command/refreshSessions/#mongodb-dbcommand-dbcmd.refreshSessions) 命令定期刷新该会话。例如： 
+考虑一个发出[`db.collection.find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find)命令的应用程序。服务器返回一个游标以及由[`find()`](https://docs.mongodb.com/manual/reference/method/db.collection.find/#mongodb-method-db.collection.find)的 [`cursor.batchSize()`](https://docs.mongodb.com/manual/reference/method/cursor.batchSize/#mongodb-method-cursor.batchSize)定义的一批文档。每次应用程序从服务器请求新一批文档时，会话都会刷新。但是，如果应用程序花费超过30分钟的时间来处理当前批次的文档，则该会话将被标记为已过期并关闭。当应用程序请求下一批文档时，服务器将返回错误，因为在关闭会话时游标已被杀死。
+对于返回游标的操作，如果游标可能闲置30分钟以上，请使用[`Mongo.startSession()`](https://docs.mongodb.com/manual/reference/method/Mongo.startSession/#mongodb-method-Mongo.startSession) 在显式会话中发出该操作，并使用[`refreshSessions`](https://docs.mongodb.com/manual/reference/command/refreshSessions/#mongodb-dbcommand-dbcmd.refreshSessions) 命令定期刷新该会话。例如： 
   
   ```js
   var session = db.getMongo().startSession()
@@ -719,12 +572,9 @@
   
   对于MongoDB驱动程序，请参考[驱动程序文档](https://docs.mongodb.com/drivers/)中有关创建会话的说明和语法。
 
-## Shell 终端
-
-The [`mongo`](https://docs.mongodb.com/manual/reference/program/mongo/#mongodb-binary-bin.mongo) shell prompt has a limit of 4095 codepoints for each line. If you enter a line with more than 4095 codepoints, the shell will truncate it.
+## 终端
 
 [`mongo`](https://docs.mongodb.com/manual/reference/program/mongo/#mongodb-binary-bin.mongo)终端提示符每行的限制为4095个代码点。如果您输入的行中包含4095个以上的代码点，则将被截断。
-
 
 
 ------
