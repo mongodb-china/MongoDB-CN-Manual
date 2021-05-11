@@ -1,4 +1,4 @@
-# MongoDB Limits and Thresholds MongoDB中的限制与阈值
+# MongoDB中的限制与阈值
 
 This document provides a collection of hard and soft limitations of the MongoDB system.
 
