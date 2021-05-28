@@ -109,15 +109,17 @@ db.events.find().sort( { username: 1, date: 1 } )
 * the `item` 字段 _and_ the `location` 字段,
 * the `item` 字段 _and_ the `location` 字段 和 the `stock` 字段.
 
-MongoDB还可以使用索引来支持对`item`和 `stock`字段的查询，因为`item`字段对应于一个前缀。但是，在支持查询方面，索引的效率不如只支持`item`和`stock`的索引。
+MongoDB还可以使用索引来支持对`item`和 `stock`字段的查询，因为`item`字段对应于一个前缀。但是，在支持查询方面，索引的效率不如只支持`item`和`stock`的索引。索引字段按顺序解析；如果查询省略了特定的索引前缀，则无法使用该前缀之后的任何索引字段。
 
-然而，MongoDB不能使用索引来支持查询，包括以下字段，因为没有`item`字段，列出的字段都不对应前缀索引:
+由于查询 `item` 和 `stock` 省略了 `location` 索引前缀，因此它不能使用 `stock` 其后的索引字段 `location`。只有 `item` 索引中的字段可以支持此查询。有关更多信息，请参见[创建索引以支持您的查询](https://docs.mongodb.com/manual/tutorial/create-indexes-to-support-queries/#std-label-create-indexes-to-support-queries)。
+
+然而，MongoDB不能使用索引来支持包含以下字段的查询，因为没有`item`字段，列出的字段都不对应前缀索引:
 
 * the `location` 字段,
 * the `stock` 字段, 
 * the `location`  `stock` 字段.
 
-如果你有一个集合,复合索引和索引的前缀\(例如:**{a:1,b: 1}和{a:1}**\),如果两个索引都没有稀疏约束或唯一约束，那么您可以删除前缀上的索引\(例如**{a: 1}**\)。MongoDB将在所有使用前缀索引的情况下使用复合索引。
+如果你的集合同时具有复合索引和其前缀的索引\(例如:**{a:1,b: 1}和{a:1}**\),如果两个索引都没有稀疏约束或唯一约束，那么您可以删除前缀上的索引\(例如**{a: 1}**\)。MongoDB将在所有使用前缀索引的情况下使用复合索引。
 
 ## 索引交集
 
