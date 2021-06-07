@@ -365,6 +365,7 @@
   * [FAQ: MongoDB诊断](faq/mongodb-diagnostics.md)
 * [MongoDB 版本管理](mongodb-versioning.md)
 * [联系我们](lian-xi-wo-men/README.md)
+  * [Tapdata Cloud](lian-xi-wo-men/tapdata-cloud.md)
   * [MongoDB中文社区](https://mongoing.com/)
   * [社区合作伙伴—锦木信息](http://www.jinmuinfo.com/)
 
