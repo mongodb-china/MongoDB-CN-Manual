@@ -2,7 +2,7 @@
 
 ![](.gitbook/assets/fan-yi-wen-dang-tu-pian-.png)
 
-[MongoDB 官网](https://www.mongodb.com/) \| [MongoDB中文社区网站](https://mongoing.com/) \|  [Tapdata 数据同步工具](https://cloud.tapdata.net/)
+[MongoDB 官网](https://www.mongodb.com/) \| [MongoDB中文社区网站](https://mongoing.com/) \|  [Tapdata 数据同步工具](https://sourl.cn/zwqNLq)
 
 ## 项目介绍
 
