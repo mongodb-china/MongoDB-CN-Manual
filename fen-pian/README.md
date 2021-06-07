@@ -65,18 +65,15 @@ MongoDB使用分片[键](https://docs.mongodb.com/manual/core/sharding-shard-key
 
 ### 分片键策略
 
-
 分片键的选择会影响分片群集的性能，效率和可伸缩性。选择分片键可以使具有最佳硬件和基础结构的群集成为瓶颈。[分片](https://docs.mongodb.com/manual/sharding/#sharding-strategy)键及其后备索引的选择也会影响群集可以使用的[分片策略](https://docs.mongodb.com/manual/sharding/#sharding-strategy)。
 
 有关更多信息，请参见[选择分片键](https://docs.mongodb.com/manual/core/sharding-shard-key/#sharding-shard-key-selection)文档。
 
 ## Chunks块
 
-
 MongoDB将分片数据拆分成[块](https://docs.mongodb.com/manual/reference/glossary/#term-chunk)。每个分块都有一个基于分片[键的](https://docs.mongodb.com/manual/reference/glossary/#term-shard-key)上下限范围 。
 
-##  Bncer and Even Chunk Distribution 均衡器和均匀分配
-
+## Bncer and Even Chunk Distribution 均衡器和均匀分配
 
 [均衡器](https://docs.mongodb.com/manual/core/sharding-balancer-administration/)通过在后台迁移各个[分片](https://docs.mongodb.com/manual/reference/glossary/#term-shard)上的[块](https://docs.mongodb.com/manual/reference/glossary/#term-chunk)，来实现集群的所有分片中块的均匀分布。
 
@@ -86,11 +83,9 @@ MongoDB将分片数据拆分成[块](https://docs.mongodb.com/manual/reference/g
 
 ### 读写负载
 
-
 MongoDB将读写工作负载分布在分[片](https://docs.mongodb.com/manual/reference/glossary/#term-shard)[集群](https://docs.mongodb.com/manual/reference/glossary/#term-sharded-cluster)中的各个分[片](https://docs.mongodb.com/manual/reference/glossary/#term-shard)上，从而允许每个分片处理集群操作的子集。通过添加更多分片，可以在集群中水平扩展读写工作负载。
 
 对于包含分片键或[复合分片](https://docs.mongodb.com/manual/reference/glossary/#term-compound-index)键的前缀的查询，[`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos)可以将查询定位到特定的分片或一组分片。这些[目标操作](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/#sharding-mongos-targeted)通常比[广播](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/#sharding-mongos-broadcast)到集群中的每个分片更有效。
-
 
 从MongoDB 4.4开始，[`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos)可以支持[对冲读取（hedged reads）](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/#mongos-hedged-reads)以最大程度地减少延迟。
 
@@ -100,14 +95,11 @@ MongoDB将读写工作负载分布在分[片](https://docs.mongodb.com/manual/re
 
 ### 高可用性
 
-
 将配置服务器和分片作为副本集进行部署可提高可用性。
-
 
 即使一个或多个分片副本集变得完全不可用，分片群集也可以继续提供部分的读取或写入服务。也就是说，虽然停机期间无法访问不可用分片中的数据子集，但是针对可用分片执行读取或写入操作仍然可以成功。
 
 ## 分片前的注意事项
-
 
 鉴于分片集群基础架构的要求和复杂性，您需要仔细地制定计划、执行和维护。
 
@@ -142,7 +134,6 @@ MongoDB将读写工作负载分布在分[片](https://docs.mongodb.com/manual/re
 MongoDB支持如下两种分片策略来实现[分片集群](https://docs.mongodb.com/manual/reference/glossary/#term-sharded-cluster)中的分布数据。
 
 ### 哈希分片
-
 
 哈希分片涉及计算分片键字段值的哈希值。然后，根据散列的分片键值为每个[块](https://docs.mongodb.com/manual/reference/glossary/#term-chunk)分配一个范围。
 
@@ -190,9 +181,7 @@ Zones区域可以改善跨多个数据中心的分片集群的数据局部性。
 
 有关更多信息，请参见[区域](https://docs.mongodb.com/manual/core/zone-sharding/#zone-sharding)。
 
-
 ## 分片中的排序规则
-
 
 使用带有`collation : { locale : "simple" }`选项的[`shardCollection`](https://docs.mongodb.com/manual/reference/command/shardCollection/#dbcmd.shardCollection)命令可以对具备[默认排序规则](https://docs.mongodb.com/manual/reference/collation/)的集合进行分片。分片成功需具备下述条件：
 
@@ -217,8 +206,7 @@ Zones区域可以改善跨多个数据中心的分片集群的数据局部性。
 
 在提交事务之前，在事务外部看不到在事务中进行的数据变更。
 
-但是，当事务写入多个分片时，并非所有外部读取操作都需要等待已提交事务的结果在所有分片上可见。例如，如果提交了一个事务，并且在分片A上可以看到写1，但是在分片B上仍然看不到写2，在外部读取时设置读关注为\[`"local"`\]\(https://docs.mongodb.com/v4.2/reference/read-concern-local/\#readconcern."local"\)，则可以读取写1的结果而看不到写2的结果。
-
+但是，当事务写入多个分片时，并非所有外部读取操作都需要等待已提交事务的结果在所有分片上可见。例如，如果提交了一个事务，并且在分片A上可以看到写1，但是在分片B上仍然看不到写2，在外部读取时设置读关注为\[`"local"`\]\([https://docs.mongodb.com/v4.2/reference/read-concern-local/\#readconcern."local"\)，则可以读取写1的结果而看不到写2的结果。](https://docs.mongodb.com/v4.2/reference/read-concern-local/#readconcern."local"%29，则可以读取写1的结果而看不到写2的结果。)
 
 有关详细信息，请参见：
 

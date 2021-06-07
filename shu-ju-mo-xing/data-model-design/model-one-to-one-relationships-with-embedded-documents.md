@@ -1,6 +1,5 @@
 # 一对一嵌套关系模型
 
-
 在本页面
 
 * [概述](https://docs.mongodb.com/v4.2/tutorial/model-embedded-one-to-one-relationships-between-documents/#overview)
@@ -12,7 +11,6 @@
 这章节使用嵌套文档的模型描述了具有一对一关系的数据实体。把有关联的数据嵌套在单个文档中，可以减少读操作的次数。通常来说，如果你按嵌套文档模式来设计你的数据结构，那么在一次读取操作里，你的应用程序会接收文档所有的信息。
 
 ## [嵌套文档模式](https://docs.mongodb.com/v4.2/tutorial/model-embedded-one-to-one-relationships-between-documents/#embedded-document-pattern)
-
 
 考虑下面 patron 和 address 映射关系的示例。这个示例说明嵌套文档优于引用：你需要在一个数据实体的内部查看另一个数据实体的信息。数据实体 `patron` 和 数据实体`address` 的关系是一对一的，一个 `address` 数据实体属于一个 `patron` 数据实体。
 
@@ -56,9 +54,7 @@
 
 ## [子集模式](https://docs.mongodb.com/v4.2/tutorial/model-embedded-one-to-one-relationships-between-documents/#subset-pattern)
 
-
 嵌套文档模型有一个潜在问题是：当文档包含了应用程序不需要的字段时，它会导致文档过大。这些冗余的数据会造成服务器的额外开销从而降低读的性能。相反，你可以把频繁被访问的数据子集放在单独的数据库中，以子集模式去方式去获取。
-
 
 考虑一个应用会呈现电影的信息。数据库包含了一个 `movie` 集合，`movie` 的模式如下。
 
@@ -91,7 +87,6 @@
   }
 }
 ```
-
 
 目前，在展示一部电影的简介时，`movie` 集合包含了应用程序不需要的几个的字段，比如像 `fullplot` 和 `rating` 的值。并不是要把电影的所有的数据都存储在单个集合里，你可以把单个集合分离成两个集合：
 
@@ -141,7 +136,6 @@
     }
   }
   ```
-
 
 这种方法提高了读取性能，因为它要求应用程序读取更少的数据来满足最常见的需求。如果需要那些较少被访问的数据，应用程序会调用其他的数据库。
 
