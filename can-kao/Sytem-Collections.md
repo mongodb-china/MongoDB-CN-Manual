@@ -60,7 +60,8 @@ MongoDB还将一些额外的本地元数据存储在[`local`数据库](https://d
 - **`<database>.system.views`**
 
   `<database>.system.views`集合包含有关数据库中每个[视图](https://docs.mongodb.com/manual/core/views/)的信息。
-
+  
+ 从 MongoDB 5.0 开始，对于设置为或更高的featureCompatibilityVersion"5.0"，用户不能再直接写入<database>.system.views集合。
   
 
 --------
