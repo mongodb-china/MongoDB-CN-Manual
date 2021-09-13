@@ -201,7 +201,7 @@
   * [使用块进行数据分区](fen-pian/shi-yong-kuai-jin-hang-shu-ju-fen-qu/README.md)
     * [在分片集群中拆分数据块](fen-pian/shi-yong-kuai-jin-hang-shu-ju-fen-qu/split-chunks-in-a-sharded-cluster.md)
   * [分片管理](fen-pian/sharded-cluster-administration/README.md)
-    * [查看集群设置](fen-pian/sharded-cluster-administration/view-cluster-configuration.md
+    * [查看集群设置](fen-pian/sharded-cluster-administration/view-cluster-configuration.md)
   * [重启一个分片集群](fen-pian/restart-a-sharded-cluster.md)
   * [分片参考](fen-pian/sharding-reference.md)
 * [MongoDB管理](guan-li/README.md)
