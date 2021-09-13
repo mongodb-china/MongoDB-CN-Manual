@@ -350,7 +350,7 @@
       * [db.collection.watch\(\)](can-kao/mongo-shell-methods/collection-methods/db-collection-watch.md)
       * [db.collection.validate\(\)](can-kao/mongo-shell-methods/collection-methods/db-collection-validate.md)
   * [MongoDB中的限制与阈值](can-kao/mongodb-limits-and-thresholds.md)
-  * [MongoDB系统集合](can-kao/system-collections.md)
+  * [MongoDB系统集合](can-kao/sytem-collections.md)
   * [词汇表](can-kao/glossary.md)
   * [默认的MongoDB端口](can-kao/default-mongodb-port.md)
   * [默认的MongoDB读/写关注](can-kao/default-mongodb-read-concerns-and-write-concerns.md)
