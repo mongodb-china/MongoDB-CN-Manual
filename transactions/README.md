@@ -184,7 +184,7 @@
 * 如果未设置事务级读关注，则事务级读关注默认为会话级读关注。
 * 如果未设置事务级别和会话级别的读关注，则事务级别的读取关注点默认为客户端级别的读关注。 默认情况下，对于主服务器的读取，客户端级别的读关注为[`“ local”`](https://docs.mongodb.com/manual/reference/read-concern-local/#readconcern.%22local%22)。 另请参见[事务和读选项](https://docs.mongodb.com/manual/core/transactions/#transactions-read-preference)。
 
-事务支持一下读关注级别：
+事务支持以下读关注级别：
 
 #### `"local"`
 
