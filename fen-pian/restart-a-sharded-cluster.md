@@ -10,7 +10,7 @@ This procedure demonstrates the shutdown and startup sequence for restarting a s
 
 <!--**IMPORTANT**-->
 
-<!--重要提示-->
+<!--**重要提示**-->
 
 <!--This procedure should only be performed during a planned maintenance period. During this period, applications should stop all reads and writes to the cluster in order to prevent potential data loss or reading stale data.-->
 
@@ -87,7 +87,7 @@ When starting each [`mongod`](https://docs.mongodb.com/manual/reference/program/
 
 **Configuration File**
 
-##### 配置文件
+**配置文件**
 
 If using a configuration file, start the [`mongod`](https://docs.mongodb.com/manual/reference/program/mongod/#mongodb-binary-bin.mongod) with the `--config` option set to the configuration file path.
 
@@ -97,7 +97,7 @@ If using a configuration file, start the [`mongod`](https://docs.mongodb.com/man
 
 **Command Line**
 
-##### 命令行
+** 命令行**
 
 If using the command line options, start the [`mongod`](https://docs.mongodb.com/manual/reference/program/mongod/#mongodb-binary-bin.mongod) with the `--configsvr`, `--replSet`, `--bind_ip`, and other options as appropriate to your deployment. For example:
 
@@ -111,7 +111,7 @@ After starting all config servers, connect to the primary [`mongod`](https://doc
 
 ### 2.Start each shard replica set
 
-## 2.启动每个分片复本集
+### 2.启动每个分片复本集
 
 When starting each [`mongod`](https://docs.mongodb.com/manual/reference/program/mongod/#mongodb-binary-bin.mongod), specify the [`mongod`](https://docs.mongodb.com/manual/reference/program/mongod/#mongodb-binary-bin.mongod) settings using either a configuration file or the command line.
 
@@ -119,7 +119,7 @@ When starting each [`mongod`](https://docs.mongodb.com/manual/reference/program/
 
 **Configuration File**
 
-##### 配置文件
+** 配置文件**
 
 If using a configuration file, start the [`mongod`](https://docs.mongodb.com/manual/reference/program/mongod/#mongodb-binary-bin.mongod) with the `--config` option set to the configuration file path.
 
@@ -129,7 +129,7 @@ If using a configuration file, start the [`mongod`](https://docs.mongodb.com/man
 
 **Command Line**
 
-命令行
+**命令行**
 
 If using the command line option, start the [`mongod`](https://docs.mongodb.com/manual/reference/program/mongod/#mongodb-binary-bin.mongod) with the `--replSet`, `--shardsvr`, and `--bind_ip` options, and other options as appropriate to your deployment. For example:
 
@@ -143,7 +143,7 @@ After starting all members of each shard, connect to each primary [`mongod`](htt
 
 ### 3.Start [`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#mongodb-binary-bin.mongos) routers
 
-## 3.启动[`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#mongodb-binary-bin.mongos) 路由
+### 3.启动[`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#mongodb-binary-bin.mongos) 路由
 
 Start [`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#mongodb-binary-bin.mongos) routers using either a configuration file or a command line parameter to specify the config servers.
 
@@ -151,7 +151,7 @@ Start [`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#mongo
 
 **Configuration File**
 
-##### 配置文件
+** 配置文件**
 
 If using a configuration file, start the [`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#mongodb-binary-bin.mongos) specifying the `--config` option and the path to the configuration file.
 
@@ -165,7 +165,7 @@ For more information on the configuration file, see [configuration options](http
 
 **Command Line**
 
-##### 命令行
+** 命令行**
 
 If using command line parameters, start the [`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#mongodb-binary-bin.mongos) and specify the `--configdb`, `--bind_ip`, and other options as appropriate to your deployment. For example:
 
@@ -183,7 +183,7 @@ Before binding to a non-localhost (e.g. publicly accessible) IP address, ensure 
 
 ## Re-Enable the Balancer
 
-# 重新开启平衡器
+## 重新开启平衡器
 
 Re-enable the balancer to resume [chunk migrations](https://docs.mongodb.com/manual/core/sharding-balancer-administration/).
 
@@ -209,7 +209,7 @@ For more information, see [Enable the Balancer](https://docs.mongodb.com/manual/
 
 ## Validate Cluster Accessibility
 
-# 验证集群可访问性
+## 验证集群可访问性
 
 Connect a [`mongo`](https://docs.mongodb.com/manual/reference/program/mongo/#mongodb-binary-bin.mongo) shell to one of the cluster's [`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#mongodb-binary-bin.mongos) processes. Use [`sh.status()`](https://docs.mongodb.com/manual/reference/method/sh.status/#mongodb-method-sh.status) to check the overall cluster status.
 
