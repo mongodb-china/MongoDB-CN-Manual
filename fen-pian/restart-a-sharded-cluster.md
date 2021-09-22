@@ -59,7 +59,7 @@ Run [`db.shutdownServer()`](https://docs.mongodb.com/manual/reference/method/db.
 
 ### 2.Stop each shard replica set
 
-## 2.停止每个分片复本集
+## 2.停止每个分片副本集
 
 Run [`db.shutdownServer()`](https://docs.mongodb.com/manual/reference/method/db.shutdownServer/#mongodb-method-db.shutdownServer) from the `admin` database on each [shard](https://docs.mongodb.com/manual/core/sharded-cluster-shards/) replica set member to shutdown its [`mongod`](https://docs.mongodb.com/manual/reference/program/mongod/#mongodb-binary-bin.mongod) process. Shutdown all secondary members before shutting down the primary in each replica set.
 
