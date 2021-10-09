@@ -203,6 +203,7 @@
   * [分片管理](fen-pian/sharded-cluster-administration/README.md)
     * [查看集群设置](fen-pian/sharded-cluster-administration/view-cluster-configuration.md)
   * [重启一个分片集群](fen-pian/restart-a-sharded-cluster.md)
+  * [把一个分片集群迁移到不同的硬件](fen-pian/migrate-a -sharded-cluster-to-different-hardware.md)
   * [分片参考](fen-pian/sharding-reference.md)
 * [MongoDB管理](guan-li/README.md)
   * [产品说明](guan-li/production-notes.md)
