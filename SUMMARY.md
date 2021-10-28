@@ -106,7 +106,6 @@
   * [数据模型设计](shu-ju-mo-xing/data-model-design/README.md)
     * [一对一嵌套关系模型](shu-ju-mo-xing/data-model-design/model-one-to-one-relationships-with-embedded-documents.md)
 * [MongoDB事务](transactions/README.md)
-*  [MongoDB事务](transactions/transactions.md)
   * [驱动程序 API](transactions/drivers-API.md)
   * [生产注意事项](transactions/production-considerations.md)
   * [生产注意事项 \(分片集群\)](transactions/production-considerations-sharded-clusters.md)
