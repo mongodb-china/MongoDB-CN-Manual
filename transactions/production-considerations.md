@@ -4,7 +4,7 @@
 
 The following page lists some production considerations for running transactions. These apply whether you run transactions on replica sets or sharded clusters. For running transactions on sharded clusters, see also the [Production Considerations (Sharded Clusters)](https://docs.mongodb.com/v4.4/core/transactions-sharded-clusters/) for additional considerations that are specific to sharded clusters.
 
-以下页面列出了运行事务的一些生产注意事项。 无论你在副本集还是分片集群上运行事务，这些都适用。 要在分片集群上运行事务，另请参阅 [生产注意事项（分片集群）](https://docs.mongodb.com/v4.4/core/transactions-sharded-clusters/) 来了解专门针对分片集群的额外注意事项。
+以下内容列出了运行事务的一些生产注意事项。无论是在副本集还是分片集群上运行事务，这些都适用。要在分片集群上运行事务，另请参阅[生产注意事项（分片集群）](https://docs.mongodb.com/v4.4/core/transactions-sharded-clusters/)来了解专门针对分片集群的额外注意事项。
 
 ## Availability
 
@@ -22,17 +22,15 @@ Distributed Transactions and Multi-Document Transactions
 
 Starting in MongoDB 4.2, the two terms are synonymous. Distributed transactions refer to multi-document transactions on sharded clusters and replica sets. Multi-document transactions (whether on sharded clusters or replica sets) are also known as distributed transactions starting in MongoDB 4.2.
 
-- **在 4.0 版本**，MongoDB 支持副本集上的多文档事务。
+- **在4.0版本**，MongoDB支持副本集上的多文档事务。
 
-- **在 4.2 版本**，MongoDB 引入了分布式事务，增加了对分片集群上多文档事务的支持，并合并了对副本集上多文档事务的现有支持。
+- **在4.2版本**，MongoDB引入了分布式事务，增加了对分片集群上多文档事务的支持，并整合了已有的对副本集上多文档事务的支持。
 
-  要在 MongoDB 4.2 部署（副本集和分片集群）上使用事务，客户端**必须**使用为 MongoDB 4.2 更新的 MongoDB 驱动程序。
+  要在MongoDB 4.2（副本集和分片集群）中使用事务，客户端**必须**使用为MongoDB 4.2更新的MongoDB驱动程序。
 
-注释
-
-分布式事务和多文档事务
-
-从 MongoDB 4.2 开始，这两个术语是同义词。 分布式事务是指分片集群和副本集上的多文档事务。 从 MongoDB 4.2 开始，多文档事务（无论是在分片集群上还是副本集上）也称为分布式事务。
+> 注意
+> **分布式事务和多文档事务**
+> 从MongoDB 4.2开始，这两个术语是同义词。分布式事务是指分片集群和副本集上的多文档事务。从MongoDB 4.2开始，多文档事务（无论是在分片集群上还是副本集上）也称为分布式事务。
 
 
 
@@ -55,20 +53,20 @@ db.adminCommand( { getParameter: 1, featureCompatibilityVersion: 1 } )
 
 For more information, see the [`setFeatureCompatibilityVersion`](https://docs.mongodb.com/v4.4/reference/command/setFeatureCompatibilityVersion/#mongodb-dbcommand-dbcmd.setFeatureCompatibilityVersion) reference page.
 
-为了使用事务，部署的所有成员的 [featureCompatibilityVersion](https://docs.mongodb.com/v4.4/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv) 必须至少满足：
+要使用事务，所有成员的[featureCompatibilityVersion](https://docs.mongodb.com/v4.4/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)必须至少满足：
 
 | Deployment      | Minimum `featureCompatibilityVersion` |
 | :-------------- | :------------------------------------ |
 | Replica Set     | `4.0`                                 |
 | Sharded Cluster | `4.2`                                 |
 
-要检查成员的 fCV，请连接到该成员并运行以下命令：
+要检查成员的fCV，可以连接到该成员并运行以下命令：
 
 ```
 db.adminCommand( { getParameter: 1, featureCompatibilityVersion: 1 } )
 ```
 
-有关更多信息，请参阅 [`setFeatureCompatibilityVersion`](https://docs.mongodb.com/v4.4/reference/command/setFeatureCompatibilityVersion/#mongodb-dbcommand-dbcmd.setFeatureCompatibilityVersion) 参考页面。
+更多信息，请参阅[`setFeatureCompatibilityVersion`](https://docs.mongodb.com/v4.4/reference/command/setFeatureCompatibilityVersion/#mongodb-dbcommand-dbcmd.setFeatureCompatibilityVersion)参考页面。
 
 
 
@@ -80,15 +78,15 @@ By default, a transaction must have a runtime of less than one minute. You can m
 
 For sharded clusters, you can also specify a `maxTimeMS` limit on `commitTransaction`. For more information, see [Sharded Clusters Transactions Time Limit](https://docs.mongodb.com/v4.4/core/transactions-sharded-clusters/#std-label-transactions-sharded-clusters-time-limit).
 
-默认情况下，事务的运行时间必须少于一分钟。 你可以使用 [`transactionLifetimeLimitSeconds`](https://docs.mongodb.com/v4.4/reference/parameters/#mongodb-parameter-param.transactionLifetimeLimitSeconds) 修改 [`mongod`](https:/ /docs.mongodb.com/v4.4/reference/program/mongod/#mongodb-binary-bin.mongod) 实例的该限制。 对于分片集群，必须为所有分片副本集成员修改该参数。 超过此限制的事务将被视为已过期，并将被定期清理的进程中止掉。
+默认情况下，事务的运行时间必须少于一分钟。可以使用[`transactionLifetimeLimitSeconds`](https://docs.mongodb.com/v4.4/reference/parameters/#mongodb-parameter-param.transactionLifetimeLimitSeconds)修改[`mongod`](https:/ /docs.mongodb.com/v4.4/reference/program/mongod/#mongodb-binary-bin.mongod)实例的该限制。对于分片集群，必须为所有分片副本集成员修改该参数。超过此限制的事务将被视为已过期，并将被定期清理的进程中止掉。
 
-对于分片集群，你也可以在 `commitTransaction` 上指定一个 `maxTimeMS` 限制。 更多信息参见[Sharded Clusters Transactions Time Limit](https://docs.mongodb.com/v4.4/core/transactions-sharded-clusters/#std-label-transactions-sharded-clusters-time-limit) 。
+对于分片集群，也可以在`commitTransaction`上指定一个`maxTimeMS`限制。更多信息参见[Sharded Clusters Transactions Time Limit](https://docs.mongodb.com/v4.4/core/transactions-sharded-clusters/#std-label-transactions-sharded-clusters-time-limit)。
 
 
 
 ## Oplog Size Limit
 
-## Oplog 大小限制
+## Oplog大小限制
 
 - Starting in version 4.2,
 
@@ -98,19 +96,19 @@ For sharded clusters, you can also specify a `maxTimeMS` limit on `commitTransac
 
   MongoDB creates a single [oplog (operations log)](https://docs.mongodb.com/v4.4/core/replica-set-oplog/) entry at the time of commit if the transaction contains any write operations. That is, the individual operations in the transactions do not have a corresponding oplog entry. Instead, a single oplog entry contains all of the write operations within a transaction. The oplog entry for the transaction must be within the BSON document size limit of 16MB.
   
-- 从 4.2 版本开始，
+- 从4.2版本开始，
 
-  MongoDB 根据需要创建尽可能多的 oplog 条目来封装事务中的所有写操作，而不是为事务中的所有写操作创建一个条目。 这移除了单 oplog 条目对其所有写操作施加的事务总大小为16MB 的限制 。 尽管删除了总大小限制，但每个 oplog 条目仍然必须满足 BSON 文档 16MB 大小的限制。
+  MongoDB会根据需要创建尽可能多的oplog条目来封装事务中的所有写操作，而不是为事务中的所有写操作创建一个条目。这移除了单oplog条目对其所有写操作施加的事务总大小为16MB的限制。尽管删除了总大小限制，但每个oplog条目仍然必须满足BSON文档16MB大小的限制。
 
-- 在 4.0 版本，
+- 在4.0版本，
 
-  如果事务包含任何写操作，MongoDB 会在提交时创建一个 [oplog（操作日志）](https://docs.mongodb.com/v4.4/core/replica-set-oplog/) 条目。 也就是说，事务中的各个操作没有对应的 oplog 条目。 相反，单个 oplog 条目包含事务中的所有写操作。事务的 oplog 条目必须满足 BSON 文档 16MB 大小的限制。
+  如果事务包含任何写操作，MongoDB会在提交时创建一个[oplog（操作日志）](https://docs.mongodb.com/v4.4/core/replica-set-oplog/)条目。也就是说，事务中的各个操作没有对应的oplog条目。相反，由单个oplog条目包含事务中的所有写操作。事务的oplog条目必须满足BSON文档16MB大小的限制。
 
   
 
 ## WiredTiger Cache
 
-## WiredTiger 缓存
+## WiredTiger缓存
 
 To prevent storage cache pressure from negatively impacting the performance:
 
@@ -124,7 +122,7 @@ The [`transactionLifetimeLimitSeconds`](https://docs.mongodb.com/v4.4/reference/
 - 当你放弃一个事务时，中止掉事务。
 - 当你在事务中的单个操作过程中遇到错误时，中止并重试该事务。
 
-参数 [`transactionLifetimeLimitSeconds`](https://docs.mongodb.com/v4.4/reference/parameters/#mongodb-parameter-param.transactionLifetimeLimitSeconds) 也可以确保过期的事务被定期中止掉，以减轻存储缓存的压力。
+参数[`transactionLifetimeLimitSeconds`](https://docs.mongodb.com/v4.4/reference/parameters/#mongodb-parameter-param.transactionLifetimeLimitSeconds)也可以确保过期的事务被定期中止掉，以减轻存储缓存的压力。
 
 ## Transactions and Security
 
@@ -132,8 +130,9 @@ The [`transactionLifetimeLimitSeconds`](https://docs.mongodb.com/v4.4/reference/
 
 - If running with [access control](https://docs.mongodb.com/v4.4/core/authorization/), you must have [privileges](https://docs.mongodb.com/v4.4/reference/built-in-roles/) for the [operations in the transaction](https://docs.mongodb.com/v4.4/core/transactions/#std-label-transactions-operations).
 - If running with [auditing](https://docs.mongodb.com/v4.4/core/auditing/), operations in an aborted transaction are still audited. However, there is no audit event that indicates that the transaction aborted.
-- 如果在运行时使用 [访问控制](https://docs.mongodb.com/v4.4/core/authorization/) ，你必须具有 [权限](https://docs.mongodb.com/v4.4/reference /built-in-roles/) 用于 [事务中的操作](https://docs.mongodb.com/v4.4/core/transactions/#std-label-transactions-operations)。
-- 如果在运行时使用 [auditing](https://docs.mongodb.com/v4.4/core/auditing/) ，被中止事务中的操作仍然会被审计到。 但是，没有审计事件来表明事务已经中止了。
+
+- 如果使用了[访问控制](https://docs.mongodb.com/v4.4/core/authorization/)，你必须具有用于[事务中操作](https://docs.mongodb.com/v4.4/core/transactions/#std-label-transactions-operations)的[权限](https://docs.mongodb.com/v4.4/reference/built-in-roles/)。
+- 如果使用了[auditing](https://docs.mongodb.com/v4.4/core/auditing/)，被中止事务中的操作仍然会被审计到。但是，没有审计事件来表明事务已经中止了。
 
 
 
@@ -143,7 +142,7 @@ The [`transactionLifetimeLimitSeconds`](https://docs.mongodb.com/v4.4/reference/
 
 You cannot run transactions on a sharded cluster that has a shard with [`writeConcernMajorityJournalDefault`](https://docs.mongodb.com/v4.4/reference/replica-configuration/#mongodb-rsconf-rsconf.writeConcernMajorityJournalDefault) set to `false` (such as a shard with a voting member that uses the [in-memory storage engine](https://docs.mongodb.com/v4.4/core/inmemory/)).
 
-你不能在包含一个参数 [`writeConcernMajorityJournalDefault`](https://docs.mongodb.com/v4.4/reference/replica-configuration/#mongodb-rsconf-rsconf.writeConcernMajorityJournalDefault) 设置为 `false分片的分片集群上运行事务（例如具有投票成员的分片使用 [内存存储引擎](https://docs.mongodb.com/v4.4/core/inmemory/)）。
+如果一个集群的某个分片上的参数[`writeConcernMajorityJournalDefault`](https://docs.mongodb.com/v4.4/reference/replica-configuration/#mongodb-rsconf-rsconf.writeConcernMajorityJournalDefault)被设置为`false`，那么不能在该分片集群上运行事务（例如具有投票成员的分片使用了[内存存储引擎](https://docs.mongodb.com/v4.4/core/inmemory/)）。
 
 ## Sharded Clusters and Arbiters
 
@@ -155,7 +154,7 @@ See also [3-Member Primary-Secondary-Arbiter Architecture](https://docs.mongodb.
 
 如果任何事务操作从一个包含仲裁节点的分片中读取或写入，其写操作跨越多个分片的事务将出错并中止。
 
-另请参阅 [3-Member Primary-Secondary-Arbiter Architecture](https://docs.mongodb.com/v4.4/core/transactions-production- thinking/#std-label-transactions-psa) 了解在禁用读关注 majority 分片上的事务限制 。
+另请参阅[三成员主-从-仲裁架构](https://docs.mongodb.com/v4.4/core/transactions-production-thinking/#std-label-transactions-psa)了解在禁用了majority读关注分片上的事务限制 。
 
 ## 3-Member Primary-Secondary-Arbiter Architecture
 
@@ -182,24 +181,23 @@ See also:
 - [`--enableMajorityReadConcern false`](https://docs.mongodb.com/v4.4/reference/program/mongod/#std-option-mongod.--enableMajorityReadConcern)
 - [`replication.enableMajorityReadConcern: false`](https://docs.mongodb.com/v4.4/reference/configuration-options/#mongodb-setting-replication.enableMajorityReadConcern).
 
-对于具有主-从-仲裁 (PSA) 架构的三成员副本集或具有三成员 PSA 分片的分片集群，你可能已[禁用读关注 "majority"](https://docs.mongodb.com/v4.4/reference/read-concern-majority/#std-label-disable-read-concern-majority) 来避免缓存压力。
+对于具有主-从-仲裁 (PSA) 架构的三成员副本集或具有三成员PSA分片的分片集群，你可能已经[禁用读关注`"majority"`](https://docs.mongodb.com/v4.4/reference/read-concern-majority/#std-label-disable-read-concern-majority)来避免缓存压力。
 
 - 在分片集群上，
 
-  如果事务涉及具有已[禁用读关注 "majority"](https://docs.mongodb.com/v4.4/reference/read-concern-majority/#std-label-disable-read-concern-majority) 的分片，你不能在事务中使用读关注 [`"snapshot"`](https://docs.mongodb.com/v4.4/reference/read-concern-snapshot/#mongodb-readconcern-readconcern.-snapshot-)。你只能在事务中使用读关注 [`"local"`](https://docs.mongodb.com/v4.4/reference/read-concern-local/#mongodb-readconcern-readconcern.-local-) 或 [` "majority"`](https://docs.mongodb.com/v4.4/reference/read-concern-majority/#mongodb-readconcern-readconcern.-majority-) 。如果使用读关注 [`"snapshot"`](https://docs.mongodb.com/v4.4/reference/read-concern-snapshot/#mongodb-readconcern-readconcern.-snapshot-)，事务会报错和中止。`readConcern level 'snapshot' is not supported in sharded clusters when enableMajorityReadConcern=false`。如果任何事务的读或写操作涉及已禁用读关注 `"majority"`的分片，其写操作跨越多个分片的事务将出错并中止。
+  如果事务涉及具有已[禁用读关注`"majority"`](https://docs.mongodb.com/v4.4/reference/read-concern-majority/#std-label-disable-read-concern-majority)的分片，则不能在事务中使用读关注[`"snapshot"`](https://docs.mongodb.com/v4.4/reference/read-concern-snapshot/#mongodb-readconcern-readconcern.-snapshot-)。只能在事务中使用读关注[`"local"`](https://docs.mongodb.com/v4.4/reference/read-concern-local/#mongodb-readconcern-readconcern.-local-)或[`"majority"`](https://docs.mongodb.com/v4.4/reference/read-concern-majority/#mongodb-readconcern-readconcern.-majority-)。如果使用读关注[`"snapshot"`](https://docs.mongodb.com/v4.4/reference/read-concern-snapshot/#mongodb-readconcern-readconcern.-snapshot-)，事务会报错并中止。`readConcern level 'snapshot' is not supported in sharded clusters when enableMajorityReadConcern=false`。如果任何事务的读或写操作涉及已禁用读关注`"majority"`的分片，其写操作跨越多个分片的事务将出错并中止。
 
 - 在副本集上，
 
-  你甚至可以在已[禁用读关注 "majority"](https://docs.mongodb.com/v4.4/reference/read-concern-majority/#std-label-disable-read-concern-majority) 的副本集上定义读关注 [`"local"`](https://docs.mongodb.com/v4.4/reference/read-concern-local/#mongodb-readconcern-readconcern.-local-)  、[`"majority"`](https://docs.mongodb.com/v4.4/reference/read-concern-majority/#mongodb-readconcern-readconcern.-majority-) 和 [`"snapshot"`](https://docs.mongodb.com/v4.4/reference/read-concern-snapshot/#mongodb-readconcern-readconcern.-snapshot-) 。但是，如果你计划过渡到禁用读关注 "majority" 分片的分片集群上，你可能希望避免使用读关注 `"snapshot"`。
+  即使已经[禁用读关注`"majority"`](https://docs.mongodb.com/v4.4/reference/read-concern-majority/#std-label-disable-read-concern-majority)，也可以在副本集上定义读关注[`"local"`](https://docs.mongodb.com/v4.4/reference/read-concern-local/#mongodb-readconcern-readconcern.-local-)、[`"majority"`](https://docs.mongodb.com/v4.4/reference/read-concern-majority/#mongodb-readconcern-readconcern.-majority-)和[`"snapshot"`](https://docs.mongodb.com/v4.4/reference/read-concern-snapshot/#mongodb-readconcern-readconcern.-snapshot-)。但是，如果计划过渡到禁用读关注`"majority"`分片的分片集群上，那么可能会希望避免使用读关注`"snapshot"`。
 
-提示
 
-要检查读关注 "majority" 是否被禁用，你可以在 [`mongod`](https://docs.mongodb.com/v4.4/reference/program/mongod/#mongodb-binary-bin.mongod) 实例上运行 [`db.serverStatus()`](https://docs.mongodb.com/v4.4/reference/method/db.serverStatus/#mongodb-method -db.serverStatus) 并检查 [`storageEngine. supportCommittedReads`](https://docs.mongodb.com/v4.4/reference/command/serverStatus/#mongodb-serverstatus-serverstatus.storageEngine.supportsCommittedReads) 字段。 如果为 `false`，则表示禁用读关注 "majority"。
+> 提示
+> 要检查读关注"majority"是否被禁用，可以在[`mongod`](https://docs.mongodb.com/v4.4/reference/program/mongod/#mongodb-binary-bin.mongod)实例上运行[`db.serverStatus()`](https://docs.mongodb.com/v4.4/reference/method/db.serverStatus/#mongodb-method-db.serverStatus)并检查[`storageEngine. supportCommittedReads`](https://docs.mongodb.com/v4.4/reference/command/serverStatus/#mongodb-serverstatus-serverstatus.storageEngine.supportsCommittedReads)字段。如果为`false`，则表示已禁用读关注"majority"。
 
-提示
 
-也可以参考:
-
+> 提示
+> 也可以参阅：
 - [`--enableMajorityReadConcern false`](https://docs.mongodb.com/v4.4/reference/program/mongod/#std-option-mongod.--enableMajorityReadConcern)
 - [`replication.enableMajorityReadConcern: false`](https://docs.mongodb.com/v4.4/reference/configuration-options/#mongodb-setting-replication.enableMajorityReadConcern)
 
@@ -215,13 +213,13 @@ TIP
 
 When creating or dropping a collection immediately before starting a transaction, if the collection is accessed within the transaction, issue the create or drop operation with write concern [`"majority"`](https://docs.mongodb.com/v4.4/reference/write-concern/#mongodb-writeconcern-writeconcern.-majority-) to ensure that the transaction can acquire the required locks.
 
-默认情况下，事务最多等待 5 毫秒才能获取事务中操作所需的锁。 如果事务无法在 5 毫秒内获得所需的锁，事务将中止。
+默认情况下，事务最多等待5毫秒来获取事务中操作所需的锁。如果事务无法在5毫秒内获得所需的锁，事务将中止。
 
 事务在中止或提交时释放所有锁。
 
-TIP
+> 提示
+> 在开始事务之前立即创建或删除集合时，如果需要在事务内访问该集合，则在进行创建或删除操作时使用写关注[`"majority"`](https://docs.mongodb.com/v4.4/reference/write-concern/#mongodb-writeconcern-writeconcern.-majority-)可以保证事务能获取到请求的锁。
 
-在开始事务之前立即创建或删除集合时，如果在事务内访问该集合，则带有写关注 [`"majority"`](https://docs.mongodb.com/v4.4/reference/write-concern/#mongodb-writeconcern-writeconcern.-majority-) 的创建或删除操作可以保证事务能获取到请求的锁。
 
 ### Lock Request Timeout
 
