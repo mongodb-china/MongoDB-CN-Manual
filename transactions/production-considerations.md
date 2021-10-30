@@ -195,11 +195,14 @@ See also:
 
 
 > 提示
+> 
 > 要检查读关注"majority"是否被禁用，可以在[`mongod`](https://docs.mongodb.com/v4.4/reference/program/mongod/#mongodb-binary-bin.mongod)实例上运行[`db.serverStatus()`](https://docs.mongodb.com/v4.4/reference/method/db.serverStatus/#mongodb-method-db.serverStatus)并检查[`storageEngine. supportCommittedReads`](https://docs.mongodb.com/v4.4/reference/command/serverStatus/#mongodb-serverstatus-serverstatus.storageEngine.supportsCommittedReads)字段。如果为`false`，则表示已禁用读关注"majority"。
 
 
 > 提示
-> 也可以参阅：
+> 
+> 同样请参阅：
+> 
 - [`--enableMajorityReadConcern false`](https://docs.mongodb.com/v4.4/reference/program/mongod/#std-option-mongod.--enableMajorityReadConcern)
 - [`replication.enableMajorityReadConcern: false`](https://docs.mongodb.com/v4.4/reference/configuration-options/#mongodb-setting-replication.enableMajorityReadConcern)
 
@@ -220,6 +223,7 @@ When creating or dropping a collection immediately before starting a transaction
 事务在中止或提交时释放所有锁。
 
 > 提示
+> 
 > 在开始事务之前立即创建或删除集合时，如果需要在事务内访问该集合，则在进行创建或删除操作时使用写关注[`"majority"`](https://docs.mongodb.com/v4.4/reference/write-concern/#mongodb-writeconcern-writeconcern.-majority-)可以保证事务能获取到请求的锁。
 
 
@@ -231,13 +235,13 @@ You can use the [`maxTransactionLockRequestTimeoutMillis`](https://docs.mongodb.
 
 You can also use operation-specific timeout by setting [`maxTransactionLockRequestTimeoutMillis`](https://docs.mongodb.com/v4.4/reference/parameters/#mongodb-parameter-param.maxTransactionLockRequestTimeoutMillis) to `-1`.
 
-你可以使用 [`maxTransactionLockRequestTimeoutMillis`](https://docs.mongodb.com/v4.4/reference/parameters/#mongodb-parameter-param.maxTransactionLockRequestTimeoutMillis) 参数来调整事务等待获取锁的时间。 增加 [`maxTransactionLockRequestTimeoutMillis`](https://docs.mongodb.com/v4.4/reference/parameters/#mongodb-parameter-param.maxTransactionLockRequestTimeoutMillis) 允许事务中的操作等待指定的时间来获取所需的锁。 这可以帮助避免在瞬时并发锁请求时事务发生中止，例如快速运行的元数据操作。 但是，这可能会延迟死锁事务操作的中止。
+可以使用[`maxTransactionLockRequestTimeoutMillis`](https://docs.mongodb.com/v4.4/reference/parameters/#mongodb-parameter-param.maxTransactionLockRequestTimeoutMillis)参数来调整事务等待获取锁的时间。增加[`maxTransactionLockRequestTimeoutMillis`](https://docs.mongodb.com/v4.4/reference/parameters/#mongodb-parameter-param.maxTransactionLockRequestTimeoutMillis)允许事务中的操作等待指定的时间来获取所需的锁。这有助于避免在瞬时并发锁请求时事务发生中止，例如快速运行的元数据操作。但是，这可能会延迟死锁事务操作的中止。
 
-你还可以通过将 [`maxTransactionLockRequestTimeoutMillis`](https://docs.mongodb.com/v4.4/reference/parameters/#mongodb-parameter-param.maxTransactionLockRequestTimeoutMillis) 设置为 `-1` 来使用特定于操作的超时。
+还可以通过将[`maxTransactionLockRequestTimeoutMillis`](https://docs.mongodb.com/v4.4/reference/parameters/#mongodb-parameter-param.maxTransactionLockRequestTimeoutMillis)设置为`-1`来使用特定于操作的超时。
 
 ## Pending DDL Operations and Transactions
 
-## 待处理的 DDL 操作和事务
+## 待处理的DDL操作和事务
 
 If a multi-document transaction is in progress, new DDL operations that affect the same database(s) or collection(s) wait behind the transaction. While these pending DDL operations exist, new transactions that access the same database(s) or collection(s) as the pending DDL operations cannot obtain the required locks and and will abort after waiting [`maxTransactionLockRequestTimeoutMillis`](https://docs.mongodb.com/v4.4/reference/parameters/#mongodb-parameter-param.maxTransactionLockRequestTimeoutMillis). In addition, new non-transaction operations that access the same database(s) or collection(s) will block until they reach their `maxTimeMS` limit.
 
@@ -253,25 +257,25 @@ Consider the following scenarios:
 
 In either scenario, if the DDL operation remains pending for more than [`maxTransactionLockRequestTimeoutMillis`](https://docs.mongodb.com/v4.4/reference/parameters/#mongodb-parameter-param.maxTransactionLockRequestTimeoutMillis), pending transactions waiting behind that operation abort. That is, the value of [`maxTransactionLockRequestTimeoutMillis`](https://docs.mongodb.com/v4.4/reference/parameters/#mongodb-parameter-param.maxTransactionLockRequestTimeoutMillis) must at least cover the time required for the in-progress transaction *and* the pending DDL operation to complete.
 
-如果一个多文档事务正在执行，则影响相同数据库或集合的新 DDL 操作会等待该事务完成。 当这些挂起的 DDL 操作存在时，访问与挂起的 DDL 操作相同的数据库或集合的新事务无法获得所需的锁，并将在等待 [`maxTransactionLockRequestTimeoutMillis`](https://docs.mongodb.com/v4.4/reference/parameters/#mongodb-parameter-param.maxTransactionLockRequestTimeoutMillis) 后超时中止。 此外，访问相同数据库或集合的新非事务操作将被阻塞，直到它们达到 `maxTimeMS` 限制。
+如果一个多文档事务正在执行，则影响相同数据库或集合的新DDL操作会等待该事务完成。当这些挂起的DDL操作存在时，访问与挂起的DDL操作相同的数据库或集合的新事务无法获得所需的锁，并将在等待 [`maxTransactionLockRequestTimeoutMillis`](https://docs.mongodb.com/v4.4/reference/parameters/#mongodb-parameter-param.maxTransactionLockRequestTimeoutMillis)后超时中止。此外，访问相同数据库或集合的新的非事务操作将被阻塞，直到它们达到`maxTimeMS`限制。
 
 考虑以下场景：
 
-- 请求集合锁的 DDL 操作
+- 请求集合锁的DDL操作
 
-  当一个正在进行的事务对 `hr` 数据库中 `employees` 集合执行各种 CRUD 操作时，管理员在 `employees` 集合上发起 [`db.collection.createIndex()`](https://docs.mongodb.com/ v4.4/reference/method/db.collection.createIndex/#mongodb-method-db.collection.createIndex)  DDL 操作。 [`createIndex()`](https://docs.mongodb.com/v4.4/reference/method/db.collection.createIndex/#mongodb-method-db.collection.createIndex) 命令会请求该集合上的排他集合锁。直到正在进行的事务完成，[`createIndex()`](https://docs.mongodb.com/v4.4/reference/method/db.collection.createIndex/#mongodb-method-db. collection.createIndex) 操作必须等待获取锁。任何影响 `employees` 集合且当 [`createIndex()`](https://docs.mongodb.com/v4.4/reference/method/db.collection.createIndex/#mongodb-method -db.collection.createIndex) 命令正在挂起时启动的新事务，都必须等到 [`createIndex()`](https://docs.mongodb.com/v4.4/reference/method/db.collection.createIndex/#mongodb-method- db.collection.createIndex) 完成才能执行。挂起的 [`createIndex()`](https://docs.mongodb.com/v4.4/reference/method/db.collection.createIndex/#mongodb-method-db.collection .createIndex) DDL 操作不会影响 `hr` 数据库中其他集合上的事务。例如，`hr` 数据库中`contractors` 集合上的新事务可以正常启动和完成。
+  当一个正在进行的事务对`hr`数据库中`employees`集合执行各种CRUD操作时，管理员在`employees`集合上发起[`db.collection.createIndex()`](https://docs.mongodb.com/ v4.4/reference/method/db.collection.createIndex/#mongodb-method-db.collection.createIndex)DDL操作。[`createIndex()`](https://docs.mongodb.com/v4.4/reference/method/db.collection.createIndex/#mongodb-method-db.collection.createIndex)命令会请求该集合上的排他集合锁。直到正在进行的事务完成，[`createIndex()`](https://docs.mongodb.com/v4.4/reference/method/db.collection.createIndex/#mongodb-method-db.collection.createIndex)操作必须等待获取锁。任何影响`employees`集合且当[`createIndex()`](https://docs.mongodb.com/v4.4/reference/method/db.collection.createIndex/#mongodb-method-db.collection.createIndex)命令正在挂起时启动的新事务，都必须等到[`createIndex()`](https://docs.mongodb.com/v4.4/reference/method/db.collection.createIndex/#mongodb-method-db.collection.createIndex)完成才能执行。挂起的[`createIndex()`](https://docs.mongodb.com/v4.4/reference/method/db.collection.createIndex/#mongodb-method-db.collection.createIndex)DDL操作不会影响`hr`数据库中其他集合上的事务。例如，`hr`数据库中`contractors`集合上的新事务可以正常启动和完成。
 
-- 请求数据库锁的 DDL 操作
+- 请求数据库锁的DDL操作
 
-  当一个正在进行的事务对 `hr` 数据库中 `employees` 集合执行各种 CRUD 操作时，管理员在相同数据库中的 `contractors` 集合发起 [`collMod`](https://docs.mongodb.com/v4.4/reference/ command/collMod/#mongodb-dbcommand-dbcmd.collMod)  DDL 操作。 [`collMod`](https://docs.mongodb.com/v4.4/reference/command/collMod/#mongodb-dbcommand-dbcmd.collMod) 命令在父`hr` 数据库上请求数据库锁。在进行中的事务完成之前，[`collMod`](https://docs.mongodb.com/v4.4/reference/command/collMod/#mongodb-dbcommand-dbcmd.collMod) 操作必须等待获取锁。 任何影响 `hr` 数据库或该库下的其它集合并且在  [`collMod`](https://docs.mongodb.com/v4.4/reference/command/collMod/#mongodb- dbcommand-dbcmd.collMod) 命令挂起时启动的新事务，都必须等到 [`collMod`](https://docs.mongodb.com/v4.4/reference/command/collMod/#mongodb-dbcommand-dbcmd.collMod) 完成之后才能执行。
+  当一个正在进行的事务对`hr`数据库中`employees`集合执行各种CRUD操作时，管理员在相同数据库中的`contractors`集合发起[`collMod`](https://docs.mongodb.com/v4.4/reference/command/collMod/#mongodb-dbcommand-dbcmd.collMod)DDL操作。[`collMod`](https://docs.mongodb.com/v4.4/reference/command/collMod/#mongodb-dbcommand-dbcmd.collMod)命令在父`hr`数据库上请求数据库锁。在进行中的事务完成之前，[`collMod`](https://docs.mongodb.com/v4.4/reference/command/collMod/#mongodb-dbcommand-dbcmd.collMod)操作必须等待获取锁。任何影响`hr`数据库或该库下的其它集合并且在[`collMod`](https://docs.mongodb.com/v4.4/reference/command/collMod/#mongodb- dbcommand-dbcmd.collMod)命令挂起时启动的新事务，都必须等到[`collMod`](https://docs.mongodb.com/v4.4/reference/command/collMod/#mongodb-dbcommand-dbcmd.collMod)完成之后才能执行。
 
-在任何一种情况下，如果 DDL 操作保持挂起的时间超过 [`maxTransactionLockRequestTimeoutMillis`](https://docs.mongodb.com/v4.4/reference/parameters/#mongodb-parameter-param.maxTransactionLockRequestTimeoutMillis)，挂起的事务等待后面那个操作中止。 即 [`maxTransactionLockRequestTimeoutMillis`](https://docs.mongodb.com/v4.4/reference/parameters/#mongodb-parameter-param.maxTransactionLockRequestTimeoutMillis) 的值必须至少涵盖正在进行的事务和挂起的 DDL 操作完成所需的时间。
+在任何一种情况下，如果DDL操作保持挂起的时间超过[`maxTransactionLockRequestTimeoutMillis`](https://docs.mongodb.com/v4.4/reference/parameters/#mongodb-parameter-param.maxTransactionLockRequestTimeoutMillis)，挂起的事务等待后面那个操作中止。即[`maxTransactionLockRequestTimeoutMillis`](https://docs.mongodb.com/v4.4/reference/parameters/#mongodb-parameter-param.maxTransactionLockRequestTimeoutMillis)的值必须至少涵盖正在进行的事务和挂起的DDL操作完成所需的时间。
 
-TIP
-
-See also:
-
-- [In-progress Transactions and Write Conflicts](https://docs.mongodb.com/v4.4/core/transactions-production-consideration/#std-label-transactions-write-conflicts)
+> 提示
+>
+> 同样请参阅：
+>
+> - [In-progress Transactions and Write Conflicts](https://docs.mongodb.com/v4.4/core/transactions-production-consideration/#std-label-transactions-write-conflicts)
 - [In-progress Transactions and Stale Reads](https://docs.mongodb.com/v4.4/core/transactions-production-consideration/#std-label-transactions-stale-reads)
 - [Which administrative commands lock a database?](https://docs.mongodb.com/v4.4/faq/concurrency/#std-label-faq-concurrency-database-lock)
 - [Which administrative commands lock a collection?](https://docs.mongodb.com/v4.4/faq/concurrency/#std-label-faq-concurrency-collection-lock)
