@@ -29,7 +29,9 @@ Starting in MongoDB 4.2, the two terms are synonymous. Distributed transactions 
   要在MongoDB 4.2（副本集和分片集群）中使用事务，客户端**必须**使用为MongoDB 4.2更新的MongoDB驱动程序。
 
 > 注意
+> 
 > **分布式事务和多文档事务**
+> 
 > 从MongoDB 4.2开始，这两个术语是同义词。分布式事务是指分片集群和副本集上的多文档事务。从MongoDB 4.2开始，多文档事务（无论是在分片集群上还是副本集上）也称为分布式事务。
 
 
