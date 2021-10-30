@@ -57,7 +57,7 @@ For more information, see the [`setFeatureCompatibilityVersion`](https://docs.mo
 
 要使用事务，所有成员的[featureCompatibilityVersion](https://docs.mongodb.com/v4.4/reference/command/setFeatureCompatibilityVersion/#std-label-view-fcv)必须至少满足：
 
-| Deployment      | Minimum `featureCompatibilityVersion` |
+| 部署方式         | 最小`featureCompatibilityVersion`      |
 | :-------------- | :------------------------------------ |
 | Replica Set     | `4.0`                                 |
 | Sharded Cluster | `4.2`                                 |
@@ -203,8 +203,8 @@ See also:
 > 
 > 同样请参阅：
 > 
-- [`--enableMajorityReadConcern false`](https://docs.mongodb.com/v4.4/reference/program/mongod/#std-option-mongod.--enableMajorityReadConcern)
-- [`replication.enableMajorityReadConcern: false`](https://docs.mongodb.com/v4.4/reference/configuration-options/#mongodb-setting-replication.enableMajorityReadConcern)
+> - [`--enableMajorityReadConcern false`](https://docs.mongodb.com/v4.4/reference/program/mongod/#std-option-mongod.--enableMajorityReadConcern)
+> - [`replication.enableMajorityReadConcern: false`](https://docs.mongodb.com/v4.4/reference/configuration-options/#mongodb-setting-replication.enableMajorityReadConcern)
 
 ## Acquiring Locks
 
@@ -276,9 +276,9 @@ In either scenario, if the DDL operation remains pending for more than [`maxTran
 > 同样请参阅：
 >
 > - [In-progress Transactions and Write Conflicts](https://docs.mongodb.com/v4.4/core/transactions-production-consideration/#std-label-transactions-write-conflicts)
-- [In-progress Transactions and Stale Reads](https://docs.mongodb.com/v4.4/core/transactions-production-consideration/#std-label-transactions-stale-reads)
-- [Which administrative commands lock a database?](https://docs.mongodb.com/v4.4/faq/concurrency/#std-label-faq-concurrency-database-lock)
-- [Which administrative commands lock a collection?](https://docs.mongodb.com/v4.4/faq/concurrency/#std-label-faq-concurrency-collection-lock)
+> - [In-progress Transactions and Stale Reads](https://docs.mongodb.com/v4.4/core/transactions-production-consideration/#std-label-transactions-stale-reads)
+> - [Which administrative commands lock a database?](https://docs.mongodb.com/v4.4/faq/concurrency/#std-label-faq-concurrency-database-lock)
+> - [Which administrative commands lock a collection?](https://docs.mongodb.com/v4.4/faq/concurrency/#std-label-faq-concurrency-collection-lock)
 
 
 
@@ -298,17 +298,17 @@ See also:
 - [Pending DDL Operations and Transactions](https://docs.mongodb.com/v4.4/core/transactions-production-consideration/#std-label-txn-prod-considerations-ddl)
 - [`$currentOp output`](https://docs.mongodb.com/v4.4/reference/operator/aggregation/currentOp/#mongodb-data--currentOp.prepareReadConflicts)
 
-如果事务正在进行中，但事务外部的写入修改了该事务内的操作之后尝试修改的文档，则事务会因写入冲突而中止。
+如果事务正在进行中，但事务外部的写入修改了该事务之后尝试修改的文档，则事务会因写入冲突而中止。
 
 如果一个事务正在进行并且已经锁定修改文档，那么当事务外部的写操作试图修改同一个文档时，写操作会一直等到事务结束。
 
-提示
-
-也可以参考：
-
-- [请求锁](https://docs.mongodb.com/v4.4/core/transactions-production-consideration/#std-label-txns-locks)
-- [待执行的 DDL 操作和事务](https://docs.mongodb.com/v4.4/core/transactions-production-consideration/#std-label-txn-prod-considerations-ddl)
-- [`$currentOp output`](https://docs.mongodb.com/v4.4/reference/operator/aggregation/currentOp/#mongodb-data--currentOp.prepareReadConflicts)
+> 提示
+> 
+> 同样请参阅：
+>
+> - [获取锁](https://docs.mongodb.com/v4.4/core/transactions-production-consideration/#std-label-txns-locks)
+> - [待执行的DDL操作和事务](https://docs.mongodb.com/v4.4/core/transactions-production-consideration/#std-label-txn-prod-considerations-ddl)
+> - [`$currentOp output`](https://docs.mongodb.com/v4.4/reference/operator/aggregation/currentOp/#mongodb-data--currentOp.prepareReadConflicts)
 
 ## In-progress Transactions and Stale Reads
 
@@ -333,11 +333,9 @@ employeeDoc = employeesCollection.findOneAndUpdate(
 - If the employee document has changed outside the transaction, then the transaction aborts.
 - If the employee document has not changed, the transaction returns the document and locks the document.
 
+事务内的读取操作可能会返回陈旧数据。也就是说，事务内部的读操作不能保证看到其他已提交的事务或非事务性写入的内容。例如，假设有以下操作序列：1) 一个事务正在进行中 2) 事务外部的写操作删除了一个文档 3) 事务内部的读取操作能够读取已被删除的文档，因为该操作使用的是写操作发生之前的快照。
 
-
-事务内的读取操作可能会返回陈旧数据。 也就是说，事务内部的读操作不能保证看到其他已提交的事务或非事务性写入执行的写入。 例如，请考虑以下顺序：1) 一个事务正在进行中 2) 事务外部的写操作删除了一个文档 3) 事务内部的读取操作能够读取现已删除的文档，因为该操作使用的是写操作之前的快照。
-
-为避免事务内部单个文档的读取过时，你可以使用 [`db.collection.findOneAndUpdate()`](https://docs.mongodb.com/v4.4/reference/method/db.collection.findOneAndUpdate /#mongodb-method-db.collection.findOneAndUpdate) 方法。 例如：
+为避免事务内部单个文档的读取过时，可以使用[`db.collection.findOneAndUpdate()`](https://docs.mongodb.com/v4.4/reference/method/db.collection.findOneAndUpdate/#mongodb-method-db.collection.findOneAndUpdate)方法。例如：
 
 ```
 session.startTransaction( { readConcern: { level: "snapshot" }, writeConcern: { w: "majority" } } );
@@ -351,8 +349,8 @@ employeeDoc = employeesCollection.findOneAndUpdate(
 );
 ```
 
-- 如果上面的 employee 文档在事务之外发生更改，则事务会中止。
-- 如果上面的 employee 文档未更改，事务将返回文档并锁定该文档。
+- 如果上面的employee文档在事务之外发生更改，则事务会中止。
+- 如果上面的employee文档未更改，事务将返回文档并锁定该文档。
 
 
 
@@ -377,23 +375,22 @@ See also:
 
 [`shardingStatistics.countDonorMoveChunkLockTimeout`](https://docs.mongodb.com/v4.4/reference/command/serverStatus/#mongodb-serverstatus-serverstatus.shardingStatistics.countDonorMoveChunkLockTimeout)
 
-[块迁移](https://docs.mongodb.com/v4.4/core/sharding-balancer-administration/#std-label-chunk-migration-procedure) 在某些阶段会获取排他的集合锁。
+[块迁移](https://docs.mongodb.com/v4.4/core/sharding-balancer-administration/#std-label-chunk-migration-procedure)在某些阶段会获取排他的集合锁。
 
-如果正在进行的事务持有集合上的锁，并且涉及该集合的块迁移刚开始，则这些迁移阶段必须等待事务释放集合上的锁，从而影响了块迁移的性能。
+如果正在进行的事务持有集合上的锁，并且涉及该集合的块迁移刚开始，则这些迁移阶段必须等待事务释放集合上的锁，从而会影响块迁移的性能。
 
-如果块迁移与事务交错（例如，如果事务在块迁移正在进行时开始，并且迁移在事务锁定集合之前完成），则事务在提交期间出错并中止。
+如果块迁移与事务交错进行（例如，如果事务在块迁移正在进行时开始，并且迁移在事务锁定集合之前完成），则事务在提交期间出错并中止。
 
-根据两个操作的交错方式，一些示例错误包括（错误信息已被缩写）：
+根据两个操作的交错方式，一些示例错误包括（错误信息被缩略展示）：
 
 - `an error from cluster data placement change ... migration commit in progress for <namespace>`
 - `Cannot find shardId the chunk belonged to at cluster time ...`
 
-提示
-
-也可以参考:
-
-[`shardingStatistics.countDonorMoveChunkLockTimeout`](https://docs.mongodb.com/v4.4/reference/command/serverStatus/#mongodb-serverstatus-serverstatus.shardingStatistics.countDonorMoveChunkLockTimeout)
-
+> 提示
+> 
+> 同样请参阅：
+> 
+> [`shardingStatistics.countDonorMoveChunkLockTimeout`](https://docs.mongodb.com/v4.4/reference/command/serverStatus/#mongodb-serverstatus-serverstatus.shardingStatistics.countDonorMoveChunkLockTimeout)
 
 
 ## Outside Reads During Commit
@@ -405,11 +402,10 @@ During the commit for a transaction, outside read operations may try to read the
 - Outside reads that use read concern [`"snapshot"`](https://docs.mongodb.com/v4.4/reference/read-concern-snapshot/#mongodb-readconcern-readconcern.-snapshot-) or [`"linearizable"`](https://docs.mongodb.com/v4.4/reference/read-concern-linearizable/#mongodb-readconcern-readconcern.-linearizable-), or are part of causally consistent sessions (i.e. include [afterClusterTime](https://docs.mongodb.com/v4.4/reference/read-concern/#std-label-afterClusterTime)) wait for all writes of a transaction to be visible.
 - Outside reads using other read concerns do not wait for all writes of a transaction to be visible but instead read the before-transaction version of the documents available.
 
-在事务提交期间，外部的读取操作可能会尝试读取将被事务修改的相同文档。 如果事务写入多个分片，则在跨分片提交尝试期间
+在事务提交期间，外部的读操作可能会尝试读取将被事务修改的相同文档。如果事务写入多个分片，则在跨分片提交尝试期间
 
-- 使用读关注为 [`"snapshot"`](https://docs.mongodb.com/v4.4/reference/read-concern-snapshot/#mongodb-readconcern-readconcern.-snapshot-) 或 [` "linearizable"`](https://docs.mongodb.com/v4.4/reference/read-concern-linearizable/#mongodb-readconcern-readconcern.-linearizable-) 的外部读操作，或者是因果一致会话的一部分（即包括 [afterClusterTime](https://docs.mongodb.com/v4.4/reference/read-concern/#std-label-afterClusterTime)) 会等待事务的所有写入可见。
+- 使用读关注为[`"snapshot"`](https://docs.mongodb.com/v4.4/reference/read-concern-snapshot/#mongodb-readconcern-readconcern.-snapshot-)或[`"linearizable"`](https://docs.mongodb.com/v4.4/reference/read-concern-linearizable/#mongodb-readconcern-readconcern.-linearizable-)的外部读操作，或者是因果一致性会话的一部分（即包括 [afterClusterTime](https://docs.mongodb.com/v4.4/reference/read-concern/#std-label-afterClusterTime)）会等待事务的所有写入可见。
 - 使用其他读关注的外部读操作不会等待事务的所有写入可见，而是读取事务之前版本的可用文档。
-
 
 
 ## Errors
@@ -418,7 +414,7 @@ During the commit for a transaction, outside read operations may try to read the
 
 ### Use of MongoDB 4.0 Drivers
 
-### 使用 MongoDB 4.0 驱动程序
+### 使用MongoDB 4.0驱动程序
 
 To use transactions on MongoDB 4.2 deployments (replica sets and sharded clusters), clients **must** use MongoDB drivers updated for MongoDB 4.2.
 
@@ -433,15 +429,15 @@ Your driver may return a different error. Refer to your driver's documentation f
 | 251        | `cannot continue txnId -1 for session ... with txnId 1` |
 | 50940      | `cannot commit with no participants`                    |
 
-要在 MongoDB 4.2 部署（副本集和分片集群）上使用事务，客户端**必须**使用为 MongoDB 4.2 更新的 MongoDB 驱动程序。
+要在MongoDB 4.2（副本集和分片集群）上使用事务，客户端**必须**使用为MongoDB 4.2更新的MongoDB驱动程序。
 
-在具有多个 [`mongos`](https://docs.mongodb.com/v4.4/reference/program/mongos/#mongodb-binary-bin.mongos) 实例的分片集群上，使用为 MongoDB 4.0 更新的驱动程序执行事务 （而不是 MongoDB 4.2）将失败并可能导致错误，包括：
+在具有多个[`mongos`](https://docs.mongodb.com/v4.4/reference/program/mongos/#mongodb-binary-bin.mongos)实例的分片集群上，使用为MongoDB 4.0更新的驱动程序执行事务（而不是 MongoDB 4.2）将失败并可能导致错误，包括：
 
-注意
+> 注意
+> 
+> 你的驱动程序可能会返回不同的错误。有关详细信息，请参阅驱动程序的文档。
 
-您的驱动程序可能会返回不同的错误。 有关详细信息，请参阅驱动程序的文档。
-
-| Error Code | Error Message                                           |
+| 错误码      | 错误信息                                                 |
 | :--------- | :------------------------------------------------------ |
 | 251        | `cannot continue txnId -1 for session ... with txnId 1` |
 | 50940      | `cannot commit with no participants`                    |
@@ -458,11 +454,11 @@ See also:
 
 [Production Considerations (Sharded Clusters)](https://docs.mongodb.com/v4.4/core/transactions-sharded-clusters/)
 
-提示
+> 提示
 
-也可以参考：
+> 同样请参阅：
 
-[生产注意事项（分片集群）](https://docs.mongodb.com/v4.4/core/transactions-sharded-clusters/)
+> [生产注意事项（分片集群）](https://docs.mongodb.com/v4.4/core/transactions-sharded-clusters/)
 
 
 
