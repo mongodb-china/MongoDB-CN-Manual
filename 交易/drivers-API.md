@@ -1,20 +1,10 @@
-# Drivers API
 
 # 驱动程序API
 
-## Callback API vs Core API
 
 ## 回调API和核心API
 
 The [Callback API](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-txn-callback-api):
-
-- Starts a transaction, executes the specified operations, and commits (or aborts on error).
-- Automatically incorporates error handling logic for [`"TransientTransactionError"`](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-transient-transaction-error) and [`"UnknownTransactionCommitResult"`](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-unknown-transaction-commit-result).
-
-The [Core API](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-txn-core-api):
-
-- Requires explicit call to start the transaction and commit the transaction.
-- Does not incorporate error handling logic for [`"TransientTransactionError"`](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-transient-transaction-error) and [`"UnknownTransactionCommitResult"`](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-unknown-transaction-commit-result), and instead provides the flexibility to incorporate custom error handling for these errors.
 
  [回调API](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-txn-callback-api)：
 
@@ -28,14 +18,9 @@ The [Core API](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#
 
 
 
-## Callback API
 
 ## 回调API
 
-The callback API incorporates logic:
-
-- To retry the transaction as a whole if the transaction encounters a [`"TransientTransactionError"`](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-transient-transaction-error).
-- To retry the commit operation if the commit encounters an [`"UnknownTransactionCommitResult"`](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-unknown-transaction-commit-result).
 
 回调API包含以下逻辑：
 
