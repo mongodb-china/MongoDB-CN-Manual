@@ -1,20 +1,7 @@
-# Drivers API
 
 # 驱动程序 API
 
-## Callback API vs Core API
-
 ## 回调 API 和 核心 API
-
-The [Callback API](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-txn-callback-api):
-
-- Starts a transaction, executes the specified operations, and commits (or aborts on error).
-- Automatically incorporates error handling logic for [`"TransientTransactionError"`](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-transient-transaction-error) and [`"UnknownTransactionCommitResult"`](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-unknown-transaction-commit-result).
-
-The [Core API](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-txn-core-api):
-
-- Requires explicit call to start the transaction and commit the transaction.
-- Does not incorporate error handling logic for [`"TransientTransactionError"`](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-transient-transaction-error) and [`"UnknownTransactionCommitResult"`](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-unknown-transaction-commit-result), and instead provides the flexibility to incorporate custom error handling for these errors.
 
  [回调 API](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-txn-callback-api)：
 
@@ -28,41 +15,17 @@ The [Core API](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#
 
 
 
-## Callback API
 
 ## 回调 API
 
-The callback API incorporates logic:
-
-- To retry the transaction as a whole if the transaction encounters a [`"TransientTransactionError"`](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-transient-transaction-error).
-- To retry the commit operation if the commit encounters an [`"UnknownTransactionCommitResult"`](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-unknown-transaction-commit-result).
 
 回调 API 包含以下逻辑：
 
 - 如果事务遇到 [`"TransientTransactionError"`](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-transient-transaction-error)，则作为一个整体重试事务。
 - 如果提交遇到 [`"UnknownTransactionCommitResult"`](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-unknown-transaction-commit-result)，则重新这个提交操作。
 
-### Example
 
 ### 示例
-
-------
-
-➤ Use the **Select your language** drop-down menu in the upper-right to set the language of the examples on this page.
-
-------
-
-The example uses the new callback API for working with transactions, which starts a transaction, executes the specified operations, and commits (or aborts on error). The new callback API incorporates retry logic for [`"TransientTransactionError"`](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-transient-transaction-error) or [`"UnknownTransactionCommitResult"`](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-unknown-transaction-commit-result) commit errors.
-
-IMPORTANT
-
-- *Recommended*. Use the MongoDB driver updated for the version of your MongoDB deployment. For transactions on MongoDB 4.2 deployments (replica sets and sharded clusters), clients **must** use MongoDB drivers updated for MongoDB 4.2.
-- When using the drivers, each operation in the transaction **must** be associated with the session (i.e. pass in the session to each operation).
-- Operations in a transaction use [transaction-level read concern](https://docs.mongodb.com/v4.4/core/transactions/#std-label-transactions-read-concern), [transaction-level write concern](https://docs.mongodb.com/v4.4/core/transactions/#std-label-transactions-write-concern), and [transaction-level read preference](https://docs.mongodb.com/v4.4/core/transactions/#std-label-transactions-read-preference).
-- In MongoDB 4.2 and earlier, you cannot create collections in transactions. Write operations that result in document inserts (e.g. `insert` or update operations with `upsert: true`) must be on **existing** collections if run inside transactions.
-- Starting in MongoDB 4.4, you can create collections in transactions implicitly or explicitly. You must use MongoDB drivers updated for 4.4, however. See [Create Collections and Indexes In a Transaction](https://docs.mongodb.com/v4.4/core/transactions/#std-label-transactions-create-collections-indexes) for details.
-
-### 
 
 ------
 
@@ -136,19 +99,8 @@ func WithTransactionExample() {
 
 
 
-## Core API
-
 ## 核心 API
 
-The core transaction API does not incorporate retry logic for errors labeled:
-
-- [`"TransientTransactionError"`](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-transient-transaction-error). If an operation in a transaction returns an error labeled [`"TransientTransactionError"`](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-transient-transaction-error), the transaction as a whole can be retried.
-
-  To handle [`"TransientTransactionError"`](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-transient-transaction-error), applications should explicitly incorporate retry logic for the error.
-
-- [`"UnknownTransactionCommitResult"`](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-unknown-transaction-commit-result). If the commit returns an error labeled [`"UnknownTransactionCommitResult"`](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-unknown-transaction-commit-result), the commit can be retried.
-
-  To handle [`"UnknownTransactionCommitResult"`](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-unknown-transaction-commit-result), applications should explicitly incorporate retry logic for the error.
 
 核心事务 API 不包含标记错误的重试逻辑：
 
@@ -158,17 +110,9 @@ The core transaction API does not incorporate retry logic for errors labeled:
 
   为了处理 [`"UnknownTransactionCommitResult"`](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-unknown-transaction-commit-result)，应用程序应该明确地包含错误的重试逻辑。
 
-### Example
 
 ### 示例
 
-------
-
-➤ Use the **Select your language** drop-down menu in the upper-right to set the language of the examples on this page.
-
-------
-
-The following example incorporates logic to retry the transaction for transient errors and retry the commit for unknown commit error:
 
 ### 
 
@@ -261,19 +205,13 @@ The following example incorporates logic to retry the transaction for transient 
 
 
 
-## Driver Versions
-
 ## 驱动程序版本
-
-*For transactions on MongoDB 4.2 deployments (replica sets and sharded clusters)*, clients **must** use MongoDB drivers updated for MongoDB 4.2:
 
 *对于 MongoDB 4.2 部署（副本集和分片集群）上的事务*，客户端**必须**使用为 MongoDB 4.2 更新的 MongoDB 驱动程序：
 
 | [C 1.15.0](http://mongoc.org/libmongoc/)[C# 2.9.0](https://mongodb.github.io/mongo-csharp-driver/)[Go 1.1](https://godoc.org/go.mongodb.org/mongo-driver/mongo) | [Java 3.11.0](https://mongodb.github.io/mongo-java-driver/)[Node 3.3.0](https://mongodb.github.io/node-mongodb-native/)[Perl 2.2.0](https://metacpan.org/author/MONGODB) | [Python 3.9.0](https://api.mongodb.com/pymongo)[Ruby 2.10.0](https://docs.mongodb.com/ruby-driver/current/)[Scala 2.7.0](https://mongodb.github.io/mongo-scala-driver/) |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 |                                                              |                                                              |                                                              |
-
-*For transactions on MongoDB 4.0 replica sets*, clients require MongoDB drivers updated for MongoDB 4.0 or later.
 
 *对于 MongoDB 4.0 副本集上的事务*，客户端需要为 MongoDB 4.0 或更高版本更新 MongoDB 驱动程序。
 
@@ -283,20 +221,12 @@ The following example incorporates logic to retry the transaction for transient 
 
 
 
-## Transaction Error Handling
-
 ## 事务错误处理
-
-Regardless of the database system, whether MongoDB or relational databases, applications should take measures to handle errors during transaction commits and incorporate retry logic for transactions.
 
 无论是哪种数据库系统，无论是MongoDB还是关系型数据库，应用程序都应该采取措施处理事务提交过程中的错误，并包含事务的重试逻辑。
 
 ### `"TransientTransactionError"`
 
-The *individual* write operations inside the transaction are not retryable, regardless of the value of [`retryWrites`](https://docs.mongodb.com/v4.4/reference/connection-string/#mongodb-urioption-urioption.retryWrites). If an operation encounters an error [associated with the label](https://github.com/mongodb/specifications/blob/master/source/transactions/transactions.rst#error-labels) `"TransientTransactionError"`, such as when the primary steps down, the transaction as a whole can be retried.
-
-- The callback API incorporates retry logic for `"TransientTransactionError"`.
-- The core transaction API does not incorporate retry logic for `"TransientTransactionError"`. To handle `"TransientTransactionError"`, applications should explicitly incorporate retry logic for the error.
 
 无论 [`retryWrites`](https://docs.mongodb.com/v4.4/reference/connection-string/#mongodb-urioption-urioption.retryWrites)的值是多少，事务内部的*单个*写操作都不可重试。如果操作遇到一个错误[与标签相关](https://github.com/mongodb/specifications/blob/master/source/transactions/transactions.rst#error-labels) `"TransientTransactionError"`，比如当主节点降级，事务会作为一个整体被重试。
 
@@ -305,12 +235,6 @@ The *individual* write operations inside the transaction are not retryable, rega
 
 ### `"UnknownTransactionCommitResult"`
 
-The commit operations are [retryable write operations](https://docs.mongodb.com/v4.4/core/retryable-writes/). If the commit operation encounters an error, MongoDB drivers retry the commit regardless of the value of [`retryWrites`](https://docs.mongodb.com/v4.4/reference/connection-string/#mongodb-urioption-urioption.retryWrites).
-
-If the commit operation encounters an error labeled `"UnknownTransactionCommitResult"`, the commit can be retried.
-
-- The callback API incorporates retry logic for `"UnknownTransactionCommitResult"`.
-- The core transaction API does not incorporate retry logic for `"UnknownTransactionCommitResult"`. To handle `"UnknownTransactionCommitResult"`, applications should explicitly incorporate retry logic for the error.
 
 提交操作是[可重试的写操作](https://docs.mongodb.com/v4.4/core/retryable-writes/)。如果提交操作遇到错误，无论 [`retryWrites`](https://docs.mongodb.com/v4.4/reference/connection-string/#mongodb-urioption-urioption.retryWrites)的值是多少，MongoDB 驱动程序都会重试提交。
 
@@ -321,15 +245,8 @@ If the commit operation encounters an error labeled `"UnknownTransactionCommitRe
 
 
 
-### Driver Version Errors
-
 ### 驱动程序版本错误
 
-On sharded clusters with multiple [`mongos`](https://docs.mongodb.com/v4.4/reference/program/mongos/#mongodb-binary-bin.mongos) instances, performing transactions with drivers updated for MongoDB 4.0 (instead of MongoDB 4.2) will fail and can result in errors, including:
-
-NOTE
-
-Your driver may return a different error. Refer to your driver's documentation for details.
 
 在具有多个 [`mongos`](https://docs.mongodb.com/v4.4/reference/program/mongos/#mongodb-binary-bin.mongos) 实例的分片集群上，使用为 MongoDB 4.0 更新的驱动程序执行事务 （而不是 MongoDB 4.2）将失败并可能导致错误，包括：
 
@@ -342,27 +259,15 @@ Your driver may return a different error. Refer to your driver's documentation f
 | 251        | `cannot continue txnId -1 for session ... with txnId 1` |
 | 50940      | `cannot commit with no participants`                    |
 
-*For transactions on MongoDB 4.2 deployments (replica sets and sharded clusters)*, use the MongoDB drivers updated for MongoDB 4.2
 
 *对于 MongoDB 4.2 部署（副本集和分片集群）上的事务*，使用为 MongoDB 4.2 更新的 MongoDB 驱动程序
 
-## Additional Information
 
 ## 附加信息
 
-### `mongo` Shell Example
 
 ### `mongo` Shell 示例
 
-The following [`mongo`](https://docs.mongodb.com/v4.4/reference/program/mongo/#mongodb-binary-bin.mongo) shell methods are available for transactions:
-
-- [`Session.startTransaction()`](https://docs.mongodb.com/v4.4/reference/method/Session.startTransaction/#mongodb-method-Session.startTransaction)
-- [`Session.commitTransaction()`](https://docs.mongodb.com/v4.4/reference/method/Session.commitTransaction/#mongodb-method-Session.commitTransaction)
-- [`Session.abortTransaction()`](https://docs.mongodb.com/v4.4/reference/method/Session.abortTransaction/#mongodb-method-Session.abortTransaction)
-
-NOTE
-
-The [`mongo`](https://docs.mongodb.com/v4.4/reference/program/mongo/#mongodb-binary-bin.mongo) shell example omits retry logic and robust error handling for simplicity's sake. For a more practical example of incorporating transactions in applications, see [Transaction Error Handling](https://docs.mongodb.com/v4.4/core/transactions-in-applications/#std-label-transactions-retry) instead.
 
 下面列出的 [`mongo`](https://docs.mongodb.com/v4.4/reference/program/mongo/#mongodb-binary-bin.mongo) shell 方法可用于事务：
 
