@@ -229,7 +229,7 @@
     * [内存存储引擎](cun-chu/cun-chu-yin-qing/in-memory-storage-engine.md)
   * [日志记录](cun-chu/journaling/README.md)
     * [管理日志记录](cun-chu/journaling/guan-li-ri-zhi-ji-lu/README.md)
-      * [GridFS](cun-chu/journaling/guan-li-ri-zhi-ji-lu/gridfs.md)
+      * [GridFS](cun-chu/gridfs.md)
       * [FAQ:MongoDB 存储](cun-chu/journaling/guan-li-ri-zhi-ji-lu/faq-mongodb-storage.md)
 * [MongoDB参考](can-kao/README.md)
   * [运算符](can-kao/yun-suan-fu/README.md)
