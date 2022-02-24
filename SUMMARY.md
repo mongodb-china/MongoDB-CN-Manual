@@ -39,7 +39,7 @@
     * [从查询返回的项目字段](mongodb-crud-operations/query-documents/project -fields-to-return-from-query.md)
     * [查询嵌入式文档数组](mongodb-crud-operations/query-documents/query- an-array-of-embedded-documents.md)
     * [查询数组](mongodb-crud-operations/query-documents/query -an-array.md)
-    * [查询空字段或缺少字段](mongodb-crud-operations/query-documents/query-for-null -or-missing-fields.md)
+    * [查询空字段或缺少字段](query-documents/query-for-null -or-missing-fields.md)
     * [查询嵌入/嵌套文档](mongodb-crud-operations/query-documents/nested-documents.md)
   * [更新文档](mongodb-crud-operations/update-documents/README.md)
     * [更新方法](mongodb-crud-operations/update-documents/update-methods.md)
