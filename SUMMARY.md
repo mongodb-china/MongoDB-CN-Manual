@@ -8,6 +8,7 @@
     * [视图](mongo-introduction/databases-and-collections/views.md)
     * [按需物化视图](mongo-introduction/databases-and-collections/on-demand-materialized-views.md)
     * [封顶集合](mongo-introduction/databases-and-collections/capped-collections.md)
+    * [时间序列集合](mongo-introduction/databases-and-collections/time-series-collections.md)
   * [文档](mongo-introduction/documents.md)
   * [BSON类型](mongo-introduction/bson-types/README.md)
     * [Comparison and Sort Order](mongo-introduction/bson-types/comparison-sort-order.md)
