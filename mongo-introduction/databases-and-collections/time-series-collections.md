@@ -89,7 +89,7 @@ MongoDB在5.0中支持了新的`timeseries collection`类型的选项，该类�
 
 当索引被创建后，可以通过`listIndexes`命令或`$indexStats`聚合计划来检查。`listIndexes`和`$indexStats`是作用于`timeseries collections`的，执行时，它们会在内部将底层的`bucket collection`的索引转化成`timeseries`格式的索引，并返回。比如，当我们在元数据字段中定义有`mm`的`timeseries collection`上执行`listIndexes`命令时，底层的`bucket collection`的`{meta:1}`索引，将会以`{mm:1}`格式返回。
 
-`dropIndex` 和`collMod` (`hidden: <bool>`, `expireAfterSeconds: <num>`) 也同样支持在`timeseries collection`上。
+`dropIndex`和`collMod`(`hidden: <bool>`, `expireAfterSeconds: <num>`)也同样支持在`timeseries collection`上。
 
 时间字段上支持的索引类型：
 
@@ -104,9 +104,9 @@ MongoDB在5.0中支持了新的`timeseries collection`类型的选项，该类�
 元数据字段和元数据子字段支持的索引类型：
 
 - 支持所有时间字段上支持的索引类型
-- v5.2及以上版本支持[2d]((https://docs.mongodb.com/manual/core/2d/)) 索引
-- v5.2及以上版本支持[2dsphere]((https://docs.mongodb.com/manual/core/2dsphere/)) 索引
-- v5.2及以上版本支持 [Partial索引](https://docs.mongodb.com/manual/core/index-partial/)
+- v5.2及以上版本支持[2d]((https://docs.mongodb.com/manual/core/2d/))索引
+- v5.2及以上版本支持[2dsphere]((https://docs.mongodb.com/manual/core/2dsphere/))索引
+- v5.2及以上版本支持[Partial索引](https://docs.mongodb.com/manual/core/index-partial/)
 
 仅在v5.2及以上版本，测量值字段支持的索引类型
 
@@ -115,7 +115,7 @@ MongoDB在5.0中支持了新的`timeseries collection`类型的选项，该类�
 - [2dsphere](https://docs.mongodb.com/manual/core/2dsphere/)
 - [部分条件索引](https://docs.mongodb.com/manual/core/index-partial/)
 
-`timeseries collections`上不支持的索引类型，包括 [唯一索引](https://docs.mongodb.com/manual/core/index-unique/)以及[文本索引](https://docs.mongodb.com/manual/core/index-text/)
+`timeseries collections`上不支持的索引类型，包括[唯一索引](https://docs.mongodb.com/manual/core/index-unique/)以及[文本索引](https://docs.mongodb.com/manual/core/index-text/)
 
 ## BucketCatalog
 
