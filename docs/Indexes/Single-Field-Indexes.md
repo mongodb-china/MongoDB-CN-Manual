@@ -11,7 +11,7 @@ MongoDB为[文档](https://docs.mongodb.com/manual/reference/glossary/#term-docu
 
 本文档描述单个字段上的升序/降序索引。
 
-![Diagram of an index on the ``score`` field (ascending).](https://docs.mongodb.com/manual/_images/index-ascending.bakedsvg.svg)
+![Diagram of an index on the ``score`` field (ascending).](https://www.mongodb.com/docs/manual/images/index-ascending.bakedsvg.svg)
 
 ## <span id="升序">在单个字段上创建升序索引</span>
 

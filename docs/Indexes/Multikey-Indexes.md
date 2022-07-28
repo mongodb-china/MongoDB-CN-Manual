@@ -10,7 +10,7 @@
 
 为了索引包含数组值的字段，MongoDB为数组中的每个元素创建一个索引键。这些多键索引支持对数组字段的高效查询。多键索引可以在包含标量值(例如字符串、数字)和嵌套文档的数组上构造。
 
-![addr.zip字段上的多键索引图。 addr字段包含地址文档数组。 地址文档包含``zip''字段。](https://docs.mongodb.com/manual/_images/index-multikey.bakedsvg.svg)
+![addr.zip字段上的多键索引图。 addr字段包含地址文档数组。 地址文档包含``zip''字段。](https://www.mongodb.com/docs/manual/images/index-multikey.bakedsvg.svg)
 
 **标量值指的是既不是嵌入式文档也不是数组的值。**
 

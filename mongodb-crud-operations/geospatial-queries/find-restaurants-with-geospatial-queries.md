@@ -26,7 +26,7 @@ MongoDB的地理空间索引使您可以高效地对包含地理空间形状和�
 
 由于将三维球体（例如地球）投影到平面上的性质，当在地图上可视化时，球形几何形状将显得失真。
 
-例如，以经度纬度点`(0,0)`, `(80,0)`, `(80,80)`, and `(0,80)`. 定义的球形正方形的规格为例。下图描述了此区域覆盖的区域：![](https://docs.mongodb.com/manual/_images/geospatial-spherical-square.png)
+例如，以经度纬度点`(0,0)`, `(80,0)`, `(80,80)`, and `(0,80)`. 定义的球形正方形的规格为例。下图描述了此区域覆盖的区域：![](https://www.mongodb.com/docs/manual/images/geospatial-spherical-square.png)
 
 ## 搜索餐厅
 
@@ -71,7 +71,7 @@ db.restaurants.findOne()
 ```
 
 该餐厅文档对应于下图所示的位置：  
-![](https://docs.mongodb.com/manual/_images/geospatial-single-point.png)  
+![](https://www.mongodb.com/docs/manual/images/geospatial-single-point.png)  
 由于本教程使用**2dsphere**索引，因此**location**字段中的几何数据必须遵循[GeoJSON 格式](https://docs.mongodb.com/master/reference/geojson/).
 
 现在检查**neighborhoods**集合中的条目：
@@ -99,7 +99,7 @@ db.neighborhoods.findOne()
 
 该几何形状对应于下图所示的区域：
 
-### ![](https://docs.mongodb.com/manual/_images/geospatial-polygon-hells-kitchen.png) 找到当前的街区
+### ![](https://www.mongodb.com/docs/manual/images/geospatial-polygon-hells-kitchen.png) 找到当前的街区
 
 假设用户的移动设备可以为用户提供相当准确的位置，那么使用[`$geoIntersects`](https://docs.mongodb.com/master/reference/operator/query/geoIntersects/#op._S_geoIntersects).很容易找到用户当前的街区。
 
@@ -140,7 +140,7 @@ db.restaurants.find( { location: { $geoWithin: { $geometry: neighborhood.geometr
 ```
 
 该查询将告诉您，所请求的社区中有127家餐厅，如下图所示：  
-![](https://docs.mongodb.com/manual/_images/geospatial-all-restaurants.png)
+![](https://www.mongodb.com/docs/manual/images/geospatial-all-restaurants.png)
 
 ### 查找附近的餐厅
 

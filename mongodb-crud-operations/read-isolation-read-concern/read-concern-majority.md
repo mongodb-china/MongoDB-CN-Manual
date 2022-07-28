@@ -37,7 +37,7 @@
 > * Writeprev 是 Write0之前的写入。
 > * 在 Write0之后没有发生其他写操作。
 
-![Timeline of a write operation to a three member replica set.](https://docs.mongodb.com/manual/_images/read-concern-write-timeline.svg)
+![Timeline of a write operation to a three member replica set.](https://www.mongodb.com/docs/manual/images/read-concern-write-timeline.svg)
 
 | 时间 | 事件 | 最新写 | 最新的多数写 |
 | :--- | :--- | :--- | :--- |
@@ -51,7 +51,7 @@
 
 然后，下表总结了具有\[`"majority"`\]\([https://docs.mongodb.com/manual/reference/read-concern-majority/\#readconcern."majority"\)读关注的读取操作在时间将看到的数据状态\`T\`。](https://docs.mongodb.com/manual/reference/read-concern-majority/#readconcern."majority"%29读关注的读取操作在时间将看到的数据状态`T`。)
 
-![Timeline of a write operation to a three member replica set.](https://docs.mongodb.com/manual/_images/read-concern-write-timeline.svg)
+![Timeline of a write operation to a three member replica set.](https://www.mongodb.com/docs/manual/images/read-concern-write-timeline.svg)
 
 | 阅读目标 | Time `T` | 数据状态 |
 | :--- | :--- | :--- |

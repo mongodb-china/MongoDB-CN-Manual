@@ -34,7 +34,7 @@ version 3.6 中的新内容。
 >
 > * 在 Write<sub>0</sub>之后没有发生其他写操作。
 
-![Timeline of a write operation to a three member replica set.](https://docs.mongodb.com/manual/_images/read-concern-write-timeline.svg)
+![Timeline of a write operation to a three member replica set.](https://www.mongodb.com/docs/manual/images/read-concern-write-timeline.svg)
 
 | 时间          | 事件                                                         | 最新写                                                       | 最新的多数写                                                 |
 | ------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |

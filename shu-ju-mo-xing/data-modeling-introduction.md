@@ -29,7 +29,7 @@
 
 嵌入式文档通过在单个文档结构中存储相关数据来捕获数据之间的关系。MongoDB文档使得在文档中的字段或数组中嵌入文档结构成为可能。这些_非规范化_数据模型允许应用程序在单个数据库操作中检索和操作相关数据。
 
-![Data model with embedded fields that contain all related information.](https://docs.mongodb.com/manual/_images/data-model-denormalized.bakedsvg.svg)
+![Data model with embedded fields that contain all related information.](https://www.mongodb.com/docs/manual/images/data-model-denormalized.bakedsvg.svg)
 
 对于MongoDB中的许多用例，非规范化数据模型是最优的。
 
@@ -39,7 +39,7 @@
 
 引用通过包含从一个文档到另一个文档的链接或_引用_来存储数据之间的关系。应用程序可以解析这些[参考](https://docs.mongodb.com/manual/reference/database-references/)访问相关数据。一般来说，这些是“标准化”数据模型。
 
-![Data model using references to link documents. Both the \`\`contact\`\` document and the \`\`access\`\` document contain a reference to the \`\`user\`\` document.](https://docs.mongodb.com/manual/_images/data-model-normalized.bakedsvg.svg)
+![Data model using references to link documents. Both the \`\`contact\`\` document and the \`\`access\`\` document contain a reference to the \`\`user\`\` document.](https://www.mongodb.com/docs/manual/images/data-model-normalized.bakedsvg.svg)
 
 参见 [规范化数据模型](https://docs.mongodb.com/manual/core/data-model-design/#data-modeling-referencing) 了解使用参考的优点和缺点。
 

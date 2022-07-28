@@ -17,7 +17,7 @@
 *   执行备份操作，和/或
 *   允许读取直到选择一个[新的主节点](https://docs.mongodb.com/manual/core/replica-set-high-availability/#replica-set-failover)。
 
-![将操作读取到副本集。 默认读取首选项将读取路由到主数据库。 ``最近''的读取首选项会将读取路由到最近的成员。](https://docs.mongodb.com/manual/_images/replica-set-read-preference.bakedsvg.svg)
+![将操作读取到副本集。 默认读取首选项将读取路由到主数据库。 ``最近''的读取首选项会将读取路由到最近的成员。](https://www.mongodb.com/docs/manual/images/replica-set-read-preference.bakedsvg.svg)
 
 来自复制集的次要成员的读取操作可能无法反映主要数据库的当前状态。将读取操作定向到不同服务器的读取首选项可能会导致非单调读取。
 
@@ -30,7 +30,7 @@
 
 在[复制集](https://docs.mongodb.com/master/reference/glossary/#term-replica-set),中，所有的写操作都指向集合的[主](https://docs.mongodb.com/master/reference/glossary/#term-primary)节点。主服务器应用写操作并将操作记录在主服务器的操作日志或[oplog](https://docs.mongodb.com/master/reference/glossary/#term-oplog)上。oplog是对数据集的可重复操作序列。集合中的次要成员不断复制oplog，并在一个异步进程中将这些操作应用到自己身上。
 
-![Diagram of default routing of reads and writes to the primary.](https://docs.mongodb.com/manual/_images/replica-set-read-write-operations-primary.bakedsvg.svg)
+![Diagram of default routing of reads and writes to the primary.](https://www.mongodb.com/docs/manual/images/replica-set-read-write-operations-primary.bakedsvg.svg)
 
 有关复制集和写入操作的更多信息，请参见[复制](https://docs.mongodb.com/manual/replication/)和 [写入问题](https://docs.mongodb.com/manual/reference/write-concern/)。
 
@@ -41,15 +41,15 @@
 
 对于分片群集，应用程序向[mongos](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos)与该群集关联的实例之一发出操作 。
 
-![分片群集的示意图。](https://docs.mongodb.com/manual/_images/sharded-cluster.bakedsvg.svg)
+![分片群集的示意图。](https://www.mongodb.com/docs/manual/images/sharded-cluster.bakedsvg.svg)
 
 当分片群集上的读取操作定向到特定分片时，效率最高。分片集合的查询应包含集合的分片[键](https://docs.mongodb.com/manual/core/sharding-shard-key/#sharding-shard-key)。当查询包含分片键时，[`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos)可以使用[配置数据库中的](https://docs.mongodb.com/manual/core/sharded-cluster-config-servers/#sharding-config-server)群集元数据将查询路由到分片。
 
-![将操作读取到分片群集。 查询条件包括分片键。 查询路由器``mongos''可以将查询定位到适当的一个或多个分片。](https://docs.mongodb.com/manual/_images/sharded-cluster-targeted-query.bakedsvg.svg)
+![将操作读取到分片群集。 查询条件包括分片键。 查询路由器``mongos''可以将查询定位到适当的一个或多个分片。](https://www.mongodb.com/docs/manual/images/sharded-cluster-targeted-query.bakedsvg.svg)
 
 如果查询不包含分片键，则[`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos)必须将查询定向到集群中的*所有分*片。这些*分散的收集*查询可能效率很低。在较大的群集上，分散收集查询对于常规操作是不可行的。
 
-![将操作读取到分片群集。 查询条件不包含分片键。 查询路由器``mongos''必须向所有分片广播查询以进行收集。](https://docs.mongodb.com/manual/_images/sharded-cluster-scatter-gather-query.bakedsvg.svg)
+![将操作读取到分片群集。 查询条件不包含分片键。 查询路由器``mongos''必须向所有分片广播查询以进行收集。](https://www.mongodb.com/docs/manual/images/sharded-cluster-scatter-gather-query.bakedsvg.svg)
 
 对于复制集分片，从复制集的辅助成员进行的读取操作可能无法反映主副本的当前状态。将读取操作定向到不同服务器的读取首选项可能会导致非单调读取。
 
@@ -68,11 +68,11 @@
 
 对于[分片群集](https://docs.mongodb.com/master/reference/glossary/#term-sharded-cluster)中的分片集合，该 [`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos)指令将写操作从应用程序定向到负责数据集特定部分的分片。在[`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos)使用来自集群的元数据 的[配置数据库](https://docs.mongodb.com/manual/core/sharded-cluster-config-servers/#sharding-config-server)以路由写操作到适当的分片。
 
-![分片群集的示意图。](https://docs.mongodb.com/manual/_images/sharded-cluster.bakedsvg.svg)
+![分片群集的示意图。](https://www.mongodb.com/docs/manual/images/sharded-cluster.bakedsvg.svg)
 
 MongoDB根据[分片键](https://docs.mongodb.com/master/reference/glossary/#term-shard-key)的值将分片集合中的数据划分为范围。然后，MongoDB将这些块分配为分片。分片键决定块到分片的分布。这可能会影响集群中的写操作的性能。
 
-![分片键值空间划分成较小范围或块的图。](https://docs.mongodb.com/manual/_images/sharding-range-based.bakedsvg.svg)
+![分片键值空间划分成较小范围或块的图。](https://www.mongodb.com/docs/manual/images/sharding-range-based.bakedsvg.svg)
 
 > **[warning] 重要**
 >

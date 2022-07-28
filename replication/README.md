@@ -25,15 +25,15 @@ MongoDB中的副本集是一组维护相同数据集合的 [`mongod`](https://do
 
 [主节点](https://docs.mongodb.com/manual/core/replica-set-primary/) 接收所有的写操作。一个副本集仅有一个主节点能够用\[`{ w: "majority" }`\]\(\[[https://docs.mongodb.com/manual/reference/write-concern/\#writeconcern."majority\]\(https://docs.mongodb.com/manual/reference/write-concern/\#writeconcern."majority\)"\](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern."majority]%28https://docs.mongodb.com/manual/reference/write-concern/#writeconcern."majority%29"\)\) 写关注点级别来确认写操作；虽然在某些情况下，另一个mongod的实例也可以暂时认为自己是主节点。[\[1\]](https://docs.mongodb.com/manual/replication/#edge-cases-2-primaries) 主节点会将其数据集合所有的变化记录到操作日志中，即[oplog](https://docs.mongodb.com/manual/core/replica-set-oplog/).。有关主节点操作的更多信息，请参见 [副本集主节点](https://docs.mongodb.com/manual/core/replica-set-primary/)。
 
-![Diagram of default routing of reads and writes to the primary.](https://docs.mongodb.com/manual/_images/replica-set-read-write-operations-primary.bakedsvg.svg)
+![Diagram of default routing of reads and writes to the primary.](https://www.mongodb.com/docs/manual/images/replica-set-read-write-operations-primary.bakedsvg.svg)
 
 从节点复制主节点的oplog，并将这些操作应用于它们的数据集，这样以便从节点的数据集能反映出主节点的数据集。如果主节点不可用，一个候选的从节点将会发起选举并使之成为新的主节点。有关副本成员的更多信息，请参见[副本成员](https://docs.mongodb.com/manual/core/replica-set-secondary/)。
 
-![Diagram of a 3 member replica set that consists of a primary and two secondaries.](https://docs.mongodb.com/manual/_images/replica-set-primary-with-two-secondaries.bakedsvg.svg)
+![Diagram of a 3 member replica set that consists of a primary and two secondaries.](https://www.mongodb.com/docs/manual/images/replica-set-primary-with-two-secondaries.bakedsvg.svg)
 
 在某些情况下\(比如您有一个主节点和一个从节点，但由于成本约束无法添加另一个从节点\)，您可以选择将一个 [`mongod`](https://docs.mongodb.com/manual/reference/program/mongod/#bin.mongod) 实例作为 [仲裁节点](https://docs.mongodb.com/manual/core/replica-set-arbiter/)添加到一个副本集中。仲裁节点参与[选举](https://docs.mongodb.com/manual/core/replica-set-elections/#replica-set-elections)但不持有数据\(即不提供数据冗余\)。有关仲裁节点的更多信息，请参见[副本集仲裁节点](https://docs.mongodb.com/manual/core/replica-set-arbiter/)。
 
-![Diagram of a replica set that consists of a primary, a secondary, and an arbiter.](https://docs.mongodb.com/manual/_images/replica-set-primary-with-secondary-and-arbiter.bakedsvg.svg)
+![Diagram of a replica set that consists of a primary, a secondary, and an arbiter.](https://www.mongodb.com/docs/manual/images/replica-set-primary-with-secondary-and-arbiter.bakedsvg.svg)
 
 [仲裁节点](https://docs.mongodb.com/manual/core/replica-set-arbiter/) 永远只能是仲裁节点，但在选举过程中[主节点](https://docs.mongodb.com/manual/core/replica-set-primary/)也许会降级成为 [从节点](https://docs.mongodb.com/manual/core/replica-set-secondary/)， [从节点](https://docs.mongodb.com/manual/core/replica-set-secondary/)也可能会升级成为主节点。
 
@@ -67,7 +67,7 @@ MongoDB中的副本集是一组维护相同数据集合的 [`mongod`](https://do
 
 当主节点无法和集群中其他节点通信的时间超过参数`electionTimeoutMillis`配置的期限时（默认10s），一个候选的从节点会发起选举来推荐自己成为新主节点。集群会尝试完成一次新主节点的选举并恢复正常的操作。
 
-![Diagram of an election of a new primary. In a three member replica set with two secondaries, the primary becomes unreachable. The loss of a primary triggers an election where one of the secondaries becomes the new primary](https://docs.mongodb.com/manual/_images/replica-set-trigger-election.bakedsvg.svg)
+![Diagram of an election of a new primary. In a three member replica set with two secondaries, the primary becomes unreachable. The loss of a primary triggers an election where one of the secondaries becomes the new primary](https://www.mongodb.com/docs/manual/images/replica-set-trigger-election.bakedsvg.svg)
 
 副本集在选举成功前是无法处理写操作的。如果读请求被配置运行在[从节点](https://docs.mongodb.com/manual/core/read-preference/#replica-set-read-preference) 上，则当主节点下线时，副本集可以继续处理这些请求。
 
@@ -94,7 +94,7 @@ MongoDB中的副本集是一组维护相同数据集合的 [`mongod`](https://do
 
 默认情况下，客户端从主节点读取[\[1\]](https://docs.mongodb.com/manual/replication/#edge-cases-2-primaries)；然而，客户端可以定义一个[读偏好](https://docs.mongodb.com/manual/core/read-preference/) 将读操作发送给从节点。
 
-![Diagram of an application that uses read preference secondary.](https://docs.mongodb.com/manual/_images/replica-set-read-preference-secondary.bakedsvg.svg)
+![Diagram of an application that uses read preference secondary.](https://www.mongodb.com/docs/manual/images/replica-set-read-preference-secondary.bakedsvg.svg)
 
 [异步复制](https://docs.mongodb.com/manual/replication/#asynchronous-replication)至从节点，意味着从节点读取返回的数据不能反映主节点上数据的状态。
 

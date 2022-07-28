@@ -14,7 +14,7 @@
 
 下图展示了一个拥有三个分片和两个区域的分片集群。`A` 区域表示下限为 `1` 、上限为 `10` 的范围。`B` 区域则表示下限为 `10` 、上限为 `20` 的范围。 分片 `Alpha` 和 `Beta` 有 `A` 区域。分片 `Beta` 还拥有 `B` 区域。 分片 `Charlie` 没有区域与之相关、该集群在一个稳定的状态，没有数据块违背任何区域。
 
-![Diagram of data distribution based on zones in a sharded cluster](https://docs.mongodb.com/manual/_images/sharded-cluster-zones.bakedsvg.svg)
+![Diagram of data distribution based on zones in a sharded cluster](https://www.mongodb.com/docs/manual/images/sharded-cluster-zones.bakedsvg.svg)
 
 ## 行为和操作
 

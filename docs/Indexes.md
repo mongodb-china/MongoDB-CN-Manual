@@ -19,7 +19,7 @@
 
 下图说明了使用索引选择和排序匹配文档的查询：
 
-![使用索引选择并返回排序结果的查询图。 索引按升序存储“分数”值。 MongoDB可以按升序或降序遍历索引以返回排序的结果。](https://docs.mongodb.com/manual/_images/index-for-sort.bakedsvg.svg)
+![使用索引选择并返回排序结果的查询图。 索引按升序存储“分数”值。 MongoDB可以按升序或降序遍历索引以返回排序的结果。](https://www.mongodb.com/docs/manual/images/index-for-sort.bakedsvg.svg)
 
 基本上，MongoDB中的索引与其他数据库系统中的索引类似。MongoDB在[集合](https://docs.mongodb.com/manual/reference/glossary/#term-collection)级别定义索引，并支持在MongoDB集合中文档的任何字段或子字段上的索引。
 
@@ -70,7 +70,7 @@ MongoDB提供了许多不同的索引类型来支持特定类型的数据和查�
 
 除MongoDB定义的`_id`索引外，MongoDB还支持在[文档的单个字段](https://docs.mongodb.com/manual/core/index-single/)上创建用户定义的升序/降序索引。
 
-![``分数''字段上的索引图（升序）。](https://docs.mongodb.com/manual/_images/index-ascending.bakedsvg.svg)
+![``分数''字段上的索引图（升序）。](https://www.mongodb.com/docs/manual/images/index-ascending.bakedsvg.svg)
 
 对于单字段索引和排序操作，索引键的排序顺序(升序或降序)并不重要，因为MongoDB可以从任何方向遍历索引。
 
@@ -82,7 +82,7 @@ MongoDB还支持多个字段上的用户定义索引，即 [复合索引](https:
 
 复合索引中列出的字段的顺序具有重要意义。例如，如果一个复合索引由**{userid: 1, score: -1}**组成，索引首先按**userid**排序，然后在每个**userid**值内按**score**排序。
 
-![在userid字段（升序）和score字段（降序）上的复合索引图。 索引首先按“ userid”字段排序，然后按“ score”字段排序。](https://docs.mongodb.com/manual/_images/index-compound-key.bakedsvg.svg)
+![在userid字段（升序）和score字段（降序）上的复合索引图。 索引首先按“ userid”字段排序，然后按“ score”字段排序。](https://www.mongodb.com/docs/manual/images/index-compound-key.bakedsvg.svg)
 
 对于复合索引和排序操作，索引键的排序顺序(升序或降序)可以决定索引是否支持排序操作。有关索引顺序对复合索引中的结果的影响的更多信息，请参见 [排序顺序](https://docs.mongodb.com/manual/core/index-compound/#index-ascending-and-descending)。
 
@@ -92,7 +92,7 @@ MongoDB还支持多个字段上的用户定义索引，即 [复合索引](https:
 
 MongoDB使用[多键索引](https://docs.mongodb.com/manual/core/index-multikey/)来索引存储在数组中的内容。如果索引包含数组值的字段，MongoDB为数组的每个元素创建单独的索引项。这些[多键索引](https://docs.mongodb.com/manual/core/index-multikey/)允许查询通过匹配数组的一个或多个元素来选择包含数组的文档。MongoDB自动决定是否创建一个多键索引，如果索引字段包含数组值;您不需要显式地指定多键类型。
 
-![addr.zip字段上的多键索引图。 addr字段包含地址文档数组。 地址文档包含``zip''字段。](https://docs.mongodb.com/manual/_images/index-multikey.bakedsvg.svg)
+![addr.zip字段上的多键索引图。 addr字段包含地址文档数组。 地址文档包含``zip''字段。](https://www.mongodb.com/docs/manual/images/index-multikey.bakedsvg.svg)
 
 有关多键索引的更多信息，请参见 [Multikey Indexes](https://docs.mongodb.com/manual/core/index-multikey/) 和 [Multikey Index Bounds](https://docs.mongodb.com/manual/core/multikey-index-bounds/)。
 
@@ -240,7 +240,7 @@ db.myColl.find( { score: 5, category: "cafe" } )
 
 当查询条件和查询的[<投影>](https://docs.mongodb.com/manual/reference/glossary/#term-projection)只包含索引字段时，MongoDB直接从索引返回结果，而不扫描任何文档或将文档带入内存。这些覆盖的查询可能非常高效。
 
-![仅使用索引来匹配查询条件并返回结果的查询图。 MongoDB无需检查索引之外的数据即可完成查询。](https://docs.mongodb.com/manual/_images/index-for-covered-query.bakedsvg.svg)
+![仅使用索引来匹配查询条件并返回结果的查询图。 MongoDB无需检查索引之外的数据即可完成查询。](https://www.mongodb.com/docs/manual/images/index-for-covered-query.bakedsvg.svg)
 
 有关覆盖查询的更多信息，请参见 [覆盖查询](https://docs.mongodb.com/manual/core/query-optimization/#read-operations-covered-query)。
 

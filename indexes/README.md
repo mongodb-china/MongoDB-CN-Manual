@@ -19,7 +19,7 @@
 
 下图说明了使用索引选择和排序匹配文档的查询：
 
-![&#x4F7F;&#x7528;&#x7D22;&#x5F15;&#x9009;&#x62E9;&#x5E76;&#x8FD4;&#x56DE;&#x6392;&#x5E8F;&#x7ED3;&#x679C;&#x7684;&#x67E5;&#x8BE2;&#x56FE;&#x3002; &#x7D22;&#x5F15;&#x6309;&#x5347;&#x5E8F;&#x5B58;&#x50A8;&#x201C;&#x5206;&#x6570;&#x201D;&#x503C;&#x3002; MongoDB&#x53EF;&#x4EE5;&#x6309;&#x5347;&#x5E8F;&#x6216;&#x964D;&#x5E8F;&#x904D;&#x5386;&#x7D22;&#x5F15;&#x4EE5;&#x8FD4;&#x56DE;&#x6392;&#x5E8F;&#x7684;&#x7ED3;&#x679C;&#x3002;](https://docs.mongodb.com/manual/_images/index-for-sort.bakedsvg.svg)
+![&#x4F7F;&#x7528;&#x7D22;&#x5F15;&#x9009;&#x62E9;&#x5E76;&#x8FD4;&#x56DE;&#x6392;&#x5E8F;&#x7ED3;&#x679C;&#x7684;&#x67E5;&#x8BE2;&#x56FE;&#x3002; &#x7D22;&#x5F15;&#x6309;&#x5347;&#x5E8F;&#x5B58;&#x50A8;&#x201C;&#x5206;&#x6570;&#x201D;&#x503C;&#x3002; MongoDB&#x53EF;&#x4EE5;&#x6309;&#x5347;&#x5E8F;&#x6216;&#x964D;&#x5E8F;&#x904D;&#x5386;&#x7D22;&#x5F15;&#x4EE5;&#x8FD4;&#x56DE;&#x6392;&#x5E8F;&#x7684;&#x7ED3;&#x679C;&#x3002;](https://www.mongodb.com/docs/manual/images/index-for-sort.bakedsvg.svg)
 
 基本上，MongoDB中的索引与其他数据库系统中的索引类似。MongoDB在[集合](https://docs.mongodb.com/manual/reference/glossary/#term-collection)级别定义索引，并支持在MongoDB集合中文档的任何字段或子字段上的索引。
 
@@ -70,7 +70,7 @@ MongoDB提供了许多不同的索引类型来支持特定类型的数据和查�
 
 除MongoDB定义的`_id`索引外，MongoDB还支持在[文档的单个字段](https://docs.mongodb.com/manual/core/index-single/)上创建用户定义的升序/降序索引。
 
-![\`\`&#x5206;&#x6570;&apos;&apos;&#x5B57;&#x6BB5;&#x4E0A;&#x7684;&#x7D22;&#x5F15;&#x56FE;&#xFF08;&#x5347;&#x5E8F;&#xFF09;&#x3002;](https://docs.mongodb.com/manual/_images/index-ascending.bakedsvg.svg)
+![\`\`&#x5206;&#x6570;&apos;&apos;&#x5B57;&#x6BB5;&#x4E0A;&#x7684;&#x7D22;&#x5F15;&#x56FE;&#xFF08;&#x5347;&#x5E8F;&#xFF09;&#x3002;](https://www.mongodb.com/docs/manual/images/index-ascending.bakedsvg.svg)
 
 对于单字段索引和排序操作，索引键的排序顺序\(升序或降序\)并不重要，因为MongoDB可以从任何方向遍历索引。
 
@@ -82,7 +82,7 @@ MongoDB还支持多个字段上的用户定义索引，即 [复合索引](https:
 
 复合索引中列出的字段的顺序具有重要意义。例如，如果一个复合索引由**{userid: 1, score: -1}**组成，索引首先按**userid**排序，然后在每个**userid**值内按**score**排序。
 
-![&#x5728;userid&#x5B57;&#x6BB5;&#xFF08;&#x5347;&#x5E8F;&#xFF09;&#x548C;score&#x5B57;&#x6BB5;&#xFF08;&#x964D;&#x5E8F;&#xFF09;&#x4E0A;&#x7684;&#x590D;&#x5408;&#x7D22;&#x5F15;&#x56FE;&#x3002; &#x7D22;&#x5F15;&#x9996;&#x5148;&#x6309;&#x201C; userid&#x201D;&#x5B57;&#x6BB5;&#x6392;&#x5E8F;&#xFF0C;&#x7136;&#x540E;&#x6309;&#x201C; score&#x201D;&#x5B57;&#x6BB5;&#x6392;&#x5E8F;&#x3002;](https://docs.mongodb.com/manual/_images/index-compound-key.bakedsvg.svg)
+![&#x5728;userid&#x5B57;&#x6BB5;&#xFF08;&#x5347;&#x5E8F;&#xFF09;&#x548C;score&#x5B57;&#x6BB5;&#xFF08;&#x964D;&#x5E8F;&#xFF09;&#x4E0A;&#x7684;&#x590D;&#x5408;&#x7D22;&#x5F15;&#x56FE;&#x3002; &#x7D22;&#x5F15;&#x9996;&#x5148;&#x6309;&#x201C; userid&#x201D;&#x5B57;&#x6BB5;&#x6392;&#x5E8F;&#xFF0C;&#x7136;&#x540E;&#x6309;&#x201C; score&#x201D;&#x5B57;&#x6BB5;&#x6392;&#x5E8F;&#x3002;](https://www.mongodb.com/docs/manual/images/index-compound-key.bakedsvg.svg)
 
 对于复合索引和排序操作，索引键的排序顺序\(升序或降序\)可以决定索引是否支持排序操作。有关索引顺序对复合索引中的结果的影响的更多信息，请参见 [排序顺序](https://docs.mongodb.com/manual/core/index-compound/#index-ascending-and-descending)。
 
@@ -92,7 +92,7 @@ MongoDB还支持多个字段上的用户定义索引，即 [复合索引](https:
 
 MongoDB使用[多键索引](https://docs.mongodb.com/manual/core/index-multikey/)来索引存储在数组中的内容。如果索引包含数组值的字段，MongoDB为数组的每个元素创建单独的索引项。这些[多键索引](https://docs.mongodb.com/manual/core/index-multikey/)允许查询通过匹配数组的一个或多个元素来选择包含数组的文档。MongoDB自动决定是否创建一个多键索引，如果索引字段包含数组值;您不需要显式地指定多键类型。
 
-![addr.zip&#x5B57;&#x6BB5;&#x4E0A;&#x7684;&#x591A;&#x952E;&#x7D22;&#x5F15;&#x56FE;&#x3002; addr&#x5B57;&#x6BB5;&#x5305;&#x542B;&#x5730;&#x5740;&#x6587;&#x6863;&#x6570;&#x7EC4;&#x3002; &#x5730;&#x5740;&#x6587;&#x6863;&#x5305;&#x542B;\`\`zip&apos;&apos;&#x5B57;&#x6BB5;&#x3002;](https://docs.mongodb.com/manual/_images/index-multikey.bakedsvg.svg)
+![addr.zip&#x5B57;&#x6BB5;&#x4E0A;&#x7684;&#x591A;&#x952E;&#x7D22;&#x5F15;&#x56FE;&#x3002; addr&#x5B57;&#x6BB5;&#x5305;&#x542B;&#x5730;&#x5740;&#x6587;&#x6863;&#x6570;&#x7EC4;&#x3002; &#x5730;&#x5740;&#x6587;&#x6863;&#x5305;&#x542B;\`\`zip&apos;&apos;&#x5B57;&#x6BB5;&#x3002;](https://www.mongodb.com/docs/manual/images/index-multikey.bakedsvg.svg)
 
 有关多键索引的更多信息，请参见 [Multikey Indexes](https://docs.mongodb.com/manual/core/index-multikey/) 和 [Multikey Index Bounds](https://docs.mongodb.com/manual/core/multikey-index-bounds/)。
 
@@ -238,7 +238,7 @@ db.myColl.find( { score: 5, category: "cafe" } )
 
 当查询条件和查询的[&lt;投影&gt;](https://docs.mongodb.com/manual/reference/glossary/#term-projection)只包含索引字段时，MongoDB直接从索引返回结果，而不扫描任何文档或将文档带入内存。这些覆盖的查询可能非常高效。
 
-![&#x4EC5;&#x4F7F;&#x7528;&#x7D22;&#x5F15;&#x6765;&#x5339;&#x914D;&#x67E5;&#x8BE2;&#x6761;&#x4EF6;&#x5E76;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x7684;&#x67E5;&#x8BE2;&#x56FE;&#x3002; MongoDB&#x65E0;&#x9700;&#x68C0;&#x67E5;&#x7D22;&#x5F15;&#x4E4B;&#x5916;&#x7684;&#x6570;&#x636E;&#x5373;&#x53EF;&#x5B8C;&#x6210;&#x67E5;&#x8BE2;&#x3002;](https://docs.mongodb.com/manual/_images/index-for-covered-query.bakedsvg.svg)
+![&#x4EC5;&#x4F7F;&#x7528;&#x7D22;&#x5F15;&#x6765;&#x5339;&#x914D;&#x67E5;&#x8BE2;&#x6761;&#x4EF6;&#x5E76;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x7684;&#x67E5;&#x8BE2;&#x56FE;&#x3002; MongoDB&#x65E0;&#x9700;&#x68C0;&#x67E5;&#x7D22;&#x5F15;&#x4E4B;&#x5916;&#x7684;&#x6570;&#x636E;&#x5373;&#x53EF;&#x5B8C;&#x6210;&#x67E5;&#x8BE2;&#x3002;](https://www.mongodb.com/docs/manual/images/index-for-covered-query.bakedsvg.svg)
 
 有关覆盖查询的更多信息，请参见 [覆盖查询](https://docs.mongodb.com/manual/core/query-optimization/#read-operations-covered-query)。
 

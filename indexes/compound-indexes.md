@@ -10,7 +10,7 @@
 
 MongoDB支持复合索引，其中单个索引结构持有对集合文档中多个字段 [\[1\]](https://docs.mongodb.com/manual/core/index-compound/#compound-index-field-limit)的引用。下图展示了两个字段上的复合索引示例:
 
-![&#x5728;userid&#x5B57;&#x6BB5;&#xFF08;&#x5347;&#x5E8F;&#xFF09;&#x548C;score&#x5B57;&#x6BB5;&#xFF08;&#x964D;&#x5E8F;&#xFF09;&#x4E0A;&#x7684;&#x590D;&#x5408;&#x7D22;&#x5F15;&#x56FE;&#x3002; &#x7D22;&#x5F15;&#x9996;&#x5148;&#x6309;&#x201C; userid&#x201D;&#x5B57;&#x6BB5;&#x6392;&#x5E8F;&#xFF0C;&#x7136;&#x540E;&#x6309;&#x201C; score&#x201D;&#x5B57;&#x6BB5;&#x6392;&#x5E8F;&#x3002;](https://docs.mongodb.com/manual/_images/index-compound-key.bakedsvg.svg)
+![&#x5728;userid&#x5B57;&#x6BB5;&#xFF08;&#x5347;&#x5E8F;&#xFF09;&#x548C;score&#x5B57;&#x6BB5;&#xFF08;&#x964D;&#x5E8F;&#xFF09;&#x4E0A;&#x7684;&#x590D;&#x5408;&#x7D22;&#x5F15;&#x56FE;&#x3002; &#x7D22;&#x5F15;&#x9996;&#x5148;&#x6309;&#x201C; userid&#x201D;&#x5B57;&#x6BB5;&#x6392;&#x5E8F;&#xFF0C;&#x7136;&#x540E;&#x6309;&#x201C; score&#x201D;&#x5B57;&#x6BB5;&#x6392;&#x5E8F;&#x3002;](https://www.mongodb.com/docs/manual/images/index-compound-key.bakedsvg.svg)
 
 [\[1\]](https://docs.mongodb.com/manual/core/index-compound/#id1) **mongodb对任何复合索引施加32个字段的限制。**
 

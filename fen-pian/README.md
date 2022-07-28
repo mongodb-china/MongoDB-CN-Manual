@@ -38,7 +38,7 @@ MongoDB分片[集群](https://docs.mongodb.com/manual/reference/glossary/#term-s
 
 下图描述了分片集群中各组件的交互：
 
-![Diagram of a sample sharded cluster for production purposes. Contains exactly 3 config servers, 2 or more \`\`mongos\`\` query routers, and at least 2 shards. The shards are replica sets.](https://docs.mongodb.com/manual/_images/sharded-cluster-production-architecture.bakedsvg.svg)
+![Diagram of a sample sharded cluster for production purposes. Contains exactly 3 config servers, 2 or more \`\`mongos\`\` query routers, and at least 2 shards. The shards are replica sets.](https://www.mongodb.com/docs/manual/images/sharded-cluster-production-architecture.bakedsvg.svg)
 
 MongoDB在[集合](https://docs.mongodb.com/manual/reference/glossary/#term-collection)级别分片数据，将收集数据分布在集群中的各个分片上。
 
@@ -119,13 +119,13 @@ MongoDB将读写工作负载分布在分[片](https://docs.mongodb.com/manual/re
 
 数据库可以混合使用分片和未分片集合。分片集合被[分区](https://docs.mongodb.com/manual/reference/glossary/#term-data-partition)并分布在集群中的各个[分片](https://docs.mongodb.com/manual/reference/glossary/#term-shard)中。而未分片集合仅存储在[主分片](https://docs.mongodb.com/manual/reference/glossary/#term-primary-shard)中。每个数据库都有自己的主分片。
 
-![Diagram of a primary shard. A primary shard contains non-sharded collections as well as chunks of documents from sharded collections. Shard A is the primary shard.](https://docs.mongodb.com/manual/_images/sharded-cluster-primary-shard.bakedsvg.svg)
+![Diagram of a primary shard. A primary shard contains non-sharded collections as well as chunks of documents from sharded collections. Shard A is the primary shard.](https://www.mongodb.com/docs/manual/images/sharded-cluster-primary-shard.bakedsvg.svg)
 
 ## 连接到分片集群
 
 您必须连接到[mongos](https://docs.mongodb.com/manual/reference/glossary/#term-mongos)路由器才能与分片[集群中的](https://docs.mongodb.com/manual/reference/glossary/#term-sharded-cluster)任何集合进行交互。这包括分片_和_未分片的集合。客户端永远不要直接连到单个分片来执行读或写操作。
 
-![Diagram of applications/drivers issuing queries to mongos for unsharded collection as well as sharded collection. Config servers not shown.](https://docs.mongodb.com/manual/_images/sharded-cluster-mixed.bakedsvg.svg)
+![Diagram of applications/drivers issuing queries to mongos for unsharded collection as well as sharded collection. Config servers not shown.](https://www.mongodb.com/docs/manual/images/sharded-cluster-mixed.bakedsvg.svg)
 
 您可以像连接[`mongod`](https://docs.mongodb.com/manual/reference/program/mongod/#bin.mongod)一样来连接[`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos)，例如通过[`mongo`](https://docs.mongodb.com/manual/reference/program/mongo/#bin.mongo) shell或MongoDB[驱动程序](https://docs.mongodb.com/ecosystem/drivers?jump=docs)。
 
@@ -141,7 +141,7 @@ MongoDB支持如下两种分片策略来实现[分片集群](https://docs.mongod
 
 使用哈希索引解析查询时，MongoDB会自动计算哈希值，**不需要**应用程序来计算。
 
-![Diagram of the hashed based segmentation.](https://docs.mongodb.com/manual/_images/sharding-hash-based.bakedsvg.svg)
+![Diagram of the hashed based segmentation.](https://www.mongodb.com/docs/manual/images/sharding-hash-based.bakedsvg.svg)
 
 尽管一系列分片键可能是“接近”的，但它们的哈希值不太可能在同[一块上](https://docs.mongodb.com/manual/reference/glossary/#term-chunk)。基于哈希值的数据分发有助于更均匀的数据分发，尤其是在分片键[单调](https://docs.mongodb.com/manual/core/sharding-shard-key/#shard-key-monotonic)更改的数据集中。
 
@@ -153,7 +153,7 @@ MongoDB支持如下两种分片策略来实现[分片集群](https://docs.mongod
 
 范围分片根据分片键的值将数据划分为多个范围，然后基于分片键的值分配每个[块](https://docs.mongodb.com/manual/reference/glossary/#term-chunk)的范围。
 
-![Diagram of the shard key value space segmented into smaller ranges or chunks.](https://docs.mongodb.com/manual/_images/sharding-range-based.bakedsvg.svg)
+![Diagram of the shard key value space segmented into smaller ranges or chunks.](https://www.mongodb.com/docs/manual/images/sharding-range-based.bakedsvg.svg)
 
 值“接近”的一系列分片键更有可能分布在同[一块上](https://docs.mongodb.com/manual/reference/glossary/#term-chunk)。好处是便于[`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos)执行[针对性的操作](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/#sharding-mongos-targeted)，可以仅将操作路由到包含所需数据的分片上。
 
@@ -169,7 +169,7 @@ Zones区域可以改善跨多个数据中心的分片集群的数据局部性。
 
 每个区域都覆盖了一个或多个分片[键值](https://docs.mongodb.com/manual/reference/glossary/#term-shard-key)的范围。区域覆盖的每个范围始终包括其下边界和上边界。
 
-![Diagram of data distribution based on zones in a sharded cluster](https://docs.mongodb.com/manual/_images/sharded-cluster-zones.bakedsvg.svg)
+![Diagram of data distribution based on zones in a sharded cluster](https://www.mongodb.com/docs/manual/images/sharded-cluster-zones.bakedsvg.svg)
 
 在为区域定义区域的新范围时，必须使用分片[键中](https://docs.mongodb.com/manual/reference/glossary/#term-shard-key)包含的字段。如果使用[复合分片](https://docs.mongodb.com/manual/reference/glossary/#term-compound-index)键，则范围必须包含分片键的前缀。有关更多信息，请参见[区域中的分片键](https://docs.mongodb.com/manual/core/zone-sharding/#zone-sharding-shard-key)。
 

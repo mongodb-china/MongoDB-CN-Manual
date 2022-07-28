@@ -24,7 +24,7 @@
 
 例如，考虑网络分区划分五个成员复制集的情况：
 
-![网络分区：一侧选择了新的主节点，而旧的主节点尚未卸任。](https://docs.mongodb.com/manual/_images/network-partition-two-primaries.svg)
+![网络分区：一侧选择了新的主节点，而旧的主节点尚未卸任。](https://www.mongodb.com/docs/manual/images/network-partition-two-primaries.svg)
 
 <div class="section" id="scenarios">
 
@@ -52,7 +52,7 @@
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | 1.write<sub>1</sub>[`"majority"`](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern."majority") 到 新的关注**P**<sub>new</sub><br/>2.read<sub>1</sub>>与读关心[`"majority"`](https://docs.mongodb.com/manual/reference/read-concern-majority/#readconcern."majority")到**S**<sub>2</sub><br/>3.write<sub>2</sub>[`"majority"`](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern."majority")到新的关注**P**<sub>new</sub><br/> 4.read<sub>2</sub>与读取关注[`"majority"`](https://docs.mongodb.com/manual/reference/read-concern-majority/#readconcern."majority")到**S**<sub>3</sub> | 对于项目`A`，更新`qty`为`50`。<br/>阅读项目`A`。对于`qty`小于或等于的项目`50`，<br/>更新`restock`到`true`。阅读项目`A`。 |
 
-![使用读关注多数和写关注多数的具有两个原语的数据状态](https://docs.mongodb.com/manual/_images/causal-rc-majority-wc-majority.svg)
+![使用读关注多数和写关注多数的具有两个原语的数据状态](https://www.mongodb.com/docs/manual/images/causal-rc-majority-wc-majority.svg)
 
 | ✅ **自己写**   | read<sub>1</sub>从**S**<sub>2</sub>读取数据，该数据反映了write<sub>1</sub>之后的状态。read<sub>2</sub>从**S**<sub>1</sub>读取数据，该数据反映了write<sub>1</sub>之后是write<sub>2</sub>之后的状态。 |
 | -------------- | ------------------------------------------------------------ |
@@ -94,7 +94,7 @@
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | 1.write<sub>1</sub>与写入关注 到 [`{ w: 1 }`](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern.)**P**<sub>old</sub><br/>2.read<sub>1</sub>1与读关心[`"majority"`](https://docs.mongodb.com/manual/reference/read-concern-majority/#readconcern."majority")到**S**<sub>2</sub><br/>3.write<sub>2</sub>到新的关注[`{ w: 1 }`](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern.)**P**<sub>new</sub> <br/>4.read<sub>2</sub>与读取关注[`"majority"`](https://docs.mongodb.com/manual/reference/read-concern-majority/#readconcern."majority")到**S**<sub>3</sub> | 对于项目`A`，更新`qty`为`50`。<br/>阅读项目`A`。对于`qty`小于或等于的项目`50`，<br/>更新`restock`到`true`。阅读项目`A`。 |
 
-![使用读关注多数和写关注1的具有两个原语的数据状态](https://docs.mongodb.com/manual/_images/causal-rc-majority-wc-1.svg)
+![使用读关注多数和写关注1的具有两个原语的数据状态](https://www.mongodb.com/docs/manual/images/causal-rc-majority-wc-1.svg)
 
 按照这个顺序
 
@@ -162,7 +162,7 @@
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | 1.write<sub>1</sub>与写入关注到 [`{ w: 1 }`](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern.)**P**<sub>old</sub><br/>2.read<sub>1</sub>1与读关心[`"majority"`](https://docs.mongodb.com/manual/reference/read-concern-majority/#readconcern."majority")到**S**<sub>1</sub><br/>3.write<sub>2</sub>到新的关注[`{ w: 1 }`](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern.)**P**<sub>new</sub> <br/>4.read<sub>2</sub>与读取关注[`"majority"`](https://docs.mongodb.com/manual/reference/read-concern-majority/#readconcern."majority")到**S**<sub>3</sub> | 对于项目`A`，更新`qty`为`50`。<br/>阅读项目`A`。对于`qty`小于或等于的项目`50`，<br/>更新`restock`到`true`。阅读项目`A`。 |
 
-![使用读关注本地和写关注1的具有两个主数据的数据状态](https://docs.mongodb.com/manual/_images/causal-rc-local-wc-1.svg)
+![使用读关注本地和写关注1的具有两个主数据的数据状态](https://www.mongodb.com/docs/manual/images/causal-rc-local-wc-1.svg)
 
 | ❌自己写   | read<sub>2</sub>从**S**<sub>3</sub>读取数据，该数据仅反映write<sub>2</sub>之后的状态，而不反映write<sub>1</sub> 之后是write<sub>2</sub>的状态。 |
 | --------- | ------------------------------------------------------------ |
@@ -186,7 +186,7 @@
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | 1.write<sub>1</sub>[`"majority"`](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern."majority") 到 新的关注**P**<sub>new</sub><br/>2.read<sub>1</sub>>与读关心[`"majority"`](https://docs.mongodb.com/manual/reference/read-concern-majority/#readconcern."majority")到**S**<sub>1</sub><br/>3.write<sub>2</sub>[`"majority"`](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern."majority")到新的关注**P**<sub>new</sub><br/> 4.read<sub>2</sub>与读取关注[`"majority"`](https://docs.mongodb.com/manual/reference/read-concern-majority/#readconcern."majority")到**S**<sub>3</sub> | 对于项目`A`，更新`qty`为`50`。<br/>阅读项目`A`。对于`qty`小于或等于的项目`50`，<br/>更新`restock`到`true`。阅读项目`A`。 |
 
-![使用读关注本地和写关注多数的两个主数据的状态](https://docs.mongodb.com/manual/_images/causal-rc-local-wc-majority.svg)
+![使用读关注本地和写关注多数的两个主数据的状态](https://www.mongodb.com/docs/manual/images/causal-rc-local-wc-majority.svg)
 
 | ❌阅读自己的文章。 | read<sub>1</sub>从**S**<sub>1</sub>读取不反映write1<sub>1</sub>后状态的数据。 |
 | ----------------- | ------------------------------------------------------------ |

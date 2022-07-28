@@ -32,7 +32,7 @@
 >
 > * 在 Write<sub>0</sub>之后没有发生其他写操作。
 
-![对三个成员复制集的写操作的时间轴。](https://docs.mongodb.com/manual/_images/read-concern-write-timeline.svg)
+![对三个成员复制集的写操作的时间轴。](https://www.mongodb.com/docs/manual/images/read-concern-write-timeline.svg)
 
 | 时间          | 事件                                                         | 最新写                                                       | 最新的多数写                                                 |
 | ------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -46,7 +46,7 @@
 
 然后，下表总结了具有[“local”](#)读关注的读操作在T时刻看到的数据状态。
 
-![Timeline of a write operation to a three member replica set.](https://docs.mongodb.com/manual/_images/read-concern-write-timeline.svg)
+![Timeline of a write operation to a three member replica set.](https://www.mongodb.com/docs/manual/images/read-concern-write-timeline.svg)
 
 | 阅读目标              | Time `T`            | 数据状态                        |
 | --------------------- | ------------------- | ------------------------------- |
