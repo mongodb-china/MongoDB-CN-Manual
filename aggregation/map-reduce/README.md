@@ -18,7 +18,7 @@ Map-reduce 是一种数据处理范式，用于将大量数据压缩为有用的
 
 考虑以下 map-reduce 操作：
 
-![&#x5E26;&#x6CE8;&#x91CA;&#x7684; map-reduce &#x64CD;&#x4F5C;&#x56FE;&#x3002;](https://docs.mongodb.com/manual/_images/map-reduce.bakedsvg.svg)
+![&#x5E26;&#x6CE8;&#x91CA;&#x7684; map-reduce &#x64CD;&#x4F5C;&#x56FE;&#x3002;](https://www.mongodb.com/docs/manual/images/map-reduce.bakedsvg.svg)
 
 在此 map-reduce 操作中，MongoDB 将 map 阶段应用于每个输入文档\(即：集合中与查询条件匹配的文档\)。 map函数会发出 key-value 对。对于具有多个值的键，MongoDB 应用 reduce 阶段，该阶段收集并压缩聚合数据。然后 MongoDB 结果存储在一个集合中。可选地，reduce 函数的输出可以通过 finalize 函数以进一步压缩或处理聚合的结果。
 

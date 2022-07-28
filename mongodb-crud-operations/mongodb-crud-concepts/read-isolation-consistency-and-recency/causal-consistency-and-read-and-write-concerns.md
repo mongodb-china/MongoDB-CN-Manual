@@ -24,7 +24,7 @@
 
 例如，考虑网络分区划分五个成员复制集的情况：
 
-![&#x7F51;&#x7EDC;&#x5206;&#x533A;&#xFF1A;&#x4E00;&#x4FA7;&#x9009;&#x62E9;&#x4E86;&#x65B0;&#x7684;&#x4E3B;&#x8282;&#x70B9;&#xFF0C;&#x800C;&#x65E7;&#x7684;&#x4E3B;&#x8282;&#x70B9;&#x5C1A;&#x672A;&#x5378;&#x4EFB;&#x3002;](https://docs.mongodb.com/manual/_images/network-partition-two-primaries.svg)
+![&#x7F51;&#x7EDC;&#x5206;&#x533A;&#xFF1A;&#x4E00;&#x4FA7;&#x9009;&#x62E9;&#x4E86;&#x65B0;&#x7684;&#x4E3B;&#x8282;&#x70B9;&#xFF0C;&#x800C;&#x65E7;&#x7684;&#x4E3B;&#x8282;&#x70B9;&#x5C1A;&#x672A;&#x5378;&#x4EFB;&#x3002;](https://www.mongodb.com/docs/manual/images/network-partition-two-primaries.svg)
 
 ## 场景
 
@@ -49,7 +49,7 @@
 | :--- | :--- |
 | 1.write1\[`"majority"`\]\([https://docs.mongodb.com/manual/reference/write-concern/\#writeconcern."majority](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern."majority)"\) 到 新的关注**P**new 2.read1&gt;与读关心\[`"majority"`\]\([https://docs.mongodb.com/manual/reference/read-concern-majority/\#readconcern."majority"\)到\*\*S\*\*](https://docs.mongodb.com/manual/reference/read-concern-majority/#readconcern."majority"%29到**S**)2 3.write2\[`"majority"`\]\([https://docs.mongodb.com/manual/reference/write-concern/\#writeconcern."majority"\)到新的关注\*\*P\*\*](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern."majority"%29到新的关注**P**)new  4.read2与读取关注\[`"majority"`\]\([https://docs.mongodb.com/manual/reference/read-concern-majority/\#readconcern."majority"\)到\*\*S\*\*](https://docs.mongodb.com/manual/reference/read-concern-majority/#readconcern."majority"%29到**S**)3 | 对于项目`A`，更新`qty`为`50`。 阅读项目`A`。对于`qty`小于或等于的项目`50`， 更新`restock`到`true`。阅读项目`A`。 |
 
-![&#x4F7F;&#x7528;&#x8BFB;&#x5173;&#x6CE8;&#x591A;&#x6570;&#x548C;&#x5199;&#x5173;&#x6CE8;&#x591A;&#x6570;&#x7684;&#x5177;&#x6709;&#x4E24;&#x4E2A;&#x539F;&#x8BED;&#x7684;&#x6570;&#x636E;&#x72B6;&#x6001;](https://docs.mongodb.com/manual/_images/causal-rc-majority-wc-majority.svg)
+![&#x4F7F;&#x7528;&#x8BFB;&#x5173;&#x6CE8;&#x591A;&#x6570;&#x548C;&#x5199;&#x5173;&#x6CE8;&#x591A;&#x6570;&#x7684;&#x5177;&#x6709;&#x4E24;&#x4E2A;&#x539F;&#x8BED;&#x7684;&#x6570;&#x636E;&#x72B6;&#x6001;](https://www.mongodb.com/docs/manual/images/causal-rc-majority-wc-majority.svg)
 
 | ✅ **自己写** | read1从**S**2读取数据，该数据反映了write1之后的状态。read2从**S**1读取数据，该数据反映了write1之后是write2之后的状态。 |
 | :--- | :--- |
@@ -91,7 +91,7 @@ _如果因果一致性并不意味着持久性_：
 | :--- | :--- |
 | 1.write1与写入关注 到 [`{ w: 1 }`](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern.)**P**old 2.read11与读关心\[`"majority"`\]\([https://docs.mongodb.com/manual/reference/read-concern-majority/\#readconcern."majority"\)到\*\*S\*\*](https://docs.mongodb.com/manual/reference/read-concern-majority/#readconcern."majority"%29到**S**)2 3.write2到新的关注[`{ w: 1 }`](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern.)**P**new  4.read2与读取关注\[`"majority"`\]\([https://docs.mongodb.com/manual/reference/read-concern-majority/\#readconcern."majority"\)到\*\*S\*\*](https://docs.mongodb.com/manual/reference/read-concern-majority/#readconcern."majority"%29到**S**)3 | 对于项目`A`，更新`qty`为`50`。 阅读项目`A`。对于`qty`小于或等于的项目`50`， 更新`restock`到`true`。阅读项目`A`。 |
 
-![&#x4F7F;&#x7528;&#x8BFB;&#x5173;&#x6CE8;&#x591A;&#x6570;&#x548C;&#x5199;&#x5173;&#x6CE8;1&#x7684;&#x5177;&#x6709;&#x4E24;&#x4E2A;&#x539F;&#x8BED;&#x7684;&#x6570;&#x636E;&#x72B6;&#x6001;](https://docs.mongodb.com/manual/_images/causal-rc-majority-wc-1.svg)
+![&#x4F7F;&#x7528;&#x8BFB;&#x5173;&#x6CE8;&#x591A;&#x6570;&#x548C;&#x5199;&#x5173;&#x6CE8;1&#x7684;&#x5177;&#x6709;&#x4E24;&#x4E2A;&#x539F;&#x8BED;&#x7684;&#x6570;&#x636E;&#x72B6;&#x6001;](https://www.mongodb.com/docs/manual/images/causal-rc-majority-wc-1.svg)
 
 按照这个顺序
 
@@ -159,7 +159,7 @@ _如果因果一致性并不意味着持久性_：
 | :--- | :--- |
 | 1.write1与写入关注到 [`{ w: 1 }`](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern.)**P**old 2.read11与读关心\[`"majority"`\]\([https://docs.mongodb.com/manual/reference/read-concern-majority/\#readconcern."majority"\)到\*\*S\*\*](https://docs.mongodb.com/manual/reference/read-concern-majority/#readconcern."majority"%29到**S**)1 3.write2到新的关注[`{ w: 1 }`](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern.)**P**new  4.read2与读取关注\[`"majority"`\]\([https://docs.mongodb.com/manual/reference/read-concern-majority/\#readconcern."majority"\)到\*\*S\*\*](https://docs.mongodb.com/manual/reference/read-concern-majority/#readconcern."majority"%29到**S**)3 | 对于项目`A`，更新`qty`为`50`。 阅读项目`A`。对于`qty`小于或等于的项目`50`， 更新`restock`到`true`。阅读项目`A`。 |
 
-![&#x4F7F;&#x7528;&#x8BFB;&#x5173;&#x6CE8;&#x672C;&#x5730;&#x548C;&#x5199;&#x5173;&#x6CE8;1&#x7684;&#x5177;&#x6709;&#x4E24;&#x4E2A;&#x4E3B;&#x6570;&#x636E;&#x7684;&#x6570;&#x636E;&#x72B6;&#x6001;](https://docs.mongodb.com/manual/_images/causal-rc-local-wc-1.svg)
+![&#x4F7F;&#x7528;&#x8BFB;&#x5173;&#x6CE8;&#x672C;&#x5730;&#x548C;&#x5199;&#x5173;&#x6CE8;1&#x7684;&#x5177;&#x6709;&#x4E24;&#x4E2A;&#x4E3B;&#x6570;&#x636E;&#x7684;&#x6570;&#x636E;&#x72B6;&#x6001;](https://www.mongodb.com/docs/manual/images/causal-rc-local-wc-1.svg)
 
 | ❌自己写 | read2从**S**3读取数据，该数据仅反映write2之后的状态，而不反映write1 之后是write2的状态。 |
 | :--- | :--- |
@@ -183,7 +183,7 @@ _如果因果一致性并不意味着持久性_：
 | :--- | :--- |
 | 1.write1\[`"majority"`\]\([https://docs.mongodb.com/manual/reference/write-concern/\#writeconcern."majority](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern."majority)"\) 到 新的关注**P**new 2.read1&gt;与读关心\[`"majority"`\]\([https://docs.mongodb.com/manual/reference/read-concern-majority/\#readconcern."majority"\)到\*\*S\*\*](https://docs.mongodb.com/manual/reference/read-concern-majority/#readconcern."majority"%29到**S**)1 3.write2\[`"majority"`\]\([https://docs.mongodb.com/manual/reference/write-concern/\#writeconcern."majority"\)到新的关注\*\*P\*\*](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern."majority"%29到新的关注**P**)new  4.read2与读取关注\[`"majority"`\]\([https://docs.mongodb.com/manual/reference/read-concern-majority/\#readconcern."majority"\)到\*\*S\*\*](https://docs.mongodb.com/manual/reference/read-concern-majority/#readconcern."majority"%29到**S**)3 | 对于项目`A`，更新`qty`为`50`。 阅读项目`A`。对于`qty`小于或等于的项目`50`， 更新`restock`到`true`。阅读项目`A`。 |
 
-![&#x4F7F;&#x7528;&#x8BFB;&#x5173;&#x6CE8;&#x672C;&#x5730;&#x548C;&#x5199;&#x5173;&#x6CE8;&#x591A;&#x6570;&#x7684;&#x4E24;&#x4E2A;&#x4E3B;&#x6570;&#x636E;&#x7684;&#x72B6;&#x6001;](https://docs.mongodb.com/manual/_images/causal-rc-local-wc-majority.svg)
+![&#x4F7F;&#x7528;&#x8BFB;&#x5173;&#x6CE8;&#x672C;&#x5730;&#x548C;&#x5199;&#x5173;&#x6CE8;&#x591A;&#x6570;&#x7684;&#x4E24;&#x4E2A;&#x4E3B;&#x6570;&#x636E;&#x7684;&#x72B6;&#x6001;](https://www.mongodb.com/docs/manual/images/causal-rc-local-wc-majority.svg)
 
 | ❌阅读自己的文章。 | read1从**S**1读取不反映write11后状态的数据。 |
 | :--- | :--- |

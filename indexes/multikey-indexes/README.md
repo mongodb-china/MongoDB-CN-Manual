@@ -10,7 +10,7 @@
 
 为了索引包含数组值的字段，MongoDB为数组中的每个元素创建一个索引键。这些多键索引支持对数组字段的高效查询。多键索引可以在包含标量值\(例如字符串、数字\)和嵌套文档的数组上构造。
 
-![addr.zip&#x5B57;&#x6BB5;&#x4E0A;&#x7684;&#x591A;&#x952E;&#x7D22;&#x5F15;&#x56FE;&#x3002; addr&#x5B57;&#x6BB5;&#x5305;&#x542B;&#x5730;&#x5740;&#x6587;&#x6863;&#x6570;&#x7EC4;&#x3002; &#x5730;&#x5740;&#x6587;&#x6863;&#x5305;&#x542B;\`\`zip&apos;&apos;&#x5B57;&#x6BB5;&#x3002;](https://docs.mongodb.com/manual/_images/index-multikey.bakedsvg.svg)
+![addr.zip&#x5B57;&#x6BB5;&#x4E0A;&#x7684;&#x591A;&#x952E;&#x7D22;&#x5F15;&#x56FE;&#x3002; addr&#x5B57;&#x6BB5;&#x5305;&#x542B;&#x5730;&#x5740;&#x6587;&#x6863;&#x6570;&#x7EC4;&#x3002; &#x5730;&#x5740;&#x6587;&#x6863;&#x5305;&#x542B;\`\`zip&apos;&apos;&#x5B57;&#x6BB5;&#x3002;](https://www.mongodb.com/docs/manual/images/index-multikey.bakedsvg.svg)
 
 **标量值指的是既不是嵌入式文档也不是数组的值。**
 

@@ -12,7 +12,7 @@
 
 使用MongoDB，您可以将相关数据嵌入到单个结构或文档中。这些模式通常被称为“非规范化”模型，并利用MongoDB的丰富文档。参考下图：
 
-![Data model with embedded fields that contain all related information.](https://docs.mongodb.com/manual/_images/data-model-denormalized.bakedsvg.svg)
+![Data model with embedded fields that contain all related information.](https://www.mongodb.com/docs/manual/images/data-model-denormalized.bakedsvg.svg)
 
 嵌入式数据模型允许应用程序在同一个数据库记录中存储相关信息。因此，应用程序可能需要发出更少的查询和更新来完成常见操作。
 
@@ -35,7 +35,7 @@ MongoDB中的文档必须小于[`BSON文档的最大大小`](https://docs.mongod
 
 规范化数据模型使用文档之间的 [引用](https://docs.mongodb.com/manual/reference/database-references/)来描述关系。
 
-![Data model using references to link documents. Both the \`\`contact\`\` document and the \`\`access\`\` document contain a reference to the \`\`user\`\` document.](https://docs.mongodb.com/manual/_images/data-model-normalized.bakedsvg.svg)
+![Data model using references to link documents. Both the \`\`contact\`\` document and the \`\`access\`\` document contain a reference to the \`\`user\`\` document.](https://www.mongodb.com/docs/manual/images/data-model-normalized.bakedsvg.svg)
 
 通常，使用规范化数据模型：
 

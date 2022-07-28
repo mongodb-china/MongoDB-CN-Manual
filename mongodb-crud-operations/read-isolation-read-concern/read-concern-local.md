@@ -29,7 +29,7 @@
 > * Writeprev 是 Write0之前的写入。
 > * 在 Write0之后没有发生其他写操作。
 
-![&#x5BF9;&#x4E09;&#x4E2A;&#x6210;&#x5458;&#x590D;&#x5236;&#x96C6;&#x7684;&#x5199;&#x64CD;&#x4F5C;&#x7684;&#x65F6;&#x95F4;&#x8F74;&#x3002;](https://docs.mongodb.com/manual/_images/read-concern-write-timeline.svg)
+![&#x5BF9;&#x4E09;&#x4E2A;&#x6210;&#x5458;&#x590D;&#x5236;&#x96C6;&#x7684;&#x5199;&#x64CD;&#x4F5C;&#x7684;&#x65F6;&#x95F4;&#x8F74;&#x3002;](https://www.mongodb.com/docs/manual/images/read-concern-write-timeline.svg)
 
 | 时间 | 事件 | 最新写 | 最新的多数写 |
 | :--- | :--- | :--- | :--- |
@@ -43,7 +43,7 @@
 
 然后，下表总结了具有[“local”](read-concern-local.md)读关注的读操作在T时刻看到的数据状态。
 
-![Timeline of a write operation to a three member replica set.](https://docs.mongodb.com/manual/_images/read-concern-write-timeline.svg)
+![Timeline of a write operation to a three member replica set.](https://www.mongodb.com/docs/manual/images/read-concern-write-timeline.svg)
 
 | 阅读目标 | Time `T` | 数据状态 |
 | :--- | :--- | :--- |

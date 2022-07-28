@@ -16,7 +16,7 @@
 * 执行备份操作，和/或
 * 允许读取直到选择一个[新的主节点](https://docs.mongodb.com/manual/core/replica-set-high-availability/#replica-set-failover)。
 
-![&#x5C06;&#x64CD;&#x4F5C;&#x8BFB;&#x53D6;&#x5230;&#x526F;&#x672C;&#x96C6;&#x3002; &#x9ED8;&#x8BA4;&#x8BFB;&#x53D6;&#x9996;&#x9009;&#x9879;&#x5C06;&#x8BFB;&#x53D6;&#x8DEF;&#x7531;&#x5230;&#x4E3B;&#x6570;&#x636E;&#x5E93;&#x3002; \`\`&#x6700;&#x8FD1;&apos;&apos;&#x7684;&#x8BFB;&#x53D6;&#x9996;&#x9009;&#x9879;&#x4F1A;&#x5C06;&#x8BFB;&#x53D6;&#x8DEF;&#x7531;&#x5230;&#x6700;&#x8FD1;&#x7684;&#x6210;&#x5458;&#x3002;](https://docs.mongodb.com/manual/_images/replica-set-read-preference.bakedsvg.svg)
+![&#x5C06;&#x64CD;&#x4F5C;&#x8BFB;&#x53D6;&#x5230;&#x526F;&#x672C;&#x96C6;&#x3002; &#x9ED8;&#x8BA4;&#x8BFB;&#x53D6;&#x9996;&#x9009;&#x9879;&#x5C06;&#x8BFB;&#x53D6;&#x8DEF;&#x7531;&#x5230;&#x4E3B;&#x6570;&#x636E;&#x5E93;&#x3002; \`\`&#x6700;&#x8FD1;&apos;&apos;&#x7684;&#x8BFB;&#x53D6;&#x9996;&#x9009;&#x9879;&#x4F1A;&#x5C06;&#x8BFB;&#x53D6;&#x8DEF;&#x7531;&#x5230;&#x6700;&#x8FD1;&#x7684;&#x6210;&#x5458;&#x3002;](https://www.mongodb.com/docs/manual/images/replica-set-read-preference.bakedsvg.svg)
 
 来自复制集的次要成员的读取操作可能无法反映主要数据库的当前状态。将读取操作定向到不同服务器的读取首选项可能会导致非单调读取。
 
@@ -28,7 +28,7 @@ _在3.6版中进行了更改：_从MongoDB 3.6开始，客户端可以使用[因
 
 在[复制集](https://docs.mongodb.com/master/reference/glossary/#term-replica-set),中，所有的写操作都指向集合的[主](https://docs.mongodb.com/master/reference/glossary/#term-primary)节点。主服务器应用写操作并将操作记录在主服务器的操作日志或[oplog](https://docs.mongodb.com/master/reference/glossary/#term-oplog)上。oplog是对数据集的可重复操作序列。集合中的次要成员不断复制oplog，并在一个异步进程中将这些操作应用到自己身上。
 
-![Diagram of default routing of reads and writes to the primary.](https://docs.mongodb.com/manual/_images/replica-set-read-write-operations-primary.bakedsvg.svg)
+![Diagram of default routing of reads and writes to the primary.](https://www.mongodb.com/docs/manual/images/replica-set-read-write-operations-primary.bakedsvg.svg)
 
 有关复制集和写入操作的更多信息，请参见[复制](https://docs.mongodb.com/manual/replication/)和 [写入问题](https://docs.mongodb.com/manual/reference/write-concern/)。
 
@@ -38,15 +38,15 @@ _在3.6版中进行了更改：_从MongoDB 3.6开始，客户端可以使用[因
 
 对于分片群集，应用程序向[mongos](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos)与该群集关联的实例之一发出操作 。
 
-![&#x5206;&#x7247;&#x7FA4;&#x96C6;&#x7684;&#x793A;&#x610F;&#x56FE;&#x3002;](https://docs.mongodb.com/manual/_images/sharded-cluster.bakedsvg.svg)
+![&#x5206;&#x7247;&#x7FA4;&#x96C6;&#x7684;&#x793A;&#x610F;&#x56FE;&#x3002;](https://www.mongodb.com/docs/manual/images/sharded-cluster.bakedsvg.svg)
 
 当分片群集上的读取操作定向到特定分片时，效率最高。分片集合的查询应包含集合的分片[键](https://docs.mongodb.com/manual/core/sharding-shard-key/#sharding-shard-key)。当查询包含分片键时，[`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos)可以使用[配置数据库中的](https://docs.mongodb.com/manual/core/sharded-cluster-config-servers/#sharding-config-server)群集元数据将查询路由到分片。
 
-![&#x5C06;&#x64CD;&#x4F5C;&#x8BFB;&#x53D6;&#x5230;&#x5206;&#x7247;&#x7FA4;&#x96C6;&#x3002; &#x67E5;&#x8BE2;&#x6761;&#x4EF6;&#x5305;&#x62EC;&#x5206;&#x7247;&#x952E;&#x3002; &#x67E5;&#x8BE2;&#x8DEF;&#x7531;&#x5668;\`\`mongos&apos;&apos;&#x53EF;&#x4EE5;&#x5C06;&#x67E5;&#x8BE2;&#x5B9A;&#x4F4D;&#x5230;&#x9002;&#x5F53;&#x7684;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5206;&#x7247;&#x3002;](https://docs.mongodb.com/manual/_images/sharded-cluster-targeted-query.bakedsvg.svg)
+![&#x5C06;&#x64CD;&#x4F5C;&#x8BFB;&#x53D6;&#x5230;&#x5206;&#x7247;&#x7FA4;&#x96C6;&#x3002; &#x67E5;&#x8BE2;&#x6761;&#x4EF6;&#x5305;&#x62EC;&#x5206;&#x7247;&#x952E;&#x3002; &#x67E5;&#x8BE2;&#x8DEF;&#x7531;&#x5668;\`\`mongos&apos;&apos;&#x53EF;&#x4EE5;&#x5C06;&#x67E5;&#x8BE2;&#x5B9A;&#x4F4D;&#x5230;&#x9002;&#x5F53;&#x7684;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5206;&#x7247;&#x3002;](https://www.mongodb.com/docs/manual/images/sharded-cluster-targeted-query.bakedsvg.svg)
 
 如果查询不包含分片键，则[`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos)必须将查询定向到集群中的_所有分_片。这些_分散的收集_查询可能效率很低。在较大的群集上，分散收集查询对于常规操作是不可行的。
 
-![&#x5C06;&#x64CD;&#x4F5C;&#x8BFB;&#x53D6;&#x5230;&#x5206;&#x7247;&#x7FA4;&#x96C6;&#x3002; &#x67E5;&#x8BE2;&#x6761;&#x4EF6;&#x4E0D;&#x5305;&#x542B;&#x5206;&#x7247;&#x952E;&#x3002; &#x67E5;&#x8BE2;&#x8DEF;&#x7531;&#x5668;\`\`mongos&apos;&apos;&#x5FC5;&#x987B;&#x5411;&#x6240;&#x6709;&#x5206;&#x7247;&#x5E7F;&#x64AD;&#x67E5;&#x8BE2;&#x4EE5;&#x8FDB;&#x884C;&#x6536;&#x96C6;&#x3002;](https://docs.mongodb.com/manual/_images/sharded-cluster-scatter-gather-query.bakedsvg.svg)
+![&#x5C06;&#x64CD;&#x4F5C;&#x8BFB;&#x53D6;&#x5230;&#x5206;&#x7247;&#x7FA4;&#x96C6;&#x3002; &#x67E5;&#x8BE2;&#x6761;&#x4EF6;&#x4E0D;&#x5305;&#x542B;&#x5206;&#x7247;&#x952E;&#x3002; &#x67E5;&#x8BE2;&#x8DEF;&#x7531;&#x5668;\`\`mongos&apos;&apos;&#x5FC5;&#x987B;&#x5411;&#x6240;&#x6709;&#x5206;&#x7247;&#x5E7F;&#x64AD;&#x67E5;&#x8BE2;&#x4EE5;&#x8FDB;&#x884C;&#x6536;&#x96C6;&#x3002;](https://www.mongodb.com/docs/manual/images/sharded-cluster-scatter-gather-query.bakedsvg.svg)
 
 对于复制集分片，从复制集的辅助成员进行的读取操作可能无法反映主副本的当前状态。将读取操作定向到不同服务器的读取首选项可能会导致非单调读取。
 
@@ -63,11 +63,11 @@ _在3.6版中进行了更改：_从MongoDB 3.6开始，客户端可以使用[因
 
 对于[分片群集](https://docs.mongodb.com/master/reference/glossary/#term-sharded-cluster)中的分片集合，该 [`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos)指令将写操作从应用程序定向到负责数据集特定部分的分片。在[`mongos`](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos)使用来自集群的元数据 的[配置数据库](https://docs.mongodb.com/manual/core/sharded-cluster-config-servers/#sharding-config-server)以路由写操作到适当的分片。
 
-![&#x5206;&#x7247;&#x7FA4;&#x96C6;&#x7684;&#x793A;&#x610F;&#x56FE;&#x3002;](https://docs.mongodb.com/manual/_images/sharded-cluster.bakedsvg.svg)
+![&#x5206;&#x7247;&#x7FA4;&#x96C6;&#x7684;&#x793A;&#x610F;&#x56FE;&#x3002;](https://www.mongodb.com/docs/manual/images/sharded-cluster.bakedsvg.svg)
 
 MongoDB根据[分片键](https://docs.mongodb.com/master/reference/glossary/#term-shard-key)的值将分片集合中的数据划分为范围。然后，MongoDB将这些块分配为分片。分片键决定块到分片的分布。这可能会影响集群中的写操作的性能。
 
-![&#x5206;&#x7247;&#x952E;&#x503C;&#x7A7A;&#x95F4;&#x5212;&#x5206;&#x6210;&#x8F83;&#x5C0F;&#x8303;&#x56F4;&#x6216;&#x5757;&#x7684;&#x56FE;&#x3002;](https://docs.mongodb.com/manual/_images/sharding-range-based.bakedsvg.svg)
+![&#x5206;&#x7247;&#x952E;&#x503C;&#x7A7A;&#x95F4;&#x5212;&#x5206;&#x6210;&#x8F83;&#x5C0F;&#x8303;&#x56F4;&#x6216;&#x5757;&#x7684;&#x56FE;&#x3002;](https://www.mongodb.com/docs/manual/images/sharding-range-based.bakedsvg.svg)
 
 > **\[warning\] 重要**
 >

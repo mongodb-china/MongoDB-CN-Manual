@@ -13,7 +13,7 @@ MongoDB使用分片键值范围对集合中的数据进行分区。每个范围�
 
 MongoDB尝试在集群中的各个分片之间平均分配数据块。 分片键与数据块分配的有效性直接相关。 请参阅[选择分片键](https://docs.mongodb.com/manual/core/sharding-shard-key/#sharding-shard-key-selection)。
 
-![shard key](https://docs.mongodb.com/manual/_images/sharding-range-based.bakedsvg.svg)
+![shard key](https://www.mongodb.com/docs/manual/images/sharding-range-based.bakedsvg.svg)
 
 > 重要
 >
@@ -97,7 +97,7 @@ sh.shardCollection( namespace, key )
 
 理想的分片键允许MongoDB在整个集群中均匀地分布所有文档。
 
-![choosing a shard key](https://docs.mongodb.com/manual/_images/sharded-cluster-ranged-distribution-good.bakedsvg.svg)
+![choosing a shard key](https://www.mongodb.com/docs/manual/images/sharded-cluster-ranged-distribution-good.bakedsvg.svg)
 
 至少要综合考虑潜在分片键的`基数`，`频率`和`变化率`等指标。
 
@@ -120,7 +120,7 @@ sh.shardCollection( namespace, key )
 
 下图说明了使用字段X作为分片键的分片群集。 如果X具有低基数，则插入的分布可能类似于以下内容：
 
-![sharded-cluster-ranged-distribution-low-cardinal](https://docs.mongodb.com/manual/_images/sharded-cluster-ranged-distribution-low-cardinal.bakedsvg.svg)
+![sharded-cluster-ranged-distribution-low-cardinal](https://www.mongodb.com/docs/manual/images/sharded-cluster-ranged-distribution-low-cardinal.bakedsvg.svg)
 
 在此示例中，集群不会水平扩展，因为传入的写入将仅路由到分片的子集。
 
@@ -134,7 +134,7 @@ sh.shardCollection( namespace, key )
 
 下图说明了使用字段`X`作为分片键的分片群集。 如果`X`值的子集高频出现，则插入的分布可能类似于以下内容：
 
-![sharded-cluster-ranged-distribution-frequency](https://docs.mongodb.com/manual/_images/sharded-cluster-ranged-distribution-frequency.bakedsvg.svg)
+![sharded-cluster-ranged-distribution-frequency](https://www.mongodb.com/docs/manual/images/sharded-cluster-ranged-distribution-frequency.bakedsvg.svg)
 
 低频的分片键不能保证整个分片群集中的数据均匀分布。 分片密钥的`基数`和`变化率`也有助于数据分配。 选择分片键时，请考虑每个因素。
 
@@ -150,7 +150,7 @@ sh.shardCollection( namespace, key )
 
 下图说明了使用字段`X`作为分片键的分片群集。 如果`X`的值单调增加，则插入的分布可能类似于以下内容：
 
-![sharded-cluster-monotonic-distribution](https://docs.mongodb.com/manual/_images/sharded-cluster-monotonic-distribution.bakedsvg.svg)
+![sharded-cluster-monotonic-distribution](https://www.mongodb.com/docs/manual/images/sharded-cluster-monotonic-distribution.bakedsvg.svg)
 
 如果分片键值单调递减，则所有插入都将路由到`数据块A`。
 

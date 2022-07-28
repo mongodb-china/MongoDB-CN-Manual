@@ -26,7 +26,7 @@ MongoDB 的副本集是一组提供冗余和高可用性的[`mongod`](https://do
 
 在下图的三成员副本集中，主节点接受所有写操作。然后从节点复制oplog应用至它们的数据集中。
 
-![Diagram of default routing of reads and writes to the primary.](https://docs.mongodb.com/manual/_images/replica-set-read-write-operations-primary.bakedsvg.svg)
+![Diagram of default routing of reads and writes to the primary.](https://www.mongodb.com/docs/manual/images/replica-set-read-write-operations-primary.bakedsvg.svg)
 
 
 副本集所有的成员都可以接受读操作。但是，默认情况下，应用程序会将其读操作定向至主节点。有关更改默认读行为的详细信息，请参阅[读偏好](https://docs.mongodb.com/manual/core/read-preference/) 。
@@ -44,7 +44,7 @@ MongoDB 的副本集是一组提供冗余和高可用性的[`mongod`](https://do
 
 下图的三成员副本集有两个副本成员。从节点复制主节点的oplog并应用到它们的数据集上。
 
-![Diagram of a 3 member replica set that consists of a primary and two secondaries.](https://docs.mongodb.com/manual/_images/replica-set-primary-with-two-secondaries.bakedsvg.svg)
+![Diagram of a 3 member replica set that consists of a primary and two secondaries.](https://www.mongodb.com/docs/manual/images/replica-set-primary-with-two-secondaries.bakedsvg.svg)
 
 
 虽然客户端不能将数据写入到从节点，但客户端可以由从节点读取数据。有关客户端如何将读操作直接读入副本集的详细信息，请参阅[读偏好](https://docs.mongodb.com/manual/core/read-preference/) 。
