@@ -13,7 +13,7 @@
 - [限制条件](#条件)
 - [其他注意事项](#注意)
 
-索引支持在MongoDB中有效地执行查询。如果没有索引，MongoDB必须执行集合扫描，即扫描集合中的每个文档，以选择那些与查询语句匹配的文档。如果一个查询存在适当的索引，MongoDB可以使用该索引来限制它必须检查的文档数量。
+索引支持在MongoDB中有效地执行查询。如果没有索引，MongoDB必须执行*collection scan*，即扫描集合中的每个文档，以选择那些与查询语句匹配的文档。如果一个查询存在适当的索引，MongoDB可以使用该索引来限制它必须检查的文档数量。
 
 索引是特殊的数据结构，它以一种易于遍历的形式存储集合数据集的一小部分。索引存储一个或一组特定字段的值，按字段的值排序。索引项的排序支持有效的相等匹配和基于范围的查询操作。此外，MongoDB可以通过使用索引中的排序返回排序后的结果。
 
@@ -23,7 +23,7 @@
 
 基本上，MongoDB中的索引与其他数据库系统中的索引类似。MongoDB在[集合](https://docs.mongodb.com/manual/reference/glossary/#term-collection)级别定义索引，并支持在MongoDB集合中文档的任何字段或子字段上的索引。
 
-## <span id="默认">默认id索引</span>
+## <span id="默认">默认`_id`索引</span>
 
 在创建集合期间，MongoDB 在[_id](https://docs.mongodb.com/manual/core/document/#document-id-field)字段上创建[唯一索引](https://docs.mongodb.com/manual/core/index-unique/#index-type-unique)。该索引可防止客户端插入两个具有相同值的文档。你不能将**_id**字段上的index删除。
 
